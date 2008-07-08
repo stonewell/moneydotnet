@@ -1,0 +1,1343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblMonthShouRu.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="dgvFenLeiYear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="&gt;&gt;lblMonthYuE.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="初始化ToolStripMenuItem.Text" xml:space="preserve">
+    <value>初始化...</value>
+  </data>
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblYearInit.Name" xml:space="preserve">
+    <value>lblYearInit</value>
+  </data>
+  <data name="lblMonthShouRu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 80</value>
+  </data>
+  <data name="年度合计ToolStripMenuItem.Text" xml:space="preserve">
+    <value>年度合计...</value>
+  </data>
+  <data name="&gt;&gt;合并记录ToolStripMenuItem.Name" xml:space="preserve">
+    <value>合并记录ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblMonthInit.Name" xml:space="preserve">
+    <value>lblMonthInit</value>
+  </data>
+  <data name="恢复日常交易记录ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="&gt;&gt;退出ToolStripMenuItem.Name" xml:space="preserve">
+    <value>退出ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;lblYearYuE.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;交易分类ToolStripMenuItem.Name" xml:space="preserve">
+    <value>交易分类ToolStripMenuItem</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblYearInit.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblMonthInit.Text" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;月度合计ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>599, 24</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="退出ToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+X</value>
+  </data>
+  <data name="&gt;&gt;lblYearXiaoFei.Name" xml:space="preserve">
+    <value>lblYearXiaoFei</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;配置ToolStripMenuItem.Name" xml:space="preserve">
+    <value>配置ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;交易分类ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;自定义明细ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;月度明细ToolStripMenuItem.Name" xml:space="preserve">
+    <value>月度明细ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;固定交易ToolStripMenuItem.Name" xml:space="preserve">
+    <value>固定交易ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvFenLeiYear.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;关于ToolStripMenuItem.Name" xml:space="preserve">
+    <value>关于ToolStripMenuItem</value>
+  </data>
+  <data name="报表ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;区间分类明细ToolStripMenuItem.Name" xml:space="preserve">
+    <value>区间分类明细ToolStripMenuItem</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;lblMonthXiaoFei.Name" xml:space="preserve">
+    <value>lblMonthXiaoFei</value>
+  </data>
+  <data name="恢复日常交易记录ToolStripMenuItem.Text" xml:space="preserve">
+    <value>恢复日常交易记录...</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;lblYearXiaoFei.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblYearYuE.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;恢复固定交易记录ToolStripMenuItem.Name" xml:space="preserve">
+    <value>恢复固定交易记录ToolStripMenuItem</value>
+  </data>
+  <data name="月度明细ToolStripMenuItem.Text" xml:space="preserve">
+    <value>月度明细...</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>年初余额：</value>
+  </data>
+  <data name="&gt;&gt;lblMonthXiaoFei.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="lblYearShouRu.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblMonthYuE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 110</value>
+  </data>
+  <data name="自定义合计ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="&gt;&gt;Column4.Name" xml:space="preserve">
+    <value>Column4</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;自定义合计ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 20</value>
+  </data>
+  <data name="dgvFenLeiMonth.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 110</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="区间交易方式合计ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblMonthShouRu.Name" xml:space="preserve">
+    <value>lblMonthShouRu</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblYearYuE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="&gt;&gt;月度明细ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;年度合计ToolStripMenuItem.Name" xml:space="preserve">
+    <value>年度合计ToolStripMenuItem</value>
+  </data>
+  <data name="区间交易方式明细ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>当年收入：</value>
+  </data>
+  <data name="&gt;&gt;主界面配置ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainFrm</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="主界面配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 22</value>
+  </data>
+  <data name="lblMonthInit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 20</value>
+  </data>
+  <data name="&gt;&gt;lblMonthXiaoFei.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;主界面配置ToolStripMenuItem.Name" xml:space="preserve">
+    <value>主界面配置ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;帮助ToolStripMenuItem.Name" xml:space="preserve">
+    <value>帮助ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;区间分类合计ToolStripMenuItem.Name" xml:space="preserve">
+    <value>区间分类合计ToolStripMenuItem</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>当年余额：</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem5.Name" xml:space="preserve">
+    <value>toolStripMenuItem5</value>
+  </data>
+  <data name="lblYearXiaoFei.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 50</value>
+  </data>
+  <data name="&gt;&gt;自定义合计ToolStripMenuItem.Name" xml:space="preserve">
+    <value>自定义合计ToolStripMenuItem</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>家庭日常理财</value>
+  </data>
+  <data name="groupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;lblYearShouRu.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="月度合计ToolStripMenuItem.Text" xml:space="preserve">
+    <value>月度合计...</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;系统ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblYearShouRu.Name" xml:space="preserve">
+    <value>lblYearShouRu</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
+    <value>toolStripMenuItem1</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;合并记录ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>当月收入：</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;自定义明细ToolStripMenuItem.Name" xml:space="preserve">
+    <value>自定义明细ToolStripMenuItem</value>
+  </data>
+  <data name="lblYearShouRu.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="年度明细ToolStripMenuItem.Text" xml:space="preserve">
+    <value>年度明细...</value>
+  </data>
+  <data name="lblYearInit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="lblYearXiaoFei.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="报表ToolStripMenuItem.Text" xml:space="preserve">
+    <value>报表</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;每日明细ToolStripMenuItem.Name" xml:space="preserve">
+    <value>每日明细ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;lblMonthYuE.Name" xml:space="preserve">
+    <value>lblMonthYuE</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 140</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="groupBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="openFileDialog1.Title" xml:space="preserve">
+    <value>选择记帐文件</value>
+  </data>
+  <data name="lblMonthXiaoFei.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 50</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem3.Name" xml:space="preserve">
+    <value>toolStripMenuItem3</value>
+  </data>
+  <data name="Column4.HeaderText" xml:space="preserve">
+    <value>金额</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>当月余额：</value>
+  </data>
+  <data name="openFileDialog1.Filter" xml:space="preserve">
+    <value>记帐文件 (*.xml)|*.xml|所有文件 (*.*)|*.*</value>
+  </data>
+  <data name="&gt;&gt;lblYearShouRu.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>系统</value>
+  </data>
+  <data name="lblMonthShouRu.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="自定义明细ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="区间分类合计ToolStripMenuItem.Text" xml:space="preserve">
+    <value>区间分类合计...</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblMonthYuE.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 131</value>
+  </data>
+  <data name="&gt;&gt;lblMonthYuE.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="当日交易ToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+A</value>
+  </data>
+  <data name="每日明细ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblYearYuE.Text" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;lblMonthXiaoFei.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblYearYuE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 110</value>
+  </data>
+  <data name="&gt;&gt;区间交易方式明细ToolStripMenuItem.Name" xml:space="preserve">
+    <value>区间交易方式明细ToolStripMenuItem</value>
+  </data>
+  <data name="固定交易ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog1.Name" xml:space="preserve">
+    <value>openFileDialog1</value>
+  </data>
+  <data name="lblYearInit.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 80</value>
+  </data>
+  <data name="&gt;&gt;dgvFenLeiMonth.Type" xml:space="preserve">
+    <value>Money.Net.FixedColumnDataGridView, Money.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="lblMonthYuE.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="groupBox3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="dgvFenLeiMonth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="lblYearXiaoFei.Text" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lblMonthShouRu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblMonthXiaoFei.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;年度合计ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblYearXiaoFei.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="恢复固定交易记录ToolStripMenuItem.Text" xml:space="preserve">
+    <value>恢复固定交易记录...</value>
+  </data>
+  <data name="groupBox4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;lblYearInit.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;lblMonthShouRu.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="dgvFenLeiMonth.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="Column1.HeaderText" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 3</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAYAGBgQAAAAAADoAQAAZgAAABQUEAAAAAAAqAEAAE4CAAAQEBAAAAAAACgBAAD2AwAAGBgAAAEA
+        CADIBgAAHgUAABQUAAABAAgACAYAAOYLAAAQEAAAAQAIAGgFAADuEQAAKAAAABgAAAAwAAAAAQAEAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIAAAACAgACAAAAAgACAAICAAACAgIAAwMDAAAAA
+        /wAA/wAAAP//AP8AAAAAAAAA//8AAP///wDd3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3QAAANAAAA3d0B
+        Ed1MzMxDMzMzDdAZkd1MzMxDu7u7AAGZkN1ERERDuwAAABmZDd1MzMxDsHiIcBmQ3d1ERERDB+/o5wkN
+        3d1MzMxAf/7+/nDd3d1MzMxAj//o74Dd3d1MzMxAj//+/oDd3d1MzMxAj//474Dd3d1MzMxAf////nDd
+        3d1MzMxDB//49wDd3d1ERERDMHiIcDDd3d1MzMxDuwAAAzDd3d1MzMxDu7uwMzDd3d1ERERDMzMwMzDd
+        3d1Mj4hDuP+wMzDd3d3UeP90OI/3AzDd3d3dR4/3Q4j/cDDd3d3d1Hj/dDiP9wDd3d3d3UeIh0OIiHDd
+        3d3d3d3d3d3d3d3d3d3///8A////AIEDwwAAAYMAAAADAAAABwAAAA8AAAAfAAAAPwAAAD8AAAA/AAAA
+        PwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AgAA/AMAAPwDgAD8A8AA/AP///wAoAAAAFAAAACgA
+        AAABAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAICA
+        gADAwMAAAAD/AAD/AAAA//8A/wAAAAAAAAD//wAA////AN3d3d3d3d3d3d3d3dAAANAAAN3dAR3d3UzM
+        xDMzMA3QGZ0R3UzMxDu7sA0BmQ2R3URERDsAAAAZkN2Q3UzMxDB4iHAJDd0N3URERAf+/vcA3d3d3UzM
+        xAj/6OgN3d3d3UzMxAj//vgN3d3d3UzMxAj/+OgN3d3d3UzMxAeP+PcN3d3d3UzMxDB4iHAN3d3d3URE
+        RDMAAAMN3d3d3UzMxDu7sDMN3d3d3URERDMzMDMN3d3d3UyPhDuPsDMN3d3d3dR490OI9wMN3d3d3d1H
+        j3Q4j3AN3d3d3d3UeIdDiIcN3d3d3d3d3d3d3d3d3d3d3f//8PeCDxBwAAYQ3QAEEP8AADD3AABw3QAA
+        8IgAAfCIAAHw3QAB8N0AAfDdAAHw3QAB8AAAAfAAAAHwAAAB8ACAAfAAwAHwAOAB8AD///AAKAAAABAA
+        AAAgAAAAAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIAAAACAgACAAAAAgACAAICA
+        AACAgIAAwMDAAAAA/wAA/wAAAP//AP8AAAAAAAAA//8AAP///wDd3d3d3d3d3dAA0AAN3dARREQ7swDd
+        AZlMxDMzAAAZkEREO7B4hwkNTMQzB+/vcN1ERDsI/o6A3UzEOwj/74DdTMQ7B/+OcN1MxDuweIcN3URE
+        O7MAAN3dTMQzMwMN3d1ERDuzAw3d3UREMzMDDd3d1M/Dv7AN3d3dR3c3dw3d3f//3d2IeMQwADBwDQAA
+        3d0AAUQzAAMDDQAD3d0AA8Q7AAMzDQAH3d0AD0QzAB8zDQAf3d0AH4Q7gB8zDcAf3d0oAAAAGAAAADAA
+        AAABAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAy5GWAMuUlwCZTU4AsltcAM9r
+        bADJaGkA0nFyAOJ+gADWeHkA5omKANqCgwDqj5AA6I6PALx0dQDfiosAxXp7AKBjZADjk5QA8J2eAOeb
+        nAD2qqsA7KSlAPetrgD5sLEA7aepAPCsrQD7tbYA/be5AP25uwD0s7QA/72+AP68vQD1trcAfz8/ALZb
+        WwDLaGgAz2trAM5ubQCMS0sAz3FwAKxdXQCkWVkAz3FxANF0cwDSdnYA03l5ALhsbACvZ2cAlVhYAM2F
+        hQDDf38ApmxsAPOkpADWop0AxpmSAPTs6ADm08kAwLOsAJV9bgByYVUAknxsAJB7bACFdGcA5eDcAG9m
+        XgCql4QAjIF2AJuRhwBbUkYAXVRIALOefwC1q5sA3curAOXQqAD+7MkAhoN9ALakfQDSv5gA3M6wAPHm
+        zQCOioEA5tKgALmtkQCvqJUAraeXAP/89ADt4r8A5dejAP/xugD/8rgAnZuSAH18dwDn3J8A//S6AP/2
+        xQD//OMA//zfAHZ1awD//NQA//7GAP//ygD//9sA///hAP//8AD///sAZGRjALO1qwCgpaIAW2djAGFt
+        awCTp6cAcomKAKjz+wDi8/UAkbK5AFiEjgBNvt0ASa/MAFjF4QB4q7gAjKuzAJm1vQBzhYoAV6vFAJLK
+        2wAhodAAMLjpAD276AAmcIsAOYCZAGaYqQCPxNYAj8PVACOWwwBZnLcAZq/MAIW0xwB6pLQAcJWmAGyP
+        nwBwlKUAaoucAFl2hwBPZ3YAKTU+AHWFkQAfKjMAQ1hpAFVpegAmLzgAKDVDAENRYQBJWGkAT15vAEVS
+        YQBRUlYA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAgICAgICAgICAgICAgICAgICAgICAgIC
+        AgICAgICAgICAgICAgICAgICAgICAhIsJSwFKSQCcJeSlkdHAgICApmZAgICAigREhAyBSl2eomJdnaS
+        lgICmYmAlgICAigUNC0xLCmOhoqMhY5wdpmZiIF/f5ACAi0xMjMFBSmOepRDPiRISJqIgn9zkAICAhA0
+        EhAxLCmOlEBJUFA5Nkh2f3OQAgICAjAQEyssKwVxP1BMTExUUBA+fJACAgICAjAEFA0QKzZTVVlZWVlM
+        VFATSAICAgICAhEXFhESMRBBUVJSOlJSTFRPRwICAgICAhYjGBYNMTVBUjo6ajpSWVRQJAICAgICAhYh
+        HBgUEjRBO2JYWFg6WUw5RwICAgICAhghIBsWNDVTSjpYWDpSWUxJbAICAgICAhg7IxcVERBxU1E6YmNS
+        WVVBcAICAgICAhY4ETQ1NAiLcUVKO1JRT0FylwICAgICAhQcHyAYNBCLc3xxQUNBcoV4kgICAgICAhs7
+        IR8eGjCLdHR/c3+Ff3iJmwICAgICAhYDNRAQNRKLkJGUjYd2in54nAICAgICAjQQUTo7AxCHkUJ0OnWX
+        hnl+kgICAgICAgI4Mjs6WBw1i5xCOjpukYp5kgICAgICAgICODJLQjpLNXySQlg6RnaKlwICAgICAgIC
+        AgQySzs6OzWLl0I6Old2lwICAgICAgICAgI4MlFSOjsQdWRCOjpXdgICAgICAgICAgICAgICAgICAgIC
+        AgICAgICAgICAv///wD///8AAQPPAAABhwAAAAMAAAAHAAAADwAAAB8AAAA/AAAAPwAAAD8AAAA/AAAA
+        PwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwCAAD8AwAA/AOAAPwDwAD8A////ACgAAAAUAAAAKAAAAAEA
+        CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAADLkZYAy5SXAJlNTgCyW1wAz2tsAMlo
+        aQDScXIA4n6AANZ4eQDmiYoA2oKDAOqPkADojo8AvHR1AN+KiwDFensAoGNkAOOTlADwnZ4A55ucAPaq
+        qwDspKUA962uAPmwsQDtp6kA8KytAPu1tgD9t7kA/bm7APSztAD/vb4A/ry9APW2twB/Pz8AtltbAMto
+        aADPa2sAzm5tAIxLSwDPcXAArF1dAKRZWQDPcXEA0XRzANJ2dgDTeXkAuGxsAK9nZwCVWFgAzYWFAMN/
+        fwCmbGwA86SkANainQDGmZIA9OzoAObTyQDAs6wAlX1uAHJhVQCSfGwAkHtsAIV0ZwDl4NwAb2ZeAKqX
+        hACMgXYAm5GHAFtSRgBdVEgAs55/ALWrmwDdy6sA5dCoAP7syQCGg30AtqR9ANK/mADczrAA8ebNAI6K
+        gQDm0qAAua2RAK+olQCtp5cA//z0AO3ivwDl16MA//G6AP/yuACdm5IAfXx3AOfcnwD/9LoA//bFAP/8
+        4wD//N8AdnVrAP/81AD//sYA///KAP//2wD//+EA///wAP//+wBkZGMAs7WrAKClogBbZ2MAYW1rAJOn
+        pwByiYoAqPP7AOLz9QCRsrkAWISOAE2+3QBJr8wAWMXhAHiruACMq7MAmbW9AHOFigBXq8UAksrbACGh
+        0AAwuOkAPbvoACZwiwA5gJkAZpipAI/E1gCPw9UAI5bDAFmctwBmr8wAhbTHAHqktABwlaYAbI+fAHCU
+        pQBqi5wAWXaHAE9ndgApNT4AdYWRAB8qMwBDWGkAVWl6ACYvOAAoNUMAQ1FhAElYaQBPXm8ARVJhAFFS
+        VgD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgICAgICAgICAgICAgICAgICAgIOETAILDECfomE
+        dpF2AgICmpkCAgMRMDEsM5R6iYV2kpkCAoN4kpICLw0QMiwpjYp6dnJvkpmDgXN/lAISNTEyLCyOjUBB
+        MzM+nYJ/c5QCAhIQMTIrBY89T1RUVE8+cnOUAgICNDQSMTITRlVZWVlMVDRBcgICAgIUGxYNMRBFUU1S
+        UlJMUBMCAgICAhggFRQQED9lOlg6UllUSQICAgICGyEbFjQ1UztYWFhSWVQ9AgICAgIcOxobERJGSlhY
+        YmNNUEECAgICAhscOBEREHtGSlJjWVA9fQICAgICFAQUNBIxi4ddRkRTToWFAgICAgIcISEdGTCHdHOH
+        i46LfoQCAgICAjgENDQ0EouOjnuLhYp3iQICAgICAjU7Ojw0e5RCWDx2inmJAgICAgICAjU7WDsDj5RC
+        AVGRiokCAgICAgICAhBROjs4j5BCazyNhQICAgICAgICAjVROjs1cZQ7azyUAgICAgICAgICAgICAgIC
+        AgICAgICAgICAv//8AICBzACAAYQEAAAEIsAADCNAABwfgAA8AIAAfACAAHwOgAB8IcAAfA6AAHweQAB
+        8AIAAfACAAHwO4AB8DXAAfA64AHwivAB8AL///ACKAAAABAAAAAgAAAAAQAIAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAD///8AAAAAAMuRlgDLlJcAmU1OALJbXADPa2wAyWhpANJxcgDifoAA1nh5AOaJ
+        igDagoMA6o+QAOiOjwC8dHUA34qLAMV6ewCgY2QA45OUAPCdngDnm5wA9qqrAOykpQD3ra4A+bCxAO2n
+        qQDwrK0A+7W2AP23uQD9ubsA9LO0AP+9vgD+vL0A9ba3AH8/PwC2W1sAy2hoAM9rawDObm0AjEtLAM9x
+        cACsXV0ApFlZAM9xcQDRdHMA0nZ2ANN5eQC4bGwAr2dnAJVYWADNhYUAw39/AKZsbADzpKQA1qKdAMaZ
+        kgD07OgA5tPJAMCzrACVfW4AcmFVAJJ8bACQe2wAhXRnAOXg3ABvZl4AqpeEAIyBdgCbkYcAW1JGAF1U
+        SACznn8AtaubAN3LqwDl0KgA/uzJAIaDfQC2pH0A0r+YANzOsADx5s0AjoqBAObSoAC5rZEAr6iVAK2n
+        lwD//PQA7eK/AOXXowD/8boA//K4AJ2bkgB9fHcA59yfAP/0ugD/9sUA//zjAP/83wB2dWsA//zUAP/+
+        xgD//8oA///bAP//4QD///AA///7AGRkYwCztasAoKWiAFtnYwBhbWsAk6enAHKJigCo8/sA4vP1AJGy
+        uQBYhI4ATb7dAEmvzABYxeEAeKu4AIyrswCZtb0Ac4WKAFerxQCSytsAIaHQADC46QA9u+gAJnCLADmA
+        mQBmmKkAj8TWAI/D1QAjlsMAWZy3AGavzACFtMcAeqS0AHCVpgBsj58AcJSlAGqLnABZdocAT2d2ACk1
+        PgB1hZEAHyozAENYaQBVaXoAJi84ACg1QwBDUWEASVhpAE9ebwBFUmEAUVJWAP///wAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAACAgICAgICAgICAgICmAICBwgGBSSOkJGWmY4CnYiTAicPDAoljnl3d4OVnICB
+        iZIJNhMzKY92b0hHbISCipQCCxcVDiZ9ZElfWldwhZQCAg01EDIsXkRmYFxNVkMCAgIRHxo3KEVLaGNl
+        W0xBAgICFCEeGSpGUWpYYmFUTwICAhYhIR0ubkoBa2lnT1ACAgIYISEiL3xtPFJZVT4CAgICHDQSMSuG
+        enFdU3KeAgICAiAhISEwf3Nzc3d4mgICAgIjIxsULYeLjI2QfpsCAgICAjg/QgEEdUBCAZCXAgICAgIC
+        OT06OwN7Tjp0kAICAgICAgICAgICAgICAgICAgIC//sCAgARIR0AAId0AAGLjgADhAIABwICAAc0NAAH
+        i44AB4uFAA+JAgAPAgIADzs6AA97lIAPPHbAD4kC//8CAg==
+</value>
+  </data>
+  <data name="&gt;&gt;固定交易ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;区间交易方式合计ToolStripMenuItem.Name" xml:space="preserve">
+    <value>区间交易方式合计ToolStripMenuItem</value>
+  </data>
+  <data name="lblYearInit.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="月度合计ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
+    <value>Column1</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 6</value>
+  </data>
+  <data name="主界面配置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>主界面配置...</value>
+  </data>
+  <data name="固定交易ToolStripMenuItem.Text" xml:space="preserve">
+    <value>固定交易...</value>
+  </data>
+  <data name="lblMonthXiaoFei.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 6</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;当日交易ToolStripMenuItem.Name" xml:space="preserve">
+    <value>当日交易ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="dgvFenLeiYear.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;初始化ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="初始化ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 22</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 50</value>
+  </data>
+  <data name="系统ToolStripMenuItem.Text" xml:space="preserve">
+    <value>系统</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 80</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 20</value>
+  </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Column2.Name" xml:space="preserve">
+    <value>Column2</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 201</value>
+  </data>
+  <data name="lblYearYuE.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lblMonthYuE.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblYearShouRu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 80</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="交易方式ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 22</value>
+  </data>
+  <data name="&gt;&gt;lblYearYuE.Name" xml:space="preserve">
+    <value>lblYearYuE</value>
+  </data>
+  <data name="&gt;&gt;年度明细ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblMonthInit.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="年度合计ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="帮助ToolStripMenuItem.Text" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="&gt;&gt;lblYearShouRu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Column3.Name" xml:space="preserve">
+    <value>Column3</value>
+  </data>
+  <data name="dgvFenLeiMonth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>288, 182</value>
+  </data>
+  <data name="&gt;&gt;记帐年度ToolStripMenuItem.Name" xml:space="preserve">
+    <value>记帐年度ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="lblMonthInit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 131</value>
+  </data>
+  <data name="当日交易ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="dgvFenLeiYear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>287, 182</value>
+  </data>
+  <data name="记帐年度ToolStripMenuItem.Text" xml:space="preserve">
+    <value>记帐年度...</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblYearXiaoFei.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Column1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="记帐年度ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 22</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 50</value>
+  </data>
+  <data name="&gt;&gt;每日明细ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 110</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="区间分类明细ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="lblYearInit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>83, 20</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;区间分类明细ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblMonthXiaoFei.Text" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="区间交易方式合计ToolStripMenuItem.Text" xml:space="preserve">
+    <value>区间交易方式合计...</value>
+  </data>
+  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 140</value>
+  </data>
+  <data name="帮助ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="Column2.HeaderText" xml:space="preserve">
+    <value>金额</value>
+  </data>
+  <data name="&gt;&gt;交易方式ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;系统ToolStripMenuItem.Name" xml:space="preserve">
+    <value>系统ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;月度合计ToolStripMenuItem.Name" xml:space="preserve">
+    <value>月度合计ToolStripMenuItem</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>当年消费：</value>
+  </data>
+  <data name="&gt;&gt;lblYearInit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 201</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 6</value>
+  </data>
+  <data name="&gt;&gt;区间交易方式明细ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblMonthShouRu.Text" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;lblYearXiaoFei.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="关于ToolStripMenuItem.Text" xml:space="preserve">
+    <value>关于...</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="配置ToolStripMenuItem.Text" xml:space="preserve">
+    <value>配置</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;关于ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblMonthXiaoFei.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="&gt;&gt;配置ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>月初余额：</value>
+  </data>
+  <data name="lblYearShouRu.Text" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;恢复日常交易记录ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="退出ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="&gt;&gt;dgvFenLeiYear.Type" xml:space="preserve">
+    <value>Money.Net.FixedColumnDataGridView, Money.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="配置ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>599, 344</value>
+  </data>
+  <data name="&gt;&gt;记帐年度ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;恢复固定交易记录ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="系统ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="当日交易ToolStripMenuItem.Text" xml:space="preserve">
+    <value>当日交易...</value>
+  </data>
+  <data name="lblMonthYuE.Text" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="lblMonthInit.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Column3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;帮助ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>当月消费：</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvFenLeiMonth.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lblYearYuE.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;openFileDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblMonthShouRu.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="&gt;&gt;退出ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="自定义明细ToolStripMenuItem.Text" xml:space="preserve">
+    <value>自定义区间明细...</value>
+  </data>
+  <data name="&gt;&gt;lblMonthInit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvFenLeiMonth.Name" xml:space="preserve">
+    <value>dgvFenLeiMonth</value>
+  </data>
+  <data name="&gt;&gt;年度明细ToolStripMenuItem.Name" xml:space="preserve">
+    <value>年度明细ToolStripMenuItem</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="toolStripMenuItem2.Text" xml:space="preserve">
+    <value>每日合计...</value>
+  </data>
+  <data name="交易方式ToolStripMenuItem.Text" xml:space="preserve">
+    <value>交易方式...</value>
+  </data>
+  <data name="恢复固定交易记录ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="lblYearXiaoFei.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblMonthInit.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;Column4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;区间交易方式合计ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="区间分类明细ToolStripMenuItem.Text" xml:space="preserve">
+    <value>区间分类明细...</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem4.Name" xml:space="preserve">
+    <value>toolStripMenuItem4</value>
+  </data>
+  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="groupBox1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBox2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="groupBox3" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="groupBox4" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,40,Percent,60" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="&gt;&gt;区间分类合计ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="区间分类合计ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="退出ToolStripMenuItem.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblYearInit.Text" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="lblYearShouRu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>599, 368</value>
+  </data>
+  <data name="&gt;&gt;dgvFenLeiYear.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;报表ToolStripMenuItem.Name" xml:space="preserve">
+    <value>报表ToolStripMenuItem</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;初始化ToolStripMenuItem.Name" xml:space="preserve">
+    <value>初始化ToolStripMenuItem</value>
+  </data>
+  <data name="交易分类ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 22</value>
+  </data>
+  <data name="dgvFenLeiYear.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="关于ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 22</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;交易方式ToolStripMenuItem.Name" xml:space="preserve">
+    <value>交易方式ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="月度明细ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="lblMonthShouRu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="&gt;&gt;当日交易ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 6</value>
+  </data>
+  <data name="区间交易方式明细ToolStripMenuItem.Text" xml:space="preserve">
+    <value>区间交易方式明细...</value>
+  </data>
+  <data name="&gt;&gt;dgvFenLeiYear.Name" xml:space="preserve">
+    <value>dgvFenLeiYear</value>
+  </data>
+  <data name="自定义合计ToolStripMenuItem.Text" xml:space="preserve">
+    <value>自定义区间合计...</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="每日明细ToolStripMenuItem.Text" xml:space="preserve">
+    <value>每日明细...</value>
+  </data>
+  <data name="&gt;&gt;lblYearYuE.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="Column3.HeaderText" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="lblMonthInit.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="合并记录ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="交易分类ToolStripMenuItem.Text" xml:space="preserve">
+    <value>交易分类...</value>
+  </data>
+  <data name="&gt;&gt;报表ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="合并记录ToolStripMenuItem.Text" xml:space="preserve">
+    <value>合并记录...</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 6</value>
+  </data>
+  <data name="&gt;&gt;恢复日常交易记录ToolStripMenuItem.Name" xml:space="preserve">
+    <value>恢复日常交易记录ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;Column2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvFenLeiMonth.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="lblMonthYuE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="年度明细ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 22</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
+    <value>toolStripMenuItem2</value>
+  </data>
+  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>126, 17</value>
+  </metadata>
+</root>

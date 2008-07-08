@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clay-model clay-version="1.4.0">
+<database-model alias="" author="" begin-script="" end-script="" name="MoneyDotNet" remarks="" sql-dialect-id="jp.azzurri.clay.dialect.Postgre_7_3_Dialect" uid="8c2f76:11738812303:-7ffc" version="1.0">
+<database-model-description/>
+<schema-list>
+<schema alias="" name="MoneyDotNetDB" remarks="" uid="8c2f76:11738812303:-7ff9">
+<schema-description/>
+<domain-list/>
+<table-list>
+<table alias="" name="JiaoYi_FS" remarks="" uid="8c2f76:11738812303:-7ffb">
+<table-description/>
+<table-figure-bounds height="-1" width="-1" x="123" y="65"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="ID" remarks="" uid="8c2f76:11738812303:-7ff6">
+<column-description/>
+<data-type jdbc-type="-5" name="SERIAL8" selected-variant-pattern="SERIAL8">
+<variant type-name-pattern="SERIAL8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="50" decimal-digits="0" default-value="" mandatory="false" name="Name" remarks="" uid="8c2f76:11738812303:-7ff5">
+<column-description/>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_JIAOYI_FS" remarks="" uid="8c2f76:11738812303:-7ffa">
+<primary-key-description/>
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list/>
+<index-list/>
+</table>
+<table alias="" name="GuDing_JiaoYi" remarks="" uid="8c2f76:11738812303:-7ff4">
+<table-description/>
+<table-figure-bounds height="-1" width="-1" x="90" y="219"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="ID" remarks="" uid="8c2f76:11738812303:-7ff0">
+<column-description/>
+<data-type jdbc-type="-5" name="SERIAL8" selected-variant-pattern="SERIAL8">
+<variant type-name-pattern="SERIAL8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="50" decimal-digits="0" default-value="" mandatory="false" name="MingCheng" remarks="" uid="8c2f76:11738812303:-7fe0">
+<column-description/>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="1" decimal-digits="0" default-value="" mandatory="false" name="JiaoYi_FangXiang" remarks="" uid="8c2f76:11738812303:-7fa1">
+<column-description/>
+<data-type jdbc-type="1" literal-prefix="'" literal-suffix="'" name="CHAR" selected-variant-pattern="CHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="CHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="JiaoYi_ZhouQi_ID" remarks="" uid="8c2f76:11738812303:-7fef">
+<column-description/>
+<data-type jdbc-type="-5" name="INT8" selected-variant-pattern="INT8">
+<variant type-name-pattern="INT8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="JiaoYi_FS_ID" remarks="" uid="8c2f76:11738812303:-7fee">
+<column-description/>
+<data-type jdbc-type="-5" name="INT8" selected-variant-pattern="INT8">
+<variant type-name-pattern="INT8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="Start_Time" remarks="" uid="8c2f76:11738812303:-7fed">
+<column-description/>
+<data-type jdbc-type="93" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p)"/>
+<variant type-name-pattern="TIMESTAMP WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITHOUT TIME ZONE"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="Stop_Time" remarks="" uid="8c2f76:11738812303:-7fec">
+<column-description/>
+<data-type jdbc-type="93" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p)"/>
+<variant type-name-pattern="TIMESTAMP WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITHOUT TIME ZONE"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="11" decimal-digits="2" default-value="" mandatory="false" name="Jin_E" remarks="" uid="8c2f76:11738812303:-7feb">
+<column-description/>
+<data-type jdbc-type="3" name="DECIMAL" selected-variant-pattern="DECIMAL(%p,%s)">
+<variant precision-max="38" precision-min="1" precision-variable="%p" scale-max="127" scale-min="-84" scale-variable="%s" type-name-pattern="DECIMAL(%p,%s)"/>
+<variant type-name-pattern="DECIMAL"/>
+<variant precision-max="38" precision-min="1" precision-variable="%p" type-name-pattern="DECIMAL(%p)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="FenLei_ID" remarks="" uid="8c2f76:11738812303:-7fdd">
+<column-description/>
+<data-type jdbc-type="-5" name="INT8" selected-variant-pattern="INT8">
+<variant type-name-pattern="INT8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="MiaoShu" remarks="" uid="8c2f76:11738812303:-7fa0">
+<column-description/>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_GUDING_JIAOYI" remarks="" uid="8c2f76:11738812303:-7ff3">
+<primary-key-description/>
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_GuDing_JiaoYi_1" on-delete="" on-update="" referenced-key="PK_SHIJIAN_ZHOUQI" referenced-table="ShiJian_ZhouQi" referenced-table-schema="MoneyDotNetDB" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="8c2f76:11738812303:-7f81">
+<foreign-key-description/>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="JiaoYi_ZhouQi_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="" name="FK_GuDing_JiaoYi_2" on-delete="" on-update="" referenced-key="PK_JIAOYI_FENLEI" referenced-table="JiaoYi_FenLei" referenced-table-schema="MoneyDotNetDB" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="8c2f76:11738812303:-7f50">
+<foreign-key-description/>
+<foreign-key-figure>
+<fk-fig-source-terminal x="135" y="72"/>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="FenLei_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="" name="FK_GuDing_JiaoYi_3" on-delete="" on-update="" referenced-key="PK_JIAOYI_FS" referenced-table="JiaoYi_FS" referenced-table-schema="MoneyDotNetDB" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="8c2f76:11738812303:-7eab">
+<foreign-key-description/>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="JiaoYi_FS_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="ShiJian_ZhouQi" remarks="" uid="8c2f76:11738812303:-7fea">
+<table-description/>
+<table-figure-bounds height="-1" width="-1" x="325" y="33"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="ID" remarks="" uid="8c2f76:11738812303:-7fe6">
+<column-description/>
+<data-type jdbc-type="-5" name="SERIAL8" selected-variant-pattern="SERIAL8">
+<variant type-name-pattern="SERIAL8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="ZhouQi_QuJian" remarks="" uid="8c2f76:11738812303:-7fe4">
+<column-description/>
+<data-type jdbc-type="-5" name="INT8" selected-variant-pattern="INT8">
+<variant type-name-pattern="INT8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="1" decimal-digits="0" default-value="" mandatory="false" name="ZhouQi_DanWei" remarks="Y M D W H M S C, C for customized" uid="8c2f76:11738812303:-7fe3">
+<column-description/>
+<data-type jdbc-type="1" literal-prefix="'" literal-suffix="'" name="CHAR" selected-variant-pattern="CHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="CHAR(%n)"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_SHIJIAN_ZHOUQI" remarks="" uid="8c2f76:11738812303:-7fe9">
+<primary-key-description/>
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list/>
+<index-list/>
+</table>
+<table alias="" name="JiaoYi_FenLei" remarks="" uid="8c2f76:11738812303:-7fdc">
+<table-description/>
+<table-figure-bounds height="-1" width="-1" x="557" y="63"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="ID" remarks="" uid="8c2f76:11738812303:-7fd6">
+<column-description/>
+<data-type jdbc-type="-5" name="SERIAL8" selected-variant-pattern="SERIAL8">
+<variant type-name-pattern="SERIAL8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="50" decimal-digits="0" default-value="" mandatory="false" name="MingCheng" remarks="" uid="8c2f76:11738812303:-7fd5">
+<column-description/>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_JIAOYI_FENLEI" remarks="" uid="8c2f76:11738812303:-7fdb">
+<primary-key-description/>
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list/>
+<index-list/>
+</table>
+<table alias="" name="RiChang_JiaoYi" remarks="" uid="8c2f76:11738812303:-7fd4">
+<table-description/>
+<table-figure-bounds height="-1" width="-1" x="612" y="203"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="ID" remarks="" uid="8c2f76:11738812303:-7fd0">
+<column-description/>
+<data-type jdbc-type="-5" name="SERIAL8" selected-variant-pattern="SERIAL8">
+<variant type-name-pattern="SERIAL8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="1" decimal-digits="0" default-value="" mandatory="false" name="JiaoYi_FangXiang" remarks="" uid="8c2f76:11738812303:-7fa4">
+<column-description/>
+<data-type jdbc-type="1" literal-prefix="'" literal-suffix="'" name="CHAR" selected-variant-pattern="CHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="CHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="50" decimal-digits="0" default-value="" mandatory="false" name="MingCheng" remarks="" uid="8c2f76:11738812303:-7fcf">
+<column-description/>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="JiaoYi_FS_ID" remarks="" uid="8c2f76:11738812303:-7fce">
+<column-description/>
+<data-type jdbc-type="-5" name="INT8" selected-variant-pattern="INT8">
+<variant type-name-pattern="INT8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="FenLei_ID" remarks="" uid="8c2f76:11738812303:-7fcd">
+<column-description/>
+<data-type jdbc-type="-5" name="INT8" selected-variant-pattern="INT8">
+<variant type-name-pattern="INT8"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="JiaoYi_Time" remarks="" uid="8c2f76:11738812303:-7fcc">
+<column-description/>
+<data-type jdbc-type="93" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p)"/>
+<variant type-name-pattern="TIMESTAMP WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITHOUT TIME ZONE"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="11" decimal-digits="2" default-value="" mandatory="false" name="Jin_E" remarks="" uid="8c2f76:11738812303:-7fcb">
+<column-description/>
+<data-type jdbc-type="3" name="DECIMAL" selected-variant-pattern="DECIMAL(%p,%s)">
+<variant precision-max="38" precision-min="1" precision-variable="%p" scale-max="127" scale-min="-84" scale-variable="%s" type-name-pattern="DECIMAL(%p,%s)"/>
+<variant type-name-pattern="DECIMAL"/>
+<variant precision-max="38" precision-min="1" precision-variable="%p" type-name-pattern="DECIMAL(%p)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="255" decimal-digits="0" default-value="" mandatory="false" name="MiaoShu" remarks="" uid="8c2f76:11738812303:-7fa5">
+<column-description/>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_RICHANG_JIAOYI" remarks="" uid="8c2f76:11738812303:-7fd3">
+<primary-key-description/>
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_RiChang_JiaoYi_2" on-delete="" on-update="" referenced-key="PK_JIAOYI_FENLEI" referenced-table="JiaoYi_FenLei" referenced-table-schema="MoneyDotNetDB" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="8c2f76:11738812303:-7ef4">
+<foreign-key-description/>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="FenLei_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key alias="" name="FK_RiChang_JiaoYi_3" on-delete="" on-update="" referenced-key="PK_JIAOYI_FS" referenced-table="JiaoYi_FS" referenced-table-schema="MoneyDotNetDB" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="8c2f76:11738812303:-7ebb">
+<foreign-key-description/>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="JiaoYi_FS_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+<table alias="" name="TouZi_JiaoYi" remarks="" uid="19b26bf:1173d2c6c64:-7ffb">
+<table-description/>
+<table-figure-bounds height="-1" width="-1" x="348" y="298"/>
+<column-list>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="true" name="ID" remarks="" uid="19b26bf:1173d2c6c64:-7ff5">
+<column-description/>
+<data-type jdbc-type="4" name="SERIAL" selected-variant-pattern="SERIAL">
+<variant type-name-pattern="SERIAL"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="50" decimal-digits="0" default-value="" mandatory="false" name="MingCheng" remarks="" uid="19b26bf:1173d2c6c64:-7ff4">
+<column-description/>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="10" decimal-digits="0" default-value="" mandatory="false" name="DaiMa" remarks="" uid="19b26bf:1173d2c6c64:-7ff3">
+<column-description/>
+<data-type jdbc-type="12" literal-prefix="'" literal-suffix="'" name="VARCHAR" selected-variant-pattern="VARCHAR(%n)">
+<variant precision-max="2147483647" precision-min="1" precision-variable="%n" type-name-pattern="VARCHAR(%n)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="JiaoYi_Time" remarks="" uid="19b26bf:1173d2c6c64:-7ff2">
+<column-description/>
+<data-type jdbc-type="93" name="TIMESTAMP" selected-variant-pattern="TIMESTAMP">
+<variant type-name-pattern="TIMESTAMP"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p)"/>
+<variant type-name-pattern="TIMESTAMP WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITH TIME ZONE"/>
+<variant precision-max="9" precision-min="1" precision-variable="%p" type-name-pattern="TIMESTAMP(%p) WITHOUT TIME ZONE"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="11" decimal-digits="2" default-value="" mandatory="false" name="Jin_E" remarks="" uid="19b26bf:1173d2c6c64:-7ff1">
+<column-description/>
+<data-type jdbc-type="3" name="DECIMAL" selected-variant-pattern="DECIMAL(%p,%s)">
+<variant precision-max="38" precision-min="1" precision-variable="%p" scale-max="127" scale-min="-84" scale-variable="%s" type-name-pattern="DECIMAL(%p,%s)"/>
+<variant type-name-pattern="DECIMAL"/>
+<variant precision-max="38" precision-min="1" precision-variable="%p" type-name-pattern="DECIMAL(%p)"/>
+</data-type>
+</column>
+<column alias="" auto-increment="false" column-size="0" decimal-digits="0" default-value="" mandatory="false" name="FenLei_ID" remarks="" uid="19b26bf:1173d2c6c64:-7ff0">
+<column-description/>
+<data-type jdbc-type="-5" name="INT8" selected-variant-pattern="INT8">
+<variant type-name-pattern="INT8"/>
+</data-type>
+</column>
+</column-list>
+<primary-key alias="" name="PK_TOUZI_JIAOYI" remarks="" uid="19b26bf:1173d2c6c64:-7ffa">
+<primary-key-description/>
+<primary-key-column name="ID"/>
+</primary-key>
+<unique-key-list/>
+<foreign-key-list>
+<foreign-key alias="" name="FK_TouZi_JiaoYi_1" on-delete="" on-update="" referenced-key="PK_JIAOYI_FENLEI" referenced-table="JiaoYi_FenLei" referenced-table-schema="MoneyDotNetDB" remarks="" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="" uid="19b26bf:1173d2c6c64:-7fde">
+<foreign-key-description/>
+<foreign-key-figure>
+<fk-fig-bendpoint-list/>
+</foreign-key-figure>
+<foreign-key-column column-name="FenLei_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+<index-list/>
+</table>
+</table-list>
+</schema>
+</schema-list>
+</database-model>
+</clay-model>

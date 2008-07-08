@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MoneyNetConfigDS" targetNamespace="http://tempuri.org/MoneyNetConfigDS.xsd" xmlns:mstns="http://tempuri.org/MoneyNetConfigDS.xsd" xmlns="http://tempuri.org/MoneyNetConfigDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MoneyNetConfigDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="MoneyNetConfigDS" msprop:Generator_DataSetName="MoneyNetConfigDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="XiTong_PeiZhi" msprop:Generator_UserTableName="XiTong_PeiZhi" msprop:Generator_RowDeletedName="XiTong_PeiZhiRowDeleted" msprop:Generator_TableClassName="XiTong_PeiZhiDataTable" msprop:Generator_RowChangedName="XiTong_PeiZhiRowChanged" msprop:Generator_RowClassName="XiTong_PeiZhiRow" msprop:Generator_RowChangingName="XiTong_PeiZhiRowChanging" msprop:Generator_RowEvArgName="XiTong_PeiZhiRowChangeEvent" msprop:Generator_RowEvHandlerName="XiTong_PeiZhiRowChangeEventHandler" msprop:Generator_TablePropName="XiTong_PeiZhi" msprop:Generator_TableVarName="tableXiTong_PeiZhi" msprop:Generator_RowDeletingName="XiTong_PeiZhiRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" />
+              <xs:element name="Value" msprop:Generator_UserColumnName="Value" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInTable="ValueColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="JiZhang_NianDu" msprop:Generator_UserTableName="JiZhang_NianDu" msprop:Generator_RowDeletedName="JiZhang_NianDuRowDeleted" msprop:Generator_TableClassName="JiZhang_NianDuDataTable" msprop:Generator_RowChangedName="JiZhang_NianDuRowChanged" msprop:Generator_RowClassName="JiZhang_NianDuRow" msprop:Generator_RowChangingName="JiZhang_NianDuRowChanging" msprop:Generator_RowEvArgName="JiZhang_NianDuRowChangeEvent" msprop:Generator_RowEvHandlerName="JiZhang_NianDuRowChangeEventHandler" msprop:Generator_TablePropName="JiZhang_NianDu" msprop:Generator_TableVarName="tableJiZhang_NianDu" msprop:Generator_RowDeletingName="JiZhang_NianDuRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Year" msprop:Generator_UserColumnName="Year" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInTable="YearColumn" type="xs:int" />
+              <xs:element name="FilePath" msprop:Generator_UserColumnName="FilePath" msprop:Generator_ColumnPropNameInRow="FilePath" msprop:Generator_ColumnVarNameInTable="columnFilePath" msprop:Generator_ColumnPropNameInTable="FilePathColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:XiTong_PeiZhi" />
+      <xs:field xpath="mstns:Name" />
+    </xs:unique>
+    <xs:unique name="JiZhang_NianDu_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:JiZhang_NianDu" />
+      <xs:field xpath="mstns:Year" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
