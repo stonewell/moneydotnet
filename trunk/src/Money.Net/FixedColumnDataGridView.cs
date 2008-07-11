@@ -7,7 +7,11 @@ using System.ComponentModel;
 
 namespace Money.Net
 {
+#if PocketPC
+    public class FixedColumnDataGridView : DataGrid
+#else
     public class FixedColumnDataGridView : DataGridView
+#endif
     {
         private int fixedColumn_ = 0;
 
@@ -25,6 +29,7 @@ namespace Money.Net
             this.SelectionChanged += new EventHandler(FixedColumnDataGridView_SelectionChanged);
         }
 
+#if !PocketPC
         public new DataGridViewSelectionMode SelectionMode
         {
             get
@@ -37,11 +42,14 @@ namespace Money.Net
                 base.SelectionMode = DataGridViewSelectionMode.CellSelect;
             }
         }
+#endif
 
+#if !PocketPC
         [Category("Appearance")]
         [Browsable(true)]
-        [DefaultValue(0)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+#endif
+        [DefaultValue(0)]
         public int FixedColumn
         {
             get
@@ -61,7 +69,7 @@ namespace Money.Net
             }
         }
 
-            private bool ShouldSerializeFixedColumn()
+        private bool ShouldSerializeFixedColumn()
         {
             return true;
         }
@@ -94,6 +102,7 @@ namespace Money.Net
                 new EventHandler(FixedColumnDataGridView_SelectionChanged);
         }
 
+#if !PocketPC
         private void FixedColumnDataGridView_CellValueChanged(object sender, 
             DataGridViewCellEventArgs e)
         {
@@ -113,8 +122,10 @@ namespace Money.Net
                 e.Column.CellTemplate = new FixedColumnDataGridCell();
             }
         }
+#endif
     }
 
+#if !PocketPC
     public class FixedColumnDataGridCell : DataGridViewTextBoxCell
     {
         public override DataGridViewAdvancedBorderStyle AdjustCellBorderStyle(
@@ -159,4 +170,5 @@ namespace Money.Net
             return dataGridViewAdvancedBorderStylePlaceHolder;
         }
     }
+#endif
 }
