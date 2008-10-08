@@ -6,8 +6,8 @@
     <target name="clean">
         <delete>
             <fileset>
-                <include name="bin/${basename}*.exe"/>
-                <include name="bin/${basename}*.pdb"/>
+                <include name="bin/*"/>
+                <include name="**/*.resources"/>
             </fileset>
         </delete>
     </target>
@@ -16,10 +16,7 @@
         <mkdir dir="bin" />
         <csc target="exe" output="bin/${basename}.exe" debug="${debug}" codepage="936">
             <sources>
-                <include name="*.cs"/>
-                <include name="DB/*.cs"/>
-                <include name="Controls/*.cs"/>
-                <include name="Properties/*.cs"/>
+                <include name="**/*.cs"/>
             </sources>
 			<references>
 				<include name="System.Data.dll"/>
@@ -30,6 +27,8 @@
 			</references>
 			<resources>
 				<include name="*.resx"/>
+				<include name="DB/*.resx"/>
+				<include name="Controls/*.resx"/>
 			</resources>
         </csc>
     </target>
