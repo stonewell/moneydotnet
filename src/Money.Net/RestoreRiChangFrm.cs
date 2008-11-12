@@ -41,7 +41,7 @@ namespace Money.Net
 
                 dgvDetail.Rows[index].Tag = row;
 
-                if (row.Change_Mode.Equals(ChangeModeEnum.“—ª÷∏¥.ToString()))
+                if (row.Change_Mode.Equals(ChangeModeEnum.Â∑≤ÊÅ¢Â§ç.ToString()))
                 {
                     dgvDetail[2, index].Style.ForeColor = Color.Red;
                 }
@@ -62,11 +62,11 @@ namespace Money.Net
                         MoneyNetDS.RiChang_JiaoYi_HistoryRow row =
                             dgvDetail.Rows[i].Tag as MoneyNetDS.RiChang_JiaoYi_HistoryRow;
 
-                        if (row.Change_Mode.Equals(ChangeModeEnum.“—ª÷∏¥.ToString()))
+                        if (row.Change_Mode.Equals(ChangeModeEnum.Â∑≤ÊÅ¢Â§ç.ToString()))
                         {
                             DialogResult result = MessageBox.Show(this,
-                                "º«¬º:" + row.MingCheng + "[" + row.MiaoShu + "] “—æ≠ª÷∏¥π˝¡À,ªπ“™ºÃ–¯ª÷∏¥√¥?",
-                                "æØ∏Ê",
+                                "ËÆ∞ÂΩï:" + row.MingCheng + "[" + row.MiaoShu + "] Â∑≤ÁªèÊÅ¢Â§çËøá‰∫Ü,ËøòË¶ÅÁªßÁª≠ÊÅ¢Â§ç‰πà?",
+                                "Ë≠¶Âëä",
                                 MessageBoxButtons.YesNoCancel,
                                 MessageBoxIcon.Question);
 
@@ -114,7 +114,7 @@ namespace Money.Net
 
                         row.BeginEdit();
                         row.RiChang_ID = newRow.ID;
-                        row.Change_Mode = ChangeModeEnum.“—ª÷∏¥.ToString();
+                        row.Change_Mode = ChangeModeEnum.Â∑≤ÊÅ¢Â§ç.ToString();
                         row.EndEdit();
                     }//if
                 }//for

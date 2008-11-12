@@ -63,7 +63,7 @@ namespace Money.Net
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(75, 23);
             this.btnRestore.TabIndex = 2;
-            this.btnRestore.Text = "恢复";
+            this.btnRestore.Text = "鎭㈠";
             this.btnRestore.UseVisualStyleBackColor = true;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
@@ -75,7 +75,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "关闭";
+            this.btnOK.Text = "鍏抽棴";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // dgvDetail
@@ -114,7 +114,7 @@ namespace Money.Net
             // 
             // XiaoFei
             // 
-            this.XiaoFei.HeaderText = "消费";
+            this.XiaoFei.HeaderText = "娑堣垂";
             this.XiaoFei.Name = "XiaoFei";
             this.XiaoFei.ReadOnly = true;
             this.XiaoFei.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -122,7 +122,7 @@ namespace Money.Net
             // 
             // ShouRu
             // 
-            this.ShouRu.HeaderText = "收入";
+            this.ShouRu.HeaderText = "鏀跺叆";
             this.ShouRu.Name = "ShouRu";
             this.ShouRu.ReadOnly = true;
             this.ShouRu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -131,44 +131,44 @@ namespace Money.Net
             // ChangeTime
             // 
             this.ChangeTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ChangeTime.HeaderText = "修改时间";
+            this.ChangeTime.HeaderText = "淇敼鏃堕棿";
             this.ChangeTime.Name = "ChangeTime";
             this.ChangeTime.ReadOnly = true;
             this.ChangeTime.Width = 80;
             // 
             // ChangeMode
             // 
-            this.ChangeMode.HeaderText = "修改方式";
+            this.ChangeMode.HeaderText = "淇敼鏂瑰紡";
             this.ChangeMode.Name = "ChangeMode";
             this.ChangeMode.ReadOnly = true;
             // 
             // MingCheng
             // 
-            this.MingCheng.HeaderText = "名称";
+            this.MingCheng.HeaderText = "鍚嶇О";
             this.MingCheng.Name = "MingCheng";
             this.MingCheng.ReadOnly = true;
             // 
             // FengLei
             // 
-            this.FengLei.HeaderText = "分类";
+            this.FengLei.HeaderText = "鍒嗙被";
             this.FengLei.Name = "FengLei";
             this.FengLei.ReadOnly = true;
             // 
             // JiaoYiFangShi
             // 
-            this.JiaoYiFangShi.HeaderText = "交易方式";
+            this.JiaoYiFangShi.HeaderText = "浜ゆ槗鏂瑰紡";
             this.JiaoYiFangShi.Name = "JiaoYiFangShi";
             this.JiaoYiFangShi.ReadOnly = true;
             // 
             // JinE
             // 
-            this.JinE.HeaderText = "金额";
+            this.JinE.HeaderText = "閲戦";
             this.JinE.Name = "JinE";
             this.JinE.ReadOnly = true;
             // 
             // MiaoShu
             // 
-            this.MiaoShu.HeaderText = "描述";
+            this.MiaoShu.HeaderText = "鎻忚堪";
             this.MiaoShu.Name = "MiaoShu";
             this.MiaoShu.ReadOnly = true;
             // 
@@ -184,7 +184,7 @@ namespace Money.Net
             this.Name = "RestoreRiChangFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "恢复日常交易记录";
+            this.Text = "鎭㈠鏃ュ父浜ゆ槗璁板綍";
             this.Load += new System.EventHandler(this.RestoreRiChangFrm_Load);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();

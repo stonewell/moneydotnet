@@ -17,21 +17,21 @@ namespace Money.Net
             InitializeComponent();
         }
 
-        private void ½»Ò×·ÖÀàToolStripMenuItem_Click(object sender, EventArgs e)
+        private void äº¤æ˜“åˆ†ç±»ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FenLeiFrm form = new FenLeiFrm();
 
             form.ShowDialog(this);
         }
 
-        private void ½»Ò×·½Ê½ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void äº¤æ˜“æ–¹å¼ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FangShiFrm form = new FangShiFrm();
 
             form.ShowDialog(this);
         }
 
-        private void µ±ÈÕ½»Ò×ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void å½“æ—¥äº¤æ˜“ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TodayFrm form = new TodayFrm();
 
@@ -40,12 +40,12 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void ÍË³öToolStripMenuItem_Click(object sender, EventArgs e)
+        private void é€€å‡ºToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void ³õÊ¼»¯ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void åˆå§‹åŒ–ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SysInitFrm frm = new SysInitFrm();
 
@@ -54,7 +54,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void Ã¿ÈÕºÏ¼Æ_Click(object sender, EventArgs e)
+        private void æ¯æ—¥åˆè®¡_Click(object sender, EventArgs e)
         {
             DaySummaryFrm frm = new DaySummaryFrm();
 
@@ -67,7 +67,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void Ã¿ÈÕÃ÷Ï¸ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void æ¯æ—¥æ˜ç»†ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DayDetailFrm frm = new DayDetailFrm();
             DateTime time =
@@ -80,7 +80,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void ÔÂ¶ÈºÏ¼ÆToolStripMenuItem_Click(object sender, EventArgs e)
+        private void æœˆåº¦åˆè®¡ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MonthSummaryFrm frm = new MonthSummaryFrm();
             frm.SelectedMonth = DateTime.Now.Month;
@@ -89,7 +89,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void ÔÂ¶ÈÃ÷Ï¸ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void æœˆåº¦æ˜ç»†ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MonthDetailFrm frm = new MonthDetailFrm();
             frm.SelectedMonth = DateTime.Now.Month;
@@ -98,7 +98,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void Äê¶ÈºÏ¼ÆToolStripMenuItem_Click(object sender, EventArgs e)
+        private void å¹´åº¦åˆè®¡ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             YearSummaryFrm frm = new YearSummaryFrm();
 
@@ -106,7 +106,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void Äê¶ÈÃ÷Ï¸ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void å¹´åº¦æ˜ç»†ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             YearDetailFrm frm = new YearDetailFrm();
 
@@ -114,7 +114,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void ¼ÇÕÊÄê¶ÈToolStripMenuItem_Click(object sender, EventArgs e)
+        private void è®°å¸å¹´åº¦ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             JiZhangNianDuFrm frm = new JiZhangNianDuFrm();
 
@@ -123,7 +123,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void ¹ØÓÚToolStripMenuItem_Click(object sender, EventArgs e)
+        private void å…³äºToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutMoneyNet frm = new AboutMoneyNet();
 
@@ -137,7 +137,7 @@ namespace Money.Net
 
         private void InitYearSummary()
         {
-            groupBox1.Text = Program.GetDefaultYear() + "Äê";
+            groupBox1.Text = Program.GetDefaultYear() + "å¹´";
             lblYearInit.Text = Program.GetDefaultYearInitValue().ToString();
 
             decimal yearInit = decimal.Parse(lblYearInit.Text);
@@ -169,7 +169,7 @@ namespace Money.Net
 
         private void InitMonthSummary()
         {
-            groupBox2.Text = DateTime.Now.Month + "ÔÂ";
+            groupBox2.Text = DateTime.Now.Month + "æœˆ";
 
             lblMonthInit.Text = Program.GetDefaultYearInitValue().ToString();
 
@@ -244,7 +244,7 @@ namespace Money.Net
 
             if (row == null)
             {
-                fenleiname = fenlei + "Àà";
+                fenleiname = fenlei + "ç±»";
             }
             else
             {
@@ -287,12 +287,12 @@ namespace Money.Net
             if (total < 0)
             {
                 groupBox4.ForeColor = Color.Red;
-                groupBox4.Text = fenleiname + "µ±ÔÂÏû·Ñ:" + (total * -1).ToString();
+                groupBox4.Text = fenleiname + "å½“æœˆæ¶ˆè´¹:" + (total * -1).ToString();
             }
             else
             {
                 groupBox4.ForeColor = Color.Blue;
-                groupBox4.Text = fenleiname + "µ±ÔÂÊÕÈë:" + total.ToString();
+                groupBox4.Text = fenleiname + "å½“æœˆæ”¶å…¥:" + total.ToString();
             }
 
             foreach (string key in values.Keys)
@@ -336,7 +336,7 @@ namespace Money.Net
 
             if (row == null)
             {
-                fenleiname = fenlei + "Àà";
+                fenleiname = fenlei + "ç±»";
             }
             else
             {
@@ -378,12 +378,12 @@ namespace Money.Net
             if (total < 0)
             {
                 groupBox3.ForeColor = Color.Red;
-                groupBox3.Text = fenleiname + "µ±ÄêÏû·Ñ:" + (total * -1).ToString();
+                groupBox3.Text = fenleiname + "å½“å¹´æ¶ˆè´¹:" + (total * -1).ToString();
             }
             else
             {
                 groupBox3.ForeColor = Color.Blue;
-                groupBox3.Text = fenleiname + "µ±ÄêÊÕÈë:" + total.ToString();
+                groupBox3.Text = fenleiname + "å½“å¹´æ”¶å…¥:" + total.ToString();
             }
 
             foreach (string key in values.Keys)
@@ -407,7 +407,7 @@ namespace Money.Net
             dgvFenLeiYear.ClearSelection();
         }
 
-        private void Ö÷½çÃæÅäÖÃToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ä¸»ç•Œé¢é…ç½®ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainFrmSettings frm = new MainFrmSettings();
 
@@ -416,14 +416,14 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void ¹Ì¶¨½»Ò×ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void å›ºå®šäº¤æ˜“ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GuDingJiaoYisFrm frm = new GuDingJiaoYisFrm();
 
             frm.ShowDialog(this);
         }
 
-        private void ºÏ²¢¼ÇÂ¼ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void åˆå¹¶è®°å½•ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
             {
@@ -454,14 +454,14 @@ namespace Money.Net
                 {
                     Program.MoneyNetDS.RejectChanges();
 
-                    MessageBox.Show("¶ÁÈ¡Êı¾İÎÄ¼ş:" + f + "´íÎó:" + ex.Message, 
-                        "´íÎó",
+                    MessageBox.Show("è¯»å–æ•°æ®æ–‡ä»¶:" + f + "é”™è¯¯:" + ex.Message, 
+                        "é”™è¯¯",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void ×Ô¶¨ÒåºÏ¼ÆToolStripMenuItem_Click(object sender, EventArgs e)
+        private void è‡ªå®šä¹‰åˆè®¡ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CustomizedDurationSummaryFrm frm = new CustomizedDurationSummaryFrm();
 
@@ -469,7 +469,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void ×Ô¶¨ÒåÃ÷Ï¸ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void è‡ªå®šä¹‰æ˜ç»†ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CustomizedDurationDetailFrm frm = new CustomizedDurationDetailFrm();
 
@@ -477,7 +477,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void Çø¼ä·ÖÀàÃ÷Ï¸ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void åŒºé—´åˆ†ç±»æ˜ç»†ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FenLeiDurationDetailFrm frm = new FenLeiDurationDetailFrm();
 
@@ -486,7 +486,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void Çø¼ä½»Ò×·½Ê½Ã÷Ï¸ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void åŒºé—´äº¤æ˜“æ–¹å¼æ˜ç»†ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FangShiDurationDetailFrm frm = new FangShiDurationDetailFrm();
 
@@ -495,7 +495,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void Çø¼ä·ÖÀàºÏ¼ÆToolStripMenuItem_Click(object sender, EventArgs e)
+        private void åŒºé—´åˆ†ç±»åˆè®¡ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FenLeiDurationSummaryFrm frm = new FenLeiDurationSummaryFrm();
 
@@ -504,7 +504,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void Çø¼ä½»Ò×·½Ê½ºÏ¼ÆToolStripMenuItem_Click(object sender, EventArgs e)
+        private void åŒºé—´äº¤æ˜“æ–¹å¼åˆè®¡ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FangShiDurationSummaryFrm frm = new FangShiDurationSummaryFrm();
 
@@ -513,7 +513,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void »Ö¸´ÈÕ³£½»Ò×¼ÇÂ¼ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void æ¢å¤æ—¥å¸¸äº¤æ˜“è®°å½•ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RestoreRiChangFrm frm = new RestoreRiChangFrm();
 
@@ -522,7 +522,7 @@ namespace Money.Net
             RefreshData();
         }
 
-        private void »Ö¸´¹Ì¶¨½»Ò×¼ÇÂ¼ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void æ¢å¤å›ºå®šäº¤æ˜“è®°å½•ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RestoreGuDingFrm frm = new RestoreGuDingFrm();
 

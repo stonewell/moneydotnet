@@ -68,7 +68,7 @@ namespace Money.Net
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(this, "确定要删除这些选择的数据么?", "确认删除", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show(this, "纭畾瑕佸垹闄よ繖浜涢�夋嫨鐨勬暟鎹箞?", "纭鍒犻櫎", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }
@@ -81,7 +81,7 @@ namespace Money.Net
                 MoneyNetDS.RiChang_JiaoYiRow dataRow =
                     cell.OwningRow.Tag as MoneyNetDS.RiChang_JiaoYiRow;
 
-                Program.UpdateHistory(dataRow, ChangeModeEnum.删除);
+                Program.UpdateHistory(dataRow, ChangeModeEnum.鍒犻櫎);
 
                 dataRow.Delete();
 

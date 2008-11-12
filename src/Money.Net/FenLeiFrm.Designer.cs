@@ -52,7 +52,7 @@ namespace Money.Net
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 2;
-            this.btnNew.Text = "新增(&N)";
+            this.btnNew.Text = "鏂板(&N)";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
@@ -62,7 +62,7 @@ namespace Money.Net
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 3;
-            this.btnEdit.Text = "更新(&E)";
+            this.btnEdit.Text = "鏇存柊(&E)";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -72,7 +72,7 @@ namespace Money.Net
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "删除(&D)";
+            this.btnDelete.Text = "鍒犻櫎(&D)";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -100,7 +100,7 @@ namespace Money.Net
             this.Name = "FenLeiFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "分类";
+            this.Text = "鍒嗙被";
             this.Load += new System.EventHandler(this.FenLeiFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

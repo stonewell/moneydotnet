@@ -89,7 +89,7 @@ namespace Money.Net
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "删除";
+            this.btnDelete.Text = "鍒犻櫎";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -99,7 +99,7 @@ namespace Money.Net
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "编辑";
+            this.btnEdit.Text = "缂栬緫";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -109,14 +109,14 @@ namespace Money.Net
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 0;
-            this.btnNew.Text = "新增";
+            this.btnNew.Text = "鏂板";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // Column1
             // 
             this.Column1.FillWeight = 130F;
-            this.Column1.HeaderText = "名称";
+            this.Column1.HeaderText = "鍚嶇О";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 130;
@@ -124,7 +124,7 @@ namespace Money.Net
             // Column2
             // 
             this.Column2.FillWeight = 158F;
-            this.Column2.HeaderText = "周期";
+            this.Column2.HeaderText = "鍛ㄦ湡";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 158;
@@ -142,7 +142,7 @@ namespace Money.Net
             this.Name = "GuDingJiaoYisFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "固定周期交易";
+            this.Text = "鍥哄畾鍛ㄦ湡浜ゆ槗";
             this.Load += new System.EventHandler(this.GuDingJiaoYisFrm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
