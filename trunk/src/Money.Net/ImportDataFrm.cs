@@ -318,7 +318,7 @@ namespace Money.Net
                 }
             }
 
-            throw new Exception("½»Ò×·½Ê½" + name + "Î´¶¨Òå");
+            throw new Exception("äº¤æ˜“æ–¹å¼" + name + "æœªå®šä¹‰");
         }
 
         private MoneyNetDS.JiaoYi_FenLeiRow FindFenLei(int ID, string name)
@@ -343,13 +343,13 @@ namespace Money.Net
                 }
             }
 
-            throw new Exception("·ÖÀà" + name + "Î´¶¨Òå");
+            throw new Exception("åˆ†ç±»" + name + "æœªå®šä¹‰");
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnPrev.Enabled = true;
-            btnOK.Text = "ÏÂÒ»²½";
+            btnOK.Text = "ä¸‹ä¸€æ­¥";
 
             if (tabControl1.SelectedIndex == 0)
             {
@@ -358,7 +358,7 @@ namespace Money.Net
 
             if (tabControl1.SelectedIndex == tabControl1.TabCount - 1)
             {
-                btnOK.Text = "È·¶¨";
+                btnOK.Text = "ç¡®å®š";
             }
         }
 

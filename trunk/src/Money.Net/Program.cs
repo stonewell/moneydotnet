@@ -8,9 +8,9 @@ namespace Money.Net
 {
     public enum ChangeModeEnum
     {
-        ±à¼­,
-        É¾³ı,
-        ÒÑ»Ö¸´
+        ç¼–è¾‘,
+        åˆ é™¤,
+        å·²æ¢å¤
     };
 
     static class Program
@@ -77,7 +77,7 @@ namespace Money.Net
             {
                 moneyNetDS_.RejectChanges();
 
-                MessageBox.Show("Ö´ĞĞ¹Ì¶¨ÖÜÆÚ½»Ò×´íÎó:" + ex.Message, "´íÎó",
+                MessageBox.Show("æ‰§è¡Œå›ºå®šå‘¨æœŸäº¤æ˜“é”™è¯¯:" + ex.Message, "é”™è¯¯",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -94,7 +94,7 @@ namespace Money.Net
             }
             catch (Exception ex)
             {
-                MessageBox.Show("±£´æÊı¾İÎÄ¼ş:" + defaultYearFilePath_ + "´íÎó:" + ex.Message, "´íÎó",
+                MessageBox.Show("ä¿å­˜æ•°æ®æ–‡ä»¶:" + defaultYearFilePath_ + "é”™è¯¯:" + ex.Message, "é”™è¯¯",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -126,13 +126,13 @@ namespace Money.Net
 
             if (defaultYearFilePath_ == null)
             {
-                if (DialogResult.Cancel == MessageBox.Show("ÇëÉèÖÃ¼ÇÕÊÄê¶È£º" + year +
-                        "µÄÊı¾İÎÄ¼şÂ·¾¶", "ÏµÍ³ÉèÖÃ",
+                if (DialogResult.Cancel == MessageBox.Show("è¯·è®¾ç½®è®°å¸å¹´åº¦ï¼š" + year +
+                        "çš„æ•°æ®æ–‡ä»¶è·¯å¾„", "ç³»ç»Ÿè®¾ç½®",
                         MessageBoxButtons.OKCancel,
                         MessageBoxIcon.Information))
                 {
-                    if (DialogResult.Yes == MessageBox.Show("¼ÇÕÊÄê¶È£º" + year +
-                        "Î´ÉèÖÃÊı¾İÎÄ¼şÏµÍ³ÎŞ·¨ÔËĞĞ£¬ÒªÍË³öÏµÍ³Ã´?", "È·ÈÏÍË³ö",
+                    if (DialogResult.Yes == MessageBox.Show("è®°å¸å¹´åº¦ï¼š" + year +
+                        "æœªè®¾ç½®æ•°æ®æ–‡ä»¶ç³»ç»Ÿæ— æ³•è¿è¡Œï¼Œè¦é€€å‡ºç³»ç»Ÿä¹ˆ?", "ç¡®è®¤é€€å‡º",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                     {
                         return false;
@@ -149,8 +149,8 @@ namespace Money.Net
 
                     if (defaultYearFilePath_ == null)
                     {
-                        if (DialogResult.Yes == MessageBox.Show("¼ÇÕÊÄê¶È£º" + year +
-                            "Î´ÉèÖÃÊı¾İÎÄ¼şÏµÍ³ÎŞ·¨ÔËĞĞ£¬ÒªÍË³öÏµÍ³Ã´?", "È·ÈÏÍË³ö",
+                        if (DialogResult.Yes == MessageBox.Show("è®°å¸å¹´åº¦ï¼š" + year +
+                            "æœªè®¾ç½®æ•°æ®æ–‡ä»¶ç³»ç»Ÿæ— æ³•è¿è¡Œï¼Œè¦é€€å‡ºç³»ç»Ÿä¹ˆ?", "ç¡®è®¤é€€å‡º",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                         {
                             return false;
@@ -168,7 +168,7 @@ namespace Money.Net
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("¶ÁÈ¡Êı¾İÎÄ¼ş:" + defaultYearFilePath_ + "´íÎó:" + ex.Message, "´íÎó",
+                    MessageBox.Show("è¯»å–æ•°æ®æ–‡ä»¶:" + defaultYearFilePath_ + "é”™è¯¯:" + ex.Message, "é”™è¯¯",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

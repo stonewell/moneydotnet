@@ -64,7 +64,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "»∑∂®";
+            this.btnOK.Text = "Á°ÆÂÆö";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -76,7 +76,7 @@ namespace Money.Net
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "»°œ˚";
+            this.btnCancel.Text = "ÂèñÊ∂à";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
@@ -113,7 +113,7 @@ namespace Money.Net
             this.rdoNone.Size = new System.Drawing.Size(61, 17);
             this.rdoNone.TabIndex = 9;
             this.rdoNone.TabStop = true;
-            this.rdoNone.Text = "Œﬁ÷‹∆⁄";
+            this.rdoNone.Text = "Êó†Âë®Êúü";
             this.rdoNone.UseVisualStyleBackColor = true;
             this.rdoNone.CheckedChanged += new System.EventHandler(this.rdoNone_CheckedChanged);
             // 
@@ -125,7 +125,7 @@ namespace Money.Net
             this.rdoYear.Size = new System.Drawing.Size(37, 17);
             this.rdoYear.TabIndex = 8;
             this.rdoYear.TabStop = true;
-            this.rdoYear.Text = "ƒÍ";
+            this.rdoYear.Text = "Âπ¥";
             this.rdoYear.UseVisualStyleBackColor = true;
             this.rdoYear.CheckedChanged += new System.EventHandler(this.rdoYear_CheckedChanged);
             // 
@@ -137,7 +137,7 @@ namespace Money.Net
             this.rdoMonth.Size = new System.Drawing.Size(37, 17);
             this.rdoMonth.TabIndex = 7;
             this.rdoMonth.TabStop = true;
-            this.rdoMonth.Text = "‘¬";
+            this.rdoMonth.Text = "Êúà";
             this.rdoMonth.UseVisualStyleBackColor = true;
             this.rdoMonth.CheckedChanged += new System.EventHandler(this.rdoMonth_CheckedChanged);
             // 
@@ -149,7 +149,7 @@ namespace Money.Net
             this.rdoWeek.Size = new System.Drawing.Size(37, 17);
             this.rdoWeek.TabIndex = 6;
             this.rdoWeek.TabStop = true;
-            this.rdoWeek.Text = "÷‹";
+            this.rdoWeek.Text = "Âë®";
             this.rdoWeek.UseVisualStyleBackColor = true;
             this.rdoWeek.CheckedChanged += new System.EventHandler(this.rdoWeek_CheckedChanged);
             // 
@@ -161,7 +161,7 @@ namespace Money.Net
             this.rdoDay.Size = new System.Drawing.Size(37, 17);
             this.rdoDay.TabIndex = 5;
             this.rdoDay.TabStop = true;
-            this.rdoDay.Text = "»’";
+            this.rdoDay.Text = "Êó•";
             this.rdoDay.UseVisualStyleBackColor = true;
             this.rdoDay.CheckedChanged += new System.EventHandler(this.rdoDay_CheckedChanged);
             // 
@@ -216,7 +216,7 @@ namespace Money.Net
             this.Name = "JiaoYiZhouQiFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Ωª“◊÷‹∆⁄";
+            this.Text = "‰∫§ÊòìÂë®Êúü";
             this.Load += new System.EventHandler(this.JiaoYiZhouQiFrm_Load);
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);

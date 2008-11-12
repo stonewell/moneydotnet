@@ -84,7 +84,7 @@ namespace Money.Net
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "é”™è¯¯", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -139,7 +139,7 @@ namespace Money.Net
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "é”™è¯¯", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -188,22 +188,22 @@ namespace Money.Net
 
             if (item.row_.Year == Program.GetDefaultYear())
             {
-                MessageBox.Show("²»ÄÜÉ¾³ıµ±Ç°¼ÇÕËÄê¶È:" + item.row_.Year,
-                    "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("ä¸èƒ½åˆ é™¤å½“å‰è®°è´¦å¹´åº¦:" + item.row_.Year,
+                    "é”™è¯¯", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 
                 return;
             }
 
-            if (DialogResult.Yes != MessageBox.Show("È·¶¨É¾³ı¼ÇÕÊÄê¶È:" + item.row_.Year + "Ã´?",
-                "É¾³ıÈ·ÈÏ", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            if (DialogResult.Yes != MessageBox.Show("ç¡®å®šåˆ é™¤è®°å¸å¹´åº¦:" + item.row_.Year + "ä¹ˆ?",
+                "åˆ é™¤ç¡®è®¤", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 return;
             }
 
             if (System.IO.File.Exists(item.row_.FilePath))
             {
-                if (DialogResult.Yes == MessageBox.Show("Í¬Ê±É¾³ı¼ÇÕÊÄê¶ÈÎÄ¼ş:" + item.row_.FilePath + "Ã´?",
-                "É¾³ıÈ·ÈÏ", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                if (DialogResult.Yes == MessageBox.Show("åŒæ—¶åˆ é™¤è®°å¸å¹´åº¦æ–‡ä»¶:" + item.row_.FilePath + "ä¹ˆ?",
+                "åˆ é™¤ç¡®è®¤", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     System.IO.File.Delete(item.row_.FilePath);
                 }

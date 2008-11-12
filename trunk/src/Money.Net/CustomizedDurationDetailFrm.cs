@@ -155,18 +155,18 @@ namespace Money.Net
 
             if (rdoFenLei.Checked)
             {
-                dgvDetail.Columns.Add("·ÖÀà", "·ÖÀà");
+                dgvDetail.Columns.Add("åˆ†ç±»", "åˆ†ç±»");
             }
             else
             {
-                dgvDetail.Columns.Add("½»Ò×·½Ê½", "½»Ò×·½Ê½");
+                dgvDetail.Columns.Add("äº¤æ˜“æ–¹å¼", "äº¤æ˜“æ–¹å¼");
             }
 
             for (int i = 0; i < days; i++)
             {
                 DateTime t = dtpStart.Value.AddDays(i);
 
-                string name = t.Month + "ÔÂ" + t.Day + "ÈÕ";
+                string name = t.Month + "æœˆ" + t.Day + "æ—¥";
 
                 dgvDetail.Columns.Add(name,name);
             }
@@ -187,7 +187,7 @@ namespace Money.Net
             }
 
             int shouruIndex = dgvDetail.Rows.Add();
-            dgvDetail[0, shouruIndex].Value = "ºÏ¼Æ";
+            dgvDetail[0, shouruIndex].Value = "åˆè®¡";
 
             for (int i = 0; i < total.Length; i++)
             {

@@ -99,7 +99,7 @@ namespace Money.Net
             }
             else
             {
-                Program.UpdateHistory(row, ChangeModeEnum.±‡º≠);
+                Program.UpdateHistory(row, ChangeModeEnum.ÁºñËæë);
 
                 row.BeginEdit();
             }
@@ -229,7 +229,7 @@ namespace Money.Net
 
                 cboMingCheng.Text = row_.MingCheng;
 
-                btnNew.Text = "±£¥Ê";
+                btnNew.Text = "‰øùÂ≠ò";
                 btnDetail.Visible = false;
             }
         }
