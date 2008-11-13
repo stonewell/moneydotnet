@@ -28,11 +28,11 @@ namespace Money.Net
         {
             if (Type == DailyTypeEnum.EveryDay)
             {
-                return "æ¯" + Days + "å¤©";
+                return "Ã¿" + Days + "Ìì";
             }
             else
             {
-                return "æ¯ä¸ªå·¥ä½œæ—¥";
+                return "Ã¿¸ö¹¤×÷ÈÕ";
             }
         }
     }
@@ -56,7 +56,7 @@ namespace Money.Net
                 tmp += EnumFormater.ToString(WeekDays[i]);
             }
 
-            return "æ¯" + Weeks + "å‘¨çš„" + tmp;
+            return "Ã¿" + Weeks + "ÖÜµÄ" + tmp;
         }
     }
 
@@ -82,15 +82,15 @@ namespace Money.Net
             switch (monthweek)
             {
                 case MonthWeekEnum.First:
-                    return "ç¬¬ä¸€ä¸ª";
+                    return "µÚÒ»¸ö";
                 case MonthWeekEnum.Fourth:
-                    return "ç¬¬å››ä¸ª";
+                    return "µÚËÄ¸ö";
                 case MonthWeekEnum.Last:
-                    return "æœ€åä¸€ä¸ª";
+                    return "×îºóÒ»¸ö";
                 case MonthWeekEnum.Second:
-                    return "ç¬¬äºŒä¸ª";
+                    return "µÚ¶ş¸ö";
                 case MonthWeekEnum.Third:
-                    return "ç¬¬ä¸‰ä¸ª";
+                    return "µÚÈı¸ö";
                 default:
                     return monthweek.ToString();
             }
@@ -101,19 +101,19 @@ namespace Money.Net
             switch (weekday)
             {
                 case DayOfWeek.Friday:
-                    return "æ˜ŸæœŸäº”";
+                    return "ĞÇÆÚÎå";
                 case DayOfWeek.Monday:
-                    return "æ˜ŸæœŸä¸€";
+                    return "ĞÇÆÚÒ»";
                 case DayOfWeek.Saturday:
-                    return "æ˜ŸæœŸå…­";
+                    return "ĞÇÆÚÁù";
                 case DayOfWeek.Sunday:
-                    return "æ˜ŸæœŸæ—¥";
+                    return "ĞÇÆÚÈÕ";
                 case DayOfWeek.Thursday:
-                    return "æ˜ŸæœŸå››";
+                    return "ĞÇÆÚËÄ";
                 case DayOfWeek.Tuesday:
-                    return "æ˜ŸæœŸäºŒ";
+                    return "ĞÇÆÚ¶ş";
                 case DayOfWeek.Wednesday:
-                    return "æ˜ŸæœŸä¸‰";
+                    return "ĞÇÆÚÈı";
                 default:
                     return weekday.ToString();
             }
@@ -135,11 +135,11 @@ namespace Money.Net
         {
             if (Type == MonthlyTypeEnum.ByDate)
             {
-                return "æ¯" + Months + "æœˆçš„" + Date + "å·";
+                return "Ã¿" + Months + "ÔÂµÄ" + Date + "ºÅ";
             }
             else
             {
-                return "æ¯" + Months + "æœˆçš„" + 
+                return "Ã¿" + Months + "ÔÂµÄ" + 
                     EnumFormater.ToString(MonthWeek) + 
                     EnumFormater.ToString(WeekDay);
             }
@@ -166,11 +166,11 @@ namespace Money.Net
         {
             if (Type == YearlyTypeEnum.ByDate)
             {
-                return "æ¯å¹´" + Month + "æœˆçš„" + Date + "å·";
+                return "Ã¿Äê" + Month + "ÔÂµÄ" + Date + "ºÅ";
             }
             else
             {
-                return "æ¯å¹´" + Month + "æœˆçš„" + 
+                return "Ã¿Äê" + Month + "ÔÂµÄ" + 
                     EnumFormater.ToString(MonthWeek) +
                     EnumFormater.ToString(WeekDay);
             }
@@ -192,7 +192,7 @@ namespace Money.Net
             switch (Type)
             {
                 case ZhouQiTypeEnum.None:
-                    return "æ— å‘¨æœŸ";
+                    return "ÎŞÖÜÆÚ";
                 case ZhouQiTypeEnum.Daily:
                     return Daily.ToString();
                 case ZhouQiTypeEnum.Weekly:

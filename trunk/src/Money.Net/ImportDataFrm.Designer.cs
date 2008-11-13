@@ -84,7 +84,7 @@ namespace Money.Net
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
             this.btnPrev.TabIndex = 2;
-            this.btnPrev.Text = "‰∏ä‰∏ÄÊ≠•";
+            this.btnPrev.Text = "…œ“ª≤Ω";
             this.btnPrev.UseVisualStyleBackColor = true;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
@@ -96,7 +96,7 @@ namespace Money.Net
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "ÂèñÊ∂à";
+            this.btnCancel.Text = "»°œ˚";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnOK
@@ -106,7 +106,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "Á°ÆËÆ§";
+            this.btnOK.Text = "»∑»œ";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -133,7 +133,7 @@ namespace Money.Net
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(508, 317);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "ÂàÜÁ±ª";
+            this.tabPage1.Text = "∑÷¿‡";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // mcFenLei
@@ -161,7 +161,7 @@ namespace Money.Net
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Áé∞ÊúâÂàÜÁ±ª:";
+            this.label2.Text = "œ÷”–∑÷¿‡:";
             // 
             // label1
             // 
@@ -170,7 +170,7 @@ namespace Money.Net
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ÂØºÂÖ•ÂàÜÁ±ª:";
+            this.label1.Text = "µº»Î∑÷¿‡:";
             // 
             // tabPage2
             // 
@@ -181,7 +181,7 @@ namespace Money.Net
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(508, 317);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "‰∫§ÊòìÊñπÂºè";
+            this.tabPage2.Text = "Ωª“◊∑Ω Ω";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // mcFangShi
@@ -209,7 +209,7 @@ namespace Money.Net
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Áé∞Êúâ‰∫§ÊòìÊñπÂºè:";
+            this.label3.Text = "œ÷”–Ωª“◊∑Ω Ω:";
             // 
             // label4
             // 
@@ -218,7 +218,7 @@ namespace Money.Net
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "ÂØºÂÖ•‰∫§ÊòìÊñπÂºè:";
+            this.label4.Text = "µº»ÎΩª“◊∑Ω Ω:";
             // 
             // tabPage3
             // 
@@ -228,7 +228,7 @@ namespace Money.Net
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(508, 317);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Âõ∫ÂÆö‰∫§Êòì";
+            this.tabPage3.Text = "πÃ∂®Ωª“◊";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dgvData
@@ -258,7 +258,7 @@ namespace Money.Net
             // Column1
             // 
             this.Column1.FillWeight = 130F;
-            this.Column1.HeaderText = "ÂêçÁß∞";
+            this.Column1.HeaderText = "√˚≥∆";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 130;
@@ -266,7 +266,7 @@ namespace Money.Net
             // Column2
             // 
             this.Column2.FillWeight = 158F;
-            this.Column2.HeaderText = "Âë®Êúü";
+            this.Column2.HeaderText = "÷‹∆⁄";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Width = 158;
@@ -285,7 +285,7 @@ namespace Money.Net
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(508, 317);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Êó•Â∏∏‰∫§Êòì";
+            this.tabPage4.Text = "»’≥£Ωª“◊";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // dtpEnd
@@ -304,7 +304,7 @@ namespace Money.Net
             this.lblEnd.Name = "lblEnd";
             this.lblEnd.Size = new System.Drawing.Size(58, 13);
             this.lblEnd.TabIndex = 15;
-            this.lblEnd.Text = "ÁªìÊùüÊó∂Èó¥:";
+            this.lblEnd.Text = "Ω· ¯ ±º‰:";
             // 
             // dtpStart
             // 
@@ -322,7 +322,7 @@ namespace Money.Net
             this.lblStart.Name = "lblStart";
             this.lblStart.Size = new System.Drawing.Size(58, 13);
             this.lblStart.TabIndex = 13;
-            this.lblStart.Text = "ÂºÄÂßãÊó∂Èó¥:";
+            this.lblStart.Text = "ø™ º ±º‰:";
             // 
             // rdoAll
             // 
@@ -331,7 +331,7 @@ namespace Money.Net
             this.rdoAll.Name = "rdoAll";
             this.rdoAll.Size = new System.Drawing.Size(73, 17);
             this.rdoAll.TabIndex = 2;
-            this.rdoAll.Text = "ÂØºÂÖ•ÂÖ®ÈÉ®";
+            this.rdoAll.Text = "µº»Î»´≤ø";
             this.rdoAll.UseVisualStyleBackColor = true;
             this.rdoAll.Click += new System.EventHandler(this.rdoButton_Click);
             // 
@@ -342,7 +342,7 @@ namespace Money.Net
             this.rdoPart.Name = "rdoPart";
             this.rdoPart.Size = new System.Drawing.Size(85, 17);
             this.rdoPart.TabIndex = 1;
-            this.rdoPart.Text = "ÂØºÂÖ•Êó∂Èó¥ÊÆµ";
+            this.rdoPart.Text = "µº»Î ±º‰∂Œ";
             this.rdoPart.UseVisualStyleBackColor = true;
             this.rdoPart.Click += new System.EventHandler(this.rdoButton_Click);
             // 
@@ -355,7 +355,7 @@ namespace Money.Net
             this.rdoNone.Size = new System.Drawing.Size(61, 17);
             this.rdoNone.TabIndex = 0;
             this.rdoNone.TabStop = true;
-            this.rdoNone.Text = "‰∏çÂØºÂÖ•";
+            this.rdoNone.Text = "≤ªµº»Î";
             this.rdoNone.UseVisualStyleBackColor = true;
             this.rdoNone.Click += new System.EventHandler(this.rdoButton_Click);
             // 
@@ -373,7 +373,7 @@ namespace Money.Net
             this.Name = "ImportDataFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ÂØºÂÖ•Êï∞ÊçÆÂåπÈÖç";
+            this.Text = "µº»Î ˝æ›∆•≈‰";
             this.Load += new System.EventHandler(this.ImportMappingFrm_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);

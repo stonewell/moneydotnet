@@ -82,7 +82,7 @@ namespace Money.Net
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "æ¶ˆè´¹:";
+            this.label5.Text = "Ïû·Ñ:";
             // 
             // lblShouRu
             // 
@@ -102,7 +102,7 @@ namespace Money.Net
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "æ”¶å…¥:";
+            this.label2.Text = "ÊÕÈë:";
             // 
             // btnDetail
             // 
@@ -111,7 +111,7 @@ namespace Money.Net
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(75, 23);
             this.btnDetail.TabIndex = 1;
-            this.btnDetail.Text = "æ˜ç»†";
+            this.btnDetail.Text = "Ã÷Ï¸";
             this.btnDetail.UseVisualStyleBackColor = true;
             this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
@@ -123,7 +123,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "å…³é—­";
+            this.btnOK.Text = "¹Ø±Õ";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // rdoFenLei
@@ -135,7 +135,7 @@ namespace Money.Net
             this.rdoFenLei.Size = new System.Drawing.Size(49, 17);
             this.rdoFenLei.TabIndex = 2;
             this.rdoFenLei.TabStop = true;
-            this.rdoFenLei.Text = "åˆ†ç±»";
+            this.rdoFenLei.Text = "·ÖÀà";
             this.rdoFenLei.UseVisualStyleBackColor = true;
             this.rdoFenLei.CheckedChanged += new System.EventHandler(this.rdoFenLei_CheckedChanged);
             // 
@@ -146,19 +146,19 @@ namespace Money.Net
             this.rdoFangShi.Name = "rdoFangShi";
             this.rdoFangShi.Size = new System.Drawing.Size(73, 17);
             this.rdoFangShi.TabIndex = 3;
-            this.rdoFangShi.Text = "äº¤æ˜“æ–¹å¼";
+            this.rdoFangShi.Text = "½»Ò×·½Ê½";
             this.rdoFangShi.UseVisualStyleBackColor = true;
             this.rdoFangShi.CheckedChanged += new System.EventHandler(this.rdoFangShi_CheckedChanged);
             // 
             // JinE
             // 
-            this.JinE.HeaderText = "é‡‘é¢";
+            this.JinE.HeaderText = "½ğ¶î";
             this.JinE.Name = "JinE";
             this.JinE.ReadOnly = true;
             // 
             // FengLei
             // 
-            this.FengLei.HeaderText = "åˆ†ç±»";
+            this.FengLei.HeaderText = "·ÖÀà";
             this.FengLei.Name = "FengLei";
             this.FengLei.ReadOnly = true;
             // 
@@ -208,25 +208,25 @@ namespace Money.Net
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "å¹´ä»½:";
+            this.label3.Text = "Äê·İ:";
             // 
             // cboMonth
             // 
             this.cboMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMonth.FormattingEnabled = true;
             this.cboMonth.Items.AddRange(new object[] {
-            "ä¸€æœˆ",
-            "äºŒæœˆ",
-            "ä¸‰æœˆ",
-            "å››æœˆ",
-            "äº”æœˆ",
-            "å…­æœˆ",
-            "ä¸ƒæœˆ",
-            "å…«æœˆ",
-            "ä¹æœˆ",
-            "åæœˆ",
-            "åä¸€æœˆ",
-            "åäºŒæœˆ"});
+            "Ò»ÔÂ",
+            "¶şÔÂ",
+            "ÈıÔÂ",
+            "ËÄÔÂ",
+            "ÎåÔÂ",
+            "ÁùÔÂ",
+            "ÆßÔÂ",
+            "°ËÔÂ",
+            "¾ÅÔÂ",
+            "Ê®ÔÂ",
+            "Ê®Ò»ÔÂ",
+            "Ê®¶şÔÂ"});
             this.cboMonth.Location = new System.Drawing.Point(211, 7);
             this.cboMonth.Name = "cboMonth";
             this.cboMonth.Size = new System.Drawing.Size(121, 21);
@@ -240,7 +240,7 @@ namespace Money.Net
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "æœˆä»½:";
+            this.label1.Text = "ÔÂ·İ:";
             // 
             // MonthSummaryFrm
             // 
@@ -257,7 +257,7 @@ namespace Money.Net
             this.Name = "MonthSummaryFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "æ¯æœˆåˆè®¡";
+            this.Text = "Ã¿ÔÂºÏ¼Æ";
             this.Load += new System.EventHandler(this.MonthSummaryFrm_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

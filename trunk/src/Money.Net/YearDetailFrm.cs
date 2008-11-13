@@ -108,16 +108,16 @@ namespace Money.Net
 
             if (rdoFenLei.Checked)
             {
-                dgvDetail.Columns.Add("åˆ†ç±»", "åˆ†ç±»");
+                dgvDetail.Columns.Add("·ÖÀà", "·ÖÀà");
             }
             else
             {
-                dgvDetail.Columns.Add("äº¤æ˜“æ–¹å¼", "äº¤æ˜“æ–¹å¼");
+                dgvDetail.Columns.Add("½»Ò×·½Ê½", "½»Ò×·½Ê½");
             }
 
             for (int i = 0; i < 12; i++)
             {
-                dgvDetail.Columns.Add((i + 1).ToString() + "æœˆ", (i + 1).ToString() + "æœˆ");
+                dgvDetail.Columns.Add((i + 1).ToString() + "ÔÂ", (i + 1).ToString() + "ÔÂ");
             }
 
             dgvDetail.Columns[0].Frozen = true;
@@ -136,7 +136,7 @@ namespace Money.Net
             }
 
             int shouruIndex = dgvDetail.Rows.Add();
-            dgvDetail[0, shouruIndex].Value = "åˆè®¡";
+            dgvDetail[0, shouruIndex].Value = "ºÏ¼Æ";
 
             for (int i = 0; i < total.Length; i++)
             {

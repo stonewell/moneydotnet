@@ -19,14 +19,14 @@ namespace Money.Net
 
         private void rdoFenLei_CheckedChanged(object sender, EventArgs e)
         {
-            dgvDetail.Columns[0].HeaderText = "鍒嗙被";
+            dgvDetail.Columns[0].HeaderText = "分类";
 
             RefreshGrid();
         }
 
         private void rdoFangShi_CheckedChanged(object sender, EventArgs e)
         {
-            dgvDetail.Columns[0].HeaderText = "浜ゆ槗鏂瑰紡";
+            dgvDetail.Columns[0].HeaderText = "交易方式";
 
             RefreshGrid();
         }

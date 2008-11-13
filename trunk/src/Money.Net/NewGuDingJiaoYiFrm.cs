@@ -195,7 +195,7 @@ namespace Money.Net
             else
             {
                 bEdit = true;
-                Program.UpdateHistory(row_, ChangeModeEnum.编辑);
+                Program.UpdateHistory(row_, ChangeModeEnum.�༭);
                 row_.BeginEdit();
             }
 

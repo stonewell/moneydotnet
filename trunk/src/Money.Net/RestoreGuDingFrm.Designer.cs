@@ -68,7 +68,7 @@ namespace Money.Net
             this.btnRestore.Name = "btnRestore";
             this.btnRestore.Size = new System.Drawing.Size(75, 23);
             this.btnRestore.TabIndex = 2;
-            this.btnRestore.Text = "ÊÅ¢Â§ç";
+            this.btnRestore.Text = "ª÷∏¥";
             this.btnRestore.UseVisualStyleBackColor = true;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
@@ -80,7 +80,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "ÂÖ≥Èó≠";
+            this.btnOK.Text = "πÿ±’";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // dgvDetail
@@ -124,44 +124,44 @@ namespace Money.Net
             // ChangeTime
             // 
             this.ChangeTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ChangeTime.HeaderText = "‰øÆÊîπÊó∂Èó¥";
+            this.ChangeTime.HeaderText = "–ﬁ∏ƒ ±º‰";
             this.ChangeTime.Name = "ChangeTime";
             this.ChangeTime.ReadOnly = true;
             this.ChangeTime.Width = 80;
             // 
             // ChangeMode
             // 
-            this.ChangeMode.HeaderText = "‰øÆÊîπÊñπÂºè";
+            this.ChangeMode.HeaderText = "–ﬁ∏ƒ∑Ω Ω";
             this.ChangeMode.Name = "ChangeMode";
             this.ChangeMode.ReadOnly = true;
             // 
             // MingCheng
             // 
-            this.MingCheng.HeaderText = "ÂêçÁß∞";
+            this.MingCheng.HeaderText = "√˚≥∆";
             this.MingCheng.Name = "MingCheng";
             this.MingCheng.ReadOnly = true;
             // 
             // FengLei
             // 
-            this.FengLei.HeaderText = "ÂàÜÁ±ª";
+            this.FengLei.HeaderText = "∑÷¿‡";
             this.FengLei.Name = "FengLei";
             this.FengLei.ReadOnly = true;
             // 
             // JiaoYiFangShi
             // 
-            this.JiaoYiFangShi.HeaderText = "‰∫§ÊòìÊñπÂºè";
+            this.JiaoYiFangShi.HeaderText = "Ωª“◊∑Ω Ω";
             this.JiaoYiFangShi.Name = "JiaoYiFangShi";
             this.JiaoYiFangShi.ReadOnly = true;
             // 
             // ZhouQi
             // 
-            this.ZhouQi.HeaderText = "Âë®Êúü";
+            this.ZhouQi.HeaderText = "÷‹∆⁄";
             this.ZhouQi.Name = "ZhouQi";
             this.ZhouQi.ReadOnly = true;
             // 
             // XiaoFei
             // 
-            this.XiaoFei.HeaderText = "Ê∂àË¥π";
+            this.XiaoFei.HeaderText = "œ˚∑—";
             this.XiaoFei.Name = "XiaoFei";
             this.XiaoFei.ReadOnly = true;
             this.XiaoFei.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -169,7 +169,7 @@ namespace Money.Net
             // 
             // ShouRu
             // 
-            this.ShouRu.HeaderText = "Êî∂ÂÖ•";
+            this.ShouRu.HeaderText = " ’»Î";
             this.ShouRu.Name = "ShouRu";
             this.ShouRu.ReadOnly = true;
             this.ShouRu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -177,37 +177,37 @@ namespace Money.Net
             // 
             // JinE
             // 
-            this.JinE.HeaderText = "ÈáëÈ¢ù";
+            this.JinE.HeaderText = "Ω∂Ó";
             this.JinE.Name = "JinE";
             this.JinE.ReadOnly = true;
             // 
             // MiaoShu
             // 
-            this.MiaoShu.HeaderText = "ÊèèËø∞";
+            this.MiaoShu.HeaderText = "√Ë ˆ";
             this.MiaoShu.Name = "MiaoShu";
             this.MiaoShu.ReadOnly = true;
             // 
             // StartTime
             // 
-            this.StartTime.HeaderText = "ÂºÄÂßãÊó∂Èó¥";
+            this.StartTime.HeaderText = "ø™ º ±º‰";
             this.StartTime.Name = "StartTime";
             this.StartTime.ReadOnly = true;
             // 
             // HasEndTime
             // 
-            this.HasEndTime.HeaderText = "Êó†ÁªìÊùüÊó•Êúü";
+            this.HasEndTime.HeaderText = "ŒﬁΩ· ¯»’∆⁄";
             this.HasEndTime.Name = "HasEndTime";
             this.HasEndTime.ReadOnly = true;
             // 
             // StopTime
             // 
-            this.StopTime.HeaderText = "ÁªìÊùüÊó∂Èó¥";
+            this.StopTime.HeaderText = "Ω· ¯ ±º‰";
             this.StopTime.Name = "StopTime";
             this.StopTime.ReadOnly = true;
             // 
             // LastExecuteTime
             // 
-            this.LastExecuteTime.HeaderText = "‰∏äÊ¨°ÊâßË°åÊó∂Èó¥";
+            this.LastExecuteTime.HeaderText = "…œ¥Œ÷¥–– ±º‰";
             this.LastExecuteTime.Name = "LastExecuteTime";
             this.LastExecuteTime.ReadOnly = true;
             // 
@@ -223,7 +223,7 @@ namespace Money.Net
             this.Name = "RestoreGuDingFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ÊÅ¢Â§çÊó•Â∏∏‰∫§ÊòìËÆ∞ÂΩï";
+            this.Text = "ª÷∏¥»’≥£Ωª“◊º«¬º";
             this.Load += new System.EventHandler(this.RestoreGuDingFrm_Load);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();

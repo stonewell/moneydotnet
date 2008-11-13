@@ -66,13 +66,13 @@ namespace Money.Net
             // 
             // FengLei
             // 
-            this.FengLei.HeaderText = "鍒嗙被";
+            this.FengLei.HeaderText = "分类";
             this.FengLei.Name = "FengLei";
             this.FengLei.ReadOnly = true;
             // 
             // JinE
             // 
-            this.JinE.HeaderText = "閲戦";
+            this.JinE.HeaderText = "金额";
             this.JinE.Name = "JinE";
             this.JinE.ReadOnly = true;
             // 
@@ -104,7 +104,7 @@ namespace Money.Net
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "骞翠唤:";
+            this.label3.Text = "年份:";
             // 
             // rdoFangShi
             // 
@@ -113,7 +113,7 @@ namespace Money.Net
             this.rdoFangShi.Name = "rdoFangShi";
             this.rdoFangShi.Size = new System.Drawing.Size(73, 17);
             this.rdoFangShi.TabIndex = 3;
-            this.rdoFangShi.Text = "浜ゆ槗鏂瑰紡";
+            this.rdoFangShi.Text = "交易方式";
             this.rdoFangShi.UseVisualStyleBackColor = true;
             this.rdoFangShi.CheckedChanged += new System.EventHandler(this.rdoFangShi_CheckedChanged);
             // 
@@ -126,7 +126,7 @@ namespace Money.Net
             this.rdoFenLei.Size = new System.Drawing.Size(49, 17);
             this.rdoFenLei.TabIndex = 2;
             this.rdoFenLei.TabStop = true;
-            this.rdoFenLei.Text = "鍒嗙被";
+            this.rdoFenLei.Text = "分类";
             this.rdoFenLei.UseVisualStyleBackColor = true;
             this.rdoFenLei.CheckedChanged += new System.EventHandler(this.rdoFenLei_CheckedChanged);
             // 
@@ -162,7 +162,7 @@ namespace Money.Net
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "娑堣垂:";
+            this.label5.Text = "消费:";
             // 
             // lblShouRu
             // 
@@ -182,7 +182,7 @@ namespace Money.Net
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "鏀跺叆:";
+            this.label2.Text = "收入:";
             // 
             // btnDetail
             // 
@@ -191,7 +191,7 @@ namespace Money.Net
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(75, 23);
             this.btnDetail.TabIndex = 1;
-            this.btnDetail.Text = "鏄庣粏";
+            this.btnDetail.Text = "明细";
             this.btnDetail.UseVisualStyleBackColor = true;
             this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
@@ -203,7 +203,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "鍏抽棴";
+            this.btnOK.Text = "关闭";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // YearSummaryFrm
@@ -222,7 +222,7 @@ namespace Money.Net
             this.Name = "YearSummaryFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "骞村害鍚堣";
+            this.Text = "年度合计";
             this.Load += new System.EventHandler(this.YearSummaryFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.panel1.ResumeLayout(false);

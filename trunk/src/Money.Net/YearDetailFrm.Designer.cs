@@ -70,7 +70,7 @@ namespace Money.Net
             this.rdoFangShi.Name = "rdoFangShi";
             this.rdoFangShi.Size = new System.Drawing.Size(73, 17);
             this.rdoFangShi.TabIndex = 8;
-            this.rdoFangShi.Text = "浜ゆ槗鏂瑰紡";
+            this.rdoFangShi.Text = "交易方式";
             this.rdoFangShi.UseVisualStyleBackColor = true;
             this.rdoFangShi.CheckedChanged += new System.EventHandler(this.rdoFangShi_CheckedChanged);
             // 
@@ -83,7 +83,7 @@ namespace Money.Net
             this.rdoFenLei.Size = new System.Drawing.Size(49, 17);
             this.rdoFenLei.TabIndex = 7;
             this.rdoFenLei.TabStop = true;
-            this.rdoFenLei.Text = "鍒嗙被";
+            this.rdoFenLei.Text = "分类";
             this.rdoFenLei.UseVisualStyleBackColor = true;
             this.rdoFenLei.CheckedChanged += new System.EventHandler(this.rdoFenLei_CheckedChanged);
             // 
@@ -94,7 +94,7 @@ namespace Money.Net
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "骞翠唤:";
+            this.label2.Text = "年份:";
             // 
             // btnOK
             // 
@@ -104,7 +104,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "鍏抽棴";
+            this.btnOK.Text = "关闭";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // panel3
@@ -139,7 +139,7 @@ namespace Money.Net
             this.btnMonthDetail.Name = "btnMonthDetail";
             this.btnMonthDetail.Size = new System.Drawing.Size(75, 23);
             this.btnMonthDetail.TabIndex = 1;
-            this.btnMonthDetail.Text = "姣忔湀鏄庣粏";
+            this.btnMonthDetail.Text = "每月明细";
             this.btnMonthDetail.UseVisualStyleBackColor = true;
             this.btnMonthDetail.Click += new System.EventHandler(this.btnMonthDetail_Click);
             // 
@@ -158,7 +158,7 @@ namespace Money.Net
             this.Name = "YearDetailFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "骞村害鏄庣粏";
+            this.Text = "年度明细";
             this.Load += new System.EventHandler(this.YearDetailFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

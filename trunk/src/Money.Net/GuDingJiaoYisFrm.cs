@@ -47,7 +47,7 @@ namespace Money.Net
                 MoneyNetDS.GuDing_JiaoYiRow dataRow =
                     row.Tag as MoneyNetDS.GuDing_JiaoYiRow;
 
-                Program.UpdateHistory(dataRow, ChangeModeEnum.åˆ é™¤);
+                Program.UpdateHistory(dataRow, ChangeModeEnum.É¾³ý);
 
                 dataRow.Delete();
             }

@@ -32,8 +32,8 @@ namespace Money.Net
             this.label1 = new System.Windows.Forms.Label();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.dgvDetail = new Money.Net.FixedColumnDataGridView();
-            this.åç§° = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.é‡‘é¢ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ãû³Æ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.½ğ¶î = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@ namespace Money.Net
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 11;
-            this.label1.Text = "ç»“æŸæ—¶é—´:";
+            this.label1.Text = "½áÊøÊ±¼ä:";
             // 
             // dtpStart
             // 
@@ -86,8 +86,8 @@ namespace Money.Net
             this.dgvDetail.AllowUserToDeleteRows = false;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.åç§°,
-            this.é‡‘é¢});
+            this.Ãû³Æ,
+            this.½ğ¶î});
             this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetail.Location = new System.Drawing.Point(0, 88);
             this.dgvDetail.MultiSelect = false;
@@ -98,18 +98,18 @@ namespace Money.Net
             this.dgvDetail.Size = new System.Drawing.Size(575, 323);
             this.dgvDetail.TabIndex = 15;
             // 
-            // åç§°
+            // Ãû³Æ
             // 
-            this.åç§°.Frozen = true;
-            this.åç§°.HeaderText = "åç§°";
-            this.åç§°.Name = "åç§°";
-            this.åç§°.ReadOnly = true;
+            this.Ãû³Æ.Frozen = true;
+            this.Ãû³Æ.HeaderText = "Ãû³Æ";
+            this.Ãû³Æ.Name = "Ãû³Æ";
+            this.Ãû³Æ.ReadOnly = true;
             // 
-            // é‡‘é¢
+            // ½ğ¶î
             // 
-            this.é‡‘é¢.HeaderText = "é‡‘é¢";
-            this.é‡‘é¢.Name = "é‡‘é¢";
-            this.é‡‘é¢.ReadOnly = true;
+            this.½ğ¶î.HeaderText = "½ğ¶î";
+            this.½ğ¶î.Name = "½ğ¶î";
+            this.½ğ¶î.ReadOnly = true;
             // 
             // label3
             // 
@@ -118,7 +118,7 @@ namespace Money.Net
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "å¼€å§‹æ—¶é—´:";
+            this.label3.Text = "¿ªÊ¼Ê±¼ä:";
             // 
             // panel1
             // 
@@ -141,7 +141,7 @@ namespace Money.Net
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 14;
-            this.label2.Text = "äº¤æ˜“æ–¹å¼:";
+            this.label2.Text = "½»Ò×·½Ê½:";
             // 
             // cboFangShi
             // 
@@ -161,7 +161,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "å…³é—­";
+            this.btnOK.Text = "¹Ø±Õ";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // panel3
@@ -185,7 +185,7 @@ namespace Money.Net
             this.btnAllRecords.Name = "btnAllRecords";
             this.btnAllRecords.Size = new System.Drawing.Size(75, 23);
             this.btnAllRecords.TabIndex = 15;
-            this.btnAllRecords.Text = "å…¨éƒ¨è®°å½•";
+            this.btnAllRecords.Text = "È«²¿¼ÇÂ¼";
             this.btnAllRecords.UseVisualStyleBackColor = true;
             this.btnAllRecords.Click += new System.EventHandler(this.btnAllRecords_Click);
             // 
@@ -207,7 +207,7 @@ namespace Money.Net
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 13;
-            this.label5.Text = "æ¶ˆè´¹:";
+            this.label5.Text = "Ïû·Ñ:";
             // 
             // lblShouRu
             // 
@@ -227,7 +227,7 @@ namespace Money.Net
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 11;
-            this.label4.Text = "æ”¶å…¥:";
+            this.label4.Text = "ÊÕÈë:";
             // 
             // btnDetail
             // 
@@ -236,7 +236,7 @@ namespace Money.Net
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(75, 23);
             this.btnDetail.TabIndex = 1;
-            this.btnDetail.Text = "æ˜ç»†";
+            this.btnDetail.Text = "Ã÷Ï¸";
             this.btnDetail.UseVisualStyleBackColor = true;
             this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
@@ -254,7 +254,7 @@ namespace Money.Net
             this.Name = "FangShiDurationSummaryFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "äº¤æ˜“æ–¹å¼åŒºé—´åˆè®¡";
+            this.Text = "½»Ò×·½Ê½Çø¼äºÏ¼Æ";
             this.Load += new System.EventHandler(this.FenLeiDurationDetailFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -277,8 +277,8 @@ namespace Money.Net
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboFangShi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn åç§°;
-        private System.Windows.Forms.DataGridViewTextBoxColumn é‡‘é¢;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ãû³Æ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ½ğ¶î;
         private System.Windows.Forms.Button btnDetail;
         private System.Windows.Forms.Button btnAllRecords;
         private System.Windows.Forms.Label lblXiaoFei;
