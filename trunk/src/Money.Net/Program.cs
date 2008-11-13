@@ -178,8 +178,39 @@ namespace Money.Net
 
         public static decimal GetYearInitialValue(int year)
         {
-            MoneyNetConfigDS.XiTong_PeiZhiRow row =
-                Program.ConfigDS.XiTong_PeiZhi.FindByName(year + "InitialAMount");
+            MoneyNetDS moneyNetDS = moneyNetDS_;
+
+            if (year != GetDefaultYear())
+            {
+                moneyNetDS = new MoneyNetDS();
+
+                string yearFilePath = GetYearFilePath(year);
+
+                if (yearFilePath == null)
+                {
+                    return new decimal(0.0);
+                }
+
+                if (System.IO.File.Exists(yearFilePath))
+                {
+                    try
+                    {
+                        moneyNetDS.ReadXml(yearFilePath);
+                        moneyNetDS.AcceptChanges();
+                    }
+                    catch 
+                    {
+                        return new decimal(0.0);
+                    }
+                }
+                else
+                {
+                    return new decimal(0.0);
+                }
+            }
+
+            MoneyNetDS.Year_PeiZhiRow row =
+                moneyNetDS.Year_PeiZhi.FindByName("InitialAMount");
 
             if (row != null)
             {
@@ -193,8 +224,39 @@ namespace Money.Net
 
         public static void SetYearInitialValue(int year, decimal val)
         {
-            MoneyNetConfigDS.XiTong_PeiZhiRow row =
-                Program.ConfigDS.XiTong_PeiZhi.FindByName(year + "InitialAMount");
+            MoneyNetDS moneyNetDS = moneyNetDS_;
+
+            if (year != GetDefaultYear())
+            {
+                moneyNetDS = new MoneyNetDS();
+
+                string yearFilePath = GetYearFilePath(year);
+
+                if (yearFilePath == null)
+                {
+                    return;
+                }
+
+                if (System.IO.File.Exists(yearFilePath))
+                {
+                    try
+                    {
+                        moneyNetDS.ReadXml(yearFilePath);
+                        moneyNetDS.AcceptChanges();
+                    }
+                    catch
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            } 
+            
+            MoneyNetDS.Year_PeiZhiRow row =
+                moneyNetDS.Year_PeiZhi.FindByName("InitialAMount");
 
             if (row != null)
             {
@@ -204,10 +266,23 @@ namespace Money.Net
             }
             else
             {
-                row = Program.ConfigDS.XiTong_PeiZhi.NewXiTong_PeiZhiRow();
-                row.Name = year + "InitialAMount";
+                row = moneyNetDS.Year_PeiZhi.NewYear_PeiZhiRow();
+                row.Name = "InitialAMount";
                 row.Value = val.ToString();
-                Program.ConfigDS.XiTong_PeiZhi.Rows.Add(row);
+                moneyNetDS.Year_PeiZhi.Rows.Add(row);
+
+                if (year != GetDefaultYear())
+                {
+                    try
+                    {
+                        moneyNetDS.AcceptChanges();
+                        string yearFilePath = GetYearFilePath(year);
+                        moneyNetDS.WriteXml(yearFilePath);
+                    }
+                    catch
+                    {
+                    }
+                }
             }
         }
 
@@ -308,10 +383,10 @@ namespace Money.Net
             ConfigDS.JiZhang_NianDu.AcceptChanges();
         }
 
-        public static int GetMainFrmFenLei(int year)
+        public static int GetMainFrmFenLei()
         {
-            MoneyNetConfigDS.XiTong_PeiZhiRow row =
-                Program.ConfigDS.XiTong_PeiZhi.FindByName(year + "MainFrmFenLei");
+            MoneyNetDS.Year_PeiZhiRow row =
+                Program.MoneyNetDS.Year_PeiZhi.FindByName("MainFrmFenLei");
 
             if (row != null)
             {
@@ -323,10 +398,10 @@ namespace Money.Net
             }
         }
 
-        public static void SetMainFrmFenLei(int year, int fenlei)
+        public static void SetMainFrmFenLei(int fenlei)
         {
-            MoneyNetConfigDS.XiTong_PeiZhiRow row =
-                Program.ConfigDS.XiTong_PeiZhi.FindByName(year + "MainFrmFenLei");
+            MoneyNetDS.Year_PeiZhiRow row =
+                Program.MoneyNetDS.Year_PeiZhi.FindByName("MainFrmFenLei");
 
             if (row != null)
             {
@@ -336,10 +411,10 @@ namespace Money.Net
             }
             else
             {
-                row = Program.ConfigDS.XiTong_PeiZhi.NewXiTong_PeiZhiRow();
-                row.Name = year + "MainFrmFenLei";
+                row = Program.MoneyNetDS.Year_PeiZhi.NewYear_PeiZhiRow();
+                row.Name = "MainFrmFenLei";
                 row.Value = fenlei.ToString();
-                Program.ConfigDS.XiTong_PeiZhi.Rows.Add(row);
+                Program.MoneyNetDS.Year_PeiZhi.Rows.Add(row);
             }
         }
 

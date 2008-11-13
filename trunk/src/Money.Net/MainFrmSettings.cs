@@ -24,7 +24,7 @@ namespace Money.Net
                 cboFenLei.Items.Add(new LstItem(row.ID,row.Name));
             }
 
-            int fenlei = Program.GetMainFrmFenLei(Program.GetDefaultYear());
+            int fenlei = Program.GetMainFrmFenLei();
 
             if (fenlei >= 0 && cboFenLei.Items.Contains(new LstItem(fenlei,"")))
             {
@@ -41,8 +41,7 @@ namespace Money.Net
         {
             if (cboFenLei.SelectedIndex >= 0)
             {
-                Program.SetMainFrmFenLei(Program.GetDefaultYear(),
-                    (cboFenLei.SelectedItem as LstItem).ID);
+                Program.SetMainFrmFenLei((cboFenLei.SelectedItem as LstItem).ID);
 
                 Close();
             }

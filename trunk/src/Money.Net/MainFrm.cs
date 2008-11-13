@@ -228,7 +228,7 @@ namespace Money.Net
         {
             dgvFenLeiMonth.Rows.Clear();
 
-            int fenlei = Program.GetMainFrmFenLei(Program.GetDefaultYear());
+            int fenlei = Program.GetMainFrmFenLei();
 
             if (fenlei < 0)
             {
@@ -320,7 +320,7 @@ namespace Money.Net
         {
             dgvFenLeiYear.Rows.Clear();
 
-            int fenlei = Program.GetMainFrmFenLei(Program.GetDefaultYear());
+            int fenlei = Program.GetMainFrmFenLei();
 
             if (fenlei < 0)
             {
