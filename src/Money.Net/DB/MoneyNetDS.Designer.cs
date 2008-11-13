@@ -39,6 +39,8 @@ namespace Money.Net.DB {
         
         private GuDing_JiaoYi_HistoryDataTable tableGuDing_JiaoYi_History;
         
+        private Year_PeiZhiDataTable tableYear_PeiZhi;
+        
         private global::System.Data.DataRelation relationFK_JiaoYi_FS_GuDing_JiaoYi;
         
         private global::System.Data.DataRelation relationJiaoYi_FenLei_GuDing_JiaoYi;
@@ -95,6 +97,9 @@ namespace Money.Net.DB {
                 }
                 if ((ds.Tables["GuDing_JiaoYi_History"] != null)) {
                     base.Tables.Add(new GuDing_JiaoYi_HistoryDataTable(ds.Tables["GuDing_JiaoYi_History"]));
+                }
+                if ((ds.Tables["Year_PeiZhi"] != null)) {
+                    base.Tables.Add(new Year_PeiZhiDataTable(ds.Tables["Year_PeiZhi"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -178,6 +183,15 @@ namespace Money.Net.DB {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Year_PeiZhiDataTable Year_PeiZhi {
+            get {
+                return this.tableYear_PeiZhi;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -257,6 +271,9 @@ namespace Money.Net.DB {
                 if ((ds.Tables["GuDing_JiaoYi_History"] != null)) {
                     base.Tables.Add(new GuDing_JiaoYi_HistoryDataTable(ds.Tables["GuDing_JiaoYi_History"]));
                 }
+                if ((ds.Tables["Year_PeiZhi"] != null)) {
+                    base.Tables.Add(new Year_PeiZhiDataTable(ds.Tables["Year_PeiZhi"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -329,6 +346,12 @@ namespace Money.Net.DB {
                     this.tableGuDing_JiaoYi_History.InitVars();
                 }
             }
+            this.tableYear_PeiZhi = ((Year_PeiZhiDataTable)(base.Tables["Year_PeiZhi"]));
+            if ((initTable == true)) {
+                if ((this.tableYear_PeiZhi != null)) {
+                    this.tableYear_PeiZhi.InitVars();
+                }
+            }
             this.relationFK_JiaoYi_FS_GuDing_JiaoYi = this.Relations["FK_JiaoYi_FS_GuDing_JiaoYi"];
             this.relationJiaoYi_FenLei_GuDing_JiaoYi = this.Relations["JiaoYi_FenLei_GuDing_JiaoYi"];
             this.relationJiaoYi_FenLei_TouZi_JiaoYi = this.Relations["JiaoYi_FenLei_TouZi_JiaoYi"];
@@ -357,6 +380,8 @@ namespace Money.Net.DB {
             base.Tables.Add(this.tableRiChang_JiaoYi_History);
             this.tableGuDing_JiaoYi_History = new GuDing_JiaoYi_HistoryDataTable();
             base.Tables.Add(this.tableGuDing_JiaoYi_History);
+            this.tableYear_PeiZhi = new Year_PeiZhiDataTable();
+            base.Tables.Add(this.tableYear_PeiZhi);
             this.relationFK_JiaoYi_FS_GuDing_JiaoYi = new global::System.Data.DataRelation("FK_JiaoYi_FS_GuDing_JiaoYi", new global::System.Data.DataColumn[] {
                         this.tableJiaoYi_FangShi.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableGuDing_JiaoYi.JiaoYi_FangShi_IDColumn}, false);
@@ -411,6 +436,11 @@ namespace Money.Net.DB {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeGuDing_JiaoYi_History() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeYear_PeiZhi() {
             return false;
         }
         
@@ -480,6 +510,8 @@ namespace Money.Net.DB {
         public delegate void RiChang_JiaoYi_HistoryRowChangeEventHandler(object sender, RiChang_JiaoYi_HistoryRowChangeEvent e);
         
         public delegate void GuDing_JiaoYi_HistoryRowChangeEventHandler(object sender, GuDing_JiaoYi_HistoryRowChangeEvent e);
+        
+        public delegate void Year_PeiZhiRowChangeEventHandler(object sender, Year_PeiZhiRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2922,6 +2954,257 @@ namespace Money.Net.DB {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Year_PeiZhiDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+            
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnValue;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public Year_PeiZhiDataTable() {
+                this.TableName = "Year_PeiZhi";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal Year_PeiZhiDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected Year_PeiZhiDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ValueColumn {
+                get {
+                    return this.columnValue;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public Year_PeiZhiRow this[int index] {
+                get {
+                    return ((Year_PeiZhiRow)(this.Rows[index]));
+                }
+            }
+            
+            public event Year_PeiZhiRowChangeEventHandler Year_PeiZhiRowChanging;
+            
+            public event Year_PeiZhiRowChangeEventHandler Year_PeiZhiRowChanged;
+            
+            public event Year_PeiZhiRowChangeEventHandler Year_PeiZhiRowDeleting;
+            
+            public event Year_PeiZhiRowChangeEventHandler Year_PeiZhiRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddYear_PeiZhiRow(Year_PeiZhiRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public Year_PeiZhiRow AddYear_PeiZhiRow(string Name, string Value) {
+                Year_PeiZhiRow rowYear_PeiZhiRow = ((Year_PeiZhiRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Name,
+                        Value};
+                rowYear_PeiZhiRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowYear_PeiZhiRow);
+                return rowYear_PeiZhiRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public Year_PeiZhiRow FindByName(string Name) {
+                return ((Year_PeiZhiRow)(this.Rows.Find(new object[] {
+                            Name})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                Year_PeiZhiDataTable cln = ((Year_PeiZhiDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Year_PeiZhiDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnName = base.Columns["Name"];
+                this.columnValue = base.Columns["Value"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnValue = new global::System.Data.DataColumn("Value", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnValue);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnName}, true));
+                this.columnName.AllowDBNull = false;
+                this.columnName.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public Year_PeiZhiRow NewYear_PeiZhiRow() {
+                return ((Year_PeiZhiRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Year_PeiZhiRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(Year_PeiZhiRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Year_PeiZhiRowChanged != null)) {
+                    this.Year_PeiZhiRowChanged(this, new Year_PeiZhiRowChangeEvent(((Year_PeiZhiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Year_PeiZhiRowChanging != null)) {
+                    this.Year_PeiZhiRowChanging(this, new Year_PeiZhiRowChangeEvent(((Year_PeiZhiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Year_PeiZhiRowDeleted != null)) {
+                    this.Year_PeiZhiRowDeleted(this, new Year_PeiZhiRowChangeEvent(((Year_PeiZhiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Year_PeiZhiRowDeleting != null)) {
+                    this.Year_PeiZhiRowDeleting(this, new Year_PeiZhiRowChangeEvent(((Year_PeiZhiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveYear_PeiZhiRow(Year_PeiZhiRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                MoneyNetDS ds = new MoneyNetDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Year_PeiZhiDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -4463,6 +4746,56 @@ namespace Money.Net.DB {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class Year_PeiZhiRow : global::System.Data.DataRow {
+            
+            private Year_PeiZhiDataTable tableYear_PeiZhi;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal Year_PeiZhiRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableYear_PeiZhi = ((Year_PeiZhiDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Name {
+                get {
+                    return ((string)(this[this.tableYear_PeiZhi.NameColumn]));
+                }
+                set {
+                    this[this.tableYear_PeiZhi.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Value {
+                get {
+                    try {
+                        return ((string)(this[this.tableYear_PeiZhi.ValueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Value\' in table \'Year_PeiZhi\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableYear_PeiZhi.ValueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsValueNull() {
+                return this.IsNull(this.tableYear_PeiZhi.ValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetValueNull() {
+                this[this.tableYear_PeiZhi.ValueColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -4666,6 +4999,37 @@ namespace Money.Net.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public GuDing_JiaoYi_HistoryRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class Year_PeiZhiRowChangeEvent : global::System.EventArgs {
+            
+            private Year_PeiZhiRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public Year_PeiZhiRowChangeEvent(Year_PeiZhiRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public Year_PeiZhiRow Row {
                 get {
                     return this.eventRow;
                 }

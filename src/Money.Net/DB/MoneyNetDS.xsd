@@ -18,8 +18,8 @@
         <xs:element name="JiaoYi_FangShi" msprop:Generator_UserTableName="JiaoYi_FangShi" msprop:Generator_RowDeletedName="JiaoYi_FangShiRowDeleted" msprop:Generator_RowChangedName="JiaoYi_FangShiRowChanged" msprop:Generator_RowClassName="JiaoYi_FangShiRow" msprop:Generator_RowChangingName="JiaoYi_FangShiRowChanging" msprop:Generator_RowEvArgName="JiaoYi_FangShiRowChangeEvent" msprop:Generator_RowEvHandlerName="JiaoYi_FangShiRowChangeEventHandler" msprop:Generator_TableClassName="JiaoYi_FangShiDataTable" msprop:Generator_TableVarName="tableJiaoYi_FangShi" msprop:Generator_RowDeletingName="JiaoYi_FangShiRowDeleting" msprop:Generator_TablePropName="JiaoYi_FangShi">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
-              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn">
+              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -32,8 +32,8 @@
         <xs:element name="JiaoYi_FenLei" msprop:Generator_UserTableName="JiaoYi_FenLei" msprop:Generator_RowDeletedName="JiaoYi_FenLeiRowDeleted" msprop:Generator_RowChangedName="JiaoYi_FenLeiRowChanged" msprop:Generator_RowClassName="JiaoYi_FenLeiRow" msprop:Generator_RowChangingName="JiaoYi_FenLeiRowChanging" msprop:Generator_RowEvArgName="JiaoYi_FenLeiRowChangeEvent" msprop:Generator_RowEvHandlerName="JiaoYi_FenLeiRowChangeEventHandler" msprop:Generator_TableClassName="JiaoYi_FenLeiDataTable" msprop:Generator_TableVarName="tableJiaoYi_FenLei" msprop:Generator_RowDeletingName="JiaoYi_FenLeiRowDeleting" msprop:Generator_TablePropName="JiaoYi_FenLei">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
-              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn">
+              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -46,75 +46,75 @@
         <xs:element name="GuDing_JiaoYi" msprop:Generator_UserTableName="GuDing_JiaoYi" msprop:Generator_RowDeletedName="GuDing_JiaoYiRowDeleted" msprop:Generator_RowChangedName="GuDing_JiaoYiRowChanged" msprop:Generator_RowClassName="GuDing_JiaoYiRow" msprop:Generator_RowChangingName="GuDing_JiaoYiRowChanging" msprop:Generator_RowEvArgName="GuDing_JiaoYiRowChangeEvent" msprop:Generator_RowEvHandlerName="GuDing_JiaoYiRowChangeEventHandler" msprop:Generator_TableClassName="GuDing_JiaoYiDataTable" msprop:Generator_TableVarName="tableGuDing_JiaoYi" msprop:Generator_RowDeletingName="GuDing_JiaoYiRowDeleting" msprop:Generator_TablePropName="GuDing_JiaoYi">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
-              <xs:element name="MingCheng" msprop:Generator_UserColumnName="MingCheng" msprop:Generator_ColumnPropNameInRow="MingCheng" msprop:Generator_ColumnVarNameInTable="columnMingCheng" msprop:Generator_ColumnPropNameInTable="MingChengColumn" minOccurs="0">
+              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="MingCheng" msprop:Generator_UserColumnName="MingCheng" msprop:Generator_ColumnVarNameInTable="columnMingCheng" msprop:Generator_ColumnPropNameInRow="MingCheng" msprop:Generator_ColumnPropNameInTable="MingChengColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="JiaoYi_FangXiang" msprop:Generator_UserColumnName="JiaoYi_FangXiang" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangXiang" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangXiang" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangXiangColumn" type="xs:boolean" minOccurs="0" />
-              <xs:element name="JiaoYi_ZhouQi_ID" msprop:Generator_UserColumnName="JiaoYi_ZhouQi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_ZhouQi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_ZhouQi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_ZhouQi_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="JiaoYi_FangShi_ID" msprop:Generator_UserColumnName="JiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="Start_Time" msprop:Generator_UserColumnName="Start_Time" msprop:Generator_ColumnPropNameInRow="Start_Time" msprop:Generator_ColumnVarNameInTable="columnStart_Time" msprop:Generator_ColumnPropNameInTable="Start_TimeColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Stop_Time" msprop:Generator_UserColumnName="Stop_Time" msprop:Generator_ColumnPropNameInRow="Stop_Time" msprop:Generator_ColumnVarNameInTable="columnStop_Time" msprop:Generator_ColumnPropNameInTable="Stop_TimeColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="MiaoShu" msprop:Generator_UserColumnName="MiaoShu" msprop:Generator_ColumnPropNameInRow="MiaoShu" msprop:Generator_ColumnVarNameInTable="columnMiaoShu" msprop:Generator_ColumnPropNameInTable="MiaoShuColumn" minOccurs="0">
+              <xs:element name="JiaoYi_FangXiang" msprop:Generator_UserColumnName="JiaoYi_FangXiang" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangXiang" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangXiang" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangXiangColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="JiaoYi_ZhouQi_ID" msprop:Generator_UserColumnName="JiaoYi_ZhouQi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_ZhouQi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_ZhouQi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_ZhouQi_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="JiaoYi_FangShi_ID" msprop:Generator_UserColumnName="JiaoYi_FangShi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Start_Time" msprop:Generator_UserColumnName="Start_Time" msprop:Generator_ColumnVarNameInTable="columnStart_Time" msprop:Generator_ColumnPropNameInRow="Start_Time" msprop:Generator_ColumnPropNameInTable="Start_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Stop_Time" msprop:Generator_UserColumnName="Stop_Time" msprop:Generator_ColumnVarNameInTable="columnStop_Time" msprop:Generator_ColumnPropNameInRow="Stop_Time" msprop:Generator_ColumnPropNameInTable="Stop_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="MiaoShu" msprop:Generator_UserColumnName="MiaoShu" msprop:Generator_ColumnVarNameInTable="columnMiaoShu" msprop:Generator_ColumnPropNameInRow="MiaoShu" msprop:Generator_ColumnPropNameInTable="MiaoShuColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Jin_E" msprop:Generator_UserColumnName="Jin_E" msprop:Generator_ColumnPropNameInRow="Jin_E" msprop:Generator_ColumnVarNameInTable="columnJin_E" msprop:Generator_ColumnPropNameInTable="Jin_EColumn" type="xs:decimal" />
-              <xs:element name="ZhouQi" msprop:Generator_UserColumnName="ZhouQi" msprop:Generator_ColumnPropNameInRow="ZhouQi" msprop:Generator_ColumnVarNameInTable="columnZhouQi" msprop:Generator_ColumnPropNameInTable="ZhouQiColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="HasEndDate" msprop:Generator_UserColumnName="HasEndDate" msprop:Generator_ColumnVarNameInTable="columnHasEndDate" msprop:Generator_ColumnPropNameInRow="HasEndDate" msprop:Generator_ColumnPropNameInTable="HasEndDateColumn" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Last_Execute_Time" msprop:Generator_UserColumnName="Last_Execute_Time" msprop:Generator_ColumnVarNameInTable="columnLast_Execute_Time" msprop:Generator_ColumnPropNameInRow="Last_Execute_Time" msprop:Generator_ColumnPropNameInTable="Last_Execute_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Jin_E" msprop:Generator_UserColumnName="Jin_E" msprop:Generator_ColumnVarNameInTable="columnJin_E" msprop:Generator_ColumnPropNameInRow="Jin_E" msprop:Generator_ColumnPropNameInTable="Jin_EColumn" type="xs:decimal" />
+              <xs:element name="ZhouQi" msprop:Generator_UserColumnName="ZhouQi" msprop:Generator_ColumnVarNameInTable="columnZhouQi" msprop:Generator_ColumnPropNameInRow="ZhouQi" msprop:Generator_ColumnPropNameInTable="ZhouQiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="HasEndDate" msprop:Generator_UserColumnName="HasEndDate" msprop:Generator_ColumnPropNameInRow="HasEndDate" msprop:Generator_ColumnVarNameInTable="columnHasEndDate" msprop:Generator_ColumnPropNameInTable="HasEndDateColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Last_Execute_Time" msprop:Generator_UserColumnName="Last_Execute_Time" msprop:Generator_ColumnPropNameInRow="Last_Execute_Time" msprop:Generator_ColumnVarNameInTable="columnLast_Execute_Time" msprop:Generator_ColumnPropNameInTable="Last_Execute_TimeColumn" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="TouZi_JiaoYi" msprop:Generator_UserTableName="TouZi_JiaoYi" msprop:Generator_RowDeletedName="TouZi_JiaoYiRowDeleted" msprop:Generator_RowChangedName="TouZi_JiaoYiRowChanged" msprop:Generator_RowClassName="TouZi_JiaoYiRow" msprop:Generator_RowChangingName="TouZi_JiaoYiRowChanging" msprop:Generator_RowEvArgName="TouZi_JiaoYiRowChangeEvent" msprop:Generator_RowEvHandlerName="TouZi_JiaoYiRowChangeEventHandler" msprop:Generator_TableClassName="TouZi_JiaoYiDataTable" msprop:Generator_TableVarName="tableTouZi_JiaoYi" msprop:Generator_RowDeletingName="TouZi_JiaoYiRowDeleting" msprop:Generator_TablePropName="TouZi_JiaoYi">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
-              <xs:element name="MingCheng" msprop:Generator_UserColumnName="MingCheng" msprop:Generator_ColumnPropNameInRow="MingCheng" msprop:Generator_ColumnVarNameInTable="columnMingCheng" msprop:Generator_ColumnPropNameInTable="MingChengColumn" minOccurs="0">
+              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="MingCheng" msprop:Generator_UserColumnName="MingCheng" msprop:Generator_ColumnVarNameInTable="columnMingCheng" msprop:Generator_ColumnPropNameInRow="MingCheng" msprop:Generator_ColumnPropNameInTable="MingChengColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DaiMa" msprop:Generator_UserColumnName="DaiMa" msprop:Generator_ColumnPropNameInRow="DaiMa" msprop:Generator_ColumnVarNameInTable="columnDaiMa" msprop:Generator_ColumnPropNameInTable="DaiMaColumn" minOccurs="0">
+              <xs:element name="DaiMa" msprop:Generator_UserColumnName="DaiMa" msprop:Generator_ColumnVarNameInTable="columnDaiMa" msprop:Generator_ColumnPropNameInRow="DaiMa" msprop:Generator_ColumnPropNameInTable="DaiMaColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="JiaoYi_Time" msprop:Generator_UserColumnName="JiaoYi_Time" msprop:Generator_ColumnPropNameInRow="JiaoYi_Time" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_Time" msprop:Generator_ColumnPropNameInTable="JiaoYi_TimeColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Jin_E" msprop:Generator_UserColumnName="Jin_E" msprop:Generator_ColumnPropNameInRow="Jin_E" msprop:Generator_ColumnVarNameInTable="columnJin_E" msprop:Generator_ColumnPropNameInTable="Jin_EColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="JiaoYi_Time" msprop:Generator_UserColumnName="JiaoYi_Time" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_Time" msprop:Generator_ColumnPropNameInRow="JiaoYi_Time" msprop:Generator_ColumnPropNameInTable="JiaoYi_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Jin_E" msprop:Generator_UserColumnName="Jin_E" msprop:Generator_ColumnVarNameInTable="columnJin_E" msprop:Generator_ColumnPropNameInRow="Jin_E" msprop:Generator_ColumnPropNameInTable="Jin_EColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="RiChang_JiaoYi" msprop:Generator_UserTableName="RiChang_JiaoYi" msprop:Generator_RowDeletedName="RiChang_JiaoYiRowDeleted" msprop:Generator_RowChangedName="RiChang_JiaoYiRowChanged" msprop:Generator_RowClassName="RiChang_JiaoYiRow" msprop:Generator_RowChangingName="RiChang_JiaoYiRowChanging" msprop:Generator_RowEvArgName="RiChang_JiaoYiRowChangeEvent" msprop:Generator_RowEvHandlerName="RiChang_JiaoYiRowChangeEventHandler" msprop:Generator_TableClassName="RiChang_JiaoYiDataTable" msprop:Generator_TableVarName="tableRiChang_JiaoYi" msprop:Generator_RowDeletingName="RiChang_JiaoYiRowDeleting" msprop:Generator_TablePropName="RiChang_JiaoYi">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
-              <xs:element name="JiaoYi_FangXiang" msprop:Generator_UserColumnName="JiaoYi_FangXiang" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangXiang" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangXiang" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangXiangColumn" type="xs:boolean" />
-              <xs:element name="MingCheng" msprop:Generator_UserColumnName="MingCheng" msprop:Generator_ColumnPropNameInRow="MingCheng" msprop:Generator_ColumnVarNameInTable="columnMingCheng" msprop:Generator_ColumnPropNameInTable="MingChengColumn">
+              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="JiaoYi_FangXiang" msprop:Generator_UserColumnName="JiaoYi_FangXiang" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangXiang" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangXiang" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangXiangColumn" type="xs:boolean" />
+              <xs:element name="MingCheng" msprop:Generator_UserColumnName="MingCheng" msprop:Generator_ColumnVarNameInTable="columnMingCheng" msprop:Generator_ColumnPropNameInRow="MingCheng" msprop:Generator_ColumnPropNameInTable="MingChengColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="JiaoYi_FangShi_ID" msprop:Generator_UserColumnName="JiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="JiaoYi_Time" msprop:Generator_UserColumnName="JiaoYi_Time" msprop:Generator_ColumnPropNameInRow="JiaoYi_Time" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_Time" msprop:Generator_ColumnPropNameInTable="JiaoYi_TimeColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Jin_E" msprop:Generator_UserColumnName="Jin_E" msprop:Generator_ColumnPropNameInRow="Jin_E" msprop:Generator_ColumnVarNameInTable="columnJin_E" msprop:Generator_ColumnPropNameInTable="Jin_EColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="MiaoShu" msprop:Generator_UserColumnName="MiaoShu" msprop:Generator_ColumnPropNameInRow="MiaoShu" msprop:Generator_ColumnVarNameInTable="columnMiaoShu" msprop:Generator_ColumnPropNameInTable="MiaoShuColumn" minOccurs="0">
+              <xs:element name="JiaoYi_FangShi_ID" msprop:Generator_UserColumnName="JiaoYi_FangShi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="JiaoYi_Time" msprop:Generator_UserColumnName="JiaoYi_Time" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_Time" msprop:Generator_ColumnPropNameInRow="JiaoYi_Time" msprop:Generator_ColumnPropNameInTable="JiaoYi_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Jin_E" msprop:Generator_UserColumnName="Jin_E" msprop:Generator_ColumnVarNameInTable="columnJin_E" msprop:Generator_ColumnPropNameInRow="Jin_E" msprop:Generator_ColumnPropNameInTable="Jin_EColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MiaoShu" msprop:Generator_UserColumnName="MiaoShu" msprop:Generator_ColumnVarNameInTable="columnMiaoShu" msprop:Generator_ColumnPropNameInRow="MiaoShu" msprop:Generator_ColumnPropNameInTable="MiaoShuColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
@@ -127,67 +127,75 @@
         <xs:element name="RiChang_JiaoYi_History" msprop:Generator_UserTableName="RiChang_JiaoYi_History" msprop:Generator_RowDeletedName="RiChang_JiaoYi_HistoryRowDeleted" msprop:Generator_RowChangedName="RiChang_JiaoYi_HistoryRowChanged" msprop:Generator_RowClassName="RiChang_JiaoYi_HistoryRow" msprop:Generator_RowChangingName="RiChang_JiaoYi_HistoryRowChanging" msprop:Generator_RowEvArgName="RiChang_JiaoYi_HistoryRowChangeEvent" msprop:Generator_RowEvHandlerName="RiChang_JiaoYi_HistoryRowChangeEventHandler" msprop:Generator_TableClassName="RiChang_JiaoYi_HistoryDataTable" msprop:Generator_TableVarName="tableRiChang_JiaoYi_History" msprop:Generator_RowDeletingName="RiChang_JiaoYi_HistoryRowDeleting" msprop:Generator_TablePropName="RiChang_JiaoYi_History">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
-              <xs:element name="JiaoYi_FenLei_Name" msprop:Generator_UserColumnName="JiaoYi_FenLei_Name" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_Name" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_Name" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_NameColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="JiaoYi_FangShi_Name" msprop:Generator_UserColumnName="JiaoYi_FangShi_Name" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_Name" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_Name" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_NameColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="JiaoYi_FangXiang" msprop:Generator_UserColumnName="JiaoYi_FangXiang" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangXiang" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangXiang" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangXiangColumn" type="xs:boolean" />
-              <xs:element name="MingCheng" msprop:Generator_UserColumnName="MingCheng" msprop:Generator_ColumnPropNameInRow="MingCheng" msprop:Generator_ColumnVarNameInTable="columnMingCheng" msprop:Generator_ColumnPropNameInTable="MingChengColumn">
+              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="JiaoYi_FenLei_Name" msprop:Generator_UserColumnName="JiaoYi_FenLei_Name" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_Name" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_Name" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="JiaoYi_FangShi_Name" msprop:Generator_UserColumnName="JiaoYi_FangShi_Name" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_Name" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_Name" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="JiaoYi_FangXiang" msprop:Generator_UserColumnName="JiaoYi_FangXiang" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangXiang" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangXiang" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangXiangColumn" type="xs:boolean" />
+              <xs:element name="MingCheng" msprop:Generator_UserColumnName="MingCheng" msprop:Generator_ColumnVarNameInTable="columnMingCheng" msprop:Generator_ColumnPropNameInRow="MingCheng" msprop:Generator_ColumnPropNameInTable="MingChengColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="JiaoYi_FangShi_ID" msprop:Generator_UserColumnName="JiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="JiaoYi_Time" msprop:Generator_UserColumnName="JiaoYi_Time" msprop:Generator_ColumnPropNameInRow="JiaoYi_Time" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_Time" msprop:Generator_ColumnPropNameInTable="JiaoYi_TimeColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Jin_E" msprop:Generator_UserColumnName="Jin_E" msprop:Generator_ColumnPropNameInRow="Jin_E" msprop:Generator_ColumnVarNameInTable="columnJin_E" msprop:Generator_ColumnPropNameInTable="Jin_EColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="MiaoShu" msprop:Generator_UserColumnName="MiaoShu" msprop:Generator_ColumnPropNameInRow="MiaoShu" msprop:Generator_ColumnVarNameInTable="columnMiaoShu" msprop:Generator_ColumnPropNameInTable="MiaoShuColumn" minOccurs="0">
+              <xs:element name="JiaoYi_FangShi_ID" msprop:Generator_UserColumnName="JiaoYi_FangShi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="JiaoYi_Time" msprop:Generator_UserColumnName="JiaoYi_Time" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_Time" msprop:Generator_ColumnPropNameInRow="JiaoYi_Time" msprop:Generator_ColumnPropNameInTable="JiaoYi_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Jin_E" msprop:Generator_UserColumnName="Jin_E" msprop:Generator_ColumnVarNameInTable="columnJin_E" msprop:Generator_ColumnPropNameInRow="Jin_E" msprop:Generator_ColumnPropNameInTable="Jin_EColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MiaoShu" msprop:Generator_UserColumnName="MiaoShu" msprop:Generator_ColumnVarNameInTable="columnMiaoShu" msprop:Generator_ColumnPropNameInRow="MiaoShu" msprop:Generator_ColumnPropNameInTable="MiaoShuColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="RiChang_ID" msprop:Generator_UserColumnName="RiChang_ID" msprop:Generator_ColumnPropNameInRow="RiChang_ID" msprop:Generator_ColumnVarNameInTable="columnRiChang_ID" msprop:Generator_ColumnPropNameInTable="RiChang_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="Change_Mode" msprop:Generator_UserColumnName="Change_Mode" msprop:Generator_ColumnVarNameInTable="columnChange_Mode" msprop:Generator_ColumnPropNameInRow="Change_Mode" msprop:Generator_ColumnPropNameInTable="Change_ModeColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="Change_Time" msprop:Generator_UserColumnName="Change_Time" msprop:Generator_ColumnPropNameInRow="Change_Time" msprop:Generator_ColumnVarNameInTable="columnChange_Time" msprop:Generator_ColumnPropNameInTable="Change_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RiChang_ID" msprop:Generator_UserColumnName="RiChang_ID" msprop:Generator_ColumnVarNameInTable="columnRiChang_ID" msprop:Generator_ColumnPropNameInRow="RiChang_ID" msprop:Generator_ColumnPropNameInTable="RiChang_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Change_Mode" msprop:Generator_UserColumnName="Change_Mode" msprop:Generator_ColumnPropNameInRow="Change_Mode" msprop:Generator_ColumnVarNameInTable="columnChange_Mode" msprop:Generator_ColumnPropNameInTable="Change_ModeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Change_Time" msprop:Generator_UserColumnName="Change_Time" msprop:Generator_ColumnVarNameInTable="columnChange_Time" msprop:Generator_ColumnPropNameInRow="Change_Time" msprop:Generator_ColumnPropNameInTable="Change_TimeColumn" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="GuDing_JiaoYi_History" msprop:Generator_UserTableName="GuDing_JiaoYi_History" msprop:Generator_RowDeletedName="GuDing_JiaoYi_HistoryRowDeleted" msprop:Generator_RowChangedName="GuDing_JiaoYi_HistoryRowChanged" msprop:Generator_RowClassName="GuDing_JiaoYi_HistoryRow" msprop:Generator_RowChangingName="GuDing_JiaoYi_HistoryRowChanging" msprop:Generator_RowEvArgName="GuDing_JiaoYi_HistoryRowChangeEvent" msprop:Generator_RowEvHandlerName="GuDing_JiaoYi_HistoryRowChangeEventHandler" msprop:Generator_TableClassName="GuDing_JiaoYi_HistoryDataTable" msprop:Generator_TableVarName="tableGuDing_JiaoYi_History" msprop:Generator_RowDeletingName="GuDing_JiaoYi_HistoryRowDeleting" msprop:Generator_TablePropName="GuDing_JiaoYi_History">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
-              <xs:element name="MingCheng" msprop:Generator_UserColumnName="MingCheng" msprop:Generator_ColumnPropNameInRow="MingCheng" msprop:Generator_ColumnVarNameInTable="columnMingCheng" msprop:Generator_ColumnPropNameInTable="MingChengColumn" minOccurs="0">
+              <xs:element name="ID" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="MingCheng" msprop:Generator_UserColumnName="MingCheng" msprop:Generator_ColumnVarNameInTable="columnMingCheng" msprop:Generator_ColumnPropNameInRow="MingCheng" msprop:Generator_ColumnPropNameInTable="MingChengColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="JiaoYi_FangXiang" msprop:Generator_UserColumnName="JiaoYi_FangXiang" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangXiang" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangXiang" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangXiangColumn" type="xs:boolean" minOccurs="0" />
-              <xs:element name="JiaoYi_ZhouQi_ID" msprop:Generator_UserColumnName="JiaoYi_ZhouQi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_ZhouQi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_ZhouQi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_ZhouQi_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="JiaoYi_FangShi_Name" msprop:Generator_UserColumnName="JiaoYi_FangShi_Name" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_Name" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_Name" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_NameColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="JiaoYi_FangShi_ID" msprop:Generator_UserColumnName="JiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="Start_Time" msprop:Generator_UserColumnName="Start_Time" msprop:Generator_ColumnPropNameInRow="Start_Time" msprop:Generator_ColumnVarNameInTable="columnStart_Time" msprop:Generator_ColumnPropNameInTable="Start_TimeColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Stop_Time" msprop:Generator_UserColumnName="Stop_Time" msprop:Generator_ColumnPropNameInRow="Stop_Time" msprop:Generator_ColumnVarNameInTable="columnStop_Time" msprop:Generator_ColumnPropNameInTable="Stop_TimeColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="JiaoYi_FenLei_Name" msprop:Generator_UserColumnName="JiaoYi_FenLei_Name" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_Name" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_Name" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_NameColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="GuDing_ID" msprop:Generator_UserColumnName="GuDing_ID" msprop:Generator_ColumnPropNameInRow="GuDing_ID" msprop:Generator_ColumnVarNameInTable="columnGuDing_ID" msprop:Generator_ColumnPropNameInTable="GuDing_IDColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="MiaoShu" msprop:Generator_UserColumnName="MiaoShu" msprop:Generator_ColumnPropNameInRow="MiaoShu" msprop:Generator_ColumnVarNameInTable="columnMiaoShu" msprop:Generator_ColumnPropNameInTable="MiaoShuColumn" minOccurs="0">
+              <xs:element name="JiaoYi_FangXiang" msprop:Generator_UserColumnName="JiaoYi_FangXiang" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangXiang" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangXiang" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangXiangColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="JiaoYi_ZhouQi_ID" msprop:Generator_UserColumnName="JiaoYi_ZhouQi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_ZhouQi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_ZhouQi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_ZhouQi_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="JiaoYi_FangShi_Name" msprop:Generator_UserColumnName="JiaoYi_FangShi_Name" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_Name" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_Name" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="JiaoYi_FangShi_ID" msprop:Generator_UserColumnName="JiaoYi_FangShi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Start_Time" msprop:Generator_UserColumnName="Start_Time" msprop:Generator_ColumnVarNameInTable="columnStart_Time" msprop:Generator_ColumnPropNameInRow="Start_Time" msprop:Generator_ColumnPropNameInTable="Start_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Stop_Time" msprop:Generator_UserColumnName="Stop_Time" msprop:Generator_ColumnVarNameInTable="columnStop_Time" msprop:Generator_ColumnPropNameInRow="Stop_Time" msprop:Generator_ColumnPropNameInTable="Stop_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="JiaoYi_FenLei_Name" msprop:Generator_UserColumnName="JiaoYi_FenLei_Name" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_Name" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_Name" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="GuDing_ID" msprop:Generator_UserColumnName="GuDing_ID" msprop:Generator_ColumnVarNameInTable="columnGuDing_ID" msprop:Generator_ColumnPropNameInRow="GuDing_ID" msprop:Generator_ColumnPropNameInTable="GuDing_IDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="MiaoShu" msprop:Generator_UserColumnName="MiaoShu" msprop:Generator_ColumnVarNameInTable="columnMiaoShu" msprop:Generator_ColumnPropNameInRow="MiaoShu" msprop:Generator_ColumnPropNameInTable="MiaoShuColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Jin_E" msprop:Generator_UserColumnName="Jin_E" msprop:Generator_ColumnPropNameInRow="Jin_E" msprop:Generator_ColumnVarNameInTable="columnJin_E" msprop:Generator_ColumnPropNameInTable="Jin_EColumn" type="xs:decimal" />
-              <xs:element name="ZhouQi" msprop:Generator_UserColumnName="ZhouQi" msprop:Generator_ColumnPropNameInRow="ZhouQi" msprop:Generator_ColumnVarNameInTable="columnZhouQi" msprop:Generator_ColumnPropNameInTable="ZhouQiColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="HasEndDate" msprop:Generator_UserColumnName="HasEndDate" msprop:Generator_ColumnPropNameInRow="HasEndDate" msprop:Generator_ColumnVarNameInTable="columnHasEndDate" msprop:Generator_ColumnPropNameInTable="HasEndDateColumn" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Change_Mode" msprop:Generator_UserColumnName="Change_Mode" msprop:Generator_ColumnVarNameInTable="columnChange_Mode" msprop:Generator_ColumnPropNameInRow="Change_Mode" msprop:Generator_ColumnPropNameInTable="Change_ModeColumn" type="xs:string" minOccurs="0" />
-              <xs:element name="Change_Time" msprop:Generator_UserColumnName="Change_Time" msprop:Generator_ColumnPropNameInRow="Change_Time" msprop:Generator_ColumnVarNameInTable="columnChange_Time" msprop:Generator_ColumnPropNameInTable="Change_TimeColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Last_Execute_Time" msprop:Generator_UserColumnName="Last_Execute_Time" msprop:Generator_ColumnPropNameInRow="Last_Execute_Time" msprop:Generator_ColumnVarNameInTable="columnLast_Execute_Time" msprop:Generator_ColumnPropNameInTable="Last_Execute_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Jin_E" msprop:Generator_UserColumnName="Jin_E" msprop:Generator_ColumnVarNameInTable="columnJin_E" msprop:Generator_ColumnPropNameInRow="Jin_E" msprop:Generator_ColumnPropNameInTable="Jin_EColumn" type="xs:decimal" />
+              <xs:element name="ZhouQi" msprop:Generator_UserColumnName="ZhouQi" msprop:Generator_ColumnVarNameInTable="columnZhouQi" msprop:Generator_ColumnPropNameInRow="ZhouQi" msprop:Generator_ColumnPropNameInTable="ZhouQiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="HasEndDate" msprop:Generator_UserColumnName="HasEndDate" msprop:Generator_ColumnVarNameInTable="columnHasEndDate" msprop:Generator_ColumnPropNameInRow="HasEndDate" msprop:Generator_ColumnPropNameInTable="HasEndDateColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Change_Mode" msprop:Generator_UserColumnName="Change_Mode" msprop:Generator_ColumnPropNameInRow="Change_Mode" msprop:Generator_ColumnVarNameInTable="columnChange_Mode" msprop:Generator_ColumnPropNameInTable="Change_ModeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Change_Time" msprop:Generator_UserColumnName="Change_Time" msprop:Generator_ColumnVarNameInTable="columnChange_Time" msprop:Generator_ColumnPropNameInRow="Change_Time" msprop:Generator_ColumnPropNameInTable="Change_TimeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Last_Execute_Time" msprop:Generator_UserColumnName="Last_Execute_Time" msprop:Generator_ColumnVarNameInTable="columnLast_Execute_Time" msprop:Generator_ColumnPropNameInRow="Last_Execute_Time" msprop:Generator_ColumnPropNameInTable="Last_Execute_TimeColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Year_PeiZhi" msprop:Generator_UserTableName="Year_PeiZhi" msprop:Generator_RowDeletedName="Year_PeiZhiRowDeleted" msprop:Generator_TableClassName="Year_PeiZhiDataTable" msprop:Generator_RowChangedName="Year_PeiZhiRowChanged" msprop:Generator_RowClassName="Year_PeiZhiRow" msprop:Generator_RowChangingName="Year_PeiZhiRowChanging" msprop:Generator_RowEvArgName="Year_PeiZhiRowChangeEvent" msprop:Generator_RowEvHandlerName="Year_PeiZhiRowChangeEventHandler" msprop:Generator_TablePropName="Year_PeiZhi" msprop:Generator_TableVarName="tableYear_PeiZhi" msprop:Generator_RowDeletingName="Year_PeiZhiRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" type="xs:string" />
+              <xs:element name="Value" msprop:Generator_UserColumnName="Value" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInTable="ValueColumn" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -220,6 +228,10 @@
     <xs:unique name="GuDing_JiaoYi_History_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:GuDing_JiaoYi_History" />
       <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="Year_PeiZhi_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Year_PeiZhi" />
+      <xs:field xpath="mstns:Name" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
