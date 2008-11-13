@@ -30,39 +30,39 @@ namespace Money.Net
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.绯荤粺ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.褰撴棩浜ゆ槗ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鍥哄畾浜ゆ槗ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.当日交易ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.固定交易ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.鍚堝苟璁板綍ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.合并记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.恢复日常交易记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.恢复固定交易记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.閫�鍑篢oolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.閰嶇疆ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.浜ゆ槗鍒嗙被ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.浜ゆ槗鏂瑰紡ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.交易分类ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.交易方式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.鍒濆鍖朤oolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.璁板笎骞村害ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.涓荤晫闈㈤厤缃甌oolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鎶ヨ〃ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.初始化ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.记帐年度ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.主界面配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.姣忔棩鏄庣粏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鏈堝害鍚堣ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鏈堝害鏄庣粏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.骞村害鍚堣ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.骞村害鏄庣粏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.每日明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.月度合计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.月度明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.年度合计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.年度明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.鑷畾涔夊悎璁oolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鑷畾涔夋槑缁員oolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鍖洪棿鍒嗙被鍚堣ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.甯姪ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.鍏充簬ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.自定义合计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.自定义明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.区间分类合计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.区间分类明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.区间交易方式合计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.区间交易方式明细ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblYearYuE = new System.Windows.Forms.Label();
@@ -109,50 +109,50 @@ namespace Money.Net
             this.menuStrip1.BackgroundImage = null;
             this.menuStrip1.Font = null;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.绯荤粺ToolStripMenuItem,
-            this.閰嶇疆ToolStripMenuItem,
-            this.鎶ヨ〃ToolStripMenuItem,
-            this.甯姪ToolStripMenuItem});
+            this.系统ToolStripMenuItem,
+            this.配置ToolStripMenuItem,
+            this.报表ToolStripMenuItem,
+            this.帮助ToolStripMenuItem});
             this.menuStrip1.Name = "menuStrip1";
             // 
-            // 绯荤粺ToolStripMenuItem
+            // 系统ToolStripMenuItem
             // 
-            this.绯荤粺ToolStripMenuItem.AccessibleDescription = null;
-            this.绯荤粺ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.绯荤粺ToolStripMenuItem, "绯荤粺ToolStripMenuItem");
-            this.绯荤粺ToolStripMenuItem.BackgroundImage = null;
-            this.绯荤粺ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.褰撴棩浜ゆ槗ToolStripMenuItem,
-            this.鍥哄畾浜ゆ槗ToolStripMenuItem,
+            this.系统ToolStripMenuItem.AccessibleDescription = null;
+            this.系统ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.系统ToolStripMenuItem, "系统ToolStripMenuItem");
+            this.系统ToolStripMenuItem.BackgroundImage = null;
+            this.系统ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.当日交易ToolStripMenuItem,
+            this.固定交易ToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.鍚堝苟璁板綍ToolStripMenuItem,
+            this.合并记录ToolStripMenuItem,
             this.toolStripMenuItem3,
-            this.鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem,
-            this.鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem,
+            this.恢复日常交易记录ToolStripMenuItem,
+            this.恢复固定交易记录ToolStripMenuItem,
             this.toolStripMenuItem5,
-            this.閫�鍑篢oolStripMenuItem});
-            this.绯荤粺ToolStripMenuItem.Name = "绯荤粺ToolStripMenuItem";
-            this.绯荤粺ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.退出ToolStripMenuItem});
+            this.系统ToolStripMenuItem.Name = "系统ToolStripMenuItem";
+            this.系统ToolStripMenuItem.ShortcutKeyDisplayString = null;
             // 
-            // 褰撴棩浜ゆ槗ToolStripMenuItem
+            // 当日交易ToolStripMenuItem
             // 
-            this.褰撴棩浜ゆ槗ToolStripMenuItem.AccessibleDescription = null;
-            this.褰撴棩浜ゆ槗ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.褰撴棩浜ゆ槗ToolStripMenuItem, "褰撴棩浜ゆ槗ToolStripMenuItem");
-            this.褰撴棩浜ゆ槗ToolStripMenuItem.BackgroundImage = null;
-            this.褰撴棩浜ゆ槗ToolStripMenuItem.Name = "褰撴棩浜ゆ槗ToolStripMenuItem";
-            this.褰撴棩浜ゆ槗ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.褰撴棩浜ゆ槗ToolStripMenuItem.Click += new System.EventHandler(this.褰撴棩浜ゆ槗ToolStripMenuItem_Click);
+            this.当日交易ToolStripMenuItem.AccessibleDescription = null;
+            this.当日交易ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.当日交易ToolStripMenuItem, "当日交易ToolStripMenuItem");
+            this.当日交易ToolStripMenuItem.BackgroundImage = null;
+            this.当日交易ToolStripMenuItem.Name = "当日交易ToolStripMenuItem";
+            this.当日交易ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.当日交易ToolStripMenuItem.Click += new System.EventHandler(this.当日交易ToolStripMenuItem_Click);
             // 
-            // 鍥哄畾浜ゆ槗ToolStripMenuItem
+            // 固定交易ToolStripMenuItem
             // 
-            this.鍥哄畾浜ゆ槗ToolStripMenuItem.AccessibleDescription = null;
-            this.鍥哄畾浜ゆ槗ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鍥哄畾浜ゆ槗ToolStripMenuItem, "鍥哄畾浜ゆ槗ToolStripMenuItem");
-            this.鍥哄畾浜ゆ槗ToolStripMenuItem.BackgroundImage = null;
-            this.鍥哄畾浜ゆ槗ToolStripMenuItem.Name = "鍥哄畾浜ゆ槗ToolStripMenuItem";
-            this.鍥哄畾浜ゆ槗ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鍥哄畾浜ゆ槗ToolStripMenuItem.Click += new System.EventHandler(this.鍥哄畾浜ゆ槗ToolStripMenuItem_Click);
+            this.固定交易ToolStripMenuItem.AccessibleDescription = null;
+            this.固定交易ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.固定交易ToolStripMenuItem, "固定交易ToolStripMenuItem");
+            this.固定交易ToolStripMenuItem.BackgroundImage = null;
+            this.固定交易ToolStripMenuItem.Name = "固定交易ToolStripMenuItem";
+            this.固定交易ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.固定交易ToolStripMenuItem.Click += new System.EventHandler(this.固定交易ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -161,15 +161,15 @@ namespace Money.Net
             resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             // 
-            // 鍚堝苟璁板綍ToolStripMenuItem
+            // 合并记录ToolStripMenuItem
             // 
-            this.鍚堝苟璁板綍ToolStripMenuItem.AccessibleDescription = null;
-            this.鍚堝苟璁板綍ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鍚堝苟璁板綍ToolStripMenuItem, "鍚堝苟璁板綍ToolStripMenuItem");
-            this.鍚堝苟璁板綍ToolStripMenuItem.BackgroundImage = null;
-            this.鍚堝苟璁板綍ToolStripMenuItem.Name = "鍚堝苟璁板綍ToolStripMenuItem";
-            this.鍚堝苟璁板綍ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鍚堝苟璁板綍ToolStripMenuItem.Click += new System.EventHandler(this.鍚堝苟璁板綍ToolStripMenuItem_Click);
+            this.合并记录ToolStripMenuItem.AccessibleDescription = null;
+            this.合并记录ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.合并记录ToolStripMenuItem, "合并记录ToolStripMenuItem");
+            this.合并记录ToolStripMenuItem.BackgroundImage = null;
+            this.合并记录ToolStripMenuItem.Name = "合并记录ToolStripMenuItem";
+            this.合并记录ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.合并记录ToolStripMenuItem.Click += new System.EventHandler(this.合并记录ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -178,25 +178,25 @@ namespace Money.Net
             resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             // 
-            // 鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem
+            // 恢复日常交易记录ToolStripMenuItem
             // 
-            this.鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem.AccessibleDescription = null;
-            this.鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem, "鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem");
-            this.鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem.BackgroundImage = null;
-            this.鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem.Name = "鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem";
-            this.鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem.Click += new System.EventHandler(this.鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem_Click);
+            this.恢复日常交易记录ToolStripMenuItem.AccessibleDescription = null;
+            this.恢复日常交易记录ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.恢复日常交易记录ToolStripMenuItem, "恢复日常交易记录ToolStripMenuItem");
+            this.恢复日常交易记录ToolStripMenuItem.BackgroundImage = null;
+            this.恢复日常交易记录ToolStripMenuItem.Name = "恢复日常交易记录ToolStripMenuItem";
+            this.恢复日常交易记录ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.恢复日常交易记录ToolStripMenuItem.Click += new System.EventHandler(this.恢复日常交易记录ToolStripMenuItem_Click);
             // 
-            // 鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem
+            // 恢复固定交易记录ToolStripMenuItem
             // 
-            this.鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem.AccessibleDescription = null;
-            this.鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem, "鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem");
-            this.鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem.BackgroundImage = null;
-            this.鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem.Name = "鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem";
-            this.鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem.Click += new System.EventHandler(this.鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem_Click);
+            this.恢复固定交易记录ToolStripMenuItem.AccessibleDescription = null;
+            this.恢复固定交易记录ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.恢复固定交易记录ToolStripMenuItem, "恢复固定交易记录ToolStripMenuItem");
+            this.恢复固定交易记录ToolStripMenuItem.BackgroundImage = null;
+            this.恢复固定交易记录ToolStripMenuItem.Name = "恢复固定交易记录ToolStripMenuItem";
+            this.恢复固定交易记录ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.恢复固定交易记录ToolStripMenuItem.Click += new System.EventHandler(this.恢复固定交易记录ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
@@ -205,51 +205,51 @@ namespace Money.Net
             resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             // 
-            // 閫�鍑篢oolStripMenuItem
+            // 退出ToolStripMenuItem
             // 
-            this.閫�鍑篢oolStripMenuItem.AccessibleDescription = null;
-            this.閫�鍑篢oolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.閫�鍑篢oolStripMenuItem, "閫�鍑篢oolStripMenuItem");
-            this.閫�鍑篢oolStripMenuItem.BackgroundImage = null;
-            this.閫�鍑篢oolStripMenuItem.Name = "閫�鍑篢oolStripMenuItem";
-            this.閫�鍑篢oolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.閫�鍑篢oolStripMenuItem.Click += new System.EventHandler(this.閫�鍑篢oolStripMenuItem_Click);
+            this.退出ToolStripMenuItem.AccessibleDescription = null;
+            this.退出ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.退出ToolStripMenuItem, "退出ToolStripMenuItem");
+            this.退出ToolStripMenuItem.BackgroundImage = null;
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
-            // 閰嶇疆ToolStripMenuItem
+            // 配置ToolStripMenuItem
             // 
-            this.閰嶇疆ToolStripMenuItem.AccessibleDescription = null;
-            this.閰嶇疆ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.閰嶇疆ToolStripMenuItem, "閰嶇疆ToolStripMenuItem");
-            this.閰嶇疆ToolStripMenuItem.BackgroundImage = null;
-            this.閰嶇疆ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.浜ゆ槗鍒嗙被ToolStripMenuItem,
-            this.浜ゆ槗鏂瑰紡ToolStripMenuItem,
+            this.配置ToolStripMenuItem.AccessibleDescription = null;
+            this.配置ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.配置ToolStripMenuItem, "配置ToolStripMenuItem");
+            this.配置ToolStripMenuItem.BackgroundImage = null;
+            this.配置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.交易分类ToolStripMenuItem,
+            this.交易方式ToolStripMenuItem,
             this.toolStripSeparator2,
-            this.鍒濆鍖朤oolStripMenuItem,
-            this.璁板笎骞村害ToolStripMenuItem,
-            this.涓荤晫闈㈤厤缃甌oolStripMenuItem});
-            this.閰嶇疆ToolStripMenuItem.Name = "閰嶇疆ToolStripMenuItem";
-            this.閰嶇疆ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.初始化ToolStripMenuItem,
+            this.记帐年度ToolStripMenuItem,
+            this.主界面配置ToolStripMenuItem});
+            this.配置ToolStripMenuItem.Name = "配置ToolStripMenuItem";
+            this.配置ToolStripMenuItem.ShortcutKeyDisplayString = null;
             // 
-            // 浜ゆ槗鍒嗙被ToolStripMenuItem
+            // 交易分类ToolStripMenuItem
             // 
-            this.浜ゆ槗鍒嗙被ToolStripMenuItem.AccessibleDescription = null;
-            this.浜ゆ槗鍒嗙被ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.浜ゆ槗鍒嗙被ToolStripMenuItem, "浜ゆ槗鍒嗙被ToolStripMenuItem");
-            this.浜ゆ槗鍒嗙被ToolStripMenuItem.BackgroundImage = null;
-            this.浜ゆ槗鍒嗙被ToolStripMenuItem.Name = "浜ゆ槗鍒嗙被ToolStripMenuItem";
-            this.浜ゆ槗鍒嗙被ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.浜ゆ槗鍒嗙被ToolStripMenuItem.Click += new System.EventHandler(this.浜ゆ槗鍒嗙被ToolStripMenuItem_Click);
+            this.交易分类ToolStripMenuItem.AccessibleDescription = null;
+            this.交易分类ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.交易分类ToolStripMenuItem, "交易分类ToolStripMenuItem");
+            this.交易分类ToolStripMenuItem.BackgroundImage = null;
+            this.交易分类ToolStripMenuItem.Name = "交易分类ToolStripMenuItem";
+            this.交易分类ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.交易分类ToolStripMenuItem.Click += new System.EventHandler(this.交易分类ToolStripMenuItem_Click);
             // 
-            // 浜ゆ槗鏂瑰紡ToolStripMenuItem
+            // 交易方式ToolStripMenuItem
             // 
-            this.浜ゆ槗鏂瑰紡ToolStripMenuItem.AccessibleDescription = null;
-            this.浜ゆ槗鏂瑰紡ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.浜ゆ槗鏂瑰紡ToolStripMenuItem, "浜ゆ槗鏂瑰紡ToolStripMenuItem");
-            this.浜ゆ槗鏂瑰紡ToolStripMenuItem.BackgroundImage = null;
-            this.浜ゆ槗鏂瑰紡ToolStripMenuItem.Name = "浜ゆ槗鏂瑰紡ToolStripMenuItem";
-            this.浜ゆ槗鏂瑰紡ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.浜ゆ槗鏂瑰紡ToolStripMenuItem.Click += new System.EventHandler(this.浜ゆ槗鏂瑰紡ToolStripMenuItem_Click);
+            this.交易方式ToolStripMenuItem.AccessibleDescription = null;
+            this.交易方式ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.交易方式ToolStripMenuItem, "交易方式ToolStripMenuItem");
+            this.交易方式ToolStripMenuItem.BackgroundImage = null;
+            this.交易方式ToolStripMenuItem.Name = "交易方式ToolStripMenuItem";
+            this.交易方式ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.交易方式ToolStripMenuItem.Click += new System.EventHandler(this.交易方式ToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -258,58 +258,58 @@ namespace Money.Net
             resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             // 
-            // 鍒濆鍖朤oolStripMenuItem
+            // 初始化ToolStripMenuItem
             // 
-            this.鍒濆鍖朤oolStripMenuItem.AccessibleDescription = null;
-            this.鍒濆鍖朤oolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鍒濆鍖朤oolStripMenuItem, "鍒濆鍖朤oolStripMenuItem");
-            this.鍒濆鍖朤oolStripMenuItem.BackgroundImage = null;
-            this.鍒濆鍖朤oolStripMenuItem.Name = "鍒濆鍖朤oolStripMenuItem";
-            this.鍒濆鍖朤oolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鍒濆鍖朤oolStripMenuItem.Click += new System.EventHandler(this.鍒濆鍖朤oolStripMenuItem_Click);
+            this.初始化ToolStripMenuItem.AccessibleDescription = null;
+            this.初始化ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.初始化ToolStripMenuItem, "初始化ToolStripMenuItem");
+            this.初始化ToolStripMenuItem.BackgroundImage = null;
+            this.初始化ToolStripMenuItem.Name = "初始化ToolStripMenuItem";
+            this.初始化ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.初始化ToolStripMenuItem.Click += new System.EventHandler(this.初始化ToolStripMenuItem_Click);
             // 
-            // 璁板笎骞村害ToolStripMenuItem
+            // 记帐年度ToolStripMenuItem
             // 
-            this.璁板笎骞村害ToolStripMenuItem.AccessibleDescription = null;
-            this.璁板笎骞村害ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.璁板笎骞村害ToolStripMenuItem, "璁板笎骞村害ToolStripMenuItem");
-            this.璁板笎骞村害ToolStripMenuItem.BackgroundImage = null;
-            this.璁板笎骞村害ToolStripMenuItem.Name = "璁板笎骞村害ToolStripMenuItem";
-            this.璁板笎骞村害ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.璁板笎骞村害ToolStripMenuItem.Click += new System.EventHandler(this.璁板笎骞村害ToolStripMenuItem_Click);
+            this.记帐年度ToolStripMenuItem.AccessibleDescription = null;
+            this.记帐年度ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.记帐年度ToolStripMenuItem, "记帐年度ToolStripMenuItem");
+            this.记帐年度ToolStripMenuItem.BackgroundImage = null;
+            this.记帐年度ToolStripMenuItem.Name = "记帐年度ToolStripMenuItem";
+            this.记帐年度ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.记帐年度ToolStripMenuItem.Click += new System.EventHandler(this.记帐年度ToolStripMenuItem_Click);
             // 
-            // 涓荤晫闈㈤厤缃甌oolStripMenuItem
+            // 主界面配置ToolStripMenuItem
             // 
-            this.涓荤晫闈㈤厤缃甌oolStripMenuItem.AccessibleDescription = null;
-            this.涓荤晫闈㈤厤缃甌oolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.涓荤晫闈㈤厤缃甌oolStripMenuItem, "涓荤晫闈㈤厤缃甌oolStripMenuItem");
-            this.涓荤晫闈㈤厤缃甌oolStripMenuItem.BackgroundImage = null;
-            this.涓荤晫闈㈤厤缃甌oolStripMenuItem.Name = "涓荤晫闈㈤厤缃甌oolStripMenuItem";
-            this.涓荤晫闈㈤厤缃甌oolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.涓荤晫闈㈤厤缃甌oolStripMenuItem.Click += new System.EventHandler(this.涓荤晫闈㈤厤缃甌oolStripMenuItem_Click);
+            this.主界面配置ToolStripMenuItem.AccessibleDescription = null;
+            this.主界面配置ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.主界面配置ToolStripMenuItem, "主界面配置ToolStripMenuItem");
+            this.主界面配置ToolStripMenuItem.BackgroundImage = null;
+            this.主界面配置ToolStripMenuItem.Name = "主界面配置ToolStripMenuItem";
+            this.主界面配置ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.主界面配置ToolStripMenuItem.Click += new System.EventHandler(this.主界面配置ToolStripMenuItem_Click);
             // 
-            // 鎶ヨ〃ToolStripMenuItem
+            // 报表ToolStripMenuItem
             // 
-            this.鎶ヨ〃ToolStripMenuItem.AccessibleDescription = null;
-            this.鎶ヨ〃ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鎶ヨ〃ToolStripMenuItem, "鎶ヨ〃ToolStripMenuItem");
-            this.鎶ヨ〃ToolStripMenuItem.BackgroundImage = null;
-            this.鎶ヨ〃ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.报表ToolStripMenuItem.AccessibleDescription = null;
+            this.报表ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.报表ToolStripMenuItem, "报表ToolStripMenuItem");
+            this.报表ToolStripMenuItem.BackgroundImage = null;
+            this.报表ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2,
-            this.姣忔棩鏄庣粏ToolStripMenuItem,
-            this.鏈堝害鍚堣ToolStripMenuItem,
-            this.鏈堝害鏄庣粏ToolStripMenuItem,
-            this.骞村害鍚堣ToolStripMenuItem,
-            this.骞村害鏄庣粏ToolStripMenuItem,
+            this.每日明细ToolStripMenuItem,
+            this.月度合计ToolStripMenuItem,
+            this.月度明细ToolStripMenuItem,
+            this.年度合计ToolStripMenuItem,
+            this.年度明细ToolStripMenuItem,
             this.toolStripMenuItem4,
-            this.鑷畾涔夊悎璁oolStripMenuItem,
-            this.鑷畾涔夋槑缁員oolStripMenuItem,
-            this.鍖洪棿鍒嗙被鍚堣ToolStripMenuItem,
-            this.鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem,
-            this.鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem,
-            this.鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem});
-            this.鎶ヨ〃ToolStripMenuItem.Name = "鎶ヨ〃ToolStripMenuItem";
-            this.鎶ヨ〃ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.自定义合计ToolStripMenuItem,
+            this.自定义明细ToolStripMenuItem,
+            this.区间分类合计ToolStripMenuItem,
+            this.区间分类明细ToolStripMenuItem,
+            this.区间交易方式合计ToolStripMenuItem,
+            this.区间交易方式明细ToolStripMenuItem});
+            this.报表ToolStripMenuItem.Name = "报表ToolStripMenuItem";
+            this.报表ToolStripMenuItem.ShortcutKeyDisplayString = null;
             // 
             // toolStripMenuItem2
             // 
@@ -319,57 +319,57 @@ namespace Money.Net
             this.toolStripMenuItem2.BackgroundImage = null;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.ShortcutKeyDisplayString = null;
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.姣忔棩鍚堣_Click);
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.每日合计_Click);
             // 
-            // 姣忔棩鏄庣粏ToolStripMenuItem
+            // 每日明细ToolStripMenuItem
             // 
-            this.姣忔棩鏄庣粏ToolStripMenuItem.AccessibleDescription = null;
-            this.姣忔棩鏄庣粏ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.姣忔棩鏄庣粏ToolStripMenuItem, "姣忔棩鏄庣粏ToolStripMenuItem");
-            this.姣忔棩鏄庣粏ToolStripMenuItem.BackgroundImage = null;
-            this.姣忔棩鏄庣粏ToolStripMenuItem.Name = "姣忔棩鏄庣粏ToolStripMenuItem";
-            this.姣忔棩鏄庣粏ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.姣忔棩鏄庣粏ToolStripMenuItem.Click += new System.EventHandler(this.姣忔棩鏄庣粏ToolStripMenuItem_Click);
+            this.每日明细ToolStripMenuItem.AccessibleDescription = null;
+            this.每日明细ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.每日明细ToolStripMenuItem, "每日明细ToolStripMenuItem");
+            this.每日明细ToolStripMenuItem.BackgroundImage = null;
+            this.每日明细ToolStripMenuItem.Name = "每日明细ToolStripMenuItem";
+            this.每日明细ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.每日明细ToolStripMenuItem.Click += new System.EventHandler(this.每日明细ToolStripMenuItem_Click);
             // 
-            // 鏈堝害鍚堣ToolStripMenuItem
+            // 月度合计ToolStripMenuItem
             // 
-            this.鏈堝害鍚堣ToolStripMenuItem.AccessibleDescription = null;
-            this.鏈堝害鍚堣ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鏈堝害鍚堣ToolStripMenuItem, "鏈堝害鍚堣ToolStripMenuItem");
-            this.鏈堝害鍚堣ToolStripMenuItem.BackgroundImage = null;
-            this.鏈堝害鍚堣ToolStripMenuItem.Name = "鏈堝害鍚堣ToolStripMenuItem";
-            this.鏈堝害鍚堣ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鏈堝害鍚堣ToolStripMenuItem.Click += new System.EventHandler(this.鏈堝害鍚堣ToolStripMenuItem_Click);
+            this.月度合计ToolStripMenuItem.AccessibleDescription = null;
+            this.月度合计ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.月度合计ToolStripMenuItem, "月度合计ToolStripMenuItem");
+            this.月度合计ToolStripMenuItem.BackgroundImage = null;
+            this.月度合计ToolStripMenuItem.Name = "月度合计ToolStripMenuItem";
+            this.月度合计ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.月度合计ToolStripMenuItem.Click += new System.EventHandler(this.月度合计ToolStripMenuItem_Click);
             // 
-            // 鏈堝害鏄庣粏ToolStripMenuItem
+            // 月度明细ToolStripMenuItem
             // 
-            this.鏈堝害鏄庣粏ToolStripMenuItem.AccessibleDescription = null;
-            this.鏈堝害鏄庣粏ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鏈堝害鏄庣粏ToolStripMenuItem, "鏈堝害鏄庣粏ToolStripMenuItem");
-            this.鏈堝害鏄庣粏ToolStripMenuItem.BackgroundImage = null;
-            this.鏈堝害鏄庣粏ToolStripMenuItem.Name = "鏈堝害鏄庣粏ToolStripMenuItem";
-            this.鏈堝害鏄庣粏ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鏈堝害鏄庣粏ToolStripMenuItem.Click += new System.EventHandler(this.鏈堝害鏄庣粏ToolStripMenuItem_Click);
+            this.月度明细ToolStripMenuItem.AccessibleDescription = null;
+            this.月度明细ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.月度明细ToolStripMenuItem, "月度明细ToolStripMenuItem");
+            this.月度明细ToolStripMenuItem.BackgroundImage = null;
+            this.月度明细ToolStripMenuItem.Name = "月度明细ToolStripMenuItem";
+            this.月度明细ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.月度明细ToolStripMenuItem.Click += new System.EventHandler(this.月度明细ToolStripMenuItem_Click);
             // 
-            // 骞村害鍚堣ToolStripMenuItem
+            // 年度合计ToolStripMenuItem
             // 
-            this.骞村害鍚堣ToolStripMenuItem.AccessibleDescription = null;
-            this.骞村害鍚堣ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.骞村害鍚堣ToolStripMenuItem, "骞村害鍚堣ToolStripMenuItem");
-            this.骞村害鍚堣ToolStripMenuItem.BackgroundImage = null;
-            this.骞村害鍚堣ToolStripMenuItem.Name = "骞村害鍚堣ToolStripMenuItem";
-            this.骞村害鍚堣ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.骞村害鍚堣ToolStripMenuItem.Click += new System.EventHandler(this.骞村害鍚堣ToolStripMenuItem_Click);
+            this.年度合计ToolStripMenuItem.AccessibleDescription = null;
+            this.年度合计ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.年度合计ToolStripMenuItem, "年度合计ToolStripMenuItem");
+            this.年度合计ToolStripMenuItem.BackgroundImage = null;
+            this.年度合计ToolStripMenuItem.Name = "年度合计ToolStripMenuItem";
+            this.年度合计ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.年度合计ToolStripMenuItem.Click += new System.EventHandler(this.年度合计ToolStripMenuItem_Click);
             // 
-            // 骞村害鏄庣粏ToolStripMenuItem
+            // 年度明细ToolStripMenuItem
             // 
-            this.骞村害鏄庣粏ToolStripMenuItem.AccessibleDescription = null;
-            this.骞村害鏄庣粏ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.骞村害鏄庣粏ToolStripMenuItem, "骞村害鏄庣粏ToolStripMenuItem");
-            this.骞村害鏄庣粏ToolStripMenuItem.BackgroundImage = null;
-            this.骞村害鏄庣粏ToolStripMenuItem.Name = "骞村害鏄庣粏ToolStripMenuItem";
-            this.骞村害鏄庣粏ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.骞村害鏄庣粏ToolStripMenuItem.Click += new System.EventHandler(this.骞村害鏄庣粏ToolStripMenuItem_Click);
+            this.年度明细ToolStripMenuItem.AccessibleDescription = null;
+            this.年度明细ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.年度明细ToolStripMenuItem, "年度明细ToolStripMenuItem");
+            this.年度明细ToolStripMenuItem.BackgroundImage = null;
+            this.年度明细ToolStripMenuItem.Name = "年度明细ToolStripMenuItem";
+            this.年度明细ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.年度明细ToolStripMenuItem.Click += new System.EventHandler(this.年度明细ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -378,86 +378,86 @@ namespace Money.Net
             resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             // 
-            // 鑷畾涔夊悎璁oolStripMenuItem
+            // 自定义合计ToolStripMenuItem
             // 
-            this.鑷畾涔夊悎璁oolStripMenuItem.AccessibleDescription = null;
-            this.鑷畾涔夊悎璁oolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鑷畾涔夊悎璁oolStripMenuItem, "鑷畾涔夊悎璁oolStripMenuItem");
-            this.鑷畾涔夊悎璁oolStripMenuItem.BackgroundImage = null;
-            this.鑷畾涔夊悎璁oolStripMenuItem.Name = "鑷畾涔夊悎璁oolStripMenuItem";
-            this.鑷畾涔夊悎璁oolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鑷畾涔夊悎璁oolStripMenuItem.Click += new System.EventHandler(this.鑷畾涔夊悎璁oolStripMenuItem_Click);
+            this.自定义合计ToolStripMenuItem.AccessibleDescription = null;
+            this.自定义合计ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.自定义合计ToolStripMenuItem, "自定义合计ToolStripMenuItem");
+            this.自定义合计ToolStripMenuItem.BackgroundImage = null;
+            this.自定义合计ToolStripMenuItem.Name = "自定义合计ToolStripMenuItem";
+            this.自定义合计ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.自定义合计ToolStripMenuItem.Click += new System.EventHandler(this.自定义合计ToolStripMenuItem_Click);
             // 
-            // 鑷畾涔夋槑缁員oolStripMenuItem
+            // 自定义明细ToolStripMenuItem
             // 
-            this.鑷畾涔夋槑缁員oolStripMenuItem.AccessibleDescription = null;
-            this.鑷畾涔夋槑缁員oolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鑷畾涔夋槑缁員oolStripMenuItem, "鑷畾涔夋槑缁員oolStripMenuItem");
-            this.鑷畾涔夋槑缁員oolStripMenuItem.BackgroundImage = null;
-            this.鑷畾涔夋槑缁員oolStripMenuItem.Name = "鑷畾涔夋槑缁員oolStripMenuItem";
-            this.鑷畾涔夋槑缁員oolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鑷畾涔夋槑缁員oolStripMenuItem.Click += new System.EventHandler(this.鑷畾涔夋槑缁員oolStripMenuItem_Click);
+            this.自定义明细ToolStripMenuItem.AccessibleDescription = null;
+            this.自定义明细ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.自定义明细ToolStripMenuItem, "自定义明细ToolStripMenuItem");
+            this.自定义明细ToolStripMenuItem.BackgroundImage = null;
+            this.自定义明细ToolStripMenuItem.Name = "自定义明细ToolStripMenuItem";
+            this.自定义明细ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.自定义明细ToolStripMenuItem.Click += new System.EventHandler(this.自定义明细ToolStripMenuItem_Click);
             // 
-            // 鍖洪棿鍒嗙被鍚堣ToolStripMenuItem
+            // 区间分类合计ToolStripMenuItem
             // 
-            this.鍖洪棿鍒嗙被鍚堣ToolStripMenuItem.AccessibleDescription = null;
-            this.鍖洪棿鍒嗙被鍚堣ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鍖洪棿鍒嗙被鍚堣ToolStripMenuItem, "鍖洪棿鍒嗙被鍚堣ToolStripMenuItem");
-            this.鍖洪棿鍒嗙被鍚堣ToolStripMenuItem.BackgroundImage = null;
-            this.鍖洪棿鍒嗙被鍚堣ToolStripMenuItem.Name = "鍖洪棿鍒嗙被鍚堣ToolStripMenuItem";
-            this.鍖洪棿鍒嗙被鍚堣ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鍖洪棿鍒嗙被鍚堣ToolStripMenuItem.Click += new System.EventHandler(this.鍖洪棿鍒嗙被鍚堣ToolStripMenuItem_Click);
+            this.区间分类合计ToolStripMenuItem.AccessibleDescription = null;
+            this.区间分类合计ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.区间分类合计ToolStripMenuItem, "区间分类合计ToolStripMenuItem");
+            this.区间分类合计ToolStripMenuItem.BackgroundImage = null;
+            this.区间分类合计ToolStripMenuItem.Name = "区间分类合计ToolStripMenuItem";
+            this.区间分类合计ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.区间分类合计ToolStripMenuItem.Click += new System.EventHandler(this.区间分类合计ToolStripMenuItem_Click);
             // 
-            // 鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem
+            // 区间分类明细ToolStripMenuItem
             // 
-            this.鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem.AccessibleDescription = null;
-            this.鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem, "鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem");
-            this.鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem.BackgroundImage = null;
-            this.鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem.Name = "鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem";
-            this.鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem.Click += new System.EventHandler(this.鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem_Click);
+            this.区间分类明细ToolStripMenuItem.AccessibleDescription = null;
+            this.区间分类明细ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.区间分类明细ToolStripMenuItem, "区间分类明细ToolStripMenuItem");
+            this.区间分类明细ToolStripMenuItem.BackgroundImage = null;
+            this.区间分类明细ToolStripMenuItem.Name = "区间分类明细ToolStripMenuItem";
+            this.区间分类明细ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.区间分类明细ToolStripMenuItem.Click += new System.EventHandler(this.区间分类明细ToolStripMenuItem_Click);
             // 
-            // 鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem
+            // 区间交易方式合计ToolStripMenuItem
             // 
-            this.鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem.AccessibleDescription = null;
-            this.鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem, "鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem");
-            this.鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem.BackgroundImage = null;
-            this.鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem.Name = "鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem";
-            this.鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem.Click += new System.EventHandler(this.鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem_Click);
+            this.区间交易方式合计ToolStripMenuItem.AccessibleDescription = null;
+            this.区间交易方式合计ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.区间交易方式合计ToolStripMenuItem, "区间交易方式合计ToolStripMenuItem");
+            this.区间交易方式合计ToolStripMenuItem.BackgroundImage = null;
+            this.区间交易方式合计ToolStripMenuItem.Name = "区间交易方式合计ToolStripMenuItem";
+            this.区间交易方式合计ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.区间交易方式合计ToolStripMenuItem.Click += new System.EventHandler(this.区间交易方式合计ToolStripMenuItem_Click);
             // 
-            // 鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem
+            // 区间交易方式明细ToolStripMenuItem
             // 
-            this.鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem.AccessibleDescription = null;
-            this.鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem, "鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem");
-            this.鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem.BackgroundImage = null;
-            this.鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem.Name = "鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem";
-            this.鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem.Click += new System.EventHandler(this.鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem_Click);
+            this.区间交易方式明细ToolStripMenuItem.AccessibleDescription = null;
+            this.区间交易方式明细ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.区间交易方式明细ToolStripMenuItem, "区间交易方式明细ToolStripMenuItem");
+            this.区间交易方式明细ToolStripMenuItem.BackgroundImage = null;
+            this.区间交易方式明细ToolStripMenuItem.Name = "区间交易方式明细ToolStripMenuItem";
+            this.区间交易方式明细ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.区间交易方式明细ToolStripMenuItem.Click += new System.EventHandler(this.区间交易方式明细ToolStripMenuItem_Click);
             // 
-            // 甯姪ToolStripMenuItem
+            // 帮助ToolStripMenuItem
             // 
-            this.甯姪ToolStripMenuItem.AccessibleDescription = null;
-            this.甯姪ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.甯姪ToolStripMenuItem, "甯姪ToolStripMenuItem");
-            this.甯姪ToolStripMenuItem.BackgroundImage = null;
-            this.甯姪ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.鍏充簬ToolStripMenuItem});
-            this.甯姪ToolStripMenuItem.Name = "甯姪ToolStripMenuItem";
-            this.甯姪ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.帮助ToolStripMenuItem.AccessibleDescription = null;
+            this.帮助ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.帮助ToolStripMenuItem, "帮助ToolStripMenuItem");
+            this.帮助ToolStripMenuItem.BackgroundImage = null;
+            this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.关于ToolStripMenuItem});
+            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
+            this.帮助ToolStripMenuItem.ShortcutKeyDisplayString = null;
             // 
-            // 鍏充簬ToolStripMenuItem
+            // 关于ToolStripMenuItem
             // 
-            this.鍏充簬ToolStripMenuItem.AccessibleDescription = null;
-            this.鍏充簬ToolStripMenuItem.AccessibleName = null;
-            resources.ApplyResources(this.鍏充簬ToolStripMenuItem, "鍏充簬ToolStripMenuItem");
-            this.鍏充簬ToolStripMenuItem.BackgroundImage = null;
-            this.鍏充簬ToolStripMenuItem.Name = "鍏充簬ToolStripMenuItem";
-            this.鍏充簬ToolStripMenuItem.ShortcutKeyDisplayString = null;
-            this.鍏充簬ToolStripMenuItem.Click += new System.EventHandler(this.鍏充簬ToolStripMenuItem_Click);
+            this.关于ToolStripMenuItem.AccessibleDescription = null;
+            this.关于ToolStripMenuItem.AccessibleName = null;
+            resources.ApplyResources(this.关于ToolStripMenuItem, "关于ToolStripMenuItem");
+            this.关于ToolStripMenuItem.BackgroundImage = null;
+            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
+            this.关于ToolStripMenuItem.ShortcutKeyDisplayString = null;
+            this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -769,19 +769,19 @@ namespace Money.Net
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 閰嶇疆ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 浜ゆ槗鍒嗙被ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 浜ゆ槗鏂瑰紡ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 甯姪ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鍏充簬ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鎶ヨ〃ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鍒濆鍖朤oolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 配置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 交易分类ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 交易方式ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 报表ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 初始化ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem 姣忔棩鏄庣粏ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鏈堝害鍚堣ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鏈堝害鏄庣粏ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 骞村害鍚堣ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 骞村害鏄庣粏ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 每日明细ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 月度合计ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 月度明细ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 年度合计ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 年度明细ToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -802,13 +802,13 @@ namespace Money.Net
         private System.Windows.Forms.Label lblMonthShouRu;
         private System.Windows.Forms.Label lblMonthXiaoFei;
         private System.Windows.Forms.Label lblMonthInit;
-        private System.Windows.Forms.ToolStripMenuItem 绯荤粺ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 褰撴棩浜ゆ槗ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 系统ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 当日交易ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 閫�鍑篢oolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem 璁板笎骞村害ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 涓荤晫闈㈤厤缃甌oolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 记帐年度ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 主界面配置ToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox4;
         private FixedColumnDataGridView dgvFenLeiYear;
         private FixedColumnDataGridView dgvFenLeiMonth;
@@ -816,19 +816,19 @@ namespace Money.Net
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.ToolStripMenuItem 鍥哄畾浜ゆ槗ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鍚堝苟璁板綍ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 固定交易ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 合并记录ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem 鑷畾涔夊悎璁oolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鑷畾涔夋槑缁員oolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鍖洪棿鍒嗙被鏄庣粏ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鍖洪棿浜ゆ槗鏂瑰紡鏄庣粏ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鍖洪棿鍒嗙被鍚堣ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鍖洪棿浜ゆ槗鏂瑰紡鍚堣ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鎭㈠鏃ュ父浜ゆ槗璁板綍ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 鎭㈠鍥哄畾浜ゆ槗璁板綍ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 自定义合计ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 自定义明细ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 区间分类明细ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 区间交易方式明细ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 区间分类合计ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 区间交易方式合计ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 恢复日常交易记录ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 恢复固定交易记录ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
     }
 }

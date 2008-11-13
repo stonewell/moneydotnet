@@ -80,7 +80,7 @@ namespace Money.Net
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Ê∂àË¥π:";
+            this.label4.Text = "œ˚∑—:";
             // 
             // lblShouRu
             // 
@@ -100,7 +100,7 @@ namespace Money.Net
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Êî∂ÂÖ•:";
+            this.label2.Text = " ’»Î:";
             // 
             // btnDetail
             // 
@@ -109,7 +109,7 @@ namespace Money.Net
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(75, 23);
             this.btnDetail.TabIndex = 1;
-            this.btnDetail.Text = "ÊòéÁªÜ";
+            this.btnDetail.Text = "√˜œ∏";
             this.btnDetail.UseVisualStyleBackColor = true;
             this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
@@ -121,7 +121,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "ÂÖ≥Èó≠";
+            this.btnOK.Text = "πÿ±’";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -143,7 +143,7 @@ namespace Money.Net
             this.rdoFangShi.Name = "rdoFangShi";
             this.rdoFangShi.Size = new System.Drawing.Size(73, 17);
             this.rdoFangShi.TabIndex = 3;
-            this.rdoFangShi.Text = "‰∫§ÊòìÊñπÂºè";
+            this.rdoFangShi.Text = "Ωª“◊∑Ω Ω";
             this.rdoFangShi.UseVisualStyleBackColor = true;
             this.rdoFangShi.CheckedChanged += new System.EventHandler(this.rdoFangShi_CheckedChanged);
             // 
@@ -156,7 +156,7 @@ namespace Money.Net
             this.rdoFenLei.Size = new System.Drawing.Size(49, 17);
             this.rdoFenLei.TabIndex = 2;
             this.rdoFenLei.TabStop = true;
-            this.rdoFenLei.Text = "ÂàÜÁ±ª";
+            this.rdoFenLei.Text = "∑÷¿‡";
             this.rdoFenLei.UseVisualStyleBackColor = true;
             this.rdoFenLei.CheckedChanged += new System.EventHandler(this.rdoFenLei_CheckedChanged);
             // 
@@ -177,7 +177,7 @@ namespace Money.Net
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Êó•ÊúüÔºö";
+            this.label1.Text = "»’∆⁄£∫";
             // 
             // dgvDetail
             // 
@@ -197,13 +197,13 @@ namespace Money.Net
             // 
             // FengLei
             // 
-            this.FengLei.HeaderText = "ÂàÜÁ±ª";
+            this.FengLei.HeaderText = "∑÷¿‡";
             this.FengLei.Name = "FengLei";
             this.FengLei.ReadOnly = true;
             // 
             // JinE
             // 
-            this.JinE.HeaderText = "ÈáëÈ¢ù";
+            this.JinE.HeaderText = "Ω∂Ó";
             this.JinE.Name = "JinE";
             this.JinE.ReadOnly = true;
             // 
@@ -223,7 +223,7 @@ namespace Money.Net
             this.Name = "DaySummaryFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ÊØèÊó•ÂêàËÆ°";
+            this.Text = "√ø»’∫œº∆";
             this.Load += new System.EventHandler(this.DaySummaryFrm_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

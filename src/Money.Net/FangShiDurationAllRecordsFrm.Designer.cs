@@ -43,11 +43,11 @@ namespace Money.Net
             this.label6 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.dgvDetail = new Money.Net.FixedColumnDataGridView();
-            this.äº¤æ˜“æ—¶é—´ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.½»Ò×Ê±¼ä = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MingCheng = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.äº¤æ˜“åˆ†ç±» = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.é‡‘é¢ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.æè¿° = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.½»Ò×·ÖÀà = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.½ğ¶î = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ÃèÊö = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetail)).BeginInit();
@@ -70,7 +70,7 @@ namespace Money.Net
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 11;
-            this.label1.Text = "ç»“æŸæ—¶é—´:";
+            this.label1.Text = "½áÊøÊ±¼ä:";
             // 
             // dtpStart
             // 
@@ -89,7 +89,7 @@ namespace Money.Net
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "å¼€å§‹æ—¶é—´:";
+            this.label3.Text = "¿ªÊ¼Ê±¼ä:";
             // 
             // panel1
             // 
@@ -112,7 +112,7 @@ namespace Money.Net
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 14;
-            this.label2.Text = "äº¤æ˜“æ–¹å¼:";
+            this.label2.Text = "½»Ò×·½Ê½:";
             // 
             // cboFenLei
             // 
@@ -132,7 +132,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "å…³é—­";
+            this.btnOK.Text = "¹Ø±Õ";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // panel3
@@ -167,7 +167,7 @@ namespace Money.Net
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 16;
-            this.label5.Text = "æ¶ˆè´¹:";
+            this.label5.Text = "Ïû·Ñ:";
             // 
             // lblShouRu
             // 
@@ -187,7 +187,7 @@ namespace Money.Net
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 14;
-            this.label6.Text = "æ”¶å…¥:";
+            this.label6.Text = "ÊÕÈë:";
             // 
             // btnEdit
             // 
@@ -195,7 +195,7 @@ namespace Money.Net
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "ç¼–è¾‘";
+            this.btnEdit.Text = "±à¼­";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -205,11 +205,11 @@ namespace Money.Net
             this.dgvDetail.AllowUserToDeleteRows = false;
             this.dgvDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.äº¤æ˜“æ—¶é—´,
+            this.½»Ò×Ê±¼ä,
             this.MingCheng,
-            this.äº¤æ˜“åˆ†ç±»,
-            this.é‡‘é¢,
-            this.æè¿°});
+            this.½»Ò×·ÖÀà,
+            this.½ğ¶î,
+            this.ÃèÊö});
             this.dgvDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetail.Location = new System.Drawing.Point(0, 87);
             this.dgvDetail.MultiSelect = false;
@@ -220,36 +220,36 @@ namespace Money.Net
             this.dgvDetail.Size = new System.Drawing.Size(509, 324);
             this.dgvDetail.TabIndex = 15;
             // 
-            // äº¤æ˜“æ—¶é—´
+            // ½»Ò×Ê±¼ä
             // 
-            this.äº¤æ˜“æ—¶é—´.Frozen = true;
-            this.äº¤æ˜“æ—¶é—´.HeaderText = "äº¤æ˜“æ—¶é—´";
-            this.äº¤æ˜“æ—¶é—´.Name = "äº¤æ˜“æ—¶é—´";
-            this.äº¤æ˜“æ—¶é—´.ReadOnly = true;
+            this.½»Ò×Ê±¼ä.Frozen = true;
+            this.½»Ò×Ê±¼ä.HeaderText = "½»Ò×Ê±¼ä";
+            this.½»Ò×Ê±¼ä.Name = "½»Ò×Ê±¼ä";
+            this.½»Ò×Ê±¼ä.ReadOnly = true;
             // 
             // MingCheng
             // 
-            this.MingCheng.HeaderText = "åç§°";
+            this.MingCheng.HeaderText = "Ãû³Æ";
             this.MingCheng.Name = "MingCheng";
             this.MingCheng.ReadOnly = true;
             // 
-            // äº¤æ˜“åˆ†ç±»
+            // ½»Ò×·ÖÀà
             // 
-            this.äº¤æ˜“åˆ†ç±».HeaderText = "äº¤æ˜“åˆ†ç±»";
-            this.äº¤æ˜“åˆ†ç±».Name = "äº¤æ˜“åˆ†ç±»";
-            this.äº¤æ˜“åˆ†ç±».ReadOnly = true;
+            this.½»Ò×·ÖÀà.HeaderText = "½»Ò×·ÖÀà";
+            this.½»Ò×·ÖÀà.Name = "½»Ò×·ÖÀà";
+            this.½»Ò×·ÖÀà.ReadOnly = true;
             // 
-            // é‡‘é¢
+            // ½ğ¶î
             // 
-            this.é‡‘é¢.HeaderText = "é‡‘é¢";
-            this.é‡‘é¢.Name = "é‡‘é¢";
-            this.é‡‘é¢.ReadOnly = true;
+            this.½ğ¶î.HeaderText = "½ğ¶î";
+            this.½ğ¶î.Name = "½ğ¶î";
+            this.½ğ¶î.ReadOnly = true;
             // 
-            // æè¿°
+            // ÃèÊö
             // 
-            this.æè¿°.HeaderText = "æè¿°";
-            this.æè¿°.Name = "æè¿°";
-            this.æè¿°.ReadOnly = true;
+            this.ÃèÊö.HeaderText = "ÃèÊö";
+            this.ÃèÊö.Name = "ÃèÊö";
+            this.ÃèÊö.ReadOnly = true;
             // 
             // FangShiDurationAllRecordsFrm
             // 
@@ -265,7 +265,7 @@ namespace Money.Net
             this.Name = "FangShiDurationAllRecordsFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "äº¤æ˜“æ–¹å¼åŒºé—´å…¨éƒ¨è®°å½•";
+            this.Text = "½»Ò×·½Ê½Çø¼äÈ«²¿¼ÇÂ¼";
             this.Load += new System.EventHandler(this.FangShiDurationDetailFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -293,10 +293,10 @@ namespace Money.Net
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblShouRu;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn äº¤æ˜“æ—¶é—´;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ½»Ò×Ê±¼ä;
         private System.Windows.Forms.DataGridViewTextBoxColumn MingCheng;
-        private System.Windows.Forms.DataGridViewTextBoxColumn äº¤æ˜“åˆ†ç±»;
-        private System.Windows.Forms.DataGridViewTextBoxColumn é‡‘é¢;
-        private System.Windows.Forms.DataGridViewTextBoxColumn æè¿°;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ½»Ò×·ÖÀà;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ½ğ¶î;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ÃèÊö;
     }
 }

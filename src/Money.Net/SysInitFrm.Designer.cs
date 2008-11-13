@@ -54,7 +54,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "Á°ÆÂÆö";
+            this.btnOK.Text = "»∑∂®";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -65,7 +65,7 @@ namespace Money.Net
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "ÂèñÊ∂à";
+            this.btnCancel.Text = "»°œ˚";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // lblJinE
@@ -75,7 +75,7 @@ namespace Money.Net
             this.lblJinE.Name = "lblJinE";
             this.lblJinE.Size = new System.Drawing.Size(67, 13);
             this.lblJinE.TabIndex = 0;
-            this.lblJinE.Text = "ÂàùÂßãÈáëÈ¢ùÔºö";
+            this.lblJinE.Text = "≥ı ºΩ∂Ó£∫";
             // 
             // txtJinE
             // 
@@ -103,7 +103,7 @@ namespace Money.Net
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "ÂΩìÂâçÂπ¥Â∫¶Ôºö";
+            this.label1.Text = "µ±«∞ƒÍ∂»£∫";
             // 
             // SysInitFrm
             // 
@@ -123,7 +123,7 @@ namespace Money.Net
             this.Name = "SysInitFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Á≥ªÁªüÂàùÂßãÂåñ";
+            this.Text = "œµÕ≥≥ı ºªØ";
             this.Load += new System.EventHandler(this.SysInitFrm_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

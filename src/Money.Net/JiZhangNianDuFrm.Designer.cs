@@ -70,7 +70,7 @@ namespace Money.Net
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Âπ¥‰ªΩÔºö";
+            this.label1.Text = "ƒÍ∑›£∫";
             // 
             // saveFileDialog1
             // 
@@ -101,7 +101,7 @@ namespace Money.Net
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "‰øùÂ≠òË∑ØÂæÑÔºö";
+            this.label2.Text = "±£¥Ê¬∑æ∂£∫";
             // 
             // lstYears
             // 
@@ -118,7 +118,7 @@ namespace Money.Net
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Â¢ûÂä†";
+            this.btnAdd.Text = "‘ˆº”";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -128,7 +128,7 @@ namespace Money.Net
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Êõ¥Êñ∞";
+            this.btnUpdate.Text = "∏¸–¬";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -138,7 +138,7 @@ namespace Money.Net
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "Âà†Èô§";
+            this.btnDelete.Text = "…æ≥˝";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -163,7 +163,7 @@ namespace Money.Net
             this.Name = "JiZhangNianDuFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ËÆ∞Â∏êÂπ¥Â∫¶";
+            this.Text = "º«’ ƒÍ∂»";
             this.Load += new System.EventHandler(this.JiZhangNianDuFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudYear)).EndInit();
             this.ResumeLayout(false);

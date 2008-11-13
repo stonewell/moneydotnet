@@ -74,7 +74,7 @@ namespace Money.Net
             this.rdoFangShi.Name = "rdoFangShi";
             this.rdoFangShi.Size = new System.Drawing.Size(73, 17);
             this.rdoFangShi.TabIndex = 8;
-            this.rdoFangShi.Text = "äº¤æ˜“æ–¹å¼";
+            this.rdoFangShi.Text = "½»Ò×·½Ê½";
             this.rdoFangShi.UseVisualStyleBackColor = true;
             this.rdoFangShi.CheckedChanged += new System.EventHandler(this.rdoFangShi_CheckedChanged);
             // 
@@ -87,7 +87,7 @@ namespace Money.Net
             this.rdoFenLei.Size = new System.Drawing.Size(49, 17);
             this.rdoFenLei.TabIndex = 7;
             this.rdoFenLei.TabStop = true;
-            this.rdoFenLei.Text = "åˆ†ç±»";
+            this.rdoFenLei.Text = "·ÖÀà";
             this.rdoFenLei.UseVisualStyleBackColor = true;
             this.rdoFenLei.CheckedChanged += new System.EventHandler(this.rdoFenLei_CheckedChanged);
             // 
@@ -98,25 +98,25 @@ namespace Money.Net
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "å¹´ä»½:";
+            this.label2.Text = "Äê·İ:";
             // 
             // cboMonth
             // 
             this.cboMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMonth.FormattingEnabled = true;
             this.cboMonth.Items.AddRange(new object[] {
-            "ä¸€æœˆ",
-            "äºŒæœˆ",
-            "ä¸‰æœˆ",
-            "å››æœˆ",
-            "äº”æœˆ",
-            "å…­æœˆ",
-            "ä¸ƒæœˆ",
-            "å…«æœˆ",
-            "ä¹æœˆ",
-            "åæœˆ",
-            "åä¸€æœˆ",
-            "åäºŒæœˆ"});
+            "Ò»ÔÂ",
+            "¶şÔÂ",
+            "ÈıÔÂ",
+            "ËÄÔÂ",
+            "ÎåÔÂ",
+            "ÁùÔÂ",
+            "ÆßÔÂ",
+            "°ËÔÂ",
+            "¾ÅÔÂ",
+            "Ê®ÔÂ",
+            "Ê®Ò»ÔÂ",
+            "Ê®¶şÔÂ"});
             this.cboMonth.Location = new System.Drawing.Point(205, 7);
             this.cboMonth.Name = "cboMonth";
             this.cboMonth.Size = new System.Drawing.Size(121, 21);
@@ -130,7 +130,7 @@ namespace Money.Net
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "æœˆä»½:";
+            this.label1.Text = "ÔÂ·İ:";
             // 
             // panel3
             // 
@@ -150,7 +150,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "å…³é—­";
+            this.btnOK.Text = "¹Ø±Õ";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // dgvDetail
@@ -173,7 +173,7 @@ namespace Money.Net
             this.btnDayDetail.Name = "btnDayDetail";
             this.btnDayDetail.Size = new System.Drawing.Size(75, 23);
             this.btnDayDetail.TabIndex = 1;
-            this.btnDayDetail.Text = "æ¯æ—¥æ˜ç»†";
+            this.btnDayDetail.Text = "Ã¿ÈÕÃ÷Ï¸";
             this.btnDayDetail.UseVisualStyleBackColor = true;
             this.btnDayDetail.Click += new System.EventHandler(this.btnDayDetail_Click);
             // 
@@ -192,7 +192,7 @@ namespace Money.Net
             this.Name = "MonthDetailFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "æ¯æœˆæ˜ç»†";
+            this.Text = "Ã¿ÔÂÃ÷Ï¸";
             this.Load += new System.EventHandler(this.MonthDetailFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
