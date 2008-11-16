@@ -51,10 +51,10 @@ namespace Money.Net
             // Close is important to wrap things up and unlock the file.
             s.Close();
 
-            DoRemoveOutofDateBackup(prefix, Path.GetDirectoryName(filename));
+            DoRemoveOutofDateBackup(prefix, Path.GetDirectoryName(filename), backupFileName);
         }
 
-        private static void DoRemoveOutofDateBackup(string prefix, string dirname)
+        private static void DoRemoveOutofDateBackup(string prefix, string dirname, string updateFileName)
         {
             string search_pattern = 
                 string.Format("{0}-*.zip", prefix);
@@ -73,11 +73,14 @@ namespace Money.Net
 
                 IEnumerator<KeyValuePair<string, string>> it = list.GetEnumerator();
 
-                for(int i=0;i<DAY_BACKUP_COUNT - files.Length;i++,it.MoveNext())
+                for (int i = 0; i < files.Length - DAY_BACKUP_COUNT && it.MoveNext(); i++)
                 {
                     string file = it.Current.Key;
 
-                    File.Delete(file);
+                    if (!file.Equals(updateFileName))
+                    {
+                        File.Delete(file);
+                    }
                 }
             }
         }
