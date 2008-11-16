@@ -32,6 +32,7 @@
 				<include name="Controls/*.resx"/>
 			</resources>
         </csc>
+		<copy todir="bin" file="ICSharpCode.SharpZipLib.dll"/>
     </target>
 </project>
 
