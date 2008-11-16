@@ -68,6 +68,7 @@
     <Compile Include="AboutMoneyNet.Designer.cs">
       <DependentUpon>AboutMoneyNet.cs</DependentUpon>
     </Compile>
+    <Compile Include="BackupUtil.cs" />
     <Compile Include="Controls\DailyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -437,6 +438,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="REFBAR.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SharpZip\src\ICSharpCode.SharpZLib.csproj">
+      <Project>{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}</Project>
+      <Name>ICSharpCode.SharpZLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

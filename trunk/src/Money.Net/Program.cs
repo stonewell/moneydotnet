@@ -84,12 +84,18 @@ namespace Money.Net
 
         private static void SaveData()
         {
-            configDS_.WriteXml(AppDomain.CurrentDomain.BaseDirectory +
-            System.IO.Path.DirectorySeparatorChar + "Money.Net.Config.xml");
+            string configFilePath =
+                AppDomain.CurrentDomain.BaseDirectory +
+            System.IO.Path.DirectorySeparatorChar + "Money.Net.Config.xml";
+
+            BackupUtil.DoBackupData(BackupUtil.BACKUP_CONFIG_DAY_FILE_PREFIX,configFilePath);
+
+            configDS_.WriteXml(configFilePath);
 
             try
             {
                 moneyNetDS_.AcceptChanges();
+                BackupUtil.DoBackupData(BackupUtil.BACKUP_DAY_FILE_PREFIX,defaultYearFilePath_);
                 moneyNetDS_.WriteXml(defaultYearFilePath_);
             }
             catch (Exception ex)
@@ -277,6 +283,9 @@ namespace Money.Net
                     {
                         moneyNetDS.AcceptChanges();
                         string yearFilePath = GetYearFilePath(year);
+
+                        BackupUtil.DoBackupData(BackupUtil.BACKUP_DAY_FILE_PREFIX, yearFilePath);
+
                         moneyNetDS.WriteXml(yearFilePath);
                     }
                     catch
