@@ -64,7 +64,7 @@ namespace Money.Net
             dgvData.Rows.Clear();
 
             foreach (MoneyNetDS.GuDing_JiaoYiRow row in
-                Program.MoneyNetDS.GuDing_JiaoYi.Rows)
+                ds_.GuDing_JiaoYi.Rows)
             {
                 ZhouQi zhouqi = ZhouQi.FromXmlString(row.ZhouQi);
 
