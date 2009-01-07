@@ -1,0 +1,457 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58E627D7-6E88-42DE-98F9-1010122524FD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>Money.Net</AssemblyName>
+    <RootNamespace>Money.Net</RootNamespace>
+    <StartupObject>Money.Net.Program</StartupObject>
+    <ApplicationIcon>REFBAR.ICO</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DB\MoneyNetConfigDS.xsc">
+      <DependentUpon>MoneyNetConfigDS.xsd</DependentUpon>
+    </None>
+    <None Include="DB\MoneyNetConfigDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MoneyNetConfigDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DB\MoneyNetConfigDS.xss">
+      <DependentUpon>MoneyNetConfigDS.xsd</DependentUpon>
+    </None>
+    <None Include="DB\MoneyNetDS.xsc">
+      <DependentUpon>MoneyNetDS.xsd</DependentUpon>
+    </None>
+    <None Include="DB\MoneyNetDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MoneyNetDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB\MoneyNetDS.xss">
+      <DependentUpon>MoneyNetDS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutMoneyNet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutMoneyNet.Designer.cs">
+      <DependentUpon>AboutMoneyNet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackupUtil.cs" />
+    <Compile Include="Controls\DailyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DailyControl.Designer.cs">
+      <DependentUpon>DailyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MappingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MappingControl.Designer.cs">
+      <DependentUpon>MappingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MonthlyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MonthlyControl.Designer.cs">
+      <DependentUpon>MonthlyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WeeklyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WeeklyControl.Designer.cs">
+      <DependentUpon>WeeklyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\YearlyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\YearlyControl.Designer.cs">
+      <DependentUpon>YearlyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\MoneyNetConfigDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MoneyNetConfigDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FenLeiDurationAllRecordsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FenLeiDurationAllRecordsFrm.Designer.cs">
+      <DependentUpon>FenLeiDurationAllRecordsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FangShiDurationAllRecordsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FangShiDurationAllRecordsFrm.Designer.cs">
+      <DependentUpon>FangShiDurationAllRecordsFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RestoreGuDingFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestoreGuDingFrm.Designer.cs">
+      <DependentUpon>RestoreGuDingFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FangShiDurationDetailFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FangShiDurationDetailFrm.Designer.cs">
+      <DependentUpon>FangShiDurationDetailFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FangShiDurationSummaryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FangShiDurationSummaryFrm.Designer.cs">
+      <DependentUpon>FangShiDurationSummaryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizedDurationDetailFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomizedDurationDetailFrm.Designer.cs">
+      <DependentUpon>CustomizedDurationDetailFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizedDurationSummaryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomizedDurationSummaryFrm.Designer.cs">
+      <DependentUpon>CustomizedDurationSummaryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DaySummaryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DaySummaryFrm.Designer.cs">
+      <DependentUpon>DaySummaryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\MoneyNetDS.cs">
+      <DependentUpon>MoneyNetDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DB\MoneyNetDS.Designer.cs">
+      <DependentUpon>MoneyNetDS.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DayDetailFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DayDetailFrm.Designer.cs">
+      <DependentUpon>DayDetailFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FangShiFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FangShiFrm.Designer.cs">
+      <DependentUpon>FangShiFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FenLeiDurationDetailFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FenLeiDurationDetailFrm.Designer.cs">
+      <DependentUpon>FenLeiDurationDetailFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FenLeiDurationSummaryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FenLeiDurationSummaryFrm.Designer.cs">
+      <DependentUpon>FenLeiDurationSummaryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FenLeiFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FenLeiFrm.Designer.cs">
+      <DependentUpon>FenLeiFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FixedColumnDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GuDingJiaoYiExecutor.cs" />
+    <Compile Include="GuDingJiaoYisFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuDingJiaoYisFrm.Designer.cs">
+      <DependentUpon>GuDingJiaoYisFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportDataFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportDataFrm.Designer.cs">
+      <DependentUpon>ImportDataFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoneyNetDate.cs" />
+    <Compile Include="NewGuDingJiaoYiFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewGuDingJiaoYiFrm.Designer.cs">
+      <DependentUpon>NewGuDingJiaoYiFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JiaoYiZhouQiFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JiaoYiZhouQiFrm.Designer.cs">
+      <DependentUpon>JiaoYiZhouQiFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JiZhangNianDuFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JiZhangNianDuFrm.Designer.cs">
+      <DependentUpon>JiZhangNianDuFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LstItem.cs" />
+    <Compile Include="MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrm.Designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFrmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrmSettings.Designer.cs">
+      <DependentUpon>MainFrmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthDetailFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthDetailFrm.Designer.cs">
+      <DependentUpon>MonthDetailFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthSummaryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthSummaryFrm.Designer.cs">
+      <DependentUpon>MonthSummaryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RestoreRiChangFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestoreRiChangFrm.Designer.cs">
+      <DependentUpon>RestoreRiChangFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysInitFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysInitFrm.Designer.cs">
+      <DependentUpon>SysInitFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TodayFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TodayFrm.Designer.cs">
+      <DependentUpon>TodayFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YearDetailFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YearDetailFrm.Designer.cs">
+      <DependentUpon>YearDetailFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YearSummaryFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YearSummaryFrm.Designer.cs">
+      <DependentUpon>YearSummaryFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZhouQi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutMoneyNet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutMoneyNet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DailyControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DailyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MappingControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MappingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MonthlyControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MonthlyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WeeklyControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WeeklyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\YearlyControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>YearlyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FenLeiDurationAllRecordsFrm.resx">
+      <DependentUpon>FenLeiDurationAllRecordsFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FangShiDurationAllRecordsFrm.resx">
+      <DependentUpon>FangShiDurationAllRecordsFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrm.en-US.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrm.zh-CN.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestoreGuDingFrm.resx">
+      <DependentUpon>RestoreGuDingFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FangShiDurationDetailFrm.resx">
+      <DependentUpon>FangShiDurationDetailFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FangShiDurationSummaryFrm.resx">
+      <DependentUpon>FangShiDurationSummaryFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomizedDurationDetailFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CustomizedDurationDetailFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomizedDurationSummaryFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CustomizedDurationSummaryFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DayDetailFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DayDetailFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DaySummaryFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DaySummaryFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FangShiFrm.resx">
+      <DependentUpon>FangShiFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FenLeiDurationDetailFrm.resx">
+      <DependentUpon>FenLeiDurationDetailFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FenLeiDurationSummaryFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FenLeiDurationSummaryFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FenLeiFrm.resx">
+      <DependentUpon>FenLeiFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuDingJiaoYisFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GuDingJiaoYisFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportDataFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ImportDataFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewGuDingJiaoYiFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewGuDingJiaoYiFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JiaoYiZhouQiFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>JiaoYiZhouQiFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JiZhangNianDuFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>JiZhangNianDuFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrmSettings.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainFrmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthDetailFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MonthDetailFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthSummaryFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MonthSummaryFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestoreRiChangFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RestoreRiChangFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysInitFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SysInitFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TodayFrm.resx">
+      <DependentUpon>TodayFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YearDetailFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>YearDetailFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YearSummaryFrm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>YearSummaryFrm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="REFBAR.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SharpZip\src\ICSharpCode.SharpZLib.csproj">
+      <Project>{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}</Project>
+      <Name>ICSharpCode.SharpZLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
