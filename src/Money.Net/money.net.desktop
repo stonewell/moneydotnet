@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Money.Net
+Name[zh_CN]=家庭理财
+Exec=/home/angelstone/.program/money.net/Money.Net.exe 
+Terminal=false
+Icon=/home/angelstone/.program/money.net/Money.Net.png
+Type=Application
+Categories=Application
