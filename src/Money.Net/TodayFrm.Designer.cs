@@ -230,6 +230,8 @@ namespace Money.Net
             this.btnNew.Text = "ÐÂÔö (&N)";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            this.btnNew.Leave += new System.EventHandler(this.btnNew_Leave);
+            this.btnNew.Enter += new System.EventHandler(this.btnNew_Enter);
             // 
             // btnOK
             // 
