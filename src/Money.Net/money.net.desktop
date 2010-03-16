@@ -7,4 +7,4 @@ Exec=/home/angelstone/.program/money.net/Money.Net.exe
 Terminal=false
 Icon=/home/angelstone/.program/money.net/Money.Net.png
 Type=Application
-Categories=Application
+Categories=Application;Utility;Financial
