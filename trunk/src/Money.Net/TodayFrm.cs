@@ -17,6 +17,8 @@ namespace Money.Net
 
         private MoneyNetDS.RiChang_JiaoYiRow row_ = null;
 
+        private bool enteringButtonNew_ = false;
+
         public TodayFrm()
         {
             InitializeComponent();
@@ -290,6 +292,8 @@ namespace Money.Net
 
         private void txtJinE_Validating(object sender, CancelEventArgs e)
         {
+            if (!enteringButtonNew_) return;
+
             string value = txtJinE.Text.Trim();
 
             try
@@ -328,6 +332,8 @@ namespace Money.Net
 
         private void lvwFenLei_Validating(object sender, CancelEventArgs e)
         {
+            if (!enteringButtonNew_) return;
+
             if (lvwFenLei.SelectedItems.Count != 1)
             {
                 lblFenLei.ForeColor = Color.Red;
@@ -343,6 +349,8 @@ namespace Money.Net
 
         private void lvwFangShi_Validating(object sender, CancelEventArgs e)
         {
+            if (!enteringButtonNew_) return;
+
             if (lvwFangShi.SelectedItems.Count != 1)
             {
                 lblFangShi.ForeColor = Color.Red;
@@ -358,6 +366,8 @@ namespace Money.Net
 
         private void cboMingCheng_Validating(object sender, CancelEventArgs e)
         {
+            if (!enteringButtonNew_) return;
+
             if (cboMingCheng.Text.Trim().Length == 0)
             {
                 lblMingCheng.ForeColor = Color.Red;
@@ -379,6 +389,16 @@ namespace Money.Net
             LstItem fenLeiItem = lvwFenLei.SelectedItems[0].Tag as LstItem;
 
             FillMingChengCombo(fenLeiItem.ID);
+        }
+
+        private void btnNew_Enter(object sender, EventArgs e)
+        {
+            enteringButtonNew_ = true;
+        }
+
+        private void btnNew_Leave(object sender, EventArgs e)
+        {
+            enteringButtonNew_ = false;
         }
     }
 }
