@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 
 using Money.Net.DB;
 
@@ -267,6 +268,7 @@ namespace Money.Net
         {
             cboMingCheng.Items.Clear();
 
+/*
             foreach (MoneyNetDS.RiChang_JiaoYiRow row in
                 Program.MoneyNetDS.RiChang_JiaoYi.Rows)
             {
@@ -278,6 +280,33 @@ namespace Money.Net
                     {
                         cboMingCheng.Items.Add(name);
                     }
+                }
+            }
+*/
+			List<string> names = new List<string>();
+            foreach (MoneyNetDS.RiChang_JiaoYiRow row in
+                Program.MoneyNetDS.RiChang_JiaoYi.Rows)
+            {
+                if (fenleiID == -1 || row.JiaoYi_FenLei_ID == fenleiID)
+                {
+                    string name = row.MingCheng;
+
+					names.Add(name);
+                }
+            }
+
+			var q = from d in names
+				group d by d into g
+				orderby g.Count() descending
+				select new {key=g.Key, gcount=g.Count()};
+
+			foreach( var m in q)
+            {
+                string name = m.key;// + "," + m.gcount;
+
+                if (!cboMingCheng.Items.Contains(name))
+                {
+                    cboMingCheng.Items.Add(name);
                 }
             }
 
