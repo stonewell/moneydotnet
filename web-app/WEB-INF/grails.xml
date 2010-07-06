@@ -1,0 +1,22 @@
+<grails>
+  <resources>
+    <resource>angelstone.money.grail.FangshiController</resource>
+    <resource>angelstone.money.grail.FenleiController</resource>
+    <resource>angelstone.money.grail.RichangjiaoyiController</resource>
+    <resource>angelstone.money.grail.Fangshi</resource>
+    <resource>angelstone.money.grail.Fenlei</resource>
+    <resource>angelstone.money.grail.Richangjiaoyi</resource>
+    <resource>angelstone.money.grail.SummaryController</resource>
+    <resource>angelstone.money.grail.SummaryService</resource>
+    <resource>resources</resource>
+    <resource>BootStrap</resource>
+    <resource>BuildConfig</resource>
+    <resource>Config</resource>
+    <resource>DataSource</resource>
+    <resource>UrlMappings</resource>
+    <resource>angelstone.money.grail.RichangjiaoyiFilters</resource>
+  </resources>
+  <plugins>
+    <plugin>HibernateGrailsPlugin</plugin>
+  </plugins>
+</grails>
