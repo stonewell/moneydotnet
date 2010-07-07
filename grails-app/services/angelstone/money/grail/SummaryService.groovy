@@ -127,10 +127,11 @@ class SummaryService {
         def c = Richangjiaoyi.createCriteria()
         def sum = c.get {
             projections {
-                sum "amount"
+                sum "amount", "samount"
             }
             between("created", begin, end)
             eq("fangxiang", fangxiang)
+            order("samount", "dsc")
         }
 
         if (sum == null) return 0
@@ -142,19 +143,21 @@ class SummaryService {
         def sumIncome = Richangjiaoyi.withCriteria {
             projections {
                 groupProperty("name")
-                sum "amount"
+                sum "amount",  "samount"
             }
             between("created", begin, end)
             eq("fangxiang", 1)
+            order("samount", "dsc")
         }
 
         def sumExpends = Richangjiaoyi.withCriteria {
             projections {
                 groupProperty("name")
-                sum("amount")
+                sum("amount","samount")
             }
             between("created", begin, end)
             eq("fangxiang", 0)
+            order("samount", "dsc")
         }
 
         sumExpends.each { sum  ->
