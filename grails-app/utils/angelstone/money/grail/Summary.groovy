@@ -2,6 +2,7 @@
 package angelstone.money.grail
 
 class Summary {
+    int type
     String title
     String title_default
     String begin_label

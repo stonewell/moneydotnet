@@ -6,25 +6,25 @@ div.tableContainer {
 	clear: both;
 	height: 200px;
 	overflow: auto;
-	width: 316px
+	width: 366px
 }
 
 /* Reset overflow value to hidden for all non-IE browsers. */
 html>body div.tableContainer {
 	overflow: hidden;
-	width: 316px
+	width: 366px
 }
 
 /* define width of table. IE browsers only                 */
-div.tableContainer table {
+div.tableContainer scrollTable {
 	float: left;
-	width: 300px
+	width: 350px
 }
 
 /* define width of table. Add 16px to width for scrollbar.           */
 /* All other non-IE browsers.                                        */
-html>body div.tableContainer table {
-	width: 316px
+html>body div.tableContainer scrollTable {
+	width: 366px
 }
 
 /* define the table content to be scrollable                                              */
@@ -33,7 +33,7 @@ html>body div.tableContainer table {
 /* induced side effect is that child TDs no longer accept width: auto                     */
 html>body tbody.scrollContent {
 	display: block;
-	height: 142px;
+	height: 132px;
 	overflow: auto;
 	width: 100%
 }
@@ -42,22 +42,22 @@ html>body tbody.scrollContent {
 /* Add 16px to last TH for scrollbar padding. All other non-IE browsers. */
 /* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
 html>body thead.fixedHeader th {
-	width: 260px;
+	width: 200px;
 }
 
 html>body thead.fixedHeader th + th {
-	width: 276px
+	width: 356px
 }
 
 /* define width of TD elements: 1st, 2nd, and 3rd respectively.          */
 /* All other non-IE browsers.                                            */
 /* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
 html>body tbody.scrollContent td {
-	width: 260px
+	width: 200px
 }
 
 html>body tbody.scrollContent td + td {
-	width:260px
+	width:340px
 }
 
 /* set table header to a fixed position. WinIE 6.x only                                       */
@@ -72,4 +72,10 @@ thead.fixedHeader tr {
 /* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
 html>body thead.fixedHeader tr {
 	display: block
+}
+
+headerTable {
+    display: block;
+    height:16px;
+    border: 0;
 }

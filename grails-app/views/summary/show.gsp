@@ -7,8 +7,9 @@
     <meta name="layout" content="main" />
   <g:set var="entityName" value="${message(code: 'today.summary.label', default: 'Today Summary')}" />
   <title><g:message code="default.show.label" args="[entityName]" /></title>
+  <g:render template="scriptsTemplate" />
 </head>
-<body>
+<body onload="onPageload()">
   <div class="nav">
     <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
   </div>
