@@ -1,6 +1,6 @@
 package angelstone.money.grail
 
-class FenleiSummary {
+class NameAmountSummary {
     String title
     String title_default
     int type
