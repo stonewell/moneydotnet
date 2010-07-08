@@ -6,25 +6,25 @@ div.tableContainer {
 	clear: both;
 	height: 200px;
 	overflow: auto;
-	width: 366px
+	width: 300px
 }
 
 /* Reset overflow value to hidden for all non-IE browsers. */
 html>body div.tableContainer {
 	overflow: hidden;
-	width: 366px
+	width: 300px
 }
 
 /* define width of table. IE browsers only                 */
 div.tableContainer scrollTable {
 	float: left;
-	width: 350px
+	width: 250px
 }
 
 /* define width of table. Add 16px to width for scrollbar.           */
 /* All other non-IE browsers.                                        */
 html>body div.tableContainer scrollTable {
-	width: 366px
+	width: 300px
 }
 
 /* define the table content to be scrollable                                              */

@@ -24,7 +24,13 @@
       <g:render template="rangeSummaryTemplate"  model="[summary:summary?.YearSummary]"/>
       </td>
       <td>
-      <g:render template="rangeFenleiSummaryTemplate"  model="[summary:summary?.FenleiYearSummary]"/>
+      <g:render template="rangeItemSummaryTemplate"  model="[summary:summary?.ItemYearSummary]"/>
+      </td>
+      <td>
+      <g:render template="rangeNameAmountSummaryTemplate"  model="[summary:summary?.FenleiYearSummary]"/>
+      </td>
+      <td>
+      <g:render template="rangeNameAmountSummaryTemplate"  model="[summary:summary?.FangshiYearSummary]"/>
       </td>
       </tr>
       <tr>
@@ -32,7 +38,13 @@
       <g:render template="rangeSummaryTemplate"  model="[summary:summary?.MonthSummary]"/>
       </td>
       <td>
-      <g:render template="rangeFenleiSummaryTemplate"  model="[summary:summary?.FenleiMonthSummary]"/>
+      <g:render template="rangeItemSummaryTemplate"  model="[summary:summary?.ItemMonthSummary]"/>
+      </td>
+      <td>
+      <g:render template="rangeNameAmountSummaryTemplate"  model="[summary:summary?.FenleiMonthSummary]"/>
+      </td>
+      <td>
+      <g:render template="rangeNameAmountSummaryTemplate"  model="[summary:summary?.FangshiMonthSummary]"/>
       </td>
       </tr>
       <tr>
@@ -40,7 +52,13 @@
       <g:render template="rangeSummaryTemplate"  model="[summary:summary?.TodaySummary]"/>
       </td>
       <td>
-      <g:render template="rangeFenleiSummaryTemplate"  model="[summary:summary?.FenleiTodaySummary]"/>
+      <g:render template="rangeItemSummaryTemplate"  model="[summary:summary?.ItemTodaySummary]"/>
+      </td>
+      <td>
+      <g:render template="rangeNameAmountSummaryTemplate"  model="[summary:summary?.FenleiTodaySummary]"/>
+      </td>
+      <td>
+      <g:render template="rangeNameAmountSummaryTemplate"  model="[summary:summary?.FangshiTodaySummary]"/>
       </td>
       </tr>
     </table>

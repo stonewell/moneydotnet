@@ -2,10 +2,16 @@ package angelstone.money.grail
 
 class TotalSummary {
     Summary TodaySummary
-    FenleiSummary FenleiTodaySummary
+    NameAmountSummary ItemTodaySummary
+    NameAmountSummary FenleiTodaySummary
+    NameAmountSummary FangshiTodaySummary
     Summary YearSummary
-    FenleiSummary FenleiYearSummary
+    NameAmountSummary FenleiYearSummary
+    NameAmountSummary ItemYearSummary
+    NameAmountSummary FangshiYearSummary
     Summary MonthSummary
-    FenleiSummary FenleiMonthSummary
+    NameAmountSummary FenleiMonthSummary
+    NameAmountSummary FangshiMonthSummary
+    NameAmountSummary ItemMonthSummary
 }
 

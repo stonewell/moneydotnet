@@ -46,19 +46,19 @@ class SummaryController {
 
         switch(type) {
             case 1:
-                summary = summaryService.getFenleiYearSummary(year, fenlei, fangshi)
+                summary = summaryService.getItemYearSummary(year, fenlei, fangshi)
                 break
             case 2:
-                summary = summaryService.getFenleiMonthSummary(year, month, fenlei, fangshi)
+                summary = summaryService.getItemMonthSummary(year, month, fenlei, fangshi)
                 break
             case 3:
-                summary = summaryService.getFenleiTodaySummary(year, month, day, fenlei, fangshi)
+                summary = summaryService.getItemTodaySummary(year, month, day, fenlei, fangshi)
                 break
             default:
             break
         }
 
-        render(template:"rangeFenleiSummaryBodyTemplate", model:[summary:summary])
+        render(template:"rangeItemSummaryBodyTemplate", model:[summary:summary])
     }
 
 }

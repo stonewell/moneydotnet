@@ -8,11 +8,17 @@ class SummaryService {
         def summary = new TotalSummary()
 
         summary.YearSummary = getYearSummary(year, fenlei, fangshi)
+        summary.ItemYearSummary = getItemYearSummary(year, fenlei, fangshi)
         summary.FenleiYearSummary = getFenleiYearSummary(year, fenlei, fangshi)
+        summary.FangshiYearSummary = getFangshiYearSummary(year, fenlei, fangshi)
         summary.MonthSummary = getMonthSummary(year, month, fenlei, fangshi)
+        summary.ItemMonthSummary = getItemMonthSummary(year, month, fenlei, fangshi)
         summary.FenleiMonthSummary = getFenleiMonthSummary(year, month, fenlei, fangshi)
+        summary.FangshiMonthSummary = getFangshiMonthSummary(year, month, fenlei, fangshi)
         summary.TodaySummary = getTodaySummary(year, month, day, fenlei, fangshi)
+        summary.ItemTodaySummary = getItemTodaySummary(year, month, day, fenlei, fangshi)
         summary.FenleiTodaySummary = getFenleiTodaySummary(year, month, day, fenlei, fangshi)
+        summary.FangshiTodaySummary = getFangshiTodaySummary(year, month, day, fenlei, fangshi)
 
         return summary
     }
@@ -89,11 +95,25 @@ class SummaryService {
         return summary
     }
 
+    def getItemYearSummary(int year, int fenlei, int fangshi) {
+        def summary = new NameAmountSummary()
+        summary.title = "summary.item.year.title"
+        summary.title_default="Item Year Summary"
+        summary.type = 1
+
+        def beginDate = new Date(year,0,1,0,0,0)
+        def endDate = new Date(year, 11, 31,23,59,59)
+
+        summary.fenleiList = getItemAmountList(beginDate, endDate, fenlei, fangshi)
+
+        return summary
+    }
+
     def getFenleiYearSummary(int year, int fenlei, int fangshi) {
-        def summary = new FenleiSummary()
+        def summary = new NameAmountSummary()
         summary.title = "summary.fenlei.year.title"
         summary.title_default="Fenlei Year Summary"
-        summary.type = 1
+        summary.type = 11
 
         def beginDate = new Date(year,0,1,0,0,0)
         def endDate = new Date(year, 11, 31,23,59,59)
@@ -103,8 +123,35 @@ class SummaryService {
         return summary
     }
 
+    def getFangshiYearSummary(int year, int fenlei, int fangshi) {
+        def summary = new NameAmountSummary()
+        summary.title = "summary.fangshi.year.title"
+        summary.title_default="Fangshi Year Summary"
+        summary.type = 11
+
+        def beginDate = new Date(year,0,1,0,0,0)
+        def endDate = new Date(year, 11, 31,23,59,59)
+
+        summary.fenleiList = getFangshiAmountList(beginDate, endDate, fenlei, fangshi)
+
+        return summary
+    }
+
+    def getItemMonthSummary(int year, int month, int fenlei, int fangshi) {
+        def summary = new NameAmountSummary()
+        summary.title = "summary.item.month.title"
+        summary.title_default="Item Month Summary"
+        summary.type = 2
+
+        def beginDate = new Date(year, month, 1,0,0,0)
+        def endDate = new Date(year, month , 31,23,59,59)
+
+        summary.fenleiList = getItemAmountList(beginDate, endDate, fenlei, fangshi)
+        return summary
+    }
+
     def getFenleiMonthSummary(int year, int month, int fenlei, int fangshi) {
-        def summary = new FenleiSummary()
+        def summary = new NameAmountSummary()
         summary.title = "summary.fenlei.month.title"
         summary.title_default="Fenlei Month Summary"
         summary.type = 2
@@ -116,8 +163,34 @@ class SummaryService {
         return summary
     }
 
+    def getFangshiMonthSummary(int year, int month, int fenlei, int fangshi) {
+        def summary = new NameAmountSummary()
+        summary.title = "summary.fangshi.month.title"
+        summary.title_default="Fangshi Month Summary"
+        summary.type = 2
+
+        def beginDate = new Date(year, month, 1,0,0,0)
+        def endDate = new Date(year, month , 31,23,59,59)
+
+        summary.fenleiList = getFangshiAmountList(beginDate, endDate, fenlei, fangshi)
+        return summary
+    }
+
+    def getItemTodaySummary(int year, int month, int day, int fenlei, int fangshi) {
+        def summary = new NameAmountSummary()
+        summary.title = "summary.item.today.title"
+        summary.title_default="Item Today Summary"
+        summary.type = 3
+
+        def beginDate = new Date(year, month, day,0,0,0)
+        def endDate = new Date(year, month , day,23,59,59)
+
+        summary.fenleiList = getItemAmountList(beginDate, endDate, fenlei, fangshi)
+        return summary
+    }
+
     def getFenleiTodaySummary(int year, int month, int day, int fenlei, int fangshi) {
-        def summary = new FenleiSummary()
+        def summary = new NameAmountSummary()
         summary.title = "summary.fenlei.today.title"
         summary.title_default="Fenlei Today Summary"
         summary.type = 3
@@ -126,6 +199,19 @@ class SummaryService {
         def endDate = new Date(year, month , day,23,59,59)
 
         summary.fenleiList = getFenleiAmountList(beginDate, endDate, fenlei, fangshi)
+        return summary
+    }
+
+    def getFangshiTodaySummary(int year, int month, int day, int fenlei, int fangshi) {
+        def summary = new NameAmountSummary()
+        summary.title = "summary.fangshi.today.title"
+        summary.title_default="Fangshi Today Summary"
+        summary.type = 3
+
+        def beginDate = new Date(year, month, day,0,0,0)
+        def endDate = new Date(year, month , day,23,59,59)
+
+        summary.fenleiList = getFangshiAmountList(beginDate, endDate, fenlei, fangshi)
         return summary
     }
 
@@ -156,7 +242,7 @@ class SummaryService {
         return sum_amount
     }
     
-    def getFenleiAmountList(Date begin, Date end, int fenlei, int fangshi) {
+    def getItemAmountList(Date begin, Date end, int fenlei, int fangshi) {
         def sumIncome = Richangjiaoyi.withCriteria {
             projections {
                 groupProperty("name")
@@ -227,6 +313,124 @@ class SummaryService {
 
         sumList.sort{ it[1] }
         
+        return sumList
+    }
+
+
+    def getFenleiAmountList(Date begin, Date end, int fenlei, int fangshi) {
+        def sumIncome = Richangjiaoyi.withCriteria {
+            createAlias "fenlei", "f"
+            projections {
+                groupProperty("f.name")
+                sum "amount",  "samount"
+            }
+            
+            between("created", begin, end)
+            eq("fangxiang", 1)
+            order("samount", "desc")
+        }
+
+        def sumExpends = Richangjiaoyi.withCriteria {
+            createAlias "fenlei", "f"
+            projections {
+                groupProperty("f.name")
+                sum("amount","samount")
+            }
+            between("created", begin, end)
+            eq("fangxiang", 0)
+            order("samount", "desc")
+        }
+
+        sumExpends.each { sum  ->
+            sum[1] = -1 * sum[1]
+        }
+
+        if (sumIncome == null && sumExpends == null) return []
+
+        if (sumIncome == null) return sumExpends
+
+        if (sumExpends == null) return sumIncome
+
+        def sum = [:]
+
+        sumIncome.each{ income ->
+            sum.put(income[0], income[1])
+        }
+
+        sumExpends.each { expends ->
+            if (sum.containsKey(expends[0]) ) {
+                sum.put(expends[0], sum.get(expends[0]) + expends[1])
+            } else {
+                sum.put(expends[0], expends[1])
+            }
+        }
+
+        def sumList = []
+
+        sum.each() { s ->
+            sumList.add([s.key, s.value])
+        }
+
+        sumList.sort{ it[1] }
+
+        return sumList
+    }
+
+    def getFangshiAmountList(Date begin, Date end, int fenlei, int fangshi) {
+        def sumIncome = Richangjiaoyi.withCriteria {
+            createAlias "fangshi", "f"
+            projections {
+                groupProperty("f.name")
+                sum "amount",  "samount"
+            }
+            between("created", begin, end)
+            eq("fangxiang", 1)
+            order("samount", "desc")
+        }
+
+        def sumExpends = Richangjiaoyi.withCriteria {
+            createAlias "fangshi", "f"
+            projections {
+                groupProperty("f.name")
+                sum("amount","samount")
+            }
+            between("created", begin, end)
+            eq("fangxiang", 0)
+            order("samount", "desc")
+        }
+
+        sumExpends.each { sum  ->
+            sum[1] = -1 * sum[1]
+        }
+
+        if (sumIncome == null && sumExpends == null) return []
+
+        if (sumIncome == null) return sumExpends
+
+        if (sumExpends == null) return sumIncome
+
+        def sum = [:]
+
+        sumIncome.each{ income ->
+            sum.put(income[0], income[1])
+        }
+
+        sumExpends.each { expends ->
+            if (sum.containsKey(expends[0]) ) {
+                sum.put(expends[0], sum.get(expends[0]) + expends[1])
+            } else {
+                sum.put(expends[0], expends[1])
+            }
+        }
+
+        def sumList = []
+
+        sum.each() { s ->
+            sumList.add([s.key, s.value])
+        }
+
+        sumList.sort{ it[1] }
+
         return sumList
     }
 }
