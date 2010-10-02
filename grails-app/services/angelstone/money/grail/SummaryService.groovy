@@ -216,95 +216,62 @@ class SummaryService {
     }
 
     def getAmount(Date begin, Date end, int fangxiang, int fenlei, int fangshi) {
-        def c = Richangjiaoyi.createCriteria()
-        def sum_amount
-
-            sum_amount = c.get {
-                projections {
-                    sum "amount", "samount"
-                }
-                between("created", begin, end)
-                eq("fangxiang", fangxiang)
-
-                if (fenlei >= 0) {
-                    eq("fenlei.id", fenlei)
-                }
-
-                if (fangshi >= 0) {
-                    eq("fangshi.id", fangshi)
-                }
-
-                order("samount", "desc")
-            }
-
-        if (sum_amount == null) return 0
-        
-        return sum_amount
+       def query = "select amount from Richangjiaoyi where created >= ?1 and created <= ?2 and fangxiang=?3"
+       def next_index = 4
+       
+       if (fenlei >= 0) {
+           query += " and fenlei_id = ?" + next_index
+           next_index++
+       }
+       
+       if (fangshi >= 0) {
+       	   query += " and fangshi_id = ?" + next_index
+       	   next_index++
+       }
+       
+       def sum_amounts = Richangjiaoyi.executeQuery(query,[begin,end,fangxiang,fenlei,fangshi])
+       
+       if (sum_amounts == null) return 0
+       
+       def sum_amount = 0;
+       
+       sum_amounts.each {
+          sum_amount += it
+       }
+       
+       return sum_amount
+       	
     }
     
     def getItemAmountList(Date begin, Date end, int fenlei, int fangshi) {
-        def sumIncome = Richangjiaoyi.withCriteria {
-            projections {
-                groupProperty("name")
-                sum "amount",  "samount"
-            }
-            between("created", begin, end)
-            eq("fangxiang", 1)
-            
-            if (fenlei >= 0) {
-                eq("fenlei.id", (long)fenlei)
-            }
+       def query = "select name, amount,fangxiang from Richangjiaoyi where created >= ?1 and created <= ?2"
+       def next_index = 3
+       
+       if (fenlei >= 0) {
+           query += " and fenlei_id = ?" + next_index
+           next_index++
+       }
+       
+       if (fangshi >= 0) {
+       	   query += " and fangshi_id = ?" + next_index
+       	   next_index++
+       }
+       
+      
+       def values = Richangjiaoyi.executeQuery(query,[begin,end,fenlei,fangshi])
 
-            if (fangshi >= 0) {
-                eq("fangshi.id", (long)fangshi)
-            }
-
-            order("samount", "desc")
-        }
-
-        def sumExpends = Richangjiaoyi.withCriteria {
-            projections {
-                groupProperty("name")
-                sum("amount","samount")
-            }
-            between("created", begin, end)
-            eq("fangxiang", 0)
-            
-            if (fenlei >= 0) {
-                eq("fenlei.id",(long) fenlei)
-            }
-
-            if (fangshi >= 0) {
-                eq("fangshi.id", (long)fangshi)
-            }
-
-            order("samount", "desc")
-        }
-
-        sumExpends.each { sum  ->
-            sum[1] = -1 * sum[1]
-        }
-
-        if (sumIncome == null && sumExpends == null) return []
-
-        if (sumIncome == null) return sumExpends
-
-        if (sumExpends == null) return sumIncome
-
+       if (values == null) return [];
+       
         def sum = [:]
 
-        sumIncome.each{ income ->
-            sum.put(income[0], income[1])
-        }
-
-        sumExpends.each { expends ->
-            if (sum.containsKey(expends[0]) ) {
-                sum.put(expends[0], sum.get(expends[0]) + expends[1])
+        values.each{ value ->
+            if (sum.containsKey(value[0]) ) {
+                sum.put(value[0], sum.get(value[0]) + value[1] * (2 * value[2] - 1))
             } else {
-                sum.put(expends[0], expends[1])
+            	sum.put(value[0],  value[1] * (2 * value[2] - 1))
             }
         }
-        
+
         def sumList = []
         
         sum.each() { s ->
@@ -318,119 +285,121 @@ class SummaryService {
 
 
     def getFenleiAmountList(Date begin, Date end, int fenlei, int fangshi) {
-        def sumIncome = Richangjiaoyi.withCriteria {
-            createAlias "fenlei", "f"
-            projections {
-                groupProperty("f.name")
-                sum "amount",  "samount"
-            }
-            
-            between("created", begin, end)
-            eq("fangxiang", 1)
-            order("samount", "desc")
-        }
+       def query = "select fenlei_id, r.amount,r.fangxiang from Richangjiaoyi r where r.created >= ?1 and r.created <= ?2"
+       def next_index = 3
+       
+       if (fenlei >= 0) {
+           query += " and r.fenlei_id = ?" + next_index
+           next_index++
+       }
+       
+       if (fangshi >= 0) {
+       	   query += " and r.fangshi_id = ?" + next_index
+       	   next_index++
+       }
+       
+       def values = Richangjiaoyi.executeQuery(query,[begin,end,fenlei,fangshi])
 
-        def sumExpends = Richangjiaoyi.withCriteria {
-            createAlias "fenlei", "f"
-            projections {
-                groupProperty("f.name")
-                sum("amount","samount")
-            }
-            between("created", begin, end)
-            eq("fangxiang", 0)
-            order("samount", "desc")
-        }
-
-        sumExpends.each { sum  ->
-            sum[1] = -1 * sum[1]
-        }
-
-        if (sumIncome == null && sumExpends == null) return []
-
-        if (sumIncome == null) return sumExpends
-
-        if (sumExpends == null) return sumIncome
-
+       if (values == null) return [];
+       
         def sum = [:]
 
-        sumIncome.each{ income ->
-            sum.put(income[0], income[1])
-        }
-
-        sumExpends.each { expends ->
-            if (sum.containsKey(expends[0]) ) {
-                sum.put(expends[0], sum.get(expends[0]) + expends[1])
+        values.each{ value -> 
+            def fenleiO = Fenlei.get(value[0])
+            if (sum.containsKey(fenleiO.name) ) {
+                sum.put(fenleiO.name, sum.get(fenleiO.name) + value[1] * (2 * value[2] - 1))
             } else {
-                sum.put(expends[0], expends[1])
+            	sum.put(fenleiO.name,  value[1] * (2 * value[2] - 1))
             }
         }
 
         def sumList = []
-
+        
         sum.each() { s ->
             sumList.add([s.key, s.value])
         }
 
         sumList.sort{ it[1] }
-
+        
         return sumList
     }
 
     def getFangshiAmountList(Date begin, Date end, int fenlei, int fangshi) {
-        def sumIncome = Richangjiaoyi.withCriteria {
-            createAlias "fangshi", "f"
-            projections {
-                groupProperty("f.name")
-                sum "amount",  "samount"
-            }
-            between("created", begin, end)
-            eq("fangxiang", 1)
-            order("samount", "desc")
-        }
+       def query = "select fangshi_id, r.amount,r.fangxiang from Richangjiaoyi r where r.created >= ?1 and r.created <= ?2"
+       def next_index = 3
+       
+       if (fenlei >= 0) {
+           query += " and r.fenlei_id = ?" + next_index
+           next_index++
+       }
+       
+       if (fangshi >= 0) {
+       	   query += " and r.fangshi_id = ?" + next_index
+       	   next_index++
+       }
+       
+      
+       def values = Richangjiaoyi.executeQuery(query,[begin,end,fenlei,fangshi])
 
-        def sumExpends = Richangjiaoyi.withCriteria {
-            createAlias "fangshi", "f"
-            projections {
-                groupProperty("f.name")
-                sum("amount","samount")
-            }
-            between("created", begin, end)
-            eq("fangxiang", 0)
-            order("samount", "desc")
-        }
-
-        sumExpends.each { sum  ->
-            sum[1] = -1 * sum[1]
-        }
-
-        if (sumIncome == null && sumExpends == null) return []
-
-        if (sumIncome == null) return sumExpends
-
-        if (sumExpends == null) return sumIncome
-
+       if (values == null) return [];
+       
         def sum = [:]
 
-        sumIncome.each{ income ->
-            sum.put(income[0], income[1])
-        }
-
-        sumExpends.each { expends ->
-            if (sum.containsKey(expends[0]) ) {
-                sum.put(expends[0], sum.get(expends[0]) + expends[1])
+        values.each{ value ->
+            def fangshiO = Fangshi.get(value[0])
+            if (sum.containsKey(fangshiO.name) ) {
+                sum.put(fangshiO.name, sum.get(fangshiO.name) + value[1] * (2 * value[2] - 1))
             } else {
-                sum.put(expends[0], expends[1])
+            	sum.put(fangshiO.name,  value[1] * (2 * value[2] - 1))
             }
         }
 
         def sumList = []
-
+        
         sum.each() { s ->
             sumList.add([s.key, s.value])
         }
 
         sumList.sort{ it[1] }
+        
+        return sumList
+    }
+    
+    def getJiaoYiNames(int fenlei) {
+       def query = "select name from Richangjiaoyi where id>0"
+       def next_index = 1
+       
+       if (fenlei >= 0) {
+           query += " and fenlei_id = ?" + next_index
+           next_index++
+       }
+       
+       def values = Richangjiaoyi.executeQuery(query,[fenlei])
 
+       if (values == null) return [];
+       
+        def sum = [:]
+
+        values.each{ value ->
+            if (sum.containsKey(value[0]) ) {
+                sum.put(value[0], sum.get(value[0]) + 1)
+            } else {
+            	sum.put(value[0],  1)
+            }
+        }
+
+        def sumList = []
+        
+        sum.each() { s ->
+            sumList.add([s.key, s.value])
+        }
+
+	def mc= [
+	compare: {a,b-> a[1].equals(b[1])? 0: Math.abs(a[1])<Math.abs(b[1])? -1: 1 }
+	] as Comparator
+	
+	sumList.sort{ mc }
+        
         return sumList
     }
 }

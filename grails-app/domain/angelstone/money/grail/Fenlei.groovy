@@ -1,11 +1,19 @@
 package angelstone.money.grail
 
-class Fenlei {
-    String name
+import javax.persistence.*
+
+@Entity
+class Fenlei implements Serializable {
+  @Id
+  @GeneratedValue (strategy = GenerationType.IDENTITY)
+  Long id
+
+  String name
     Date updated = new Date()
 
     static constraints = {
-        name(blank:false, unique:true)
+        id visible:false
+      name(blank:false, unique:true)
     }
 
     String toString() {

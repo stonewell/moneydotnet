@@ -5,24 +5,24 @@
   <g:message code="${summary?.title}" default="${summary?.title_default}" />
   </td></tr>
   <tr><td>
-  <g:select name="fenlei.id" id="fenlei.id"
+  <g:select name="fenlei_id" id="fenlei_id"
             from="${angelstone.money.grail.Fenlei.list()}"
-            optionKey="id" value="${richangjiaoyiInstance?.fenlei?.id}"
+            optionKey="id" value="${richangjiaoyiInstance?.fenlei_id}"
             noSelection="['-1':'All Fen lei']"
             onchange="${remoteFunction(
 controller:'summary',
 action:'ajaxGetItemSummary',
-params:'\'fenlei=\' + escape(this.value) + \'&fangshi=\' + escape($(\'fangshi.id\').value) + \'&type=' + summary?.type + '\'',
+params:'\'fenlei=\' + escape(this.value) + \'&fangshi=\' + escape($(\'fangshi_id\').value) + \'&type=' + summary?.type + '\'',
 update:'fenlei_summary_table_body_' + summary?.type )}"
             />
-  <g:select name="fangshi.id" id="fangshi.id"
+  <g:select name="fangshi_id" id="fangshi_id"
             from="${angelstone.money.grail.Fangshi.list()}"
-            optionKey="id" value="${richangjiaoyiInstance?.fangshi?.id}"
+            optionKey="id" value="${richangjiaoyiInstance?.fangshi_id}"
             noSelection="['-1':'All Fang Shi']"
             onchange="${remoteFunction(
 controller:'summary',
 action:'ajaxGetItemSummary',
-params:'\'fangshi=\' + escape(this.value) + \'&fenlei=\' + escape($(\'fenlei.id\').value) + \'&type=' + summary?.type + '\'',
+params:'\'fangshi=\' + escape(this.value) + \'&fenlei=\' + escape($(\'fenlei_id\').value) + \'&type=' + summary?.type + '\'',
 update:'fenlei_summary_table_body_' + summary?.type )}"
             />
 </td>
