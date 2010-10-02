@@ -37,10 +37,10 @@ ${it.radio} <g:message code="${it.label}" />
       <td valign="top" class="name">
         <label for="fenlei"><g:message code="richangjiaoyi.fenlei.label" default="Fenlei" /></label>
       </td>
-      <td valign="top" class="value ${hasErrors(bean: richangjiaoyiInstance, field: 'fenlei', 'errors')}">
-    <g:select name="fenlei.id" id="fenlei.id"
+      <td valign="top" class="value ${hasErrors(bean: richangjiaoyiInstance, field: 'fenlei_id', 'errors')}">
+    <g:select name="fenlei_id" id="fenlei_id"
               from="${angelstone.money.grail.Fenlei.list()}"
-              optionKey="id" value="${richangjiaoyiInstance?.fenlei?.id}"
+              optionKey="id" value="${richangjiaoyiInstance?.fenlei_id}"
               onchange="${remoteFunction(
 controller:'richangjiaoyi', 
 action:'ajaxGetJiaoYiNames', 
@@ -54,9 +54,9 @@ onComplete:'updateNames(e)')}"
       <td valign="top" class="name">
         <label for="fangshi"><g:message code="richangjiaoyi.fangshi.label" default="Fangshi" /></label>
       </td>
-      <td valign="top" class="value ${hasErrors(bean: richangjiaoyiInstance, field: 'fangshi', 'errors')}">
-    <g:select name="fangshi.id" from="${angelstone.money.grail.Fangshi.list()}"
-              optionKey="id" value="${richangjiaoyiInstance?.fangshi?.id}"
+      <td valign="top" class="value ${hasErrors(bean: richangjiaoyiInstance, field: 'fangshi_id', 'errors')}">
+    <g:select name="fangshi_id" id="fangshi_id" from="${angelstone.money.grail.Fangshi.list()}"
+              optionKey="id" value="${richangjiaoyiInstance?.fangshi_id}"
               />
     </td>
     </tr>

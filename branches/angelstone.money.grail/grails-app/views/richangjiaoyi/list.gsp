@@ -49,9 +49,9 @@
 
           <td>${fieldValue(bean: richangjiaoyiInstance, field: "amount")}</td>
 
-          <td>${fieldValue(bean: richangjiaoyiInstance, field: "fenlei")}</td>
+          <td>${angelstone.money.grail.Fenlei.get(Long.valueOf(fieldValue(bean: richangjiaoyiInstance, field: "fenlei_id").toString())).name}</td>
 
-          <td>${fieldValue(bean: richangjiaoyiInstance, field: "fangshi")}</td>
+          <td>${angelstone.money.grail.Fangshi.get(Long.valueOf(fieldValue(bean: richangjiaoyiInstance, field: "fangshi_id").toString())).name}</td>
 
           <td>${fieldValue(bean: richangjiaoyiInstance, field: "created")}</td>
 

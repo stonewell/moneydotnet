@@ -5,6 +5,7 @@ import grails.converters.*
 class RichangjiaoyiController {
 	
     def scaffold = true
+    def summaryService
 	
     def index = {
         redirect(action:list)
@@ -12,27 +13,14 @@ class RichangjiaoyiController {
 
     def ajaxGetJiaoYiNames = {
         def all_jiaoyi_list
-		
+	
+        def fenlei = -1;
+        
         if (params.fenlei != null) {
-            all_jiaoyi_list = Richangjiaoyi.withCriteria {
-                eq("fenlei.id",Long.valueOf(params.fenlei))
-                projections {
-                    groupProperty("name")
-                    count("id", "nameCount")
-                }
-                order ("nameCount","desc")
-            }
-        } else {
-            all_jiaoyi_list = Richangjiaoyi.withCriteria {
-                projections {
-                    groupProperty("name")
-                    count("id", "nameCount")
-                }
-                order("nameCount","desc")
-            }
+            fenlei = Long.valueOf(params.fenlei)
         }
 		
-        def all_jiaoyi = all_jiaoyi_list
+        def all_jiaoyi = summaryService.getJiaoYiNames(fenlei)
 		
         render all_jiaoyi as JSON
     }
