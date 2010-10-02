@@ -1,0 +1,17 @@
+<grails>
+  <resources>
+    <resource>org.grails.appengine.AppEngineReloadController</resource>
+    <resource>angelstone.diaryaccount.EntryController</resource>
+    <resource>angelstone.diaryaccount.Entry</resource>
+    <resource>resources</resource>
+    <resource>UrlMappings</resource>
+    <resource>DataSource</resource>
+    <resource>BootStrap</resource>
+    <resource>BuildConfig</resource>
+    <resource>Config</resource>
+  </resources>
+  <plugins>
+    <plugin>AppEngineGrailsPlugin</plugin>
+    <plugin>GormJpaGrailsPlugin</plugin>
+  </plugins>
+</grails>
