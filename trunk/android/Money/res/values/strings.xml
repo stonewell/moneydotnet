@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, TodayView!</string>
     <string name="app_name">Daily Journal</string>
+    <string name="type_cost">Cost</string>
+    <string name="type_income">Income</string>
+    <string name="date_text">Date:</string>
+    <string name="type_text">Type:</string>
+    <string name="pick_date_text">Pick</string>
+    <string name="category_text">Category:</string>
+    <string name="pay_method_text">Pay Method:</string>
+    <string name="name_text">Name:</string>
+    <string name="amount_text">Amount:</string>
+    <string name="desc_text">Description:</string>
+    <string name="income_text">Today Income:</string>
+    <string name="cost_text">Today Cost:</string>
+    <string name="initial_data">Loading Pre-installed Data...</string>
+    <string name="add_journal">Add Journal</string>
+    <string name="upload">Upload</string>
+    <string name="more">More</string>
+    <string name="name_is_empty">Name is empty.</string>
+    <string name="amount_is_empty">Amount is empty.</string>
+    <string name="amount_must_great_than_zero">Amount must great than zero.</string>
+    <string name="journal_added">New journal added.</string>
 </resources>

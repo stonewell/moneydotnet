@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">日常记账</string>
+    <string name="type_cost">消费</string>
+    <string name="type_income">收入</string>
+    <string name="date_text">日期:</string>
+    <string name="type_text">类型:</string>
+    <string name="pick_date_text">设置</string>
+    <string name="category_text">类别:</string>
+    <string name="pay_method_text">付款方式:</string>
+    <string name="name_text">名称:</string>
+    <string name="amount_text">金额:</string>
+    <string name="desc_text">描述:</string>
+    <string name="income_text">今日收入:</string>
+    <string name="cost_text">今日消费:</string>
+    <string name="initial_data">初始化数据...</string>
+    <string name="add_journal">增加记录</string>
+    <string name="upload">上传</string>
+    <string name="name_is_empty">名称不能为空.</string>
+    <string name="amount_is_empty">金额不能为空.</string>
+    <string name="amount_must_great_than_zero">金额不能小于0.</string>
+    <string name="journal_added">新记录已经保存.</string>
 </resources>
  
