@@ -4,7 +4,7 @@ public interface Constants {
 	public static final String TAG = "DailyJournal";
 
 	public static final String DATABASE_NAME = "daily_journal.db";
-	public static final int DATABASE_VERSION = 1;
+	public static final int DATABASE_VERSION = 2;
 	public static final String JOURNAL_TABLE = "journal";
 	public static final String SETTING_TABLE = "setting";
 	public static final String CATEGORY_TABLE = "category";
@@ -21,4 +21,7 @@ public interface Constants {
 	public static final String COLUMN_NAME = "name";
 	
 	public static final String OPTION_DATA_INIT = "data_init";
+	
+	public static final int SYNC_DONE = 1;
+	public static final int SYNC_NONE = 0;
 }

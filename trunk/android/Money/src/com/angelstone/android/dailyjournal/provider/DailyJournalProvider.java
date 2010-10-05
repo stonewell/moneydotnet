@@ -69,6 +69,7 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 					+ " VARCHAR);");
 			db.execSQL("CREATE TABLE IF NOT EXISTS " + JOURNAL_TABLE + " ("
 					+ Journal.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+					+ Journal.COLUMN_SYNC + " INTEGER, "
 					+ Journal.COLUMN_NAME + " VARCHAR, " + Journal.COLUMN_AMOUNT
 					+ " DOUBLE, " + Journal.COLUMN_CATEGORY + " VARCHAR, "
 					+ Journal.COLUMN_PAY_METHOD + " VARCHAR, " + Journal.COLUMN_TYPE
