@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="horizontal"
+		android:gravity="center_vertical">
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:focusable="false" android:text="@string/date_text" />
+		<TextView android:id="@+id/dateDisplay" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge"
+			android:focusable="true" android:text="@string/date_text" />
+		<Button android:id="@+id/pickDate" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/pick_date_text" />
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="horizontal"
+		android:gravity="center_vertical">
+		<TextView android:layout_width="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_height="wrap_content" android:text="@string/cost_text" />
+		<EditText android:layout_width="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:enabled="false" android:id="@+id/edit_cost_today"
+			android:singleLine="true" android:layout_height="wrap_content"
+			android:focusable="false" android:textColor="#FF0000" />
+		<TextView android:layout_width="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_height="wrap_content" android:text="@string/income_text" />
+		<EditText android:id="@+id/edit_income_today"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_width="wrap_content" android:enabled="false"
+			android:textColor="#0000FF" android:focusable="false"
+			android:singleLine="true" android:layout_height="wrap_content" />
+	</LinearLayout>
+	<ScrollView android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="fill_parent">
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+			
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal"
+				android:gravity="center_vertical">
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:focusable="false" android:text="@string/type_text" />
+				<ToggleButton android:id="@+id/toggle_type"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:textOff="@string/type_cost" android:textOn="@string/type_income" />
+			</LinearLayout>
+			
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal"
+				android:gravity="center_vertical">
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="@string/name_text" />
+				<Spinner android:id="@+id/spinner_name"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:drawSelectorOnTop="true" />
+				<EditText android:id="@+id/edit_name" android:layout_width="fill_parent"
+					android:singleLine="true" android:layout_height="wrap_content"
+					android:selectAllOnFocus="true" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal"
+				android:gravity="center_vertical">
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="@string/amount_text" />
+				<EditText android:id="@+id/edit_amount"
+					android:layout_width="fill_parent" android:singleLine="true"
+					android:inputType="numberDecimal" android:selectAllOnFocus="true"
+					android:layout_height="wrap_content" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal"
+				android:gravity="center_vertical">
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="@string/category_text" />
+				<Spinner android:id="@+id/spinner_category"
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+					android:drawSelectorOnTop="true" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal"
+				android:gravity="center_vertical">
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="@string/pay_method_text" />
+				<Spinner android:id="@+id/spinner_paymethod"
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+					android:drawSelectorOnTop="true" />
+			</LinearLayout>
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="vertical">
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="@string/desc_text" />
+				<EditText android:id="@+id/edit_description"
+					android:layout_width="fill_parent" android:singleLine="false"
+					android:lines="3" android:layout_height="wrap_content" />
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>
+	

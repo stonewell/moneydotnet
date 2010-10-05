@@ -9,6 +9,16 @@ public interface Constants {
 	public static final String SETTING_TABLE = "setting";
 	public static final String CATEGORY_TABLE = "category";
 	public static final String PAY_METHOD_TABLE = "pay_method";
+	public static final String JOURNAL_NAME_VIEW = "journal_name_view";
+	public static final String JOURNAL_NAME_CATEGORY_VIEW = "journal_name_category_view";
+	public static final String CATEGORY_USE_COUNT_VIEW = "category_count_view";
+	public static final String PAY_METHOD_USE_COUNT_VIEW = "paymethod_count_view";
 	
 	public static final String AUTHORITY = "com.angelstone.android.dailyjournal";
+
+	public static final String COLUMN_ID = "_id";
+
+	public static final String COLUMN_NAME = "name";
+	
+	public static final String OPTION_DATA_INIT = "data_init";
 }
