@@ -14,11 +14,17 @@
     <string name="income_text">今日收入:</string>
     <string name="cost_text">今日消费:</string>
     <string name="initial_data">初始化数据...</string>
-    <string name="add_journal">增加记录</string>
+    <string name="add_journal">保存记录</string>
     <string name="upload">上传</string>
     <string name="name_is_empty">名称不能为空.</string>
     <string name="amount_is_empty">金额不能为空.</string>
     <string name="amount_must_great_than_zero">金额不能小于0.</string>
     <string name="journal_added">新记录已经保存.</string>
+    <string name="view_logs">日志</string>
+    <string name="view_records">所有记录</string>
+    <string name="help">帮助</string>
+    <string name="preference">配置</string>
+    <string name="upload_success">记录上传成功.</string>
+    <string name="upload_fail">记录上传失败, {0}.</string>
 </resources>
  

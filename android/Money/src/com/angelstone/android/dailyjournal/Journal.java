@@ -23,6 +23,7 @@ public class Journal implements Constants{
 	public static final String COLUMN_PAY_DATE = "pay_date";
 	public static final String COLUMN_CREATE_DATE = "create_date";
 	public static final String COLUMN_DESCRIPTION = "description";
+	public static final String COLUMN_SYNC = "sync";
 	
 	public static final String DEFAULT_SORT_ORDER = COLUMN_PAY_DATE + " desc";
 

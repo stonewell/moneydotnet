@@ -14,11 +14,17 @@
     <string name="income_text">Today Income:</string>
     <string name="cost_text">Today Cost:</string>
     <string name="initial_data">Loading Pre-installed Data...</string>
-    <string name="add_journal">Add Journal</string>
+    <string name="add_journal">Save Journal</string>
     <string name="upload">Upload</string>
     <string name="more">More</string>
     <string name="name_is_empty">Name is empty.</string>
     <string name="amount_is_empty">Amount is empty.</string>
     <string name="amount_must_great_than_zero">Amount must great than zero.</string>
     <string name="journal_added">New journal added.</string>
+    <string name="view_logs">Log</string>
+    <string name="view_records">All Journals</string>
+    <string name="help">Help</string>
+    <string name="preference">Preferences</string>
+    <string name="upload_success">Journals upload success.</string>
+    <string name="upload_fail">Journals upload fail, {0}.</string>
 </resources>

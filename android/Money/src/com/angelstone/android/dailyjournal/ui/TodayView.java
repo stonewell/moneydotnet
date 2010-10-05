@@ -1,14 +1,18 @@
 package com.angelstone.android.dailyjournal.ui;
 
+import java.text.MessageFormat;
 import java.text.NumberFormat;
 import java.util.Calendar;
 
-import android.app.Activity;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,7 +33,6 @@ import android.widget.EditText;
 import android.widget.ResourceCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.angelstone.android.dailyjournal.Category;
@@ -39,13 +42,20 @@ import com.angelstone.android.dailyjournal.DatabaseManager;
 import com.angelstone.android.dailyjournal.Journal;
 import com.angelstone.android.dailyjournal.PayMethod;
 import com.angelstone.android.dailyjournal.R;
+import com.angelstone.android.utils.ActivityLog;
+import com.angelstone.android.utils.HttpUtils;
 
-public class TodayView extends Activity implements OnClickListener,
+public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		OnItemSelectedListener, OnFocusChangeListener {
 
-	static final int TIME_DIALOG_ID = 0;
-	static final int DATE_DIALOG_ID = 1;
-	static final int DIALOG_PROGRESS = 2;
+	private static final int DATE_DIALOG_ID = 1;
+	private static final int INIT_DATA_PROGRESS_DIALOG_ID = 2;
+	private static final int UPLOAD_PROGRESS_DIALOG_ID = 3;
+
+	private static final int[][] OPTION_MENUS = new int[][] {
+			new int[] { R.string.add_journal, android.R.drawable.ic_menu_save },
+			new int[] { R.string.upload, android.R.drawable.ic_menu_upload },
+			new int[] { R.string.view_records, android.R.drawable.ic_menu_view }, };
 
 	private Calendar mToday = Calendar.getInstance();
 
@@ -58,8 +68,6 @@ public class TodayView extends Activity implements OnClickListener,
 
 	private int mProgress;
 	private int mMaxProgress;
-
-	private Toast mToast = null;
 
 	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
 
@@ -96,6 +104,10 @@ public class TodayView extends Activity implements OnClickListener,
 		}
 
 	};
+
+	public TodayView() {
+		super(OPTION_MENUS.length);
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -149,7 +161,7 @@ public class TodayView extends Activity implements OnClickListener,
 		final DatabaseInitializer init = new DatabaseInitializer();
 		mMaxProgress = init.getEntryCount();
 
-		showDialog(DIALOG_PROGRESS);
+		showDialog(INIT_DATA_PROGRESS_DIALOG_ID);
 
 		mProgress = 0;
 		mProgressDialog.setProgress(0);
@@ -179,12 +191,10 @@ public class TodayView extends Activity implements OnClickListener,
 	}
 
 	private void prepareCursors() {
-		mCategoryCursor = getContentResolver().query(Category.CONTENT_URI, null,
-				null, null, null);
-		mPaymethodCursor = getContentResolver().query(PayMethod.CONTENT_URI, null,
-				null, null, null);
-		mNameCursor = getContentResolver().query(Journal.CONTENT_NAME_URI, null,
-				null, null, null);
+		mCategoryCursor = managedQuery(Category.CONTENT_URI, null, null, null, null);
+		mPaymethodCursor = managedQuery(PayMethod.CONTENT_URI, null, null, null,
+				null);
+		mNameCursor = managedQuery(Journal.CONTENT_NAME_URI, null, null, null, null);
 	}
 
 	private void updateDisplay() {
@@ -212,10 +222,18 @@ public class TodayView extends Activity implements OnClickListener,
 			return new DatePickerDialog(this, mDateSetListener,
 					mToday.get(Calendar.YEAR), mToday.get(Calendar.MONTH),
 					mToday.get(Calendar.DATE));
-		case DIALOG_PROGRESS:
+		case INIT_DATA_PROGRESS_DIALOG_ID:
 			mProgressDialog = new ProgressDialog(this);
 			mProgressDialog.setIcon(android.R.drawable.ic_dialog_info);
 			mProgressDialog.setTitle(R.string.initial_data);
+			mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+			mProgressDialog.setMax(mMaxProgress);
+			mProgressDialog.setCancelable(false);
+			return mProgressDialog;
+		case UPLOAD_PROGRESS_DIALOG_ID:
+			mProgressDialog = new ProgressDialog(this);
+			mProgressDialog.setIcon(android.R.drawable.ic_dialog_info);
+			mProgressDialog.setTitle(R.string.upload);
 			mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 			mProgressDialog.setMax(mMaxProgress);
 			mProgressDialog.setCancelable(false);
@@ -239,17 +257,9 @@ public class TodayView extends Activity implements OnClickListener,
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		menu.clear();
 
-		menu.add(0, 0, 0, R.string.add_journal).setIcon(
-				android.R.drawable.ic_menu_add);
-		menu.add(0, 1, 1, R.string.upload).setIcon(
-				android.R.drawable.ic_menu_upload);
+		createMenus(menu, 0, OPTION_MENUS);
 
 		return super.onPrepareOptionsMenu(menu);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		return true;
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -258,8 +268,18 @@ public class TodayView extends Activity implements OnClickListener,
 			addJournal();
 			break;
 		}
-		default:
+		case 1: {
+			uploadJournals();
 			break;
+		}
+		case 2: {
+			Intent intent = new Intent();
+			intent.setClass(this, AllJournalsView.class);
+			startActivity(intent);
+			break;
+		}
+		default:
+			return super.onOptionsItemSelected(item);
 		}
 		return true;
 	}
@@ -285,6 +305,7 @@ public class TodayView extends Activity implements OnClickListener,
 				.getTimeInMillis());
 
 		values.put(Journal.COLUMN_PAY_DATE, mToday.getTimeInMillis());
+		values.put(Journal.COLUMN_SYNC, Constants.SYNC_NONE);
 
 		c = (Cursor) spinPaymethod.getSelectedItem();
 		idx = c.getColumnIndex(Constants.COLUMN_NAME);
@@ -410,31 +431,6 @@ public class TodayView extends Activity implements OnClickListener,
 		}
 	}
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		mCategoryCursor.close();
-		mPaymethodCursor.close();
-		mNameCursor.close();
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		mCategoryCursor.requery();
-		mPaymethodCursor.requery();
-		mNameCursor.requery();
-	}
-
-	private void showToast(int id) {
-		if (mToast != null)
-			mToast.cancel();
-
-		mToast = Toast.makeText(this, id, Toast.LENGTH_SHORT);
-
-		mToast.show();
-	}
-
 	private void updateTodayTotal() {
 		Cursor c = null;
 		double cost = 0;
@@ -483,5 +479,110 @@ public class TodayView extends Activity implements OnClickListener,
 
 		etIncome.setText(nf.format(income));
 		etCost.setText(nf.format(cost));
+	}
+
+	private void uploadJournals() {
+		final Cursor c = getContentResolver().query(Journal.CONTENT_URI, null,
+				Journal.COLUMN_SYNC + "=?1",
+				new String[] { String.valueOf(Constants.SYNC_NONE) }, null);
+		
+		if (c.getCount() == 0) {
+			c.close();
+			return;
+		}
+		
+		mMaxProgress = 2;
+
+		showDialog(UPLOAD_PROGRESS_DIALOG_ID);
+
+		mProgress = 0;
+		mProgressDialog.setProgress(0);
+
+		mProgressHandler = new Handler() {
+			private String mUploadData = null;
+
+			@Override
+			public void handleMessage(Message msg) {
+				super.handleMessage(msg);
+				try {
+					if (mProgress >= mMaxProgress) {
+						mProgressDialog.dismiss();
+						DatabaseManager.writeSetting(TodayView.this,
+								Constants.OPTION_DATA_INIT, true);
+						if (c != null)
+							c.close();
+					} else if (mProgress == 0) {
+						c.moveToFirst();
+						
+						JSONArray array = new JSONArray();
+						int index = 0;
+						JSONObject value = null;
+						
+						int idxAmount = c.getColumnIndex(Journal.COLUMN_AMOUNT);
+						int idxName = c.getColumnIndex(Journal.COLUMN_NAME);
+						int idxType = c.getColumnIndex(Journal.COLUMN_TYPE);
+						int idxCategory = c.getColumnIndex(Journal.COLUMN_CATEGORY);
+						int idxPayMethod = c.getColumnIndex(Journal.COLUMN_PAY_METHOD);
+						int idxPayDate = c.getColumnIndex(Journal.COLUMN_PAY_DATE);
+						int idxCreateDate = c.getColumnIndex(Journal.COLUMN_CREATE_DATE);
+						int idxDescription = c.getColumnIndex(Journal.COLUMN_DESCRIPTION);
+
+						do {
+							value = new JSONObject();
+							value.put(Journal.COLUMN_AMOUNT, c.getDouble(idxAmount));
+							value.put(Journal.COLUMN_NAME, c.getString(idxName));
+							value.put(Journal.COLUMN_TYPE, c.getInt(idxType));
+							value.put(Journal.COLUMN_CATEGORY, c.getString(idxCategory));
+							value.put(Journal.COLUMN_PAY_METHOD, c.getString(idxPayMethod));
+							value.put(Journal.COLUMN_PAY_DATE, c.getLong(idxPayDate));
+							value.put(Journal.COLUMN_CREATE_DATE, c.getLong(idxCreateDate));
+							value.put(Journal.COLUMN_DESCRIPTION, c.getString(idxDescription));
+
+							array.put(index++, value);
+						} while(c.moveToNext());
+
+						mUploadData = array.toString();
+						
+						mProgress++;
+						mProgressDialog.incrementProgressBy(1);
+						mProgressHandler.sendEmptyMessage(0);
+					} else {
+						String url = "";
+						String response = HttpUtils.postData(url, mUploadData);
+
+						mProgress++;
+						mProgressDialog.incrementProgressBy(1);
+
+						if ("1".equals(response)) {
+							ActivityLog.logInfo(TodayView.this, getString(R.string.app_name),
+									getString(R.string.upload_success));
+						} else {
+							throw new Exception(response);
+						}
+
+						ContentValues values = new ContentValues();
+						values.put(Journal.COLUMN_SYNC, Constants.SYNC_DONE);
+
+						getContentResolver().update(Journal.CONTENT_URI, values,
+								Journal.COLUMN_SYNC + "=?1",
+								new String[] { String.valueOf(Constants.SYNC_NONE) });
+
+						mProgressHandler.sendEmptyMessage(0);
+					}
+				} catch (Exception ex) {
+					mProgress = mMaxProgress;
+					mProgressDialog.setIcon(android.R.drawable.ic_dialog_alert);
+					
+					String logMsg = MessageFormat.format(getString(R.string.upload_fail), ex.getLocalizedMessage());
+					
+					mProgressDialog.setMessage(logMsg);
+					ActivityLog.logError(TodayView.this, getString(R.string.app_name),
+							logMsg);
+					mProgressHandler.sendEmptyMessageDelayed(0, 1000);
+				}
+			}
+		};
+
+		mProgressHandler.sendEmptyMessage(0);
 	}
 }
