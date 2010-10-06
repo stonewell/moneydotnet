@@ -83,4 +83,4 @@ log4j = {
     warn   'org.mortbay.log'
 }
 
-google.appengine.application="accountdiary"
+google.appengine.application="angelstone.money"
