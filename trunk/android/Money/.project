@@ -37,4 +37,15 @@
 			<locationURI>_android_ASUtilsLib/src</locationURI>
 		</link>
 	</linkedResources>
+	<filteredResources>
+		<filter>
+			<id>1286340530749</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-.svn</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>
