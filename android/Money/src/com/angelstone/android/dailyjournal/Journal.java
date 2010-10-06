@@ -12,6 +12,8 @@ public class Journal implements Constants{
 			+ AUTHORITY + "/journal/name");
 	public static final Uri CONTENT_NAME_CATEGORY_URI = Uri.parse("content://"
 			+ AUTHORITY + "/journal/name/category");
+	public static final Uri CONTENT_PAY_DATE_GROUP_URI = Uri.parse("content://"
+			+ AUTHORITY + "/journal/group/pay_date");
 	
 	public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.angelstone.android.dailyjournal.journal";
   public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.angelstone.android.dailyjournal.journal";
@@ -26,6 +28,7 @@ public class Journal implements Constants{
 	public static final String COLUMN_SYNC = "sync";
 	
 	public static final String DEFAULT_SORT_ORDER = COLUMN_PAY_DATE + " desc";
+	public static final String COLUMN_PAY_DATE_GROUP = "pay_date_group";
 
 	public String Name;
 	public double Amount;

@@ -1,22 +1,15 @@
 package com.angelstone.android.dailyjournal.provider;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.angelstone.android.dailyjournal.Category;
 import com.angelstone.android.dailyjournal.Constants;
@@ -35,6 +28,9 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 	private static final int PAY_METHOD_ID = 8;
 	private static final int JOURNAL_NAME = 9;
 	private static final int JOURNAL_NAME_CATEGORY = 10;
+	private static final int PAY_METHOD_ORDER_COUNT = 11;
+	private static final int CATEGORY_ORDER_COUNT = 12;
+	private static final int JOURNAL_PAY_DATE_GROUP = 13;
 
 	private static UriMatcher sUriMatcher = null;
 	static {
@@ -43,69 +39,21 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 		sUriMatcher.addURI(AUTHORITY, "journal/name", JOURNAL_NAME);
 		sUriMatcher.addURI(AUTHORITY, "journal/name/category",
 				JOURNAL_NAME_CATEGORY);
+		sUriMatcher.addURI(AUTHORITY, "journal/group/pay_date",
+				JOURNAL_PAY_DATE_GROUP);
 		sUriMatcher.addURI(AUTHORITY, "journal/#", JOURNAL_ID);
 		sUriMatcher.addURI(AUTHORITY, "settings", SETTINGS);
 		sUriMatcher.addURI(AUTHORITY, "settings/#", SETTINGS_ID);
 		sUriMatcher.addURI(AUTHORITY, "category", CATEGORY);
+		sUriMatcher.addURI(AUTHORITY, "category/order/count", CATEGORY_ORDER_COUNT);
 		sUriMatcher.addURI(AUTHORITY, "category/#", CATEGORY_ID);
 		sUriMatcher.addURI(AUTHORITY, "paymethod", PAY_METHOD);
+		sUriMatcher.addURI(AUTHORITY, "paymethod/order/count",
+				PAY_METHOD_ORDER_COUNT);
 		sUriMatcher.addURI(AUTHORITY, "paymethod/#", PAY_METHOD_ID);
 	}
 
-	/**
-	 * This class helps open, create, and upgrade the database file.
-	 */
-	private static class DatabaseHelper extends SQLiteOpenHelper {
-
-		DatabaseHelper(Context context) {
-			super(context, DATABASE_NAME, null, DATABASE_VERSION);
-		}
-
-		@Override
-		public void onCreate(SQLiteDatabase db) {
-			db.execSQL("CREATE TABLE IF NOT EXISTS " + SETTING_TABLE + " ("
-					+ Setting.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-					+ Setting.COLUMN_OPTION + " VARCHAR, " + Setting.COLUMN_VALUE
-					+ " VARCHAR);");
-			db.execSQL("CREATE TABLE IF NOT EXISTS " + JOURNAL_TABLE + " ("
-					+ Journal.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-					+ Journal.COLUMN_SYNC + " INTEGER, "
-					+ Journal.COLUMN_NAME + " VARCHAR, " + Journal.COLUMN_AMOUNT
-					+ " DOUBLE, " + Journal.COLUMN_CATEGORY + " VARCHAR, "
-					+ Journal.COLUMN_PAY_METHOD + " VARCHAR, " + Journal.COLUMN_TYPE
-					+ " INTEGER, " + Journal.COLUMN_PAY_DATE + " LONG, "
-					+ Journal.COLUMN_CREATE_DATE + " LONG, " + Journal.COLUMN_DESCRIPTION
-					+ " TEXT " + ");");
-			db.execSQL("CREATE TABLE IF NOT EXISTS " + CATEGORY_TABLE + " ("
-					+ Category.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-					+ Category.COLUMN_NAME + " VARCHAR);");
-			db.execSQL("CREATE TABLE IF NOT EXISTS " + PAY_METHOD_TABLE + " ("
-					+ PayMethod.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-					+ PayMethod.COLUMN_NAME + " VARCHAR);");
-			db.execSQL("CREATE VIEW IF NOT EXISTS " + JOURNAL_NAME_VIEW
-					+ " AS SELECT " + COLUMN_NAME + ", COUNT(*) as count FROM "
-					+ JOURNAL_TABLE + " GROUP BY " + COLUMN_NAME + ";");
-			db.execSQL("CREATE VIEW IF NOT EXISTS " + JOURNAL_NAME_CATEGORY_VIEW
-					+ " AS SELECT " + COLUMN_NAME + ", " + Journal.COLUMN_CATEGORY
-					+ ", COUNT(*) as count FROM " + JOURNAL_TABLE + " GROUP BY "
-					+ COLUMN_NAME + ", " + Journal.COLUMN_CATEGORY + ";");
-		}
-
-		@Override
-		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
-					+ newVersion + ", which will destroy all old data");
-			db.execSQL("DROP TABLE IF EXISTS " + SETTING_TABLE);
-			db.execSQL("DROP TABLE IF EXISTS " + JOURNAL_TABLE);
-			db.execSQL("DROP TABLE IF EXISTS " + CATEGORY_TABLE);
-			db.execSQL("DROP TABLE IF EXISTS " + PAY_METHOD_TABLE);
-			db.execSQL("DROP VIEW IF EXISTS " + JOURNAL_NAME_VIEW);
-			db.execSQL("DROP VIEW IF EXISTS " + JOURNAL_NAME_CATEGORY_VIEW);
-			onCreate(db);
-		}
-	}
-
-	private DatabaseHelper mOpenHelper;
+	private DailyJournalDatabaseHelper mOpenHelper;
 
 	@Override
 	public int delete(Uri uri, String where, String[] whereArgs) {
@@ -179,10 +127,12 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 		case CATEGORY:
 			return Category.CONTENT_TYPE;
 		case CATEGORY_ID:
+		case CATEGORY_ORDER_COUNT:
 			return Category.CONTENT_ITEM_TYPE;
 		case PAY_METHOD:
 			return PayMethod.CONTENT_TYPE;
 		case PAY_METHOD_ID:
+		case PAY_METHOD_ORDER_COUNT:
 			return PayMethod.CONTENT_ITEM_TYPE;
 		default:
 			throw new IllegalArgumentException("Unknown URI " + uri);
@@ -221,7 +171,7 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 
 	@Override
 	public boolean onCreate() {
-		mOpenHelper = new DatabaseHelper(getContext());
+		mOpenHelper = new DailyJournalDatabaseHelper(getContext());
 		return true;
 	}
 
@@ -246,74 +196,16 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 			break;
 
 		case JOURNAL_NAME: {
-			qb.setTables(JOURNAL_NAME_VIEW + " t2");
-
-			if (projection == null) {
-				projection = new String[] { COLUMN_ID, COLUMN_NAME, "count" };
-			} else {
-				ArrayList<String> a = new ArrayList<String>();
-				for (String tmp : projection)
-					a.add(tmp);
-
-				if (!a.contains(COLUMN_ID)) {
-					a.add(COLUMN_ID);
-				}
-
-				projection = a.toArray(new String[0]);
-			}
-
-			Map<String, String> map = new HashMap<String, String>();
-			map.put(COLUMN_ID, "(select count(*) from "
-					+ JOURNAL_NAME_VIEW + " t1 where "
-					+ "t1." 
-					+ COLUMN_NAME 
-					+ " < t2." 
-					+ COLUMN_NAME
-					+") as " + COLUMN_ID);
-			map.put(COLUMN_NAME, COLUMN_NAME);
-			map.put("count", "count");
-			qb.setProjectionMap(map);
+			qb.setTables(JOURNAL_NAME_WITH_ID_VIEW);
 			if (TextUtils.isEmpty(sortOrder))
 				orderBy = "count desc";
 			break;
 		}
 
 		case JOURNAL_NAME_CATEGORY: {
-			qb.setTables(JOURNAL_NAME_CATEGORY_VIEW + " t2");
+			qb.setTables(JOURNAL_NAME_CATEGORY_WITH_ID_VIEW);
 			if (TextUtils.isEmpty(sortOrder))
 				orderBy = "count desc";
-			if (projection == null) {
-				projection = new String[] { COLUMN_ID, COLUMN_NAME, Journal.COLUMN_CATEGORY, "count" };
-			} else {
-				ArrayList<String> a = new ArrayList<String>();
-				for (String tmp : projection)
-					a.add(tmp);
-
-				if (!a.contains(COLUMN_ID)) {
-					a.add(COLUMN_ID);
-				}
-
-				projection = a.toArray(new String[0]);
-			}
-
-			Map<String, String> map = new HashMap<String, String>();
-			map.put(COLUMN_ID, "(select count(*) from "
-					+ JOURNAL_NAME_CATEGORY_VIEW + 
-					" t1 where " +
-					"t1." 
-					+ COLUMN_NAME 
-					+ " < t2." 
-					+ COLUMN_NAME
-					+ " AND "
-					+ "t1." 
-					+ Journal.COLUMN_CATEGORY 
-					+ " < t2." 
-					+ Journal.COLUMN_CATEGORY
-					+ ") as " + COLUMN_ID);
-			map.put(COLUMN_NAME, COLUMN_NAME);
-			map.put(Journal.COLUMN_CATEGORY, Journal.COLUMN_CATEGORY);
-			map.put("count", "count");
-			qb.setProjectionMap(map);
 			break;
 		}
 		case SETTINGS:
@@ -352,6 +244,24 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 			if (TextUtils.isEmpty(sortOrder))
 				orderBy = PayMethod.DEFAULT_SORT_ORDER;
 			break;
+		case CATEGORY_ORDER_COUNT: {
+			qb.setTables(CATEGORY_USE_COUNT_VIEW);
+			if (TextUtils.isEmpty(sortOrder))
+				orderBy = "count desc";
+			break;
+		}
+		case PAY_METHOD_ORDER_COUNT: {
+			qb.setTables(PAY_METHOD_USE_COUNT_VIEW);
+			if (TextUtils.isEmpty(sortOrder))
+				orderBy = "count desc";
+			break;
+		}
+		case JOURNAL_PAY_DATE_GROUP: {
+			qb.setTables(JOURNAL_NAME_CATEGORY_WITH_ID_VIEW);
+			if (TextUtils.isEmpty(sortOrder))
+				orderBy = Journal.COLUMN_PAY_DATE_GROUP + " desc";
+			break;
+		}
 		default:
 			throw new IllegalArgumentException("Unknown URI " + uri);
 		}
