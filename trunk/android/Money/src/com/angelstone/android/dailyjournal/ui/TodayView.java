@@ -129,6 +129,9 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		adapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinCategory.setAdapter(adapter);
+		if (adapter.getCount() > 0) {
+			spinCategory.setSelection(0);
+		}
 
 		Spinner spinPaymethod = (Spinner) findViewById(R.id.spinner_paymethod);
 		adapter = new NameCursorAdapter(this, android.R.layout.simple_spinner_item,
@@ -136,6 +139,9 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		adapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinPaymethod.setAdapter(adapter);
+		if (adapter.getCount() > 0) {
+			spinPaymethod.setSelection(0);
+		}
 
 		Spinner spinName = (Spinner) findViewById(R.id.spinner_name);
 		adapter = new NameCursorAdapter(this, android.R.layout.simple_spinner_item,
@@ -144,6 +150,9 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinName.setAdapter(adapter);
 		spinName.setOnItemSelectedListener(this);
+		if (adapter.getCount() > 0) {
+			spinName.setSelection(0);
+		}
 
 		EditText etName = (EditText) findViewById(R.id.edit_name);
 		etName.setOnFocusChangeListener(this);
@@ -191,8 +200,8 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 	}
 
 	private void prepareCursors() {
-		mCategoryCursor = managedQuery(Category.CONTENT_URI, null, null, null, null);
-		mPaymethodCursor = managedQuery(PayMethod.CONTENT_URI, null, null, null,
+		mCategoryCursor = managedQuery(Category.CONTENT_ORDER_COUNT_URI, null, null, null, null);
+		mPaymethodCursor = managedQuery(PayMethod.CONTENT_ORDER_COUNT_URI, null, null, null,
 				null);
 		mNameCursor = managedQuery(Journal.CONTENT_NAME_URI, null, null, null, null);
 	}

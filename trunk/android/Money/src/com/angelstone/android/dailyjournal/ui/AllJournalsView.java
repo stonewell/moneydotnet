@@ -1,65 +1,137 @@
 package com.angelstone.android.dailyjournal.ui;
 
-import com.angelstone.android.dailyjournal.Journal;
+import java.text.MessageFormat;
 
-import android.app.ExpandableListActivity;
-import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Contacts.People;
+import android.text.format.DateFormat;
+import android.view.View;
 import android.widget.ExpandableListAdapter;
-import android.widget.SimpleCursorTreeAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ListView;
+import android.widget.ResourceCursorAdapter;
+import android.widget.ResourceCursorTreeAdapter;
+import android.widget.TextView;
 
-public class AllJournalsView extends ExpandableListActivity {
-  private ExpandableListAdapter mAdapter;
+import com.angelstone.android.dailyjournal.Journal;
+import com.angelstone.android.dailyjournal.R;
 
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
+public class AllJournalsView extends DailyJournalBaseView {
+	private boolean mUseGroupView = false;
+	private int mGroupPayDateGroupColumnIndex;
+	private java.text.DateFormat mDateFormat;
+	
+	private class JournalAdapter extends ResourceCursorAdapter {
 
-      // Query for people
-      Cursor groupCursor = managedQuery(Journal.CONTENT_PAY_DATE_GROUP_URI, null, null, null, null);
+		public JournalAdapter(Cursor c) {
+			super(AllJournalsView.this, R.layout.journal_list_item, c);
+		}
 
-      // Cache the ID column index
-      mGroupIdColumnIndex = groupCursor.getColumnIndexOrThrow(People._ID);
+		@Override
+		public void bindView(View view, Context context, Cursor cursor) {
+			bindJournalView(view, context, cursor);
+		}
+		
+	}
+	
+	private class JournalPayDateGroupAdapter extends ResourceCursorTreeAdapter {
 
-      // Set up our adapter
-      mAdapter = new MyExpandableListAdapter(groupCursor,
-              this,
-              android.R.layout.simple_expandable_list_item_1,
-              android.R.layout.simple_expandable_list_item_1,
-              new String[] {People.NAME}, // Name for group layouts
-              new int[] {android.R.id.text1},
-              new String[] {People.NUMBER}, // Number for child layouts
-              new int[] {android.R.id.text1});
-      setListAdapter(mAdapter);
-  }
+		public JournalPayDateGroupAdapter(Cursor cursor, Context context,
+				int groupLayout, int childLayout) {
+			super(context, cursor, groupLayout, childLayout);
+		}
 
-  public class MyExpandableListAdapter extends SimpleCursorTreeAdapter {
+		@Override
+		protected Cursor getChildrenCursor(Cursor groupCursor) {
 
-      public MyExpandableListAdapter(Cursor cursor, Context context, int groupLayout,
-              int childLayout, String[] groupFrom, int[] groupTo, String[] childrenFrom,
-              int[] childrenTo) {
-          super(context, cursor, groupLayout, groupFrom, groupTo, childLayout, childrenFrom,
-                  childrenTo);
-      }
+			long begin = groupCursor.getLong(mGroupPayDateGroupColumnIndex);
+			long end = begin + 86400000;
 
-      @Override
-      protected Cursor getChildrenCursor(Cursor groupCursor) {
-          // Given the group, we return a cursor for all the children within that group 
+			return managedQuery(Journal.CONTENT_URI, null, Journal.COLUMN_PAY_DATE
+					+ " >= ?1 AND " + Journal.COLUMN_PAY_DATE + " < ?2", new String[] {
+					String.valueOf(begin), String.valueOf(end) }, Journal.COLUMN_PAY_DATE
+					+ " desc");
+		}
 
-          // Return a cursor that points to this contact's phone numbers
-          Uri.Builder builder = People.CONTENT_URI.buildUpon();
-          ContentUris.appendId(builder, groupCursor.getLong(mGroupIdColumnIndex));
-          builder.appendEncodedPath(People.Phones.CONTENT_DIRECTORY);
-          Uri phoneNumbersUri = builder.build();
+		@Override
+		protected void bindChildView(View view, Context context, Cursor cursor,
+				boolean isLastChild) {
+			bindJournalView(view, context, cursor);
+		}
 
-          // The returned Cursor MUST be managed by us, so we use Activity's helper
-          // functionality to manage it for us.
-          return managedQuery(phoneNumbersUri, mPhoneNumberProjection, null, null, null);
-      }
+		@Override
+		protected void bindGroupView(View view, Context context, Cursor cursor,
+				boolean isExpanded) {
+			TextView tv = (TextView) view.findViewById(android.R.id.text1);
 
-  }
+			tv.setText(mDateFormat.format(cursor
+					.getLong(mGroupPayDateGroupColumnIndex)));
+		}
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		// Query for people
+		Cursor groupCursor = managedQuery(Journal.CONTENT_PAY_DATE_GROUP_URI, null,
+				null, null, null);
+
+		mUseGroupView = groupCursor.getCount() > 1;
+		mDateFormat = DateFormat.getDateFormat(this);
+
+		if (mUseGroupView) {
+			setContentView(R.layout.all_journals_expandable);
+			// Cache the ID column index
+			mGroupPayDateGroupColumnIndex = groupCursor
+					.getColumnIndexOrThrow(Journal.COLUMN_PAY_DATE_GROUP);
+
+			// Set up our adapter
+			ExpandableListAdapter mAdapter = new JournalPayDateGroupAdapter(
+					groupCursor, this, android.R.layout.simple_expandable_list_item_1,
+					R.layout.journal_list_item);
+
+			ExpandableListView view = (ExpandableListView) findViewById(R.id.list);
+			view.setAdapter(mAdapter);
+		} else {
+			setContentView(R.layout.all_journals_list);
+			
+			Cursor journalCursor = managedQuery(Journal.CONTENT_URI, null, null, null, Journal.COLUMN_PAY_DATE
+					+ " desc");
+			
+			ListView view = (ListView)findViewById(R.id.list);
+			view.setAdapter(new JournalAdapter(journalCursor));
+		}
+
+	}
+
+	private void bindJournalView(View view, Context context, Cursor cursor) {
+		TextView tv = (TextView) view.findViewById(android.R.id.text1);
+
+		int type = cursor.getInt(cursor.getColumnIndex(Journal.COLUMN_TYPE));
+
+		String typeStr = type == 1 ? context.getString(R.string.type_income)
+				: context.getString(R.string.type_cost);
+
+		int color = type == 1 ? android.graphics.Color.BLUE : android.graphics.Color.RED;
+		
+		tv.setTextAppearance(context, android.R.style.TextAppearance_Small);
+		tv.setTextColor(color);
+		//tv.setTextColor(ColorStateList.valueOf(color));
+		
+		String text = MessageFormat
+				.format(
+						context.getString(R.string.pay_date_group_child_template),
+						new Object[] {
+								cursor.getDouble(cursor.getColumnIndex(Journal.COLUMN_AMOUNT)),
+								cursor.getString(cursor
+										.getColumnIndex(Journal.COLUMN_PAY_METHOD)),
+								cursor.getString(cursor.getColumnIndex(Journal.COLUMN_NAME)),
+								cursor.getString(cursor
+										.getColumnIndex(Journal.COLUMN_CATEGORY)), typeStr });
+
+		tv.setText(text);
+	}
+
 }
