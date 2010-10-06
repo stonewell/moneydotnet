@@ -12,6 +12,9 @@
 			</intent-filter>
 		</activity>
 
+		<activity android:name=".ui.AllJournalsView" android:label="@string/view_records">
+		</activity>
+
 		<provider android:name=".provider.DailyJournalProvider"
 			android:authorities="com.angelstone.android.dailyjournal" />
 

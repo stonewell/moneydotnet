@@ -257,7 +257,7 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 			break;
 		}
 		case JOURNAL_PAY_DATE_GROUP: {
-			qb.setTables(JOURNAL_NAME_CATEGORY_WITH_ID_VIEW);
+			qb.setTables(JOURNAL_PAY_DATE_GROUP_WITH_ID_VIEW);
 			if (TextUtils.isEmpty(sortOrder))
 				orderBy = Journal.COLUMN_PAY_DATE_GROUP + " desc";
 			break;
