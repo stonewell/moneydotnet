@@ -51,7 +51,6 @@ environments {
     }
     development {
         grails.serverURL = "http://localhost:8080/${appName}"
-		System.setProperty("grails.reload.location","grails-app")
     }
     test {
         grails.serverURL = "http://localhost:8080/${appName}"
