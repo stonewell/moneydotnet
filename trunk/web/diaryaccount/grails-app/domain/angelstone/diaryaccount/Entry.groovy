@@ -12,18 +12,18 @@ class Entry implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id
 
-    int fangxiang
+    int type
     String name
-    String fenlei_name
-    String fangshi_name
-    Date created = new Date()
-    Date updated = new Date()
+    String category
+    String pay_method
+    long pay_date
+    long create_date
     double amount
     String description
 	
     static constraints = {
         id visible:false
-        fangxiang(blank:false,
+        type(blank:false,
             validator: { fx ->
                 return fx==0 || fx==1
             })

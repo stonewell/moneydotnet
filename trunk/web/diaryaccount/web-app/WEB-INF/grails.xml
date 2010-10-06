@@ -2,6 +2,7 @@
   <resources>
     <resource>org.grails.appengine.AppEngineReloadController</resource>
     <resource>angelstone.diaryaccount.EntryController</resource>
+    <resource>angelstone.diaryaccount.DiaryAccountServiceService</resource>
     <resource>angelstone.diaryaccount.Entry</resource>
     <resource>resources</resource>
     <resource>UrlMappings</resource>

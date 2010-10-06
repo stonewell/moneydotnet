@@ -547,8 +547,9 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 						mProgressDialog.incrementProgressBy(1);
 						mProgressHandler.sendEmptyMessage(0);
 					} else {
-						String url = "";
-						String response = HttpUtils.postData(url, mUploadData);
+						String url = "http://accountdiary.appspot.com/entry/batchAdd";
+						String response = HttpUtils.postData(TodayView.this,
+								url, Constants.PARAM_ENTRIES, mUploadData);
 
 						mProgress++;
 						mProgressDialog.incrementProgressBy(1);
@@ -564,12 +565,13 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 						values.put(Journal.COLUMN_SYNC, Constants.SYNC_DONE);
 
 						getContentResolver().update(Journal.CONTENT_URI, values,
-								Journal.COLUMN_SYNC + "=?1",
-								new String[] { String.valueOf(Constants.SYNC_NONE) });
+								Journal.COLUMN_SYNC + "=" + Constants.SYNC_NONE,
+								null);
 
 						mProgressHandler.sendEmptyMessage(0);
 					}
 				} catch (Exception ex) {
+					Log.e(getString(R.string.app_name), "Upload Error", ex);
 					mProgress = mMaxProgress;
 					mProgressDialog.setIcon(android.R.drawable.ic_dialog_alert);
 					
