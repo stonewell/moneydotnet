@@ -36,7 +36,7 @@
   }
 
   function initNames() {
-	var zselect = document.getElementById('fenlei_id')
+	var zselect = document.getElementById('fenlei.id')
 	if (zselect) {
 		if (zselect.selectedIndex >= 0) {
 			var zopt = zselect.options[zselect.selectedIndex]

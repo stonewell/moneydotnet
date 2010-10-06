@@ -1,24 +1,16 @@
 package angelstone.money.grail
 
-import javax.persistence.*
-
-@Entity
-class Richangjiaoyi implements Serializable {
-  @Id
-  @GeneratedValue (strategy = GenerationType.IDENTITY)
-  Long id
-
-  int fangxiang
+class Richangjiaoyi {
+    int fangxiang
     String name
-    long fenlei_id
-    long fangshi_id
+    Fenlei fenlei
+    Fangshi fangshi
     Date created = new Date()
     Date updated = new Date()
     double amount
     String description
 	
     static constraints = {
-        id visible:false
         fangxiang(blank:false,
             validator: { fx ->
                 return fx==0 || fx==1
@@ -28,6 +20,8 @@ class Richangjiaoyi implements Serializable {
             validator:{ amt ->
                 return amt > 0
             })
+        fenlei(blank:false)
+        fangshi(blank:false)
         description(maxSize:255, nullable:true)
     }
 

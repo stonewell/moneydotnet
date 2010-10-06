@@ -53,14 +53,14 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="richangjiaoyi.fenlei.label" default="Fenlei" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="fenlei" action="show" id="${richangjiaoyiInstance?.fenlei_id}">${angelstone.money.grail.Fenlei.get(richangjiaoyiInstance?.fenlei_id).name}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="fenlei" action="show" id="${richangjiaoyiInstance?.fenlei?.id}">${richangjiaoyiInstance?.fenlei?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="richangjiaoyi.fangshi.label" default="Fangshi" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="fangshi" action="show" id="${richangjiaoyiInstance?.fangshi_id}">${angelstone.money.grail.Fangshi.get(richangjiaoyiInstance?.fangshi_id).name}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="fangshi" action="show" id="${richangjiaoyiInstance?.fangshi?.id}">${richangjiaoyiInstance?.fangshi?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
