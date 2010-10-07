@@ -41,7 +41,9 @@ public class DailyJournalDatabaseHelper extends SQLiteOpenHelper {
 				+ Journal.COLUMN_SYNC + " INTEGER, " + Journal.COLUMN_NAME
 				+ " VARCHAR, " + Journal.COLUMN_AMOUNT + " DOUBLE, "
 				+ Journal.COLUMN_CATEGORY + " VARCHAR, " + Journal.COLUMN_PAY_METHOD
-				+ " VARCHAR, " + Journal.COLUMN_TYPE + " INTEGER, "
+				+ " VARCHAR, " 
+				+ Journal.COLUMN_UID + " VARCHAR,"
+				+ Journal.COLUMN_TYPE + " INTEGER, "
 				+ Journal.COLUMN_PAY_DATE + " LONG, " + Journal.COLUMN_CREATE_DATE
 				+ " LONG, " + Journal.COLUMN_DESCRIPTION + " TEXT " + ");");
 		db.execSQL("CREATE TABLE IF NOT EXISTS " + Constants.CATEGORY_TABLE + " ("
