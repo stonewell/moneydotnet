@@ -10,10 +10,12 @@ import org.json.JSONObject;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -32,6 +34,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ResourceCursorAdapter;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -68,6 +71,8 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 
 	private int mProgress;
 	private int mMaxProgress;
+
+	private long mJournalId = -1;
 
 	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
 
@@ -157,7 +162,85 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		EditText etName = (EditText) findViewById(R.id.edit_name);
 		etName.setOnFocusChangeListener(this);
 
+		if (getIntent() != null) {
+			updateDisplayByIntent(getIntent());
+		}
+
 		updateDisplay();
+	}
+
+	private void updateDisplayByIntent(Intent intent) {
+		String action = intent.getAction();
+
+		if (!Constants.ACTION_EDIT_JOURNAL.equals(action))
+			return;
+
+		mJournalId = intent.getLongExtra(Constants.COLUMN_ID, -1);
+
+		if (mJournalId < 0)
+			return;
+
+		Cursor c = null;
+		try {
+			Uri uri = ContentUris.appendId(Journal.CONTENT_URI.buildUpon(),
+					mJournalId).build();
+			c = getContentResolver().query(uri, null, null, null, null);
+
+			if (!c.moveToFirst())
+				return;
+
+			mToday.setTimeInMillis(c.getLong(c
+					.getColumnIndex(Journal.COLUMN_PAY_DATE)));
+
+			selectCategory(c.getString(c.getColumnIndex(Journal.COLUMN_CATEGORY)));
+			selectPayMethod(c.getString(c.getColumnIndex(Journal.COLUMN_PAY_METHOD)));
+
+			EditText etAmount = (EditText) findViewById(R.id.edit_amount);
+			etAmount.setText(String.valueOf(c.getDouble(c
+					.getColumnIndex(Journal.COLUMN_AMOUNT))));
+
+			ToggleButton tbType = (ToggleButton) findViewById(R.id.toggle_type);
+			tbType.setChecked(c.getInt(c.getColumnIndex(Journal.COLUMN_TYPE)) == 1);
+
+			EditText etName = (EditText) findViewById(R.id.edit_name);
+			etName.setText(c.getString(c.getColumnIndex(Journal.COLUMN_NAME)));
+
+			EditText etDesc = (EditText) findViewById(R.id.edit_description);
+			etDesc.setText(c.getString(c.getColumnIndex(Journal.COLUMN_DESCRIPTION)));
+		} finally {
+			if (c != null)
+				c.close();
+		}
+	}
+
+	private void selectPayMethod(String payMethod) {
+		Spinner spinPaymethod = (Spinner) findViewById(R.id.spinner_paymethod);
+
+		selectSpinnerByName(spinPaymethod, payMethod);
+	}
+
+	private void selectCategory(String category) {
+		Spinner spinCategory = (Spinner) findViewById(R.id.spinner_category);
+
+		selectSpinnerByName(spinCategory, category);
+	}
+
+	private void selectSpinnerByName(Spinner spinner, String name) {
+		int count = spinner.getCount();
+		SpinnerAdapter adapter = spinner.getAdapter();
+		int idx = -1;
+
+		for (int i = 0; i < count; i++) {
+			Cursor c = (Cursor) adapter.getItem(i);
+
+			if (idx < 0)
+				idx = c.getColumnIndex(Category.COLUMN_NAME);
+
+			if (name.equals(c.getString(idx))) {
+				spinner.setSelection(i);
+				return;
+			}
+		}
 	}
 
 	private void initData() {
@@ -200,9 +283,10 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 	}
 
 	private void prepareCursors() {
-		mCategoryCursor = managedQuery(Category.CONTENT_ORDER_COUNT_URI, null, null, null, null);
-		mPaymethodCursor = managedQuery(PayMethod.CONTENT_ORDER_COUNT_URI, null, null, null,
-				null);
+		mCategoryCursor = managedQuery(Category.CONTENT_ORDER_COUNT_URI, null,
+				null, null, null);
+		mPaymethodCursor = managedQuery(PayMethod.CONTENT_ORDER_COUNT_URI, null,
+				null, null, null);
 		mNameCursor = managedQuery(Journal.CONTENT_NAME_URI, null, null, null, null);
 	}
 
@@ -274,7 +358,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case 0: {
-			addJournal();
+			saveJournal();
 			break;
 		}
 		case 1: {
@@ -293,7 +377,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		return true;
 	}
 
-	private void addJournal() {
+	private void saveJournal() {
 		if (!validateInput()) {
 			return;
 		}
@@ -329,7 +413,14 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		EditText etDesc = (EditText) findViewById(R.id.edit_description);
 		values.put(Journal.COLUMN_DESCRIPTION, etDesc.getText().toString());
 
-		getContentResolver().insert(Journal.CONTENT_URI, values);
+		if (mJournalId < 0) {
+			getContentResolver().insert(Journal.CONTENT_URI, values);
+		} else {
+			Uri uri = ContentUris.appendId(Journal.CONTENT_URI.buildUpon(),
+					mJournalId).build();
+
+			getContentResolver().update(uri, values, null, null);
+		}
 
 		mNameCursor.requery();
 		etAmount.setText("");
@@ -494,12 +585,12 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		final Cursor c = getContentResolver().query(Journal.CONTENT_URI, null,
 				Journal.COLUMN_SYNC + "=?1",
 				new String[] { String.valueOf(Constants.SYNC_NONE) }, null);
-		
+
 		if (c.getCount() == 0) {
 			c.close();
 			return;
 		}
-		
+
 		mMaxProgress = 2;
 
 		showDialog(UPLOAD_PROGRESS_DIALOG_ID);
@@ -522,11 +613,11 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 							c.close();
 					} else if (mProgress == 0) {
 						c.moveToFirst();
-						
+
 						JSONArray array = new JSONArray();
 						int index = 0;
 						JSONObject value = null;
-						
+
 						int idxAmount = c.getColumnIndex(Journal.COLUMN_AMOUNT);
 						int idxName = c.getColumnIndex(Journal.COLUMN_NAME);
 						int idxType = c.getColumnIndex(Journal.COLUMN_TYPE);
@@ -545,20 +636,21 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 							value.put(Journal.COLUMN_PAY_METHOD, c.getString(idxPayMethod));
 							value.put(Journal.COLUMN_PAY_DATE, c.getLong(idxPayDate));
 							value.put(Journal.COLUMN_CREATE_DATE, c.getLong(idxCreateDate));
-							value.put(Journal.COLUMN_DESCRIPTION, c.getString(idxDescription));
+							value
+									.put(Journal.COLUMN_DESCRIPTION, c.getString(idxDescription));
 
 							array.put(index++, value);
-						} while(c.moveToNext());
+						} while (c.moveToNext());
 
 						mUploadData = array.toString();
-						
+
 						mProgress++;
 						mProgressDialog.incrementProgressBy(1);
 						mProgressHandler.sendEmptyMessage(0);
 					} else {
 						String url = "http://accountdiary.appspot.com/entry/batchAdd";
-						String response = HttpUtils.postData(TodayView.this,
-								url, Constants.PARAM_ENTRIES, mUploadData);
+						String response = HttpUtils.postData(TodayView.this, url,
+								Constants.PARAM_ENTRIES, mUploadData);
 
 						mProgress++;
 						mProgressDialog.incrementProgressBy(1);
@@ -574,8 +666,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 						values.put(Journal.COLUMN_SYNC, Constants.SYNC_DONE);
 
 						getContentResolver().update(Journal.CONTENT_URI, values,
-								Journal.COLUMN_SYNC + "=" + Constants.SYNC_NONE,
-								null);
+								Journal.COLUMN_SYNC + "=" + Constants.SYNC_NONE, null);
 
 						mProgressHandler.sendEmptyMessage(0);
 					}
@@ -583,9 +674,10 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 					Log.e(getString(R.string.app_name), "Upload Error", ex);
 					mProgress = mMaxProgress;
 					mProgressDialog.setIcon(android.R.drawable.ic_dialog_alert);
-					
-					String logMsg = MessageFormat.format(getString(R.string.upload_fail), ex.getLocalizedMessage());
-					
+
+					String logMsg = MessageFormat.format(getString(R.string.upload_fail),
+							ex.getLocalizedMessage());
+
 					mProgressDialog.setMessage(logMsg);
 					ActivityLog.logError(TodayView.this, getString(R.string.app_name),
 							logMsg);
@@ -595,5 +687,11 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		};
 
 		mProgressHandler.sendEmptyMessage(0);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		updateDisplay();
 	}
 }
