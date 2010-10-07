@@ -1,5 +1,7 @@
 package com.angelstone.android.dailyjournal;
 
+import java.util.UUID;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -82,5 +84,9 @@ public class DatabaseManager {
 
 	public static boolean readSetting(Context context, String option_name) {
 		return "1".equals(readSettingString(context, option_name, "0"));
+	}
+
+	public static String generateUid() {
+		return UUID.randomUUID().toString();
 	}
 }

@@ -414,6 +414,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		values.put(Journal.COLUMN_DESCRIPTION, etDesc.getText().toString());
 
 		if (mJournalId < 0) {
+			values.put(Journal.COLUMN_UID, DatabaseManager.generateUid());
 			getContentResolver().insert(Journal.CONTENT_URI, values);
 		} else {
 			Uri uri = ContentUris.appendId(Journal.CONTENT_URI.buildUpon(),
@@ -626,6 +627,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 						int idxPayDate = c.getColumnIndex(Journal.COLUMN_PAY_DATE);
 						int idxCreateDate = c.getColumnIndex(Journal.COLUMN_CREATE_DATE);
 						int idxDescription = c.getColumnIndex(Journal.COLUMN_DESCRIPTION);
+						int idxUid = c.getColumnIndex(Journal.COLUMN_UID);
 
 						do {
 							value = new JSONObject();
@@ -638,6 +640,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 							value.put(Journal.COLUMN_CREATE_DATE, c.getLong(idxCreateDate));
 							value
 									.put(Journal.COLUMN_DESCRIPTION, c.getString(idxDescription));
+							value.put(Journal.COLUMN_UID, c.getString(idxUid));
 
 							array.put(index++, value);
 						} while (c.moveToNext());
