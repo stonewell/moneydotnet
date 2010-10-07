@@ -20,6 +20,7 @@ class Entry implements Serializable {
     long create_date
     double amount
     String description
+    String uid
 	
     static constraints = {
         id visible:false

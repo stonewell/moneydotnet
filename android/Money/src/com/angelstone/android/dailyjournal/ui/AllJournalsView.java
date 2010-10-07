@@ -135,7 +135,7 @@ public class AllJournalsView extends DailyJournalBaseView {
 		int color = type == 1 ? android.graphics.Color.BLUE
 				: android.graphics.Color.RED;
 
-		tv.setTextAppearance(context, android.R.style.TextAppearance_Small);
+		tv.setTextAppearance(context, android.R.style.TextAppearance_Medium);
 		tv.setTextColor(color);
 		// tv.setTextColor(ColorStateList.valueOf(color));
 

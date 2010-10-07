@@ -1,23 +1,33 @@
 package com.angelstone.android.dailyjournal.provider;
 
+import java.util.ArrayList;
+
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.angelstone.android.dailyjournal.Category;
 import com.angelstone.android.dailyjournal.Constants;
+import com.angelstone.android.dailyjournal.DatabaseManager;
 import com.angelstone.android.dailyjournal.Journal;
 import com.angelstone.android.dailyjournal.PayMethod;
+import com.angelstone.android.dailyjournal.R;
 import com.angelstone.android.dailyjournal.Setting;
+import com.angelstone.android.utils.ActivityLog;
 
 /**
  * This class helps open, create, and upgrade the database file.
  */
 public class DailyJournalDatabaseHelper extends SQLiteOpenHelper {
+	private Context mContext = null;
 
 	DailyJournalDatabaseHelper(Context context) {
 		super(context, Constants.DATABASE_NAME, null, Constants.DATABASE_VERSION);
+
+		mContext = context;
 	}
 
 	@Override
@@ -87,11 +97,11 @@ public class DailyJournalDatabaseHelper extends SQLiteOpenHelper {
 				+ ";");
 		db.execSQL("CREATE VIEW IF NOT EXISTS "
 				+ Constants.JOURNAL_PAY_DATE_GROUP_WITH_ID_VIEW + " AS SELECT "
-				+ "(select count(*) from " + Constants.JOURNAL_PAY_DATE_GROUP_VIEW + " t1 where "
-				+ "t1." + Journal.COLUMN_PAY_DATE_GROUP + " < t2." + Journal.COLUMN_PAY_DATE_GROUP
-				+ ") as " + Constants.COLUMN_ID + "," + Journal.COLUMN_PAY_DATE_GROUP
-				+ " FROM " + Constants.JOURNAL_PAY_DATE_GROUP_VIEW
-				+ " t2;");
+				+ "(select count(*) from " + Constants.JOURNAL_PAY_DATE_GROUP_VIEW
+				+ " t1 where " + "t1." + Journal.COLUMN_PAY_DATE_GROUP + " < t2."
+				+ Journal.COLUMN_PAY_DATE_GROUP + ") as " + Constants.COLUMN_ID + ","
+				+ Journal.COLUMN_PAY_DATE_GROUP + " FROM "
+				+ Constants.JOURNAL_PAY_DATE_GROUP_VIEW + " t2;");
 	}
 
 	@Override
@@ -103,7 +113,13 @@ public class DailyJournalDatabaseHelper extends SQLiteOpenHelper {
 			db.execSQL("DROP TABLE IF EXISTS " + Constants.JOURNAL_TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + Constants.CATEGORY_TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + Constants.PAY_METHOD_TABLE);
+		} else if (oldVersion < 9) {
+			db.execSQL("ALTER TABLE " + Constants.JOURNAL_TABLE + " ADD "
+					+ Journal.COLUMN_UID + " VARCHAR;");
+
+			generateUids(db);
 		}
+
 		db.execSQL("DROP VIEW IF EXISTS " + Constants.JOURNAL_NAME_VIEW);
 		db.execSQL("DROP VIEW IF EXISTS " + Constants.JOURNAL_NAME_CATEGORY_VIEW);
 		db.execSQL("DROP VIEW IF EXISTS " + Constants.JOURNAL_NAME_WITH_ID_VIEW);
@@ -113,5 +129,32 @@ public class DailyJournalDatabaseHelper extends SQLiteOpenHelper {
 		db.execSQL("DROP VIEW IF EXISTS " + Constants.PAY_METHOD_USE_COUNT_VIEW);
 		db.execSQL("DROP VIEW IF EXISTS " + Constants.JOURNAL_PAY_DATE_GROUP_VIEW);
 		onCreate(db);
+	}
+
+	private void generateUids(SQLiteDatabase db) {
+		Cursor c = null;
+
+		try {
+			c = db.query(Constants.JOURNAL_TABLE, new String[] { Journal.COLUMN_ID },
+					null, null, null, null, null);
+
+			ArrayList<Integer> ids = new ArrayList<Integer>();
+			while (c.moveToNext()) {
+				ids.add(c.getInt(0));
+			}
+
+			for (int id : ids) {
+				ContentValues values = new ContentValues();
+				values.put(Journal.COLUMN_UID, DatabaseManager.generateUid());
+				db.update(Constants.JOURNAL_TABLE, values,
+						Journal.COLUMN_ID + "=" + id, null);
+			}
+		} catch (Throwable t) {
+			ActivityLog.logError(mContext, mContext.getString(R.string.app_name),
+					t.getMessage());
+		} finally {
+			if (c != null)
+				c.close();
+		}
 	}
 }
