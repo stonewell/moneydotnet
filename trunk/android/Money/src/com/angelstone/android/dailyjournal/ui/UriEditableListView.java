@@ -22,6 +22,28 @@ public abstract class UriEditableListView extends EditableListView {
 	}
 
 	@Override
+	protected String getEditText(long childId) {
+		Uri uri = ContentUris.appendId(mUri.buildUpon(), childId).build();
+
+		Cursor c = null;
+
+		try {
+			c = getContentResolver().query(uri, null, null, null, null);
+
+			if (c.moveToFirst()) {
+				String entry = c.getString(c.getColumnIndex(mEditColumnName));
+
+				return entry;
+			}
+		} finally {
+			if (c != null)
+				c.close();
+		}
+
+		return "";
+	}
+
+	@Override
 	protected String getConfirmMessage(long childId) {
 		Uri uri = ContentUris.appendId(mUri.buildUpon(), childId).build();
 
