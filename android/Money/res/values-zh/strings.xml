@@ -31,5 +31,17 @@
     <string name="menu_delete">删除</string>
     <string name="confirm_delete_selected_journal">删除选中的记录么?</string>
     <string name="confirm_delete_selected_group_journal">删除{0}所有的记录么？</string>
+    
+	<string name="app_config_preferences">应用配置</string>
+	<string name="title_reinit_data_preference">重新初始化数据</string>
+	<string name="summary_reinit_data_preference">下次启动清除并且重新初始化分类和付款方式数据</string>
+	<string name="title_upload_url_preference">上传URL</string>
+   <string name="summary_upload_url_preference">用于上传所有记账数据的网站</string>
+   <string name="dialog_title_upload_url_preference">编辑上传URL</string>
+   <string name="edit_data_preferences">记账数据</string>
+   <string name="title_edit_category">配置分类</string>
+   <string name="summary_edit_category">配置记账使用的分类</string>
+   <string name="title_edit_paymethod">配置付款方式</string>
+   <string name="summary_edit_paymethod">配置记账使用的付款方式</string>
 </resources>
  

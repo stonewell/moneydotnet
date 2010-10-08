@@ -35,4 +35,6 @@ public interface Constants {
 	public static final String JOURNAL_PAY_DATE_GROUP_WITH_ID_VIEW = "journal_pay_date_group_with_id_view";
 	
 	public static final String ACTION_EDIT_JOURNAL = "angelstone.android.dailyjournal.action.EDIT";
+	public static final String ACTION_EDIT_CATEGORY = "angelstone.android.dailyjournal.action.category.EDIT";
+	public static final String ACTION_EDIT_PAY_METHOD = "angelstone.android.dailyjournal.action.paymethod.EDIT";
 }
