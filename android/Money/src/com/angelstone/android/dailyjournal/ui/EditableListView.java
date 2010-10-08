@@ -71,6 +71,8 @@ public abstract class EditableListView extends ListActivity {
 
 		final EditText entryView = (EditText) textEntryView
 				.findViewById(R.id.edit_entry);
+		
+		entryView.setText(getEditText(childId));
 
 		AlertDialog ad = new AlertDialog.Builder(this)
 				.setIcon(android.R.drawable.ic_dialog_info)
@@ -119,6 +121,7 @@ public abstract class EditableListView extends ListActivity {
 	}
 
 	protected abstract String getConfirmMessage(long childId);
+	protected abstract String getEditText(long childId);
 	protected abstract ListAdapter createListAdapter();
 	protected abstract void doDeleteEntry(long childId);
 	protected abstract void doUpdateEntry(long childId, String entry);
