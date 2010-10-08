@@ -18,14 +18,26 @@
 		<activity android:name=".ui.AllJournalsView" android:label="@string/view_records">
 		</activity>
 
+		<activity android:name=".ui.PreferenceView"></activity>
+
+		<activity android:name=".ui.CategoryEditView">
+			<intent-filter>
+				<action android:name="angelstone.android.dailyjournal.action.category.EDIT" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".ui.PayMethodEditView">
+			<intent-filter>
+				<action android:name="angelstone.android.dailyjournal.action.paymethod.EDIT" />
+			</intent-filter>
+		</activity>
+
 		<provider android:name=".provider.DailyJournalProvider"
 			android:authorities="com.angelstone.android.dailyjournal" />
 
 		<!-- Library Activity -->
 		<activity android:name="com.angelstone.android.ui.ActivityLogActivity"
 			android:label="@string/activity_log_title" />
-	<activity android:name=".ui.PreferenceView"></activity>
-</application>
-	
+	</application>
+
 	<uses-sdk android:minSdkVersion="4" />
 </manifest> 
