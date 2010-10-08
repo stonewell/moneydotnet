@@ -18,6 +18,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Message;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -68,12 +69,14 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 
 	private ProgressDialog mProgressDialog;
 	private Handler mProgressHandler;
+	private Handler mMainUIHandler;
+	private HandlerThread mHandlerThread = null;
 
 	private int mProgress;
 	private int mMaxProgress;
 
 	private long mJournalId = -1;
-
+	
 	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
 
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -118,6 +121,11 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.today_table);
+		
+		mHandlerThread = new HandlerThread(getString(R.string.app_name));
+		mHandlerThread.start();
+		
+		mMainUIHandler = new Handler();
 
 		mToday = Calendar.getInstance();
 
@@ -154,10 +162,10 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		adapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinName.setAdapter(adapter);
-		spinName.setOnItemSelectedListener(this);
 		if (adapter.getCount() > 0) {
 			spinName.setSelection(0);
 		}
+		spinName.setOnItemSelectedListener(this);
 
 		EditText etName = (EditText) findViewById(R.id.edit_name);
 		etName.setOnFocusChangeListener(this);
@@ -258,7 +266,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		mProgress = 0;
 		mProgressDialog.setProgress(0);
 
-		mProgressHandler = new Handler() {
+		mProgressHandler = new Handler(mHandlerThread.getLooper()) {
 			@Override
 			public void handleMessage(Message msg) {
 				super.handleMessage(msg);
@@ -266,10 +274,11 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 					mProgressDialog.dismiss();
 					DatabaseManager.writeSetting(TodayView.this,
 							Constants.OPTION_DATA_INIT, true);
+					refreshCursors();
 				} else {
+					updateProgress();
+
 					try {
-						mProgress++;
-						mProgressDialog.incrementProgressBy(1);
 						init.processEntry(TodayView.this, mProgress - 1);
 					} catch (Exception ex) {
 						mProgressDialog.setMessage(ex.getLocalizedMessage());
@@ -277,17 +286,29 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 					mProgressHandler.sendEmptyMessage(0);
 				}
 			}
+
 		};
 
 		mProgressHandler.sendEmptyMessage(0);
 	}
 
-	private void prepareCursors() {
+	private synchronized void prepareCursors() {
 		mCategoryCursor = managedQuery(Category.CONTENT_ORDER_COUNT_URI, null,
 				null, null, null);
 		mPaymethodCursor = managedQuery(PayMethod.CONTENT_ORDER_COUNT_URI, null,
 				null, null, null);
 		mNameCursor = managedQuery(Journal.CONTENT_NAME_URI, null, null, null, null);
+	}
+
+	private synchronized  void refreshCursors() {
+		if (mCategoryCursor != null)
+			mCategoryCursor.requery();
+		
+		if (mPaymethodCursor != null)
+			mPaymethodCursor.requery();
+		
+		if (mNameCursor != null)
+			mNameCursor.requery();
 	}
 
 	private void updateDisplay() {
@@ -599,7 +620,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		mProgress = 0;
 		mProgressDialog.setProgress(0);
 
-		mProgressHandler = new Handler() {
+		mProgressHandler = new Handler(mHandlerThread.getLooper()) {
 			private String mUploadData = null;
 
 			@Override
@@ -647,17 +668,16 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 
 						mUploadData = array.toString();
 
-						mProgress++;
-						mProgressDialog.incrementProgressBy(1);
+						updateProgress();
+						
 						mProgressHandler.sendEmptyMessage(0);
 					} else {
 						String url = "http://accountdiary.appspot.com/entry/batchAdd";
 						String response = HttpUtils.postData(TodayView.this, url,
 								Constants.PARAM_ENTRIES, mUploadData);
 
-						mProgress++;
-						mProgressDialog.incrementProgressBy(1);
-
+						updateProgress();
+						
 						if ("1".equals(response)) {
 							ActivityLog.logInfo(TodayView.this, getString(R.string.app_name),
 									getString(R.string.upload_success));
@@ -692,6 +712,17 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		mProgressHandler.sendEmptyMessage(0);
 	}
 
+	private void updateProgress() {
+		mProgress++;
+		mMainUIHandler.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				mProgressDialog.incrementProgressBy(1);
+			}
+		});
+
+	}
 	@Override
 	protected void onResume() {
 		super.onResume();
