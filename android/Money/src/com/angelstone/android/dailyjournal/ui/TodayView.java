@@ -12,6 +12,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -21,6 +22,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -110,25 +113,28 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		Spinner spinCategory = (Spinner) findViewById(R.id.spinner_category);
 		NameCursorAdapter adapter = new NameCursorAdapter(this,
 				android.R.layout.simple_spinner_item, mCategoryCursor);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinCategory.setAdapter(adapter);
 		if (adapter.getCount() > 0) {
 			spinCategory.setSelection(0);
 		}
 
 		Spinner spinPaymethod = (Spinner) findViewById(R.id.spinner_paymethod);
-		adapter = new NameCursorAdapter(this,
-				android.R.layout.simple_spinner_item, mPaymethodCursor);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapter = new NameCursorAdapter(this, android.R.layout.simple_spinner_item,
+				mPaymethodCursor);
+		adapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinPaymethod.setAdapter(adapter);
 		if (adapter.getCount() > 0) {
 			spinPaymethod.setSelection(0);
 		}
 
 		Spinner spinName = (Spinner) findViewById(R.id.spinner_name);
-		adapter = new NameCursorAdapter(this,
-				android.R.layout.simple_spinner_item, mNameCursor);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapter = new NameCursorAdapter(this, android.R.layout.simple_spinner_item,
+				mNameCursor);
+		adapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinName.setAdapter(adapter);
 		if (adapter.getCount() > 0) {
 			spinName.setSelection(0);
@@ -170,10 +176,8 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 			mToday.setTimeInMillis(c.getLong(c
 					.getColumnIndex(Journal.COLUMN_PAY_DATE)));
 
-			selectCategory(c.getString(c
-					.getColumnIndex(Journal.COLUMN_CATEGORY)));
-			selectPayMethod(c.getString(c
-					.getColumnIndex(Journal.COLUMN_PAY_METHOD)));
+			selectCategory(c.getString(c.getColumnIndex(Journal.COLUMN_CATEGORY)));
+			selectPayMethod(c.getString(c.getColumnIndex(Journal.COLUMN_PAY_METHOD)));
 
 			EditText etAmount = (EditText) findViewById(R.id.edit_amount);
 			etAmount.setText(String.valueOf(c.getDouble(c
@@ -186,8 +190,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 			etName.setText(c.getString(c.getColumnIndex(Journal.COLUMN_NAME)));
 
 			EditText etDesc = (EditText) findViewById(R.id.edit_description);
-			etDesc.setText(c.getString(c
-					.getColumnIndex(Journal.COLUMN_DESCRIPTION)));
+			etDesc.setText(c.getString(c.getColumnIndex(Journal.COLUMN_DESCRIPTION)));
 		} finally {
 			if (c != null)
 				c.close();
@@ -265,8 +268,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 						}
 						init.processEntry(mProgress - 1);
 					} catch (Exception ex) {
-						ActivityLog.logError(TodayView.this,
-								getString(R.string.app_name),
+						ActivityLog.logError(TodayView.this, getString(R.string.app_name),
 								ex.getLocalizedMessage());
 						updateProgress(android.R.drawable.ic_dialog_alert,
 								ex.getLocalizedMessage());
@@ -283,10 +285,9 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 	private synchronized void prepareCursors() {
 		mCategoryCursor = managedQuery(Category.CONTENT_ORDER_COUNT_URI, null,
 				null, null, null);
-		mPaymethodCursor = managedQuery(PayMethod.CONTENT_ORDER_COUNT_URI,
-				null, null, null, null);
-		mNameCursor = managedQuery(Journal.CONTENT_NAME_URI, null, null, null,
-				null);
+		mPaymethodCursor = managedQuery(PayMethod.CONTENT_ORDER_COUNT_URI, null,
+				null, null, null);
+		mNameCursor = managedQuery(Journal.CONTENT_NAME_URI, null, null, null, null);
 	}
 
 	private synchronized void refreshCursors() {
@@ -519,22 +520,19 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		Cursor c = null, c1 = null;
 
 		try {
-			c = getContentResolver().query(Journal.CONTENT_NAME_CATEGORY_URI,
-					null, Journal.COLUMN_NAME + "=?1", new String[] { name },
-					"count desc");
+			c = getContentResolver().query(Journal.CONTENT_NAME_CATEGORY_URI, null,
+					Journal.COLUMN_NAME + "=?1", new String[] { name }, "count desc");
 
 			if (!c.moveToFirst())
 				return;
 
-			String category = c.getString(c
-					.getColumnIndex(Journal.COLUMN_CATEGORY));
+			String category = c.getString(c.getColumnIndex(Journal.COLUMN_CATEGORY));
 
 			Spinner spinCategory = (Spinner) findViewById(R.id.spinner_category);
 
 			c1 = getContentResolver().query(Category.CONTENT_URI,
-					new String[] { Category.COLUMN_ID },
-					Category.COLUMN_NAME + "=?1", new String[] { category },
-					null);
+					new String[] { Category.COLUMN_ID }, Category.COLUMN_NAME + "=?1",
+					new String[] { category }, null);
 
 			if (!c1.moveToFirst())
 				return;
@@ -573,16 +571,13 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 			end.set(Calendar.MINUTE, 59);
 			end.set(Calendar.SECOND, 59);
 
-			c = getContentResolver()
-					.query(Journal.CONTENT_URI,
-							new String[] { Journal.COLUMN_AMOUNT,
-									Journal.COLUMN_TYPE },
-							Journal.COLUMN_PAY_DATE + " >= ?1 AND "
-									+ Journal.COLUMN_PAY_DATE + " <= ?2",
-							new String[] {
-									String.valueOf(zero.getTimeInMillis()),
-									String.valueOf(end.getTimeInMillis()) },
-							null);
+			c = getContentResolver().query(
+					Journal.CONTENT_URI,
+					new String[] { Journal.COLUMN_AMOUNT, Journal.COLUMN_TYPE },
+					Journal.COLUMN_PAY_DATE + " >= ?1 AND " + Journal.COLUMN_PAY_DATE
+							+ " <= ?2",
+					new String[] { String.valueOf(zero.getTimeInMillis()),
+							String.valueOf(end.getTimeInMillis()) }, null);
 
 			int idxType = c.getColumnIndex(Journal.COLUMN_TYPE);
 			int idxAmount = c.getColumnIndex(Journal.COLUMN_AMOUNT);
@@ -631,7 +626,15 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 			@Override
 			public void handleMessage(Message msg) {
 				super.handleMessage(msg);
+				PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+
+				WakeLock wl = null;
 				try {
+					wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+							getString(R.string.app_name));
+					wl.setReferenceCounted(false);
+					wl.acquire();
+
 					if (mProgress >= mMaxProgress) {
 						mProgressDialog.dismiss();
 						if (c != null)
@@ -646,34 +649,24 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 						int idxAmount = c.getColumnIndex(Journal.COLUMN_AMOUNT);
 						int idxName = c.getColumnIndex(Journal.COLUMN_NAME);
 						int idxType = c.getColumnIndex(Journal.COLUMN_TYPE);
-						int idxCategory = c
-								.getColumnIndex(Journal.COLUMN_CATEGORY);
-						int idxPayMethod = c
-								.getColumnIndex(Journal.COLUMN_PAY_METHOD);
-						int idxPayDate = c
-								.getColumnIndex(Journal.COLUMN_PAY_DATE);
-						int idxCreateDate = c
-								.getColumnIndex(Journal.COLUMN_CREATE_DATE);
-						int idxDescription = c
-								.getColumnIndex(Journal.COLUMN_DESCRIPTION);
+						int idxCategory = c.getColumnIndex(Journal.COLUMN_CATEGORY);
+						int idxPayMethod = c.getColumnIndex(Journal.COLUMN_PAY_METHOD);
+						int idxPayDate = c.getColumnIndex(Journal.COLUMN_PAY_DATE);
+						int idxCreateDate = c.getColumnIndex(Journal.COLUMN_CREATE_DATE);
+						int idxDescription = c.getColumnIndex(Journal.COLUMN_DESCRIPTION);
 						int idxUid = c.getColumnIndex(Journal.COLUMN_UID);
 
 						do {
 							value = new JSONObject();
-							value.put(Journal.COLUMN_AMOUNT,
-									c.getDouble(idxAmount));
+							value.put(Journal.COLUMN_AMOUNT, c.getDouble(idxAmount));
 							value.put(Journal.COLUMN_NAME, c.getString(idxName));
 							value.put(Journal.COLUMN_TYPE, c.getInt(idxType));
-							value.put(Journal.COLUMN_CATEGORY,
-									c.getString(idxCategory));
-							value.put(Journal.COLUMN_PAY_METHOD,
-									c.getString(idxPayMethod));
-							value.put(Journal.COLUMN_PAY_DATE,
-									c.getLong(idxPayDate));
-							value.put(Journal.COLUMN_CREATE_DATE,
-									c.getLong(idxCreateDate));
-							value.put(Journal.COLUMN_DESCRIPTION,
-									c.getString(idxDescription));
+							value.put(Journal.COLUMN_CATEGORY, c.getString(idxCategory));
+							value.put(Journal.COLUMN_PAY_METHOD, c.getString(idxPayMethod));
+							value.put(Journal.COLUMN_PAY_DATE, c.getLong(idxPayDate));
+							value.put(Journal.COLUMN_CREATE_DATE, c.getLong(idxCreateDate));
+							value
+									.put(Journal.COLUMN_DESCRIPTION, c.getString(idxDescription));
 							value.put(Journal.COLUMN_UID, c.getString(idxUid));
 
 							array.put(index++, value);
@@ -686,14 +679,13 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 						mProgressHandler.sendEmptyMessage(0);
 					} else {
 						String url = getUploadUrl();
-						String response = HttpUtils.postData(TodayView.this,
-								url, Constants.PARAM_ENTRIES, mUploadData);
+						String response = HttpUtils.postData(TodayView.this, url,
+								Constants.PARAM_ENTRIES, mUploadData);
 
 						stepProgress();
 
 						if ("1".equals(response)) {
-							ActivityLog.logInfo(TodayView.this,
-									getString(R.string.app_name),
+							ActivityLog.logInfo(TodayView.this, getString(R.string.app_name),
 									getString(R.string.upload_success));
 						} else {
 							throw new Exception(response);
@@ -702,11 +694,8 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 						ContentValues values = new ContentValues();
 						values.put(Journal.COLUMN_SYNC, Constants.SYNC_DONE);
 
-						getContentResolver()
-								.update(Journal.CONTENT_URI,
-										values,
-										Journal.COLUMN_SYNC + "="
-												+ Constants.SYNC_NONE, null);
+						getContentResolver().update(Journal.CONTENT_URI, values,
+								Journal.COLUMN_SYNC + "=" + Constants.SYNC_NONE, null);
 
 						mProgressHandler.sendEmptyMessage(0);
 					}
@@ -714,15 +703,17 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 					Log.e(getString(R.string.app_name), "Upload Error", ex);
 					mProgress = mMaxProgress;
 
-					String logMsg = MessageFormat.format(
-							getString(R.string.upload_fail),
+					String logMsg = MessageFormat.format(getString(R.string.upload_fail),
 							ex.getLocalizedMessage());
 
 					updateProgress(android.R.drawable.ic_dialog_alert, logMsg);
 
-					ActivityLog.logError(TodayView.this,
-							getString(R.string.app_name), logMsg);
+					ActivityLog.logError(TodayView.this, getString(R.string.app_name),
+							logMsg);
 					mProgressHandler.sendEmptyMessageDelayed(0, 1000);
+				} finally {
+					if (wl != null)
+						wl.release();
 				}
 			}
 		};
