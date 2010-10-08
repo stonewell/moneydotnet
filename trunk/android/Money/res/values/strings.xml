@@ -32,6 +32,8 @@
 	<string name="menu_delete">Delete</string>
 	<string name="confirm_delete_selected_journal">Delete the selected journal?</string>
 	<string name="confirm_delete_selected_group_journal">Delete all journals in {0}？</string>
+	<string name="confirm_delete_selected_entry">Delete the selected Entry?</string>
+	<string name="confirm_delete_used_entry">The entry has already been used, Continue to delete?</string>
 
 	<string name="app_config_preferences">Application Configuration</string>
 	<string name="title_reinit_data_preference">Reinitialize data</string>

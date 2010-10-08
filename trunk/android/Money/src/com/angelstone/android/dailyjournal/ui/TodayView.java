@@ -12,7 +12,6 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentUris;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -35,7 +34,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ResourceCursorAdapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -86,33 +84,6 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 			mToday.set(year, monthOfYear, dayOfMonth);
 			updateDisplay();
 		}
-	};
-
-	private class NameCursorAdapter extends ResourceCursorAdapter {
-		private int mNameIndex = -1;
-
-		public NameCursorAdapter(Context context, int layout, Cursor c) {
-			super(context, layout, c, true);
-
-			for (int i = 0; i < c.getColumnCount(); i++)
-				Log.e(Constants.TAG, i + "=" + c.getColumnName(i));
-
-			mNameIndex = c.getColumnIndex(Constants.COLUMN_NAME);
-		}
-
-		@Override
-		public void bindView(View view, Context context, Cursor cursor) {
-			if (view instanceof TextView) {
-				TextView tv = (TextView) view;
-				tv.setText(cursor.getString(mNameIndex));
-			}
-		}
-
-		@Override
-		public boolean hasStableIds() {
-			return true;
-		}
-
 	};
 
 	public TodayView() {
