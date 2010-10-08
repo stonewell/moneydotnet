@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="@string/app_config_preferences">
+            
+        <CheckBoxPreference
+                android:key="init_data_on_next_start"
+                android:title="@string/title_reinit_data_preference"
+                android:summary="@string/summary_reinit_data_preference" />
+            
+        <EditTextPreference
+                android:key="upload_url"
+                android:defaultValue="http://accountdiary.appspot.com/entry/batchAdd"
+                android:title="@string/title_upload_url_preference"
+                android:summary="@string/summary_upload_url_preference"
+                android:dialogTitle="@string/dialog_title_upload_url_preference" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:title="@string/edit_data_preferences">
+
+        <PreferenceScreen
+                android:title="@string/title_edit_category"
+                android:summary="@string/summary_edit_category">
+
+            <intent android:action="angelstone.android.dailyjournal.action.category.EDIT"/>
+
+        </PreferenceScreen>
+
+        <PreferenceScreen
+                android:title="@string/title_edit_paymethod"
+                android:summary="@string/summary_edit_paymethod">
+
+            <intent android:action="angelstone.android.dailyjournal.action.paymethod.EDIT"/>
+
+        </PreferenceScreen>
+    </PreferenceCategory>
+      
+</PreferenceScreen>

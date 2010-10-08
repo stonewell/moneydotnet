@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<string-array name="categories">
+		<item>书</item>
+		<item>伙食费</item>
+		<item>工资</item>
+		<item>超市</item>
+		<item>通讯费</item>
+		<item>交通</item>
+		<item>汽车</item>
+		<item>家用</item>
+		<item>置装费</item>
+		<item>日用品</item>
+		<item>家具和装饰品</item>
+		<item>旅游</item>
+		<item>娱乐</item>
+		<item>医药</item>
+		<item>美容美发</item>
+		<item>交际费</item>
+		<item>礼品</item>
+		<item>物业</item>
+		<item>股票</item>
+		<item>电子用品</item>
+		<item>出差</item>
+		<item>锻炼</item>
+		<item>证件</item>
+	</string-array>
+
+	<string-array name="paymethods">
+		<item>现金</item>
+		<item>老婆招行</item>
+		<item>老公招行</item>
+		<item>老公中信</item>
+	</string-array>
+</resources>

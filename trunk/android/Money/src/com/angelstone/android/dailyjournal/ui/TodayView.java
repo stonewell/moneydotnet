@@ -14,6 +14,8 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -255,10 +257,13 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		boolean dataInited = DatabaseManager.readSetting(this,
 				Constants.OPTION_DATA_INIT);
 
-		if (dataInited)
+		final SharedPreferences perf = getSharedPreferences(getPackageName()
+				+ "_preferences", 0);
+
+		if (dataInited && !perf.getBoolean("init_data_on_next_start", false))
 			return;
 
-		final DatabaseInitializer init = new DatabaseInitializer();
+		final DatabaseInitializer init = new DatabaseInitializer(this);
 		mMaxProgress = init.getEntryCount();
 
 		showDialog(INIT_DATA_PROGRESS_DIALOG_ID);
@@ -274,17 +279,26 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 					mProgressDialog.dismiss();
 					DatabaseManager.writeSetting(TodayView.this,
 							Constants.OPTION_DATA_INIT, true);
+
+					Editor ed = perf.edit();
+					ed.putBoolean("init_data_on_next_start", false);
+					ed.commit();
+
 					refreshCursors();
 				} else {
 					stepProgress();
 
 					try {
-						init.processEntry(TodayView.this, mProgress - 1);
+						if (mProgress == 1) {
+							init.clearData();
+						}
+						init.processEntry(mProgress - 1);
 					} catch (Exception ex) {
 						ActivityLog.logError(TodayView.this,
 								getString(R.string.app_name),
 								ex.getLocalizedMessage());
-						updateProgress(android.R.drawable.ic_dialog_alert, ex.getLocalizedMessage());
+						updateProgress(android.R.drawable.ic_dialog_alert,
+								ex.getLocalizedMessage());
 					}
 					mProgressHandler.sendEmptyMessage(0);
 				}
@@ -305,14 +319,20 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 	}
 
 	private synchronized void refreshCursors() {
-		if (mCategoryCursor != null)
-			mCategoryCursor.requery();
+		runOnUiThread(new Runnable() {
 
-		if (mPaymethodCursor != null)
-			mPaymethodCursor.requery();
+			@Override
+			public void run() {
+				if (mCategoryCursor != null)
+					mCategoryCursor.requery();
 
-		if (mNameCursor != null)
-			mNameCursor.requery();
+				if (mPaymethodCursor != null)
+					mPaymethodCursor.requery();
+
+				if (mNameCursor != null)
+					mNameCursor.requery();
+			}
+		});
 	}
 
 	private void updateDisplay() {
@@ -694,7 +714,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 
 						mProgressHandler.sendEmptyMessage(0);
 					} else {
-						String url = "http://accountdiary.appspot.com/entry/batchAdd";
+						String url = getUploadUrl();
 						String response = HttpUtils.postData(TodayView.this,
 								url, Constants.PARAM_ENTRIES, mUploadData);
 
@@ -767,5 +787,13 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 	protected void onResume() {
 		super.onResume();
 		updateDisplay();
+	}
+
+	private String getUploadUrl() {
+		SharedPreferences perf = getSharedPreferences(getPackageName()
+				+ "_preferences", 0);
+
+		return perf.getString("upload_url",
+				"http://accountdiary.appspot.com/entry/batchAdd");
 	}
 }

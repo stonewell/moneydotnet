@@ -83,7 +83,7 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 			break;
 		}
 		case PAY_METHOD:
-			count = db.delete(CATEGORY_TABLE, where, whereArgs);
+			count = db.delete(PAY_METHOD_TABLE, where, whereArgs);
 			break;
 
 		case PAY_METHOD_ID: {

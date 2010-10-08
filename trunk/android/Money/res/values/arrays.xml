@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<string-array name="categories">
+		<item>Book</item>
+		<item>Food</item>
+		<item>Salary</item>
+		<item>Super-Market</item>
+		<item>Correspondence</item>
+		<item>Traffic</item>
+		<item>Car</item>
+		<item>Parents Outlay</item>
+		<item>Cloth</item>
+		<item>Daily Necessities</item>
+		<item>Furniture</item>
+		<item>Travel</item>
+		<item>Entertainment</item>
+		<item>Health</item>
+		<item>Hair Dressing</item>
+		<item>Social Expenses</item>
+		<item>Gift</item>
+		<item>Housing</item>
+		<item>Stock</item>
+		<item>Electric Equipment</item>
+		<item>Business-Trip</item>
+		<item>Fitness</item>
+		<item>Voucher</item>
+	</string-array>
+
+	<string-array name="paymethods">
+		<item>Cash</item>
+		<item>Wife\&apos;s CMB China</item>
+		<item>Husband\&apos;s CMB China</item>
+		<item>Husband\'s Citic China</item>
+	</string-array>
+</resources>

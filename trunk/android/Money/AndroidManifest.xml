@@ -24,7 +24,8 @@
 		<!-- Library Activity -->
 		<activity android:name="com.angelstone.android.ui.ActivityLogActivity"
 			android:label="@string/activity_log_title" />
-	</application>
+	<activity android:name=".ui.PreferenceView"></activity>
+</application>
 	
 	<uses-sdk android:minSdkVersion="4" />
 </manifest> 
