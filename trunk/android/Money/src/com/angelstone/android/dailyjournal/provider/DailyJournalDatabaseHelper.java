@@ -41,11 +41,11 @@ public class DailyJournalDatabaseHelper extends SQLiteOpenHelper {
 				+ Journal.COLUMN_SYNC + " INTEGER, " + Journal.COLUMN_NAME
 				+ " VARCHAR, " + Journal.COLUMN_AMOUNT + " DOUBLE, "
 				+ Journal.COLUMN_CATEGORY + " VARCHAR, " + Journal.COLUMN_PAY_METHOD
-				+ " VARCHAR, " 
-				+ Journal.COLUMN_UID + " VARCHAR,"
-				+ Journal.COLUMN_TYPE + " INTEGER, "
-				+ Journal.COLUMN_PAY_DATE + " LONG, " + Journal.COLUMN_CREATE_DATE
-				+ " LONG, " + Journal.COLUMN_DESCRIPTION + " TEXT " + ");");
+				+ " VARCHAR, " + Journal.COLUMN_UID + " VARCHAR,"
+				+ Journal.COLUMN_DELETED + " INTEGER," + Journal.COLUMN_TYPE
+				+ " INTEGER, " + Journal.COLUMN_PAY_DATE + " LONG, "
+				+ Journal.COLUMN_CREATE_DATE + " LONG, " + Journal.COLUMN_DESCRIPTION
+				+ " TEXT " + ");");
 		db.execSQL("CREATE TABLE IF NOT EXISTS " + Constants.CATEGORY_TABLE + " ("
 				+ Category.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
 				+ Category.COLUMN_NAME + " VARCHAR);");
@@ -115,11 +115,22 @@ public class DailyJournalDatabaseHelper extends SQLiteOpenHelper {
 			db.execSQL("DROP TABLE IF EXISTS " + Constants.JOURNAL_TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + Constants.CATEGORY_TABLE);
 			db.execSQL("DROP TABLE IF EXISTS " + Constants.PAY_METHOD_TABLE);
-		} else if (oldVersion < 9) {
-			db.execSQL("ALTER TABLE " + Constants.JOURNAL_TABLE + " ADD "
-					+ Journal.COLUMN_UID + " VARCHAR;");
+		} else {
+			if (oldVersion < 9) {
+				db.execSQL("ALTER TABLE " + Constants.JOURNAL_TABLE + " ADD "
+						+ Journal.COLUMN_UID + " VARCHAR;");
 
-			generateUids(db);
+				generateUids(db);
+			}
+			
+			if (oldVersion < 10) {
+				db.execSQL("ALTER TABLE " + Constants.JOURNAL_TABLE + " ADD "
+						+ Journal.COLUMN_DELETED + " INTEGER;");
+				
+				ContentValues values = new ContentValues();
+				values.put(Journal.COLUMN_DELETED, 0);
+				db.update(Constants.JOURNAL_TABLE, values, null, null);
+			}
 		}
 
 		db.execSQL("DROP VIEW IF EXISTS " + Constants.JOURNAL_NAME_VIEW);

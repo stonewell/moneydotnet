@@ -27,6 +27,7 @@ public class Journal implements Constants{
 	public static final String COLUMN_DESCRIPTION = "description";
 	public static final String COLUMN_SYNC = "sync";
 	public static final String COLUMN_UID = "uid";
+	public static final String COLUMN_DELETED = "deleted";
 	
 	public static final String DEFAULT_SORT_ORDER = COLUMN_PAY_DATE + " desc";
 	public static final String COLUMN_PAY_DATE_GROUP = "pay_date_group";
@@ -39,4 +40,5 @@ public class Journal implements Constants{
 	public Date PayDate = Calendar.getInstance().getTime();
 	public Date CreateDate = Calendar.getInstance().getTime();
 	public String Description;
+	public boolean Deleted;
 }

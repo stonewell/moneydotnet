@@ -655,6 +655,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 						int idxCreateDate = c.getColumnIndex(Journal.COLUMN_CREATE_DATE);
 						int idxDescription = c.getColumnIndex(Journal.COLUMN_DESCRIPTION);
 						int idxUid = c.getColumnIndex(Journal.COLUMN_UID);
+						int idxDeleted = c.getColumnIndex(Journal.COLUMN_DELETED);
 
 						do {
 							value = new JSONObject();
@@ -668,6 +669,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 							value
 									.put(Journal.COLUMN_DESCRIPTION, c.getString(idxDescription));
 							value.put(Journal.COLUMN_UID, c.getString(idxUid));
+							value.put(Journal.COLUMN_DELETED, c.getInt(idxDeleted));
 
 							array.put(index++, value);
 						} while (c.moveToNext());
