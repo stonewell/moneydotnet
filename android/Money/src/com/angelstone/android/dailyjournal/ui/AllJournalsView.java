@@ -4,13 +4,16 @@ import java.text.MessageFormat;
 
 import android.app.AlertDialog;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
 import android.text.format.DateFormat;
+import android.text.style.StrikethroughSpan;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
@@ -19,6 +22,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.ExpandableListContextMenuInfo;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
 import android.widget.ResourceCursorTreeAdapter;
@@ -92,7 +96,7 @@ public class AllJournalsView extends DailyJournalBaseView {
 		mGroupCursor = managedQuery(Journal.CONTENT_PAY_DATE_GROUP_URI, null, null,
 				null, null);
 
-		mUseGroupView = mGroupCursor.getCount() > 1;
+		mUseGroupView = true;// mGroupCursor.getCount() > 1;
 		mDateFormat = DateFormat.getDateFormat(this);
 
 		if (mUseGroupView) {
@@ -137,7 +141,16 @@ public class AllJournalsView extends DailyJournalBaseView {
 
 		tv.setTextAppearance(context, android.R.style.TextAppearance_Medium);
 		tv.setTextColor(color);
-		// tv.setTextColor(ColorStateList.valueOf(color));
+
+		int deleted = cursor.getInt(cursor.getColumnIndex(Journal.COLUMN_DELETED));
+		int sync = cursor.getInt(cursor.getColumnIndex(Journal.COLUMN_SYNC));
+		
+		ImageView img = (ImageView)view.findViewById(R.id.imgsync);
+		if (sync == Constants.SYNC_DONE) {
+			img.setImageResource(android.R.drawable.star_on);
+		} else {
+			img.setImageResource(R.drawable.empty);
+		}
 
 		String text = MessageFormat.format(
 				context.getString(R.string.pay_date_group_child_template),
@@ -148,7 +161,13 @@ public class AllJournalsView extends DailyJournalBaseView {
 						cursor.getString(cursor.getColumnIndex(Journal.COLUMN_CATEGORY)),
 						typeStr });
 
-		tv.setText(text);
+		SpannableString spanText = new SpannableString(text);
+
+		if (deleted == 1) {
+			spanText.setSpan(new StrikethroughSpan(), 0, text.length(), 0);
+		}
+
+		tv.setText(spanText);
 	}
 
 	public void onCreateContextMenu(ContextMenu menu, View v,
@@ -176,6 +195,7 @@ public class AllJournalsView extends DailyJournalBaseView {
 		boolean clickOnGroup = false;
 		int groupPos = 0;
 		long childId = 0;
+		long packedPos = 0;
 
 		if (menuInfo instanceof ExpandableListContextMenuInfo) {
 			ExpandableListContextMenuInfo info = (ExpandableListContextMenuInfo) menuInfo;
@@ -185,12 +205,15 @@ public class AllJournalsView extends DailyJournalBaseView {
 
 			groupPos = ExpandableListView.getPackedPositionGroup(info.packedPosition);
 
+			packedPos = info.packedPosition;
+
 			if (!clickOnGroup) {
 				childId = info.id;
 			}
 		} else if (menuInfo instanceof AdapterContextMenuInfo) {
 			AdapterContextMenuInfo info = (AdapterContextMenuInfo) menuInfo;
 			childId = info.id;
+			packedPos = info.position;
 			clickOnGroup = false;
 		} else {
 			return false;
@@ -205,7 +228,7 @@ public class AllJournalsView extends DailyJournalBaseView {
 			if (clickOnGroup)
 				deleteGroupJournal(groupPos);
 			else
-				deleteJournal(childId);
+				deleteJournal(childId, packedPos, menuInfo instanceof ExpandableListContextMenuInfo);
 			break;
 
 		}
@@ -220,11 +243,24 @@ public class AllJournalsView extends DailyJournalBaseView {
 		Intent intent = new Intent(this, TodayView.class);
 		intent.setAction(Constants.ACTION_EDIT_JOURNAL);
 		intent.putExtra(Journal.COLUMN_ID, childId);
-		
+
 		startActivity(intent);
 	}
 
-	private void deleteJournal(final long childId) {
+	private void deleteJournal(final long childId, long packedPos, boolean expand) {
+
+		Cursor c = null;
+
+		if (expand) {
+			int groupPos = ExpandableListView.getPackedPositionGroup(packedPos);
+			int childPos = ExpandableListView.getPackedPositionChild(packedPos);
+			c = (Cursor) mExpandableAdapter.getChild(groupPos, childPos);
+		} else {
+			c = (Cursor) mJournalAdapter.getItem((int) packedPos * -1);
+		}
+
+		final int synced = c.getInt(c.getColumnIndex(Journal.COLUMN_SYNC));
+
 		AlertDialog ad = new AlertDialog.Builder(this)
 				.setIcon(android.R.drawable.ic_dialog_alert)
 				.setTitle(android.R.string.dialog_alert_title)
@@ -235,8 +271,14 @@ public class AllJournalsView extends DailyJournalBaseView {
 								Uri uri = ContentUris.appendId(Journal.CONTENT_URI.buildUpon(),
 										childId).build();
 
-								getContentResolver().delete(uri, null, null);
+								if (synced == Constants.SYNC_DONE) {
+									ContentValues values = new ContentValues();
+									values.put(Journal.COLUMN_DELETED, 1);
 
+									getContentResolver().update(uri, values, null, null);
+								} else {
+									getContentResolver().delete(uri, null, null);
+								}
 								mGroupCursor.requery();
 							}
 						})
@@ -265,14 +307,26 @@ public class AllJournalsView extends DailyJournalBaseView {
 								long begin = groupDate;
 								long end = begin + 86400000;
 
-								getContentResolver()
-										.delete(
-												Journal.CONTENT_URI,
-												Journal.COLUMN_PAY_DATE + " >= ?1 AND "
-														+ Journal.COLUMN_PAY_DATE + " < ?2",
-												new String[] { String.valueOf(begin),
-														String.valueOf(end) });
-								
+								ContentValues values = new ContentValues();
+								values.put(Journal.COLUMN_DELETED, 1);
+
+								getContentResolver().update(
+										Journal.CONTENT_URI,
+										values,
+										Journal.COLUMN_PAY_DATE + " >= ?2 AND "
+												+ Journal.COLUMN_PAY_DATE + " < ?3 AND "
+												+ Journal.COLUMN_SYNC + " = ?4",
+										new String[] { String.valueOf(begin), String.valueOf(end),
+												String.valueOf(Constants.SYNC_DONE) });
+
+								getContentResolver().delete(
+										Journal.CONTENT_URI,
+										Journal.COLUMN_PAY_DATE + " >= ?2 AND "
+												+ Journal.COLUMN_PAY_DATE + " < ?3 AND "
+												+ Journal.COLUMN_SYNC + " = ?4",
+										new String[] { String.valueOf(begin), String.valueOf(end),
+												String.valueOf(Constants.SYNC_NONE) });
+
 								mGroupCursor.requery();
 							}
 						})
