@@ -17,9 +17,9 @@ namespace Money.Net
             //  Change assembly information settings for your application through either:
             //  - Project->Properties->Application->Assembly Information
             //  - AssemblyInfo.cs
-            this.Text = String.Format("¹ØÓÚ {0}", AssemblyTitle);
+            this.Text = String.Format("å…³äºŽ {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("°æ±¾ {0}", AssemblyVersion);
+            this.labelVersion.Text = String.Format("ç‰ˆæœ¬ {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;

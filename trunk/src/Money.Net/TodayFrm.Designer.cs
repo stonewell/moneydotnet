@@ -112,7 +112,7 @@ namespace Money.Net
             this.lblFenLei.Name = "lblFenLei";
             this.lblFenLei.Size = new System.Drawing.Size(43, 13);
             this.lblFenLei.TabIndex = 3;
-            this.lblFenLei.Text = "∑÷¿‡£∫";
+            this.lblFenLei.Text = "ÂàÜÁ±ªÔºö";
             // 
             // lblFangShi
             // 
@@ -121,7 +121,7 @@ namespace Money.Net
             this.lblFangShi.Name = "lblFangShi";
             this.lblFangShi.Size = new System.Drawing.Size(67, 13);
             this.lblFangShi.TabIndex = 5;
-            this.lblFangShi.Text = "Ωª“◊∑Ω Ω£∫";
+            this.lblFangShi.Text = "‰∫§ÊòìÊñπÂºèÔºö";
             // 
             // rdoXiaoFei
             // 
@@ -131,7 +131,7 @@ namespace Money.Net
             this.rdoXiaoFei.Size = new System.Drawing.Size(49, 17);
             this.rdoXiaoFei.TabIndex = 1;
             this.rdoXiaoFei.TabStop = true;
-            this.rdoXiaoFei.Text = "œ˚∑—";
+            this.rdoXiaoFei.Text = "Ê∂àË¥π";
             this.rdoXiaoFei.UseVisualStyleBackColor = true;
             // 
             // rdoShouRu
@@ -142,7 +142,7 @@ namespace Money.Net
             this.rdoShouRu.Size = new System.Drawing.Size(49, 17);
             this.rdoShouRu.TabIndex = 2;
             this.rdoShouRu.TabStop = true;
-            this.rdoShouRu.Text = " ’»Î";
+            this.rdoShouRu.Text = "Êî∂ÂÖ•";
             this.rdoShouRu.UseVisualStyleBackColor = true;
             // 
             // lblMingCheng
@@ -152,7 +152,7 @@ namespace Money.Net
             this.lblMingCheng.Name = "lblMingCheng";
             this.lblMingCheng.Size = new System.Drawing.Size(43, 13);
             this.lblMingCheng.TabIndex = 7;
-            this.lblMingCheng.Text = "√˚≥∆£∫";
+            this.lblMingCheng.Text = "ÂêçÁß∞Ôºö";
             // 
             // label4
             // 
@@ -161,7 +161,7 @@ namespace Money.Net
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 11;
-            this.label4.Text = "√Ë ˆ£∫";
+            this.label4.Text = "ÊèèËø∞Ôºö";
             // 
             // label5
             // 
@@ -170,7 +170,7 @@ namespace Money.Net
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 13;
-            this.label5.Text = "µ±»’œ˚∑—£∫";
+            this.label5.Text = "ÂΩìÊó•Ê∂àË¥πÔºö";
             // 
             // txtJinE
             // 
@@ -189,7 +189,7 @@ namespace Money.Net
             this.lblJinE.Name = "lblJinE";
             this.lblJinE.Size = new System.Drawing.Size(43, 13);
             this.lblJinE.TabIndex = 8;
-            this.lblJinE.Text = "Ω∂Ó£∫";
+            this.lblJinE.Text = "ÈáëÈ¢ùÔºö";
             // 
             // txtTodayXiaoFei
             // 
@@ -217,7 +217,7 @@ namespace Money.Net
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 13);
             this.label7.TabIndex = 15;
-            this.label7.Text = "µ±»’ ’»Î£∫";
+            this.label7.Text = "ÂΩìÊó•Êî∂ÂÖ•Ôºö";
             // 
             // btnNew
             // 
@@ -227,7 +227,7 @@ namespace Money.Net
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 18;
-            this.btnNew.Text = "–¬‘ˆ (&N)";
+            this.btnNew.Text = "Êñ∞Â¢û (&N)";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             this.btnNew.Leave += new System.EventHandler(this.btnNew_Leave);
@@ -242,7 +242,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 19;
-            this.btnOK.Text = "πÿ±’ (&C)";
+            this.btnOK.Text = "ÂÖ≥Èó≠ (&C)";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -261,7 +261,7 @@ namespace Money.Net
             this.btnDetail.Name = "btnDetail";
             this.btnDetail.Size = new System.Drawing.Size(75, 23);
             this.btnDetail.TabIndex = 17;
-            this.btnDetail.Text = "√˜œ∏ (&D)";
+            this.btnDetail.Text = "ÊòéÁªÜ (&D)";
             this.btnDetail.UseVisualStyleBackColor = true;
             this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
@@ -299,7 +299,7 @@ namespace Money.Net
             this.Name = "TodayFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ΩÒÃÏ";
+            this.Text = "‰ªäÂ§©";
             this.Load += new System.EventHandler(this.TodayFrm_Load);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.TodayFrm_PreviewKeyDown);
             this.ResumeLayout(false);

@@ -110,6 +110,13 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Uid" minOccurs="0" msprop:Generator_UserColumnName="Uid" msprop:Generator_ColumnVarNameInTable="columnUid" msprop:Generator_ColumnPropNameInRow="Uid" msprop:Generator_ColumnPropNameInTable="UidColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="JiaoYi_FangShi_ID" msprop:Generator_UserColumnName="JiaoYi_FangShi_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FangShi_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FangShi_IDColumn" type="xs:int" minOccurs="0" />
               <xs:element name="JiaoYi_FenLei_ID" msprop:Generator_UserColumnName="JiaoYi_FenLei_ID" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInRow="JiaoYi_FenLei_ID" msprop:Generator_ColumnPropNameInTable="JiaoYi_FenLei_IDColumn" type="xs:int" minOccurs="0" />
               <xs:element name="JiaoYi_Time" msprop:Generator_UserColumnName="JiaoYi_Time" msprop:Generator_ColumnVarNameInTable="columnJiaoYi_Time" msprop:Generator_ColumnPropNameInRow="JiaoYi_Time" msprop:Generator_ColumnPropNameInTable="JiaoYi_TimeColumn" type="xs:dateTime" minOccurs="0" />

@@ -8,9 +8,9 @@ namespace Money.Net
 {
     public enum ChangeModeEnum
     {
-        ±à¼­,
-        É¾³ı,
-        ÒÑ»Ö¸´
+        ç¼–è¾‘,
+        åˆ é™¤,
+        å·²æ¢å¤
     };
 
     static class Program
@@ -77,7 +77,7 @@ namespace Money.Net
             {
                 moneyNetDS_.RejectChanges();
 
-                MessageBox.Show("Ö´ĞĞ¹Ì¶¨ÖÜÆÚ½»Ò×´íÎó:" + ex.Message, "´íÎó",
+                MessageBox.Show("æ‰§è¡Œå›ºå®šå‘¨æœŸäº¤æ˜“é”™è¯¯:" + ex.Message, "é”™è¯¯",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -100,7 +100,7 @@ namespace Money.Net
             }
             catch (Exception ex)
             {
-                MessageBox.Show("±£´æÊı¾İÎÄ¼ş:" + defaultYearFilePath_ + "´íÎó:" + ex.Message, "´íÎó",
+                MessageBox.Show("ä¿å­˜æ•°æ®æ–‡ä»¶:" + defaultYearFilePath_ + "é”™è¯¯:" + ex.Message, "é”™è¯¯",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -132,13 +132,13 @@ namespace Money.Net
 
             if (defaultYearFilePath_ == null)
             {
-                if (DialogResult.Cancel == MessageBox.Show("ÇëÉèÖÃ¼ÇÕÊÄê¶È£º" + year +
-                        "µÄÊı¾İÎÄ¼şÂ·¾¶", "ÏµÍ³ÉèÖÃ",
+                if (DialogResult.Cancel == MessageBox.Show("è¯·è®¾ç½®è®°å¸å¹´åº¦ï¼š" + year +
+                        "çš„æ•°æ®æ–‡ä»¶è·¯å¾„", "ç³»ç»Ÿè®¾ç½®",
                         MessageBoxButtons.OKCancel,
                         MessageBoxIcon.Information))
                 {
-                    if (DialogResult.Yes == MessageBox.Show("¼ÇÕÊÄê¶È£º" + year +
-                        "Î´ÉèÖÃÊı¾İÎÄ¼şÏµÍ³ÎŞ·¨ÔËĞĞ£¬ÒªÍË³öÏµÍ³Ã´?", "È·ÈÏÍË³ö",
+                    if (DialogResult.Yes == MessageBox.Show("è®°å¸å¹´åº¦ï¼š" + year +
+                        "æœªè®¾ç½®æ•°æ®æ–‡ä»¶ç³»ç»Ÿæ— æ³•è¿è¡Œï¼Œè¦é€€å‡ºç³»ç»Ÿä¹ˆ?", "ç¡®è®¤é€€å‡º",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                     {
                         return false;
@@ -155,8 +155,8 @@ namespace Money.Net
 
                     if (defaultYearFilePath_ == null)
                     {
-                        if (DialogResult.Yes == MessageBox.Show("¼ÇÕÊÄê¶È£º" + year +
-                            "Î´ÉèÖÃÊı¾İÎÄ¼şÏµÍ³ÎŞ·¨ÔËĞĞ£¬ÒªÍË³öÏµÍ³Ã´?", "È·ÈÏÍË³ö",
+                        if (DialogResult.Yes == MessageBox.Show("è®°å¸å¹´åº¦ï¼š" + year +
+                            "æœªè®¾ç½®æ•°æ®æ–‡ä»¶ç³»ç»Ÿæ— æ³•è¿è¡Œï¼Œè¦é€€å‡ºç³»ç»Ÿä¹ˆ?", "ç¡®è®¤é€€å‡º",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                         {
                             return false;
@@ -174,7 +174,7 @@ namespace Money.Net
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("¶ÁÈ¡Êı¾İÎÄ¼ş:" + defaultYearFilePath_ + "´íÎó:" + ex.Message, "´íÎó",
+                    MessageBox.Show("è¯»å–æ•°æ®æ–‡ä»¶:" + defaultYearFilePath_ + "é”™è¯¯:" + ex.Message, "é”™è¯¯",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -216,7 +216,7 @@ namespace Money.Net
             }
 
             MoneyNetDS.Year_PeiZhiRow row =
-                moneyNetDS.Year_PeiZhi.FindByName("InitialAMount");
+                moneyNetDS._Year_PeiZhi.FindByName("InitialAMount");
 
             if (row != null)
             {
@@ -262,7 +262,7 @@ namespace Money.Net
             } 
             
             MoneyNetDS.Year_PeiZhiRow row =
-                moneyNetDS.Year_PeiZhi.FindByName("InitialAMount");
+                moneyNetDS._Year_PeiZhi.FindByName("InitialAMount");
 
             if (row != null)
             {
@@ -272,10 +272,10 @@ namespace Money.Net
             }
             else
             {
-                row = moneyNetDS.Year_PeiZhi.NewYear_PeiZhiRow();
+                row = moneyNetDS._Year_PeiZhi.NewYear_PeiZhiRow();
                 row.Name = "InitialAMount";
                 row.Value = val.ToString();
-                moneyNetDS.Year_PeiZhi.Rows.Add(row);
+                moneyNetDS._Year_PeiZhi.Rows.Add(row);
 
                 if (year != GetDefaultYear())
                 {
@@ -395,7 +395,7 @@ namespace Money.Net
         public static int GetMainFrmFenLei()
         {
             MoneyNetDS.Year_PeiZhiRow row =
-                Program.MoneyNetDS.Year_PeiZhi.FindByName("MainFrmFenLei");
+                Program.MoneyNetDS._Year_PeiZhi.FindByName("MainFrmFenLei");
 
             if (row != null)
             {
@@ -410,7 +410,7 @@ namespace Money.Net
         public static void SetMainFrmFenLei(int fenlei)
         {
             MoneyNetDS.Year_PeiZhiRow row =
-                Program.MoneyNetDS.Year_PeiZhi.FindByName("MainFrmFenLei");
+                Program.MoneyNetDS._Year_PeiZhi.FindByName("MainFrmFenLei");
 
             if (row != null)
             {
@@ -420,17 +420,17 @@ namespace Money.Net
             }
             else
             {
-                row = Program.MoneyNetDS.Year_PeiZhi.NewYear_PeiZhiRow();
+                row = Program.MoneyNetDS._Year_PeiZhi.NewYear_PeiZhiRow();
                 row.Name = "MainFrmFenLei";
                 row.Value = fenlei.ToString();
-                Program.MoneyNetDS.Year_PeiZhi.Rows.Add(row);
+                Program.MoneyNetDS._Year_PeiZhi.Rows.Add(row);
             }
         }
 
         public static void UpdateHistory(MoneyNetDS.RiChang_JiaoYiRow row, ChangeModeEnum mode)
         {
             MoneyNetDS.RiChang_JiaoYi_HistoryRow newRow =
-                Program.MoneyNetDS.RiChang_JiaoYi_History.NewRiChang_JiaoYi_HistoryRow();
+                Program.MoneyNetDS._RiChang_JiaoYi_History.NewRiChang_JiaoYi_HistoryRow();
 
             newRow.JiaoYi_FangXiang = row.JiaoYi_FangXiang;
             newRow.JiaoYi_FenLei_Name = row.JiaoYi_FenLeiRow.Name;
@@ -445,13 +445,13 @@ namespace Money.Net
             newRow.Change_Time = DateTime.Now;
             newRow.RiChang_ID = row.ID;
 
-            Program.MoneyNetDS.RiChang_JiaoYi_History.Rows.Add(newRow);
+            Program.MoneyNetDS._RiChang_JiaoYi_History.Rows.Add(newRow);
         }
 
         public static void UpdateHistory(MoneyNetDS.GuDing_JiaoYiRow row, ChangeModeEnum mode)
         {
             MoneyNetDS.GuDing_JiaoYi_HistoryRow newRow =
-                Program.MoneyNetDS.GuDing_JiaoYi_History.NewGuDing_JiaoYi_HistoryRow();
+                Program.MoneyNetDS._GuDing_JiaoYi_History.NewGuDing_JiaoYi_HistoryRow();
 
             newRow.JiaoYi_FangXiang = row.JiaoYi_FangXiang;
             newRow.JiaoYi_FenLei_Name = row.JiaoYi_FenLeiRow.Name;
@@ -470,7 +470,7 @@ namespace Money.Net
             newRow.Change_Time = DateTime.Now;
             newRow.GuDing_ID = row.ID;
 
-            Program.MoneyNetDS.GuDing_JiaoYi_History.Rows.Add(newRow);
+            Program.MoneyNetDS._GuDing_JiaoYi_History.Rows.Add(newRow);
         }
     }
 }

@@ -28,8 +28,8 @@ class BatchAddPage(webapp.RequestHandler):
         q = db.GqlQuery('SELECT * from Entry WHERE uid = :1', e.uid)
         db.delete(q.fetch(1))
 
-        if (e.deleted == 0) :
-          e.put()
+        #Save the new version
+        e.put()
 
       self.response.out.write("1")
     except (db.Error, ValueError), err:

@@ -1,11 +1,11 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{58E627D7-6E88-42DE-98F9-1010122524FD}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <AssemblyName>Money.Net</AssemblyName>
     <RootNamespace>Money.Net</RootNamespace>
     <StartupObject>Money.Net.Program</StartupObject>
     <ApplicationIcon>REFBAR.ICO</ApplicationIcon>
@@ -14,56 +14,59 @@
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <AssemblyName>Money.Net</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningLevel>4</WarningLevel>
+    <AssemblyName>Money.Net</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Test|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Test</OutputPath>
+    <DefineConstants>TEST</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <AssemblyName>Money.Net - VS2008</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DB\MoneyNetConfigDS.xsc">
-      <DependentUpon>MoneyNetConfigDS.xsd</DependentUpon>
-    </None>
     <None Include="DB\MoneyNetConfigDS.xsd">
       <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MoneyNetConfigDS.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DB\MoneyNetConfigDS.xss">
-      <DependentUpon>MoneyNetConfigDS.xsd</DependentUpon>
-    </None>
-    <None Include="DB\MoneyNetDS.xsc">
-      <DependentUpon>MoneyNetDS.xsd</DependentUpon>
     </None>
     <None Include="DB\MoneyNetDS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MoneyNetDS.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </None>
-    <None Include="DB\MoneyNetDS.xss">
-      <DependentUpon>MoneyNetDS.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -164,11 +167,6 @@
     <Compile Include="DB\MoneyNetDS.cs">
       <DependentUpon>MoneyNetDS.xsd</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DB\MoneyNetDS.Designer.cs">
-      <DependentUpon>MoneyNetDS.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="DayDetailFrm.cs">
       <SubType>Form</SubType>
@@ -299,6 +297,9 @@
       <DependentUpon>YearSummaryFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="ZhouQi.cs" />
+    <Compile Include="RemoteJournals\Entry.cs" />
+    <Compile Include="RemoteJournals\RemoteJournals.cs" />
+    <Compile Include="DB\MoneyDBHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AboutMoneyNet.resx">
@@ -449,7 +450,11 @@
     <Content Include="REFBAR.ICO" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>
+  <ItemGroup>
+    <Folder Include="RemoteJournals\" />
+  </ItemGroup>
 </Project>

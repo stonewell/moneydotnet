@@ -36,11 +36,11 @@ namespace Money.Net
             }
 
             MoneyNetDS.JiaoYi_FangShiRow row =
-                Program.MoneyNetDS.JiaoYi_FangShi.NewJiaoYi_FangShiRow();
+                Program.MoneyNetDS._JiaoYi_FangShi.NewJiaoYi_FangShiRow();
 
             row.Name = value;
 
-            Program.MoneyNetDS.JiaoYi_FangShi.Rows.Add(row);
+            Program.MoneyNetDS._JiaoYi_FangShi.Rows.Add(row);
 
             int index = lstFangShi.Items.Add(new LstItem(row.ID,value));
 
@@ -52,7 +52,7 @@ namespace Money.Net
 
         private void FangShiFrm_Load(object sender, EventArgs e)
         {
-            foreach (MoneyNetDS.JiaoYi_FangShiRow row in Program.MoneyNetDS.JiaoYi_FangShi.Rows)
+            foreach (MoneyNetDS.JiaoYi_FangShiRow row in Program.MoneyNetDS._JiaoYi_FangShi.Rows)
             {
                 lstFangShi.Items.Add(new LstItem(row.ID,row.Name));
             }
@@ -75,7 +75,7 @@ namespace Money.Net
                 LstItem item = lstFangShi.SelectedItem as LstItem;
 
                 MoneyNetDS.JiaoYi_FangShiRow row =
-                    Program.MoneyNetDS.JiaoYi_FangShi.FindByID(item.ID);
+                    Program.MoneyNetDS._JiaoYi_FangShi.FindByID(item.ID);
 
                 row.BeginEdit();
                 row.Name = value;
@@ -104,7 +104,7 @@ namespace Money.Net
                 LstItem item = lstFangShi.SelectedItem as LstItem;
 
                 MoneyNetDS.JiaoYi_FangShiRow row =
-                    Program.MoneyNetDS.JiaoYi_FangShi.FindByID(item.ID);
+                    Program.MoneyNetDS._JiaoYi_FangShi.FindByID(item.ID);
 
                 row.Delete();
 
@@ -115,11 +115,11 @@ namespace Money.Net
                 txtMingCheng.Focus();
                 txtMingCheng.SelectAll();
 
-                Program.MoneyNetDS.JiaoYi_FangShi.AcceptChanges();
+                Program.MoneyNetDS._JiaoYi_FangShi.AcceptChanges();
             }
             catch
             {
-                Program.MoneyNetDS.JiaoYi_FangShi.RejectChanges();
+                Program.MoneyNetDS._JiaoYi_FangShi.RejectChanges();
             }
         }
     }

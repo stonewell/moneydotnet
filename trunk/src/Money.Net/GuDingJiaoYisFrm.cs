@@ -47,12 +47,12 @@ namespace Money.Net
                 MoneyNetDS.GuDing_JiaoYiRow dataRow =
                     row.Tag as MoneyNetDS.GuDing_JiaoYiRow;
 
-                Program.UpdateHistory(dataRow, ChangeModeEnum.É¾³ý);
+                Program.UpdateHistory(dataRow, ChangeModeEnum.åˆ é™¤);
 
                 dataRow.Delete();
             }
 
-            Program.MoneyNetDS.GuDing_JiaoYi.AcceptChanges();
+            Program.MoneyNetDS._GuDing_JiaoYi.AcceptChanges();
 
             RefreshGrid();
         }
@@ -67,7 +67,7 @@ namespace Money.Net
             dgvData.Rows.Clear();
 
             foreach (MoneyNetDS.GuDing_JiaoYiRow row in
-                Program.MoneyNetDS.GuDing_JiaoYi.Rows)
+                Program.MoneyNetDS._GuDing_JiaoYi.Rows)
             {
                 ZhouQi zhouqi = ZhouQi.FromXmlString(row.ZhouQi);
 

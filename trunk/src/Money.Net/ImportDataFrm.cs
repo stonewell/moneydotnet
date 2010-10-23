@@ -64,7 +64,7 @@ namespace Money.Net
             dgvData.Rows.Clear();
 
             foreach (MoneyNetDS.GuDing_JiaoYiRow row in
-                ds_.GuDing_JiaoYi.Rows)
+                ds_._GuDing_JiaoYi.Rows)
             {
                 ZhouQi zhouqi = ZhouQi.FromXmlString(row.ZhouQi);
 
@@ -111,7 +111,7 @@ namespace Money.Net
         {
             ArrayList result = new ArrayList();
             foreach (MoneyNetDS.JiaoYi_FangShiRow row in
-                Program.MoneyNetDS.JiaoYi_FangShi.Rows)
+                Program.MoneyNetDS._JiaoYi_FangShi.Rows)
             {
                 result.Add(new LstItem(row.ID, row.Name));
             }
@@ -123,7 +123,7 @@ namespace Money.Net
         {
             ArrayList result = new ArrayList();
             foreach (MoneyNetDS.JiaoYi_FangShiRow row in
-                ds_.JiaoYi_FangShi.Rows)
+                ds_._JiaoYi_FangShi.Rows)
             {
                 result.Add(new LstItem(row.ID, row.Name));
             }
@@ -148,7 +148,7 @@ namespace Money.Net
         {
             ArrayList result = new ArrayList();
             foreach (MoneyNetDS.JiaoYi_FenLeiRow row in
-                Program.MoneyNetDS.JiaoYi_FenLei.Rows)
+                Program.MoneyNetDS._JiaoYi_FenLei.Rows)
             {
                 result.Add(new LstItem(row.ID, row.Name));
             }
@@ -160,7 +160,7 @@ namespace Money.Net
         {
             ArrayList result = new ArrayList();
             foreach (MoneyNetDS.JiaoYi_FenLeiRow row in
-                ds_.JiaoYi_FenLei.Rows)
+                ds_._JiaoYi_FenLei.Rows)
             {
                 result.Add(new LstItem(row.ID, row.Name));
             }
@@ -197,7 +197,7 @@ namespace Money.Net
                         dgvData.Rows[i].Tag as MoneyNetDS.GuDing_JiaoYiRow;
 
                     MoneyNetDS.GuDing_JiaoYiRow newRow =
-                        Program.MoneyNetDS.GuDing_JiaoYi.NewGuDing_JiaoYiRow();
+                        Program.MoneyNetDS._GuDing_JiaoYi.NewGuDing_JiaoYiRow();
 
                     newRow.MingCheng = row.MingCheng;
 
@@ -211,7 +211,7 @@ namespace Money.Net
                     newRow.JiaoYi_FenLeiRow = FindFenLei(row.JiaoYi_FenLei_ID, row.JiaoYi_FenLeiRow.Name);
                     newRow.ZhouQi = row.ZhouQi;
 
-                    Program.MoneyNetDS.GuDing_JiaoYi.Rows.Add(newRow);
+                    Program.MoneyNetDS._GuDing_JiaoYi.Rows.Add(newRow);
                 }
             }
         }
@@ -221,18 +221,18 @@ namespace Money.Net
             IDictionary mappings = mcFangShi.Mappings;
 
             foreach (MoneyNetDS.JiaoYi_FangShiRow row1 in
-                ds.JiaoYi_FangShi.Rows)
+                ds._JiaoYi_FangShi.Rows)
             {
                 bool found = mappings.Contains(new LstItem(row1.ID, row1.Name));
 
                 if (!found)
                 {
                     MoneyNetDS.JiaoYi_FangShiRow row =
-                        Program.MoneyNetDS.JiaoYi_FangShi.NewJiaoYi_FangShiRow();
+                        Program.MoneyNetDS._JiaoYi_FangShi.NewJiaoYi_FangShiRow();
 
                     row.Name = row1.Name;
 
-                    Program.MoneyNetDS.JiaoYi_FangShi.Rows.Add(row);
+                    Program.MoneyNetDS._JiaoYi_FangShi.Rows.Add(row);
                 }
             }
         }
@@ -242,18 +242,18 @@ namespace Money.Net
             IDictionary mappings = mcFenLei.Mappings;
 
             foreach (MoneyNetDS.JiaoYi_FenLeiRow row1 in
-                ds.JiaoYi_FenLei.Rows)
+                ds._JiaoYi_FenLei.Rows)
             {
                 bool found = mappings.Contains(new LstItem(row1.ID, row1.Name));
 
                 if (!found)
                 {
                     MoneyNetDS.JiaoYi_FenLeiRow row =
-                        Program.MoneyNetDS.JiaoYi_FenLei.NewJiaoYi_FenLeiRow();
+                        Program.MoneyNetDS._JiaoYi_FenLei.NewJiaoYi_FenLeiRow();
 
                     row.Name = row1.Name;
 
-                    Program.MoneyNetDS.JiaoYi_FenLei.Rows.Add(row);
+                    Program.MoneyNetDS._JiaoYi_FenLei.Rows.Add(row);
                 }
             }
         }
@@ -264,7 +264,7 @@ namespace Money.Net
                 return;
 
             foreach (MoneyNetDS.RiChang_JiaoYiRow row in
-                ds.RiChang_JiaoYi.Rows)
+                ds._RiChang_JiaoYi.Rows)
             {
                 if (row.JiaoYi_Time.Year == Program.GetDefaultYear())
                 {
@@ -278,7 +278,7 @@ namespace Money.Net
                         row.JiaoYi_Time.Day <= dtpEnd.Value.Day))
                     {
                         MoneyNetDS.RiChang_JiaoYiRow newRow =
-                            Program.MoneyNetDS.RiChang_JiaoYi.NewRiChang_JiaoYiRow();
+                            Program.MoneyNetDS._RiChang_JiaoYi.NewRiChang_JiaoYiRow();
 
                         newRow.JiaoYi_FangXiang = row.JiaoYi_FangXiang;
                         newRow.JiaoYi_FenLeiRow =
@@ -290,7 +290,7 @@ namespace Money.Net
                         newRow.MiaoShu = row.MiaoShu;
                         newRow.MingCheng = row.MingCheng;
 
-                        Program.MoneyNetDS.RiChang_JiaoYi.Rows.Add(newRow);
+                        Program.MoneyNetDS._RiChang_JiaoYi.Rows.Add(newRow);
                     }
                 }
             }
@@ -306,11 +306,11 @@ namespace Money.Net
             {
                 item = mappings[item] as LstItem;
 
-                return Program.MoneyNetDS.JiaoYi_FangShi.FindByID(item.ID);
+                return Program.MoneyNetDS._JiaoYi_FangShi.FindByID(item.ID);
             }
 
             foreach (MoneyNetDS.JiaoYi_FangShiRow row in
-                Program.MoneyNetDS.JiaoYi_FangShi.Rows)
+                Program.MoneyNetDS._JiaoYi_FangShi.Rows)
             {
                 if (row.Name.Equals(name))
                 {
@@ -318,7 +318,7 @@ namespace Money.Net
                 }
             }
 
-            throw new Exception("½»Ò×·½Ê½" + name + "Î´¶¨Òå");
+            throw new Exception("äº¤æ˜“æ–¹å¼" + name + "æœªå®šä¹‰");
         }
 
         private MoneyNetDS.JiaoYi_FenLeiRow FindFenLei(int ID, string name)
@@ -331,11 +331,11 @@ namespace Money.Net
             {
                 item = mappings[item] as LstItem;
 
-                return Program.MoneyNetDS.JiaoYi_FenLei.FindByID(item.ID);
+                return Program.MoneyNetDS._JiaoYi_FenLei.FindByID(item.ID);
             }
 
             foreach (MoneyNetDS.JiaoYi_FenLeiRow row in
-                Program.MoneyNetDS.JiaoYi_FenLei.Rows)
+                Program.MoneyNetDS._JiaoYi_FenLei.Rows)
             {
                 if (row.Name.Equals(name))
                 {
@@ -343,13 +343,13 @@ namespace Money.Net
                 }
             }
 
-            throw new Exception("·ÖÀà" + name + "Î´¶¨Òå");
+            throw new Exception("åˆ†ç±»" + name + "æœªå®šä¹‰");
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnPrev.Enabled = true;
-            btnOK.Text = "ÏÂÒ»²½";
+            btnOK.Text = "ä¸‹ä¸€æ­¥";
 
             if (tabControl1.SelectedIndex == 0)
             {
@@ -358,7 +358,7 @@ namespace Money.Net
 
             if (tabControl1.SelectedIndex == tabControl1.TabCount - 1)
             {
-                btnOK.Text = "È·¶¨";
+                btnOK.Text = "ç¡®å®š";
             }
         }
 

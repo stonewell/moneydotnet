@@ -62,7 +62,7 @@ namespace Money.Net
             if (rdoFenLei.Checked)
             {
                 foreach (MoneyNetDS.JiaoYi_FenLeiRow row in
-                    Program.MoneyNetDS.JiaoYi_FenLei.Rows)
+                    Program.MoneyNetDS._JiaoYi_FenLei.Rows)
                 {
                     decimal[] values =
                         new decimal[DateTime.DaysInMonth(Program.GetDefaultYear(),
@@ -80,7 +80,7 @@ namespace Money.Net
             else
             {
                 foreach (MoneyNetDS.JiaoYi_FangShiRow row in
-                    Program.MoneyNetDS.JiaoYi_FangShi.Rows)
+                    Program.MoneyNetDS._JiaoYi_FangShi.Rows)
                 {
                     decimal[] values =
                         new decimal[DateTime.DaysInMonth(Program.GetDefaultYear(),
@@ -97,7 +97,7 @@ namespace Money.Net
             }
 
             foreach (MoneyNetDS.RiChang_JiaoYiRow row in
-               Program.MoneyNetDS.RiChang_JiaoYi.Rows)
+               Program.MoneyNetDS._RiChang_JiaoYi.Rows)
             {
                 if (row.JiaoYi_Time.Year == Program.GetDefaultYear() &&
                     row.JiaoYi_Time.Month == (cboMonth.SelectedIndex + 1))
@@ -130,11 +130,11 @@ namespace Money.Net
 
             if (rdoFenLei.Checked)
             {
-                dgvDetail.Columns.Add("分类", "分类");
+                dgvDetail.Columns.Add("鍒嗙被", "鍒嗙被");
             }
             else
             {
-                dgvDetail.Columns.Add("交易方式", "交易方式");
+                dgvDetail.Columns.Add("浜ゆ槗鏂瑰紡", "浜ゆ槗鏂瑰紡");
             }
 
             for (int i = 0; i < DateTime.DaysInMonth(Program.GetDefaultYear(),
@@ -159,7 +159,7 @@ namespace Money.Net
             }
 
             int shouruIndex = dgvDetail.Rows.Add();
-            dgvDetail[0, shouruIndex].Value = "合计";
+            dgvDetail[0, shouruIndex].Value = "鍚堣";
 
             for (int i = 0; i < total.Length; i++)
             {

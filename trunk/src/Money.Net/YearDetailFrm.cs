@@ -45,7 +45,7 @@ namespace Money.Net
             if (rdoFenLei.Checked)
             {
                 foreach (MoneyNetDS.JiaoYi_FenLeiRow row in
-                    Program.MoneyNetDS.JiaoYi_FenLei.Rows)
+                    Program.MoneyNetDS._JiaoYi_FenLei.Rows)
                 {
                     decimal[] values =
                         new decimal[12];
@@ -62,7 +62,7 @@ namespace Money.Net
             else
             {
                 foreach (MoneyNetDS.JiaoYi_FangShiRow row in
-                    Program.MoneyNetDS.JiaoYi_FangShi.Rows)
+                    Program.MoneyNetDS._JiaoYi_FangShi.Rows)
                 {
                     decimal[] values =
                         new decimal[12];
@@ -78,7 +78,7 @@ namespace Money.Net
             }
 
             foreach (MoneyNetDS.RiChang_JiaoYiRow row in
-               Program.MoneyNetDS.RiChang_JiaoYi.Rows)
+               Program.MoneyNetDS._RiChang_JiaoYi.Rows)
             {
                 if (row.JiaoYi_Time.Year == Program.GetDefaultYear())
                 {
@@ -108,16 +108,16 @@ namespace Money.Net
 
             if (rdoFenLei.Checked)
             {
-                dgvDetail.Columns.Add("∑÷¿‡", "∑÷¿‡");
+                dgvDetail.Columns.Add("ÂàÜÁ±ª", "ÂàÜÁ±ª");
             }
             else
             {
-                dgvDetail.Columns.Add("Ωª“◊∑Ω Ω", "Ωª“◊∑Ω Ω");
+                dgvDetail.Columns.Add("‰∫§ÊòìÊñπÂºè", "‰∫§ÊòìÊñπÂºè");
             }
 
             for (int i = 0; i < 12; i++)
             {
-                dgvDetail.Columns.Add((i + 1).ToString() + "‘¬", (i + 1).ToString() + "‘¬");
+                dgvDetail.Columns.Add((i + 1).ToString() + "Êúà", (i + 1).ToString() + "Êúà");
             }
 
             dgvDetail.Columns[0].Frozen = true;
@@ -136,7 +136,7 @@ namespace Money.Net
             }
 
             int shouruIndex = dgvDetail.Rows.Add();
-            dgvDetail[0, shouruIndex].Value = "∫œº∆";
+            dgvDetail[0, shouruIndex].Value = "ÂêàËÆ°";
 
             for (int i = 0; i < total.Length; i++)
             {

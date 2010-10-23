@@ -40,7 +40,7 @@ namespace Money.Net
             decimal xiaofei = new decimal(0.0);
 
             foreach (MoneyNetDS.RiChang_JiaoYiRow row in
-                Program.MoneyNetDS.RiChang_JiaoYi.Rows)
+                Program.MoneyNetDS._RiChang_JiaoYi.Rows)
             {
                 if ((row.JiaoYi_Time.Year == dtpDate.Value.Year) &&
                     (row.JiaoYi_Time.Month == dtpDate.Value.Month) &&
@@ -117,14 +117,14 @@ namespace Money.Net
 
         private void rdoFenLei_CheckedChanged(object sender, EventArgs e)
         {
-            dgvDetail.Columns[0].HeaderText = "分类";
+            dgvDetail.Columns[0].HeaderText = "鍒嗙被";
 
             RefreshGrid();
         }
 
         private void rdoFangShi_CheckedChanged(object sender, EventArgs e)
         {
-            dgvDetail.Columns[0].HeaderText = "交易方式";
+            dgvDetail.Columns[0].HeaderText = "浜ゆ槗鏂瑰紡";
 
             RefreshGrid();
         }

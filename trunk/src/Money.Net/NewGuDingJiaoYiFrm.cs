@@ -37,7 +37,7 @@ namespace Money.Net
         private void GuDingJiaoYiFrm_Load(object sender, EventArgs e)
         {
             foreach (MoneyNetDS.JiaoYi_FangShiRow row in
-                Program.MoneyNetDS.JiaoYi_FangShi.Rows)
+                Program.MoneyNetDS._JiaoYi_FangShi.Rows)
             {
                 ListViewItem item = new ListViewItem(row.Name);
                 item.Tag = new LstItem(row.ID, row.Name);
@@ -46,7 +46,7 @@ namespace Money.Net
             }
 
             foreach (MoneyNetDS.JiaoYi_FenLeiRow row in
-                Program.MoneyNetDS.JiaoYi_FenLei.Rows)
+                Program.MoneyNetDS._JiaoYi_FenLei.Rows)
             {
                 ListViewItem item = new ListViewItem(row.Name);
                 item.Tag = new LstItem(row.ID, row.Name);
@@ -190,12 +190,12 @@ namespace Money.Net
             bool bEdit = false;
             if (row_ == null)
             {
-                row_ = Program.MoneyNetDS.GuDing_JiaoYi.NewGuDing_JiaoYiRow();
+                row_ = Program.MoneyNetDS._GuDing_JiaoYi.NewGuDing_JiaoYiRow();
             }
             else
             {
                 bEdit = true;
-                Program.UpdateHistory(row_, ChangeModeEnum.�༭);
+                Program.UpdateHistory(row_, ChangeModeEnum.编辑);
                 row_.BeginEdit();
             }
 
@@ -220,8 +220,8 @@ namespace Money.Net
             row_.HasEndDate = chkEndTime.Checked;
             row_.Jin_E = decimal.Parse(txtJinE.Text);
             row_.MiaoShu = txtMiaoShu.Text;
-            row_.JiaoYi_FangShiRow = Program.MoneyNetDS.JiaoYi_FangShi.FindByID(fangShiItem.ID);
-            row_.JiaoYi_FenLeiRow = Program.MoneyNetDS.JiaoYi_FenLei.FindByID(fenLeiItem.ID);
+            row_.JiaoYi_FangShiRow = Program.MoneyNetDS._JiaoYi_FangShi.FindByID(fangShiItem.ID);
+            row_.JiaoYi_FenLeiRow = Program.MoneyNetDS._JiaoYi_FenLei.FindByID(fenLeiItem.ID);
             row_.ZhouQi = ZhouQi.ToXmlString(zhouqi_);
 
             if (row_.IsLast_Execute_TimeNull())
@@ -235,7 +235,7 @@ namespace Money.Net
             }
             else
             {
-                Program.MoneyNetDS.GuDing_JiaoYi.Rows.Add(row_);
+                Program.MoneyNetDS._GuDing_JiaoYi.Rows.Add(row_);
             }
         }
 

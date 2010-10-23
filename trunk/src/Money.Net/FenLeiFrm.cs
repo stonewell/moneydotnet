@@ -19,7 +19,7 @@ namespace Money.Net
 
         private void FenLeiFrm_Load(object sender, EventArgs e)
         {
-            foreach (MoneyNetDS.JiaoYi_FenLeiRow row in Program.MoneyNetDS.JiaoYi_FenLei.Rows)
+            foreach (MoneyNetDS.JiaoYi_FenLeiRow row in Program.MoneyNetDS._JiaoYi_FenLei.Rows)
             {
                 lstFenLei.Items.Add(new LstItem(row.ID, row.Name));
             }
@@ -46,11 +46,11 @@ namespace Money.Net
             }
 
             MoneyNetDS.JiaoYi_FenLeiRow row =
-                Program.MoneyNetDS.JiaoYi_FenLei.NewJiaoYi_FenLeiRow();
+                Program.MoneyNetDS._JiaoYi_FenLei.NewJiaoYi_FenLeiRow();
 
             row.Name = value;
 
-            Program.MoneyNetDS.JiaoYi_FenLei.Rows.Add(row);
+            Program.MoneyNetDS._JiaoYi_FenLei.Rows.Add(row);
 
             int index = lstFenLei.Items.Add(new LstItem(row.ID, value));
 
@@ -75,7 +75,7 @@ namespace Money.Net
                 LstItem item = lstFenLei.SelectedItem as LstItem;
 
                 MoneyNetDS.JiaoYi_FenLeiRow row =
-                    Program.MoneyNetDS.JiaoYi_FenLei.FindByID(item.ID);
+                    Program.MoneyNetDS._JiaoYi_FenLei.FindByID(item.ID);
 
                 row.BeginEdit();
                 row.Name = value;
@@ -104,7 +104,7 @@ namespace Money.Net
                 LstItem item = lstFenLei.SelectedItem as LstItem;
 
                 MoneyNetDS.JiaoYi_FenLeiRow row =
-                    Program.MoneyNetDS.JiaoYi_FenLei.FindByID(item.ID);
+                    Program.MoneyNetDS._JiaoYi_FenLei.FindByID(item.ID);
 
                 row.Delete();
 
@@ -115,11 +115,11 @@ namespace Money.Net
                 txtMingCheng.Focus();
                 txtMingCheng.SelectAll();
 
-                Program.MoneyNetDS.JiaoYi_FenLei.AcceptChanges();
+                Program.MoneyNetDS._JiaoYi_FenLei.AcceptChanges();
             }
             catch
             {
-                Program.MoneyNetDS.JiaoYi_FenLei.RejectChanges();
+                Program.MoneyNetDS._JiaoYi_FenLei.RejectChanges();
             }
         }
     }

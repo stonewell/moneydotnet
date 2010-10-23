@@ -26,7 +26,7 @@ namespace Money.Net
             dgvDetail.Rows.Clear();
 
             foreach (MoneyNetDS.GuDing_JiaoYi_HistoryRow row in
-               Program.MoneyNetDS.GuDing_JiaoYi_History.Rows)
+               Program.MoneyNetDS._GuDing_JiaoYi_History.Rows)
             {
                 ZhouQi zhouqi = Money.Net.ZhouQi.FromXmlString(row.ZhouQi); 
                 int index = dgvDetail.Rows.Add(false,
@@ -47,7 +47,7 @@ namespace Money.Net
 
                 dgvDetail.Rows[index].Tag = row;
 
-                if (row.Change_Mode.Equals(ChangeModeEnum.“—ª÷∏¥.ToString()))
+                if (row.Change_Mode.Equals(ChangeModeEnum.Â∑≤ÊÅ¢Â§ç.ToString()))
                 {
                     dgvDetail[2, index].Style.ForeColor = Color.Red;
                 }
@@ -67,11 +67,11 @@ namespace Money.Net
                         MoneyNetDS.GuDing_JiaoYi_HistoryRow row =
                             dgvDetail.Rows[i].Tag as MoneyNetDS.GuDing_JiaoYi_HistoryRow;
 
-                        if (row.Change_Mode.Equals(ChangeModeEnum.“—ª÷∏¥.ToString()))
+                        if (row.Change_Mode.Equals(ChangeModeEnum.Â∑≤ÊÅ¢Â§ç.ToString()))
                         {
                             DialogResult result = MessageBox.Show(this,
-                                "º«¬º:" + row.MingCheng + "[" + row.MiaoShu + "] “—æ≠ª÷∏¥π˝¡À,ªπ“™ºÃ–¯ª÷∏¥√¥?",
-                                "æØ∏Ê",
+                                "ËÆ∞ÂΩï:" + row.MingCheng + "[" + row.MiaoShu + "] Â∑≤ÁªèÊÅ¢Â§çËøá‰∫Ü,ËøòË¶ÅÁªßÁª≠ÊÅ¢Â§ç‰πà?",
+                                "Ë≠¶Âëä",
                                 MessageBoxButtons.YesNoCancel,
                                 MessageBoxIcon.Question);
 
@@ -86,7 +86,7 @@ namespace Money.Net
                         MoneyNetDS.GuDing_JiaoYiRow newRow = null;
 
                         if (!row.IsGuDing_IDNull())
-                            newRow = Program.MoneyNetDS.GuDing_JiaoYi.FindByID(row.GuDing_ID);
+                            newRow = Program.MoneyNetDS._GuDing_JiaoYi.FindByID(row.GuDing_ID);
 
                         if (newRow != null)
                         {
@@ -95,14 +95,14 @@ namespace Money.Net
                         }
                         else
                         {
-                            newRow = Program.MoneyNetDS.GuDing_JiaoYi.NewGuDing_JiaoYiRow();
+                            newRow = Program.MoneyNetDS._GuDing_JiaoYi.NewGuDing_JiaoYiRow();
                         }
 
                         newRow.JiaoYi_FangXiang = row.JiaoYi_FangXiang;
                         newRow.JiaoYi_FenLeiRow =
-                            Program.MoneyNetDS.JiaoYi_FenLei.FindByID(row.JiaoYi_FenLei_ID);
+                            Program.MoneyNetDS._JiaoYi_FenLei.FindByID(row.JiaoYi_FenLei_ID);
                         newRow.JiaoYi_FangShiRow =
-                            Program.MoneyNetDS.JiaoYi_FangShi.FindByID(row.JiaoYi_FangShi_ID);
+                            Program.MoneyNetDS._JiaoYi_FangShi.FindByID(row.JiaoYi_FangShi_ID);
                         newRow.Last_Execute_Time = row.Last_Execute_Time;
                         newRow.Start_Time = row.Start_Time;
                         newRow.Stop_Time = row.Stop_Time;
@@ -114,7 +114,7 @@ namespace Money.Net
 
                         if (bNewRow)
                         {
-                            Program.MoneyNetDS.GuDing_JiaoYi.Rows.Add(newRow);
+                            Program.MoneyNetDS._GuDing_JiaoYi.Rows.Add(newRow);
                         }
                         else
                         {
@@ -123,7 +123,7 @@ namespace Money.Net
 
                         row.BeginEdit();
                         row.GuDing_ID = newRow.ID;
-                        row.Change_Mode = ChangeModeEnum.“—ª÷∏¥.ToString();
+                        row.Change_Mode = ChangeModeEnum.Â∑≤ÊÅ¢Â§ç.ToString();
                         row.EndEdit();
                     }//if
                 }//for

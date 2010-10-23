@@ -53,7 +53,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "»∑∂®";
+            this.btnOK.Text = "Á°ÆÂÆö";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -65,7 +65,7 @@ namespace Money.Net
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "»°œ˚";
+            this.btnCancel.Text = "ÂèñÊ∂à";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -75,7 +75,7 @@ namespace Money.Net
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "∑÷¿‡£∫";
+            this.label1.Text = "ÂàÜÁ±ªÔºö";
             // 
             // cboFenLei
             // 
@@ -102,7 +102,7 @@ namespace Money.Net
             this.Name = "MainFrmSettings";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "÷˜ΩÁ√Ê…Ë÷√";
+            this.Text = "‰∏ªÁïåÈù¢ËÆæÁΩÆ";
             this.Load += new System.EventHandler(this.MainFrmSettings_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

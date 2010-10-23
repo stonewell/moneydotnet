@@ -85,7 +85,7 @@ namespace Money.Net
             if (rdoFenLei.Checked)
             {
                 foreach (MoneyNetDS.JiaoYi_FenLeiRow row in
-                    Program.MoneyNetDS.JiaoYi_FenLei.Rows)
+                    Program.MoneyNetDS._JiaoYi_FenLei.Rows)
                 {
                     decimal[] values = new decimal[days];
 
@@ -100,7 +100,7 @@ namespace Money.Net
             else
             {
                 foreach (MoneyNetDS.JiaoYi_FangShiRow row in
-                    Program.MoneyNetDS.JiaoYi_FangShi.Rows)
+                    Program.MoneyNetDS._JiaoYi_FangShi.Rows)
                 {
                     decimal[] values = new decimal[days];
 
@@ -114,7 +114,7 @@ namespace Money.Net
             }
 
             foreach (MoneyNetDS.RiChang_JiaoYiRow row in
-               Program.MoneyNetDS.RiChang_JiaoYi.Rows)
+               Program.MoneyNetDS._RiChang_JiaoYi.Rows)
             {
                 if (row.JiaoYi_Time.Year == dtpStart.Value.Year &&
                     (row.JiaoYi_Time.Month > dtpStart.Value.Month ||
@@ -155,18 +155,18 @@ namespace Money.Net
 
             if (rdoFenLei.Checked)
             {
-                dgvDetail.Columns.Add("·ÖÀà", "·ÖÀà");
+                dgvDetail.Columns.Add("åˆ†ç±»", "åˆ†ç±»");
             }
             else
             {
-                dgvDetail.Columns.Add("½»Ò×·½Ê½", "½»Ò×·½Ê½");
+                dgvDetail.Columns.Add("äº¤æ˜“æ–¹å¼", "äº¤æ˜“æ–¹å¼");
             }
 
             for (int i = 0; i < days; i++)
             {
                 DateTime t = dtpStart.Value.AddDays(i);
 
-                string name = t.Month + "ÔÂ" + t.Day + "ÈÕ";
+                string name = t.Month + "æœˆ" + t.Day + "æ—¥";
 
                 dgvDetail.Columns.Add(name,name);
             }
@@ -187,7 +187,7 @@ namespace Money.Net
             }
 
             int shouruIndex = dgvDetail.Rows.Add();
-            dgvDetail[0, shouruIndex].Value = "ºÏ¼Æ";
+            dgvDetail[0, shouruIndex].Value = "åˆè®¡";
 
             for (int i = 0; i < total.Length; i++)
             {

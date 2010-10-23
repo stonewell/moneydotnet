@@ -78,7 +78,7 @@ namespace Money.Net
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "»’∆⁄£∫";
+            this.label1.Text = "Êó•ÊúüÔºö";
             // 
             // panel2
             // 
@@ -109,7 +109,7 @@ namespace Money.Net
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "±‡º≠";
+            this.btnEdit.Text = "ÁºñËæë";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -120,7 +120,7 @@ namespace Money.Net
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "…æ≥˝";
+            this.btnDelete.Text = "Âà†Èô§";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -132,7 +132,7 @@ namespace Money.Net
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "πÿ±’";
+            this.btnOK.Text = "ÂÖ≥Èó≠";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
@@ -171,26 +171,26 @@ namespace Money.Net
             // MingCheng
             // 
             this.MingCheng.Frozen = true;
-            this.MingCheng.HeaderText = "√˚≥∆";
+            this.MingCheng.HeaderText = "ÂêçÁß∞";
             this.MingCheng.Name = "MingCheng";
             this.MingCheng.ReadOnly = true;
             // 
             // FengLei
             // 
             this.FengLei.Frozen = true;
-            this.FengLei.HeaderText = "∑÷¿‡";
+            this.FengLei.HeaderText = "ÂàÜÁ±ª";
             this.FengLei.Name = "FengLei";
             this.FengLei.ReadOnly = true;
             // 
             // JiaoYiFangShi
             // 
-            this.JiaoYiFangShi.HeaderText = "Ωª“◊∑Ω Ω";
+            this.JiaoYiFangShi.HeaderText = "‰∫§ÊòìÊñπÂºè";
             this.JiaoYiFangShi.Name = "JiaoYiFangShi";
             this.JiaoYiFangShi.ReadOnly = true;
             // 
             // XiaoFei
             // 
-            this.XiaoFei.HeaderText = "œ˚∑—";
+            this.XiaoFei.HeaderText = "Ê∂àË¥π";
             this.XiaoFei.Name = "XiaoFei";
             this.XiaoFei.ReadOnly = true;
             this.XiaoFei.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -198,7 +198,7 @@ namespace Money.Net
             // 
             // ShouRu
             // 
-            this.ShouRu.HeaderText = " ’»Î";
+            this.ShouRu.HeaderText = "Êî∂ÂÖ•";
             this.ShouRu.Name = "ShouRu";
             this.ShouRu.ReadOnly = true;
             this.ShouRu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -206,13 +206,13 @@ namespace Money.Net
             // 
             // JinE
             // 
-            this.JinE.HeaderText = "Ω∂Ó";
+            this.JinE.HeaderText = "ÈáëÈ¢ù";
             this.JinE.Name = "JinE";
             this.JinE.ReadOnly = true;
             // 
             // MiaoShu
             // 
-            this.MiaoShu.HeaderText = "√Ë ˆ";
+            this.MiaoShu.HeaderText = "ÊèèËø∞";
             this.MiaoShu.Name = "MiaoShu";
             this.MiaoShu.ReadOnly = true;
             // 
@@ -228,7 +228,7 @@ namespace Money.Net
             this.Name = "DayDetailFrm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "√˜œ∏";
+            this.Text = "ÊòéÁªÜ";
             this.Load += new System.EventHandler(this.DetailedFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
