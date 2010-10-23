@@ -1,9 +1,13 @@
 package com.angelstone.android.dailyjournal.ui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.angelstone.android.dailyjournal.R;
@@ -57,6 +61,10 @@ public abstract class DailyJournalBaseView extends Activity {
 			startActivity(intent);
 			break;
 		}
+		case 2: {
+			showAbout();
+			break;
+		}
 		default:
 			return false;
 		}
@@ -86,4 +94,32 @@ public abstract class DailyJournalBaseView extends Activity {
 		});
 	}
 
+	protected void showAbout() {
+		// Inflate the about message contents
+		View messageView = getLayoutInflater().inflate(R.layout.about, null,
+				false);
+
+		// When linking text, force to always use default color. This works
+		// around a pressed color state bug.
+		TextView textView = (TextView) messageView
+				.findViewById(R.id.about_credits);
+		int defaultColor = textView.getTextColors().getDefaultColor();
+		textView.setTextColor(defaultColor);
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setIcon(R.drawable.icon);
+
+		String version = "";
+		try {
+			PackageInfo info = getPackageManager().getPackageInfo(
+					getPackageName(), 0);
+			version = info.versionName;
+		} catch (Exception e) {
+
+		}
+		builder.setTitle(getString(R.string.app_name) + " " + version);
+		builder.setView(messageView);
+		builder.create();
+		builder.show();
+	}
 }

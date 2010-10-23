@@ -274,6 +274,7 @@ public class AllJournalsView extends DailyJournalBaseView {
 								if (synced == Constants.SYNC_DONE) {
 									ContentValues values = new ContentValues();
 									values.put(Journal.COLUMN_DELETED, 1);
+									values.put(Journal.COLUMN_SYNC, Constants.SYNC_NONE);
 
 									getContentResolver().update(uri, values, null, null);
 								} else {
@@ -309,6 +310,7 @@ public class AllJournalsView extends DailyJournalBaseView {
 
 								ContentValues values = new ContentValues();
 								values.put(Journal.COLUMN_DELETED, 1);
+								values.put(Journal.COLUMN_SYNC, Constants.SYNC_NONE);
 
 								getContentResolver().update(
 										Journal.CONTENT_URI,
