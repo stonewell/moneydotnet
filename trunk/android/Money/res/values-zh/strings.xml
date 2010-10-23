@@ -45,5 +45,7 @@
 	<string name="summary_edit_category">配置记账使用的分类</string>
 	<string name="title_edit_paymethod">配置付款方式</string>
 	<string name="summary_edit_paymethod">配置记账使用的付款方式</string>
+	<string name="app_descrip">日常记账程序，可以上传记账记录到Google AppEngine</string>
+	<string name="app_credits">"问题和建议请联系 jingnan.si@gmail.com."</string>
 </resources>
  

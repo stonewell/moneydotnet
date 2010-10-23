@@ -416,6 +416,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 
 		values.put(Journal.COLUMN_PAY_DATE, mToday.getTimeInMillis());
 		values.put(Journal.COLUMN_SYNC, Constants.SYNC_NONE);
+		values.put(Journal.COLUMN_DELETED, 0);
 
 		c = (Cursor) spinPaymethod.getSelectedItem();
 		idx = c.getColumnIndex(Constants.COLUMN_NAME);
@@ -575,7 +576,8 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 					Journal.CONTENT_URI,
 					new String[] { Journal.COLUMN_AMOUNT, Journal.COLUMN_TYPE },
 					Journal.COLUMN_PAY_DATE + " >= ?1 AND " + Journal.COLUMN_PAY_DATE
-							+ " <= ?2",
+							+ " <= ?2"
+							+ " AND " + Journal.COLUMN_DELETED + "= 0",
 					new String[] { String.valueOf(zero.getTimeInMillis()),
 							String.valueOf(end.getTimeInMillis()) }, null);
 
@@ -698,6 +700,9 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 
 						getContentResolver().update(Journal.CONTENT_URI, values,
 								Journal.COLUMN_SYNC + "=" + Constants.SYNC_NONE, null);
+
+						getContentResolver().delete(Journal.CONTENT_URI,
+								Journal.COLUMN_DELETED + "= 1" , null);
 
 						mProgressHandler.sendEmptyMessage(0);
 					}

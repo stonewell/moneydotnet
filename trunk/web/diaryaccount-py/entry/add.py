@@ -24,10 +24,11 @@ class BatchAddPage(webapp.RequestHandler):
         e = entry.data.Entry()
         e.from_dict(dict)
 
-        if (e.deleted == 1) :
-          q = db.GqlQuery('SELECT * from Entry WHERE uid = :1', e.uid)
-          db.delte(q.fetch(1))
-        else:
+        #Delete the old version
+        q = db.GqlQuery('SELECT * from Entry WHERE uid = :1', e.uid)
+        db.delete(q.fetch(1))
+
+        if (e.deleted == 0) :
           e.put()
 
       self.response.out.write("1")
