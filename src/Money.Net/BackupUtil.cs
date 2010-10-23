@@ -35,7 +35,7 @@ namespace Money.Net
                 s = ZipFile.Create(backupFileName);
             }
 
-            byte[] buffer = new byte[4096];
+            //byte[] buffer = new byte[4096];
 
             // Using GetFileName makes the result compatible with XP
             // as the resulting path is not absolute.

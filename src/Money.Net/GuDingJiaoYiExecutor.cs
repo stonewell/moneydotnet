@@ -21,7 +21,7 @@ namespace Money.Net
                 new MoneyNetDate(CurrentTime_);
 
             foreach (MoneyNetDS.GuDing_JiaoYiRow row in
-                Program.MoneyNetDS.GuDing_JiaoYi.Rows)
+                Program.MoneyNetDS._GuDing_JiaoYi.Rows)
             {
                 if (!row.IsLast_Execute_TimeNull())
                 {
@@ -57,17 +57,17 @@ namespace Money.Net
             row.EndEdit();
 
             MoneyNetDS.RiChang_JiaoYiRow rRow =
-                Program.MoneyNetDS.RiChang_JiaoYi.NewRiChang_JiaoYiRow();
+                Program.MoneyNetDS._RiChang_JiaoYi.NewRiChang_JiaoYiRow();
 
             rRow.JiaoYi_FangXiang = row.JiaoYi_FangXiang;
-            rRow.JiaoYi_FenLeiRow = Program.MoneyNetDS.JiaoYi_FenLei.FindByID(row.JiaoYi_FenLei_ID);
-            rRow.JiaoYi_FangShiRow = Program.MoneyNetDS.JiaoYi_FangShi.FindByID(row.JiaoYi_FangShi_ID);
+            rRow.JiaoYi_FenLeiRow = Program.MoneyNetDS._JiaoYi_FenLei.FindByID(row.JiaoYi_FenLei_ID);
+            rRow.JiaoYi_FangShiRow = Program.MoneyNetDS._JiaoYi_FangShi.FindByID(row.JiaoYi_FangShi_ID);
             rRow.JiaoYi_Time = md.ToDate();
             rRow.Jin_E = row.Jin_E;
             rRow.MiaoShu = row.MiaoShu;
             rRow.MingCheng = row.MingCheng;
 
-            Program.MoneyNetDS.RiChang_JiaoYi.Rows.Add(rRow);
+            Program.MoneyNetDS._RiChang_JiaoYi.Rows.Add(rRow);
         }
 
         private ArrayList CheckZhouQi(MoneyNetDS.GuDing_JiaoYiRow row, ZhouQi zhouqi)
@@ -473,7 +473,7 @@ namespace Money.Net
         private void TestYear1()
         {
             MoneyNetDS.GuDing_JiaoYiRow row =
-                Program.MoneyNetDS.GuDing_JiaoYi.NewGuDing_JiaoYiRow();
+                Program.MoneyNetDS._GuDing_JiaoYi.NewGuDing_JiaoYiRow();
 
             ZhouQi zhouqi = new ZhouQi();
 
@@ -493,7 +493,7 @@ namespace Money.Net
         private void TestYear2()
         {
             MoneyNetDS.GuDing_JiaoYiRow row =
-                Program.MoneyNetDS.GuDing_JiaoYi.NewGuDing_JiaoYiRow();
+                Program.MoneyNetDS._GuDing_JiaoYi.NewGuDing_JiaoYiRow();
 
             ZhouQi zhouqi = new ZhouQi();
 
@@ -514,7 +514,7 @@ namespace Money.Net
         private void TestYear3()
         {
             MoneyNetDS.GuDing_JiaoYiRow row =
-                Program.MoneyNetDS.GuDing_JiaoYi.NewGuDing_JiaoYiRow();
+                Program.MoneyNetDS._GuDing_JiaoYi.NewGuDing_JiaoYiRow();
 
             ZhouQi zhouqi = new ZhouQi();
 
@@ -538,7 +538,7 @@ namespace Money.Net
         private void TestMonth1()
         {
             MoneyNetDS.GuDing_JiaoYiRow row =
-                Program.MoneyNetDS.GuDing_JiaoYi.NewGuDing_JiaoYiRow();
+                Program.MoneyNetDS._GuDing_JiaoYi.NewGuDing_JiaoYiRow();
 
             ZhouQi zhouqi = new ZhouQi();
 
@@ -565,7 +565,7 @@ namespace Money.Net
         private void TestMonth2()
         {
             MoneyNetDS.GuDing_JiaoYiRow row =
-                Program.MoneyNetDS.GuDing_JiaoYi.NewGuDing_JiaoYiRow();
+                Program.MoneyNetDS._GuDing_JiaoYi.NewGuDing_JiaoYiRow();
 
             ZhouQi zhouqi = new ZhouQi();
 

@@ -98,11 +98,11 @@ namespace Money.Net
 
             if (row == null)
             {
-                row = Program.MoneyNetDS.RiChang_JiaoYi.NewRiChang_JiaoYiRow();
+                row = Program.MoneyNetDS._RiChang_JiaoYi.NewRiChang_JiaoYiRow();
             }
             else
             {
-                Program.UpdateHistory(row, ChangeModeEnum.±‡º≠);
+                Program.UpdateHistory(row, ChangeModeEnum.ÁºñËæë);
 
                 row.BeginEdit();
             }
@@ -116,12 +116,12 @@ namespace Money.Net
             row.JiaoYi_Time = dtpDate.Value;
             row.Jin_E = decimal.Parse(txtJinE.Text);
             row.MiaoShu = txtMiaoShu.Text;
-            row.JiaoYi_FangShiRow = Program.MoneyNetDS.JiaoYi_FangShi.FindByID(fangShiItem.ID);
-            row.JiaoYi_FenLeiRow = Program.MoneyNetDS.JiaoYi_FenLei.FindByID(fenLeiItem.ID);
+            row.JiaoYi_FangShiRow = Program.MoneyNetDS._JiaoYi_FangShi.FindByID(fangShiItem.ID);
+            row.JiaoYi_FenLeiRow = Program.MoneyNetDS._JiaoYi_FenLei.FindByID(fenLeiItem.ID);
 
             if (row_ == null)
             {
-                Program.MoneyNetDS.RiChang_JiaoYi.Rows.Add(row);
+                Program.MoneyNetDS._RiChang_JiaoYi.Rows.Add(row);
 
                 txtJinE.Text = "0.0";
                 txtMiaoShu.Text = "";
@@ -175,7 +175,7 @@ namespace Money.Net
                 DateTime.Now.Month, DateTime.Now.Day);
 
             foreach (MoneyNetDS.JiaoYi_FangShiRow row in
-                Program.MoneyNetDS.JiaoYi_FangShi.Rows)
+                Program.MoneyNetDS._JiaoYi_FangShi.Rows)
             {
                 ListViewItem item = new ListViewItem(row.Name);
                 item.Tag = new LstItem(row.ID, row.Name);
@@ -184,7 +184,7 @@ namespace Money.Net
             }
 
             foreach (MoneyNetDS.JiaoYi_FenLeiRow row in
-                Program.MoneyNetDS.JiaoYi_FenLei.Rows)
+                Program.MoneyNetDS._JiaoYi_FenLei.Rows)
             {
                 ListViewItem item = new ListViewItem(row.Name);
                 item.Tag = new LstItem(row.ID, row.Name);
@@ -232,7 +232,7 @@ namespace Money.Net
 
                 cboMingCheng.Text = row_.MingCheng;
 
-                btnNew.Text = "±£¥Ê";
+                btnNew.Text = "‰øùÂ≠ò";
                 btnDetail.Visible = false;
             }
         }
@@ -243,7 +243,7 @@ namespace Money.Net
             todayXiaoFei_ = 0;
 
             foreach (MoneyNetDS.RiChang_JiaoYiRow row in
-                Program.MoneyNetDS.RiChang_JiaoYi.Rows)
+                Program.MoneyNetDS._RiChang_JiaoYi.Rows)
             {
                 if ((row.JiaoYi_Time.Year == dtpDate.Value.Year) &&
                     (row.JiaoYi_Time.Month == dtpDate.Value.Month) &&
@@ -270,7 +270,7 @@ namespace Money.Net
 
 /*
             foreach (MoneyNetDS.RiChang_JiaoYiRow row in
-                Program.MoneyNetDS.RiChang_JiaoYi.Rows)
+                Program.MoneyNetDS._RiChang_JiaoYi.Rows)
             {
                 if (fenleiID == -1 || row.JiaoYi_FenLei_ID == fenleiID)
                 {
@@ -285,7 +285,7 @@ namespace Money.Net
 */
 			List<string> names = new List<string>();
             foreach (MoneyNetDS.RiChang_JiaoYiRow row in
-                Program.MoneyNetDS.RiChang_JiaoYi.Rows)
+                Program.MoneyNetDS._RiChang_JiaoYi.Rows)
             {
                 if (fenleiID == -1 || row.JiaoYi_FenLei_ID == fenleiID)
                 {

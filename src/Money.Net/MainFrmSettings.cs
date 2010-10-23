@@ -19,7 +19,7 @@ namespace Money.Net
         private void MainFrmSettings_Load(object sender, EventArgs e)
         {
             foreach (MoneyNetDS.JiaoYi_FenLeiRow row in
-                Program.MoneyNetDS.JiaoYi_FenLei.Rows)
+                Program.MoneyNetDS._JiaoYi_FenLei.Rows)
             {
                 cboFenLei.Items.Add(new LstItem(row.ID,row.Name));
             }

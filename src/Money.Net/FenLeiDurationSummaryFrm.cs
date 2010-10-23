@@ -49,7 +49,7 @@ namespace Money.Net
             int selectIndex = -1;
 
             foreach (MoneyNetDS.JiaoYi_FenLeiRow row in
-                Program.MoneyNetDS.JiaoYi_FenLei.Rows)
+                Program.MoneyNetDS._JiaoYi_FenLei.Rows)
             {
                 int index = cboFenLei.Items.Add(new LstItem(row.ID, row.Name));
 
@@ -113,7 +113,7 @@ namespace Money.Net
                 Hashtable rows = new Hashtable();
 
                 foreach (MoneyNetDS.RiChang_JiaoYiRow row in
-                   Program.MoneyNetDS.RiChang_JiaoYi.Rows)
+                   Program.MoneyNetDS._RiChang_JiaoYi.Rows)
                 {
                     if (row.JiaoYi_Time.Year == dtpStart.Value.Year &&
                         (row.JiaoYi_Time.Month > dtpStart.Value.Month ||
