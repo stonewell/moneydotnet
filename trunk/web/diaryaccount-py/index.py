@@ -5,7 +5,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 
 application = webapp.WSGIApplication(
                                      [('/entry/list', entry.list.EntryListPage),
-                                      ('/entry/batchAddEntry', entry.add.BatchAddPage)],
+                                      ('/entry/batchAdd', entry.add.BatchAddPage)],
                                      debug=True)
 
 def main():
