@@ -1,8 +1,11 @@
 package com.angelstone.android.dailyjournal.ui;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.text.NumberFormat;
 import java.util.Calendar;
+import java.util.zip.GZIPOutputStream;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -684,7 +687,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 					} else {
 						String url = getUploadUrl();
 						String response = HttpUtils.postData(TodayView.this, url,
-								Constants.PARAM_ENTRIES, mUploadData);
+								Constants.PARAM_ENTRIES, getGZipByteArray(mUploadData));
 
 						stepProgress();
 
@@ -764,5 +767,15 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 
 		return perf.getString("upload_url",
 				"http://accountdiary.appspot.com/entry/batchAdd");
+	}
+
+	private byte[] getGZipByteArray(String data) throws IOException {
+		ByteArrayOutputStream bos = new ByteArrayOutputStream(8192);
+		GZIPOutputStream gos = new GZIPOutputStream(bos);
+		
+		gos.write(data.getBytes("UTF-8"));
+		gos.flush();
+		gos.close();
+		return bos.toByteArray();
 	}
 }

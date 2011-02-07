@@ -14,7 +14,7 @@
 
     <target name="build">
         <mkdir dir="bin" />
-        <csc target="exe" output="bin/${basename}.exe" debug="${debug}" codepage="936" >
+        <csc target="exe" output="bin/${basename}.exe" debug="${debug}" >
             <sources>
                 <include name="**/*.cs"/>
             </sources>
@@ -26,6 +26,7 @@
 				<include name="System.Xml.dll"/>
 				<include name="System.Data.Linq.dll"/>
 				<include name="ICSharpCode.SharpZipLib.dll"/>
+				<include name="System.Runtime.Serialization.dll"/>
 			</references>
 			<resources>
 				<include name="*.resx"/>

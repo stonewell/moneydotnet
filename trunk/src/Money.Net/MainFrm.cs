@@ -136,7 +136,10 @@ namespace Money.Net
 				try {
 					RemoteJournal.RemoteJournals.Sync ();
 				} catch (Exception ex) {
-					MessageBox.Show(ex.Message);
+					Invoke(new Action(delegate {
+								System.Console.WriteLine(ex.StackTrace);
+						MessageBox.Show(ex.Message);
+					}));
 				}
 			};
 			
