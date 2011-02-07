@@ -1,6 +1,8 @@
 import entry.data
 import logging
 from google.appengine.ext import db
+import gzip
+import StringIO
 
 __author__="angelstone"
 __date__ ="$2010-10-10 15:51:09$"
@@ -17,7 +19,12 @@ class BatchAddPage(webapp.RequestHandler):
     self.response.headers['Content-Type'] = 'text/html'
 
     try:
-      entries_txt = self.request.get('entries')
+      #gzip_entries_txt = StringIO.StringIO(self.request.get('entries'))
+      gzip_entries_txt = StringIO.StringIO(self.request.body)
+      f = gzip.GzipFile(mode='rb', fileobj=gzip_entries_txt)
+      entries_txt = f.read()
+      f.close()
+
       entries_list = json.loads(entries_txt)
 
       for dict in entries_list:

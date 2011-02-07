@@ -32,6 +32,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net;
 using System.Runtime.Serialization.Json;
+using System.IO;
+using System.IO.Compression;
 
 using Money.Net.DB;
 
@@ -63,7 +65,30 @@ namespace Money.Net.RemoteJournal
 
 		private static string DownloadRemoteJournals ()
 		{
-			string response = DoWebRequest (READ_ALL_ENTRY_URL);
+			string response = null;
+			byte[] respBuf = DoWebRequest (READ_ALL_ENTRY_URL);
+			
+			using (MemoryStream inFile = new MemoryStream(respBuf))
+      {
+				using (GZipStream Decompress = new GZipStream(inFile, CompressionMode.Decompress))
+				{
+					// Copy the decompression stream 
+					// into the output file.
+					using(MemoryStream outFile = new MemoryStream()) 
+					{
+						byte[] buf = new byte[4096];
+						int count = Decompress.Read(buf,0,buf.Length);
+
+						while(count > 0) {
+							outFile.Write(buf,0,count);
+							count = Decompress.Read(buf,0,buf.Length);
+						}
+
+						response = Encoding.UTF8.GetString(outFile.ToArray());
+					}
+				}
+			}
+
 			response = response.Replace ("\\u", "%u");
 			
 			return System.Web.HttpUtility.UrlDecode (response, Encoding.UTF8);
@@ -140,12 +165,14 @@ namespace Money.Net.RemoteJournal
 			DoWebRequest (BATCH_DELETE_ENTRY_URL, "uids", data);
 		}
 
-		private static string DoWebRequest (string url, params string[] data)
+		private static byte[] DoWebRequest (string url, params string[] data)
 		{
 			WebClient wc = new WebClient ();
 			
 			if (data == null || data.Length == 0)
-				return wc.DownloadString (url);
+				{
+					return wc.DownloadData (url);
+				}
 			
 			System.Collections.Specialized.NameValueCollection values = new System.Collections.Specialized.NameValueCollection ();
 			
@@ -153,7 +180,9 @@ namespace Money.Net.RemoteJournal
 				values[data[i]] = data[i + 1];
 			}
 			
-			return Encoding.UTF8.GetString (wc.UploadValues (url, values));
+			byte[] buf = wc.UploadValues (url, values);
+
+			return buf;
 		}
 
 		private static MoneyNetDS.JiaoYi_FangShiRow FindFangShi (string name)
