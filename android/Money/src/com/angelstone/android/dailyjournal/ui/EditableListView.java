@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
@@ -60,8 +61,8 @@ public abstract class EditableListView extends ListActivity {
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 
-		menu.add(0, 1, 1, R.string.menu_edit);
-		menu.add(0, 2, 2, R.string.menu_delete);
+		menu.add(0, 1, 1, R.string.edit);
+		menu.add(0, 2, 2, R.string.delete);
 	}
 
 	private void editEntry(final long childId) {
@@ -71,30 +72,29 @@ public abstract class EditableListView extends ListActivity {
 
 		final EditText entryView = (EditText) textEntryView
 				.findViewById(R.id.edit_entry);
-		
-		entryView.setText(getEditText(childId));
+
+		if (childId >= 0) {
+			entryView.setText(getEditText(childId));
+		}
 
 		AlertDialog ad = new AlertDialog.Builder(this)
 				.setIcon(android.R.drawable.ic_dialog_info)
-				.setTitle(R.string.menu_edit)
+				.setTitle(childId >= 0 ? R.string.edit : R.string._new)
 				.setView(textEntryView)
 				.setPositiveButton(android.R.string.ok,
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,
 									int whichButton) {
 
-								doUpdateEntry(childId, entryView.getText()
-										.toString());
+								if (childId >= 0) {
+									doUpdateEntry(childId, entryView.getText()
+											.toString());
+								} else {
+									doNewEntry(entryView.getText().toString());
+								}
 							}
-						})
-				.setNegativeButton(android.R.string.cancel,
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int whichButton) {
-
-								/* User clicked cancel so do some stuff */
-							}
-						}).create();
+						}).setNegativeButton(android.R.string.cancel, null)
+				.create();
 
 		ad.show();
 	}
@@ -108,7 +108,11 @@ public abstract class EditableListView extends ListActivity {
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,
 									int whichButton) {
-								doDeleteEntry(childId);
+								if (childId >= 0) {
+									doDeleteEntry(childId);
+								} else {
+									doDeleteAllEntry();
+								}
 							}
 						})
 				.setNegativeButton(android.R.string.no,
@@ -120,9 +124,48 @@ public abstract class EditableListView extends ListActivity {
 		ad.show();
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case 1:
+			// Add new item
+			editEntry(-1);
+			break;
+		case 2:
+			// clear all
+			deleteEntry(-1);
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		super.onPrepareOptionsMenu(menu);
+
+		menu.add(0, 1, 1, R.string.add).setIcon(android.R.drawable.ic_menu_add);
+		menu.add(0, 2, 2, R.string.clear_all).setIcon(
+				android.R.drawable.ic_menu_delete);
+
+		return true;
+	}
+
 	protected abstract String getConfirmMessage(long childId);
+
 	protected abstract String getEditText(long childId);
+
 	protected abstract ListAdapter createListAdapter();
+
 	protected abstract void doDeleteEntry(long childId);
+
 	protected abstract void doUpdateEntry(long childId, String entry);
+
+	protected abstract void doNewEntry(String text);
+
+	protected abstract void doDeleteAllEntry();
 }
