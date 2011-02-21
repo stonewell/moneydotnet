@@ -183,8 +183,8 @@ public class AllJournalsView extends DailyJournalBaseView {
 		}
 
 		if (!clickOnGroup)
-			menu.add(0, 1, 1, R.string.menu_edit);
-		menu.add(0, 2, 2, R.string.menu_delete);
+			menu.add(0, 1, 1, R.string.edit);
+		menu.add(0, 2, 2, R.string.delete);
 
 		super.onCreateContextMenu(menu, v, menuInfo);
 

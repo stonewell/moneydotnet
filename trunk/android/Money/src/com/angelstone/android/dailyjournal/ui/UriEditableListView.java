@@ -45,6 +45,9 @@ public abstract class UriEditableListView extends EditableListView {
 
 	@Override
 	protected String getConfirmMessage(long childId) {
+		if (childId < 0)
+			return getString(R.string.confirm_delete_all_entry);
+		
 		Uri uri = ContentUris.appendId(mUri.buildUpon(), childId).build();
 
 		Cursor c = null;
@@ -100,4 +103,32 @@ public abstract class UriEditableListView extends EditableListView {
 
 		getContentResolver().update(uri, values, null, null);
 	}
+
+	@Override
+	protected void doNewEntry(String text) {
+		Cursor c = null;
+
+		try {
+			c = getContentResolver().query(mUri, null, mEditColumnName + "=?1",
+					new String[] { text }, null);
+
+			if (c.getCount() > 0) {
+				return;
+			}
+			
+			ContentValues values = new ContentValues();
+			values.put(mEditColumnName, text);
+			
+			getContentResolver().insert(mUri, values);
+		} finally {
+			if (c != null)
+				c.close();
+		}
+	}
+
+	@Override
+	protected void doDeleteAllEntry() {
+		getContentResolver().delete(mUri, null, null);
+	}
+
 }

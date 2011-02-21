@@ -21,6 +21,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -74,8 +75,6 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 	private Cursor mNameCursor = null;
 
 	private ProgressDialog mProgressDialog;
-	private Handler mProgressHandler;
-	private HandlerThread mHandlerThread = null;
 
 	private int mProgress;
 	private int mMaxProgress;
@@ -101,9 +100,6 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.today_table);
 
-		mHandlerThread = new HandlerThread(getString(R.string.app_name));
-		mHandlerThread.start();
-
 		mToday = Calendar.getInstance();
 
 		initData();
@@ -116,28 +112,25 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		Spinner spinCategory = (Spinner) findViewById(R.id.spinner_category);
 		NameCursorAdapter adapter = new NameCursorAdapter(this,
 				android.R.layout.simple_spinner_item, mCategoryCursor);
-		adapter
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinCategory.setAdapter(adapter);
 		if (adapter.getCount() > 0) {
 			spinCategory.setSelection(0);
 		}
 
 		Spinner spinPaymethod = (Spinner) findViewById(R.id.spinner_paymethod);
-		adapter = new NameCursorAdapter(this, android.R.layout.simple_spinner_item,
-				mPaymethodCursor);
-		adapter
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapter = new NameCursorAdapter(this,
+				android.R.layout.simple_spinner_item, mPaymethodCursor);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinPaymethod.setAdapter(adapter);
 		if (adapter.getCount() > 0) {
 			spinPaymethod.setSelection(0);
 		}
 
 		Spinner spinName = (Spinner) findViewById(R.id.spinner_name);
-		adapter = new NameCursorAdapter(this, android.R.layout.simple_spinner_item,
-				mNameCursor);
-		adapter
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapter = new NameCursorAdapter(this,
+				android.R.layout.simple_spinner_item, mNameCursor);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinName.setAdapter(adapter);
 		if (adapter.getCount() > 0) {
 			spinName.setSelection(0);
@@ -179,8 +172,10 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 			mToday.setTimeInMillis(c.getLong(c
 					.getColumnIndex(Journal.COLUMN_PAY_DATE)));
 
-			selectCategory(c.getString(c.getColumnIndex(Journal.COLUMN_CATEGORY)));
-			selectPayMethod(c.getString(c.getColumnIndex(Journal.COLUMN_PAY_METHOD)));
+			selectCategory(c.getString(c
+					.getColumnIndex(Journal.COLUMN_CATEGORY)));
+			selectPayMethod(c.getString(c
+					.getColumnIndex(Journal.COLUMN_PAY_METHOD)));
 
 			EditText etAmount = (EditText) findViewById(R.id.edit_amount);
 			etAmount.setText(String.valueOf(c.getDouble(c
@@ -193,7 +188,8 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 			etName.setText(c.getString(c.getColumnIndex(Journal.COLUMN_NAME)));
 
 			EditText etDesc = (EditText) findViewById(R.id.edit_description);
-			etDesc.setText(c.getString(c.getColumnIndex(Journal.COLUMN_DESCRIPTION)));
+			etDesc.setText(c.getString(c
+					.getColumnIndex(Journal.COLUMN_DESCRIPTION)));
 		} finally {
 			if (c != null)
 				c.close();
@@ -241,56 +237,79 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 			return;
 
 		final DatabaseInitializer init = new DatabaseInitializer(this);
+
 		mMaxProgress = init.getEntryCount();
+		mProgress = 0;
 
 		showDialog(INIT_DATA_PROGRESS_DIALOG_ID);
 
-		mProgress = 0;
 		mProgressDialog.setProgress(0);
 
-		mProgressHandler = new Handler(mHandlerThread.getLooper()) {
+		AsyncTask<Object, Integer, Integer> task = new AsyncTask<Object, Integer, Integer>() {
+
 			@Override
-			public void handleMessage(Message msg) {
-				super.handleMessage(msg);
-				if (mProgress >= mMaxProgress) {
-					mProgressDialog.dismiss();
+			protected Integer doInBackground(Object... params) {
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!start:" + mProgress);
+				mProgress++;
+
+				publishProgress(mProgress);
+
+				try {
+					init.clearData();
+
+					for (; mProgress < mMaxProgress; mProgress++) {
+						init.processEntry(mProgress - 1);
+						publishProgress(mProgress);
+					}
+				} catch (Throwable ex) {
+					ActivityLog.logError(TodayView.this,
+							getString(R.string.app_name),
+							ex.getLocalizedMessage());
+
+					return 1;
+				}
+
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!end");
+				return 0;
+			}
+
+			@Override
+			protected void onPostExecute(Integer result) {
+				super.onPostExecute(result);
+System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!done");
+
+				mProgressDialog.dismiss();
+
+				if (result == 0) {
 					DatabaseManager.writeSetting(TodayView.this,
 							Constants.OPTION_DATA_INIT, true);
 
 					Editor ed = perf.edit();
 					ed.putBoolean("init_data_on_next_start", false);
 					ed.commit();
-
-					refreshCursors();
-				} else {
-					stepProgress();
-
-					try {
-						if (mProgress == 1) {
-							init.clearData();
-						}
-						init.processEntry(mProgress - 1);
-					} catch (Exception ex) {
-						ActivityLog.logError(TodayView.this, getString(R.string.app_name),
-								ex.getLocalizedMessage());
-						updateProgress(android.R.drawable.ic_dialog_alert,
-								ex.getLocalizedMessage());
-					}
-					mProgressHandler.sendEmptyMessage(0);
 				}
+
+				refreshCursors();
+			}
+
+			@Override
+			protected void onProgressUpdate(Integer... values) {
+				super.onProgressUpdate(values);
+
+				mProgressDialog.setProgress(values[0]);
 			}
 
 		};
-
-		mProgressHandler.sendEmptyMessage(0);
+		task.execute((Object[]) null);
 	}
 
 	private synchronized void prepareCursors() {
 		mCategoryCursor = managedQuery(Category.CONTENT_ORDER_COUNT_URI, null,
 				null, null, null);
-		mPaymethodCursor = managedQuery(PayMethod.CONTENT_ORDER_COUNT_URI, null,
-				null, null, null);
-		mNameCursor = managedQuery(Journal.CONTENT_NAME_URI, null, null, null, null);
+		mPaymethodCursor = managedQuery(PayMethod.CONTENT_ORDER_COUNT_URI,
+				null, null, null, null);
+		mNameCursor = managedQuery(Journal.CONTENT_NAME_URI, null, null, null,
+				null);
 	}
 
 	private synchronized void refreshCursors() {
@@ -357,11 +376,28 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 
 	@Override
 	protected void onPrepareDialog(int id, Dialog dialog) {
+	
 		switch (id) {
 		case DATE_DIALOG_ID:
 			((DatePickerDialog) dialog).updateDate(mToday.get(Calendar.YEAR),
 					mToday.get(Calendar.MONTH), mToday.get(Calendar.DATE));
 
+			break;
+		case INIT_DATA_PROGRESS_DIALOG_ID:
+			mProgressDialog = (ProgressDialog)dialog;
+			mProgressDialog.setIcon(android.R.drawable.ic_dialog_info);
+			mProgressDialog.setTitle(R.string.initial_data);
+			mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+			mProgressDialog.setMax(mMaxProgress);
+			mProgressDialog.setCancelable(false);
+			break;
+		case UPLOAD_PROGRESS_DIALOG_ID:
+			mProgressDialog = (ProgressDialog)dialog;
+			mProgressDialog.setIcon(android.R.drawable.ic_dialog_info);
+			mProgressDialog.setTitle(R.string.upload);
+			mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+			mProgressDialog.setMax(mMaxProgress);
+			mProgressDialog.setCancelable(false);
 			break;
 		}
 	}
@@ -524,19 +560,22 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		Cursor c = null, c1 = null;
 
 		try {
-			c = getContentResolver().query(Journal.CONTENT_NAME_CATEGORY_URI, null,
-					Journal.COLUMN_NAME + "=?1", new String[] { name }, "count desc");
+			c = getContentResolver().query(Journal.CONTENT_NAME_CATEGORY_URI,
+					null, Journal.COLUMN_NAME + "=?1", new String[] { name },
+					"count desc");
 
 			if (!c.moveToFirst())
 				return;
 
-			String category = c.getString(c.getColumnIndex(Journal.COLUMN_CATEGORY));
+			String category = c.getString(c
+					.getColumnIndex(Journal.COLUMN_CATEGORY));
 
 			Spinner spinCategory = (Spinner) findViewById(R.id.spinner_category);
 
 			c1 = getContentResolver().query(Category.CONTENT_URI,
-					new String[] { Category.COLUMN_ID }, Category.COLUMN_NAME + "=?1",
-					new String[] { category }, null);
+					new String[] { Category.COLUMN_ID },
+					Category.COLUMN_NAME + "=?1", new String[] { category },
+					null);
 
 			if (!c1.moveToFirst())
 				return;
@@ -575,14 +614,17 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 			end.set(Calendar.MINUTE, 59);
 			end.set(Calendar.SECOND, 59);
 
-			c = getContentResolver().query(
-					Journal.CONTENT_URI,
-					new String[] { Journal.COLUMN_AMOUNT, Journal.COLUMN_TYPE },
-					Journal.COLUMN_PAY_DATE + " >= ?1 AND " + Journal.COLUMN_PAY_DATE
-							+ " <= ?2"
-							+ " AND " + Journal.COLUMN_DELETED + "= 0",
-					new String[] { String.valueOf(zero.getTimeInMillis()),
-							String.valueOf(end.getTimeInMillis()) }, null);
+			c = getContentResolver()
+					.query(Journal.CONTENT_URI,
+							new String[] { Journal.COLUMN_AMOUNT,
+									Journal.COLUMN_TYPE },
+							Journal.COLUMN_PAY_DATE + " >= ?1 AND "
+									+ Journal.COLUMN_PAY_DATE + " <= ?2"
+									+ " AND " + Journal.COLUMN_DELETED + "= 0",
+							new String[] {
+									String.valueOf(zero.getTimeInMillis()),
+									String.valueOf(end.getTimeInMillis()) },
+							null);
 
 			int idxType = c.getColumnIndex(Journal.COLUMN_TYPE);
 			int idxAmount = c.getColumnIndex(Journal.COLUMN_AMOUNT);
@@ -619,116 +661,134 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		}
 
 		mMaxProgress = 2;
+		mProgress = 0;
 
 		showDialog(UPLOAD_PROGRESS_DIALOG_ID);
 
-		mProgress = 0;
-		mProgressDialog.setProgress(0);
-
-		mProgressHandler = new Handler(mHandlerThread.getLooper()) {
-			private String mUploadData = null;
-
-			@Override
-			public void handleMessage(Message msg) {
-				super.handleMessage(msg);
-				PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-
-				WakeLock wl = null;
-				try {
-					wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-							getString(R.string.app_name));
-					wl.setReferenceCounted(false);
-					wl.acquire();
-
-					if (mProgress >= mMaxProgress) {
-						mProgressDialog.dismiss();
-						if (c != null)
-							c.close();
-					} else if (mProgress == 0) {
-						c.moveToFirst();
-
-						JSONArray array = new JSONArray();
-						int index = 0;
-						JSONObject value = null;
-
-						int idxAmount = c.getColumnIndex(Journal.COLUMN_AMOUNT);
-						int idxName = c.getColumnIndex(Journal.COLUMN_NAME);
-						int idxType = c.getColumnIndex(Journal.COLUMN_TYPE);
-						int idxCategory = c.getColumnIndex(Journal.COLUMN_CATEGORY);
-						int idxPayMethod = c.getColumnIndex(Journal.COLUMN_PAY_METHOD);
-						int idxPayDate = c.getColumnIndex(Journal.COLUMN_PAY_DATE);
-						int idxCreateDate = c.getColumnIndex(Journal.COLUMN_CREATE_DATE);
-						int idxDescription = c.getColumnIndex(Journal.COLUMN_DESCRIPTION);
-						int idxUid = c.getColumnIndex(Journal.COLUMN_UID);
-						int idxDeleted = c.getColumnIndex(Journal.COLUMN_DELETED);
-
-						do {
-							value = new JSONObject();
-							value.put(Journal.COLUMN_AMOUNT, c.getDouble(idxAmount));
-							value.put(Journal.COLUMN_NAME, c.getString(idxName));
-							value.put(Journal.COLUMN_TYPE, c.getInt(idxType));
-							value.put(Journal.COLUMN_CATEGORY, c.getString(idxCategory));
-							value.put(Journal.COLUMN_PAY_METHOD, c.getString(idxPayMethod));
-							value.put(Journal.COLUMN_PAY_DATE, c.getLong(idxPayDate));
-							value.put(Journal.COLUMN_CREATE_DATE, c.getLong(idxCreateDate));
-							value
-									.put(Journal.COLUMN_DESCRIPTION, c.getString(idxDescription));
-							value.put(Journal.COLUMN_UID, c.getString(idxUid));
-							value.put(Journal.COLUMN_DELETED, c.getInt(idxDeleted));
-
-							array.put(index++, value);
-						} while (c.moveToNext());
-
-						mUploadData = array.toString();
-
-						stepProgress();
-
-						mProgressHandler.sendEmptyMessage(0);
-					} else {
-						String url = getUploadUrl();
-						String response = HttpUtils.postData(TodayView.this, url,
-								Constants.PARAM_ENTRIES, getGZipByteArray(mUploadData));
-
-						stepProgress();
-
-						if ("1".equals(response)) {
-							ActivityLog.logInfo(TodayView.this, getString(R.string.app_name),
-									getString(R.string.upload_success));
-						} else {
-							throw new Exception(response);
-						}
-
-						ContentValues values = new ContentValues();
-						values.put(Journal.COLUMN_SYNC, Constants.SYNC_DONE);
-
-						getContentResolver().update(Journal.CONTENT_URI, values,
-								Journal.COLUMN_SYNC + "=" + Constants.SYNC_NONE, null);
-
-						getContentResolver().delete(Journal.CONTENT_URI,
-								Journal.COLUMN_DELETED + "= 1" , null);
-
-						mProgressHandler.sendEmptyMessage(0);
-					}
-				} catch (Exception ex) {
-					Log.e(getString(R.string.app_name), "Upload Error", ex);
-					mProgress = mMaxProgress;
-
-					String logMsg = MessageFormat.format(getString(R.string.upload_fail),
-							ex.getLocalizedMessage());
-
-					updateProgress(android.R.drawable.ic_dialog_alert, logMsg);
-
-					ActivityLog.logError(TodayView.this, getString(R.string.app_name),
-							logMsg);
-					mProgressHandler.sendEmptyMessageDelayed(0, 1000);
-				} finally {
-					if (wl != null)
-						wl.release();
-				}
-			}
-		};
-
-		mProgressHandler.sendEmptyMessage(0);
+//		mProgressDialog.setProgress(0);
+//
+//		mProgressHandler = new Handler(mHandlerThread.getLooper()) {
+//			private String mUploadData = null;
+//
+//			@Override
+//			public void handleMessage(Message msg) {
+//				super.handleMessage(msg);
+//				PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+//
+//				WakeLock wl = null;
+//				try {
+//					wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+//							getString(R.string.app_name));
+//					wl.setReferenceCounted(false);
+//					wl.acquire();
+//
+//					if (mProgress >= mMaxProgress) {
+//						mProgressDialog.dismiss();
+//						if (c != null)
+//							c.close();
+//					} else if (mProgress == 0) {
+//						c.moveToFirst();
+//
+//						JSONArray array = new JSONArray();
+//						int index = 0;
+//						JSONObject value = null;
+//
+//						int idxAmount = c.getColumnIndex(Journal.COLUMN_AMOUNT);
+//						int idxName = c.getColumnIndex(Journal.COLUMN_NAME);
+//						int idxType = c.getColumnIndex(Journal.COLUMN_TYPE);
+//						int idxCategory = c
+//								.getColumnIndex(Journal.COLUMN_CATEGORY);
+//						int idxPayMethod = c
+//								.getColumnIndex(Journal.COLUMN_PAY_METHOD);
+//						int idxPayDate = c
+//								.getColumnIndex(Journal.COLUMN_PAY_DATE);
+//						int idxCreateDate = c
+//								.getColumnIndex(Journal.COLUMN_CREATE_DATE);
+//						int idxDescription = c
+//								.getColumnIndex(Journal.COLUMN_DESCRIPTION);
+//						int idxUid = c.getColumnIndex(Journal.COLUMN_UID);
+//						int idxDeleted = c
+//								.getColumnIndex(Journal.COLUMN_DELETED);
+//
+//						do {
+//							value = new JSONObject();
+//							value.put(Journal.COLUMN_AMOUNT,
+//									c.getDouble(idxAmount));
+//							value.put(Journal.COLUMN_NAME, c.getString(idxName));
+//							value.put(Journal.COLUMN_TYPE, c.getInt(idxType));
+//							value.put(Journal.COLUMN_CATEGORY,
+//									c.getString(idxCategory));
+//							value.put(Journal.COLUMN_PAY_METHOD,
+//									c.getString(idxPayMethod));
+//							value.put(Journal.COLUMN_PAY_DATE,
+//									c.getLong(idxPayDate));
+//							value.put(Journal.COLUMN_CREATE_DATE,
+//									c.getLong(idxCreateDate));
+//							value.put(Journal.COLUMN_DESCRIPTION,
+//									c.getString(idxDescription));
+//							value.put(Journal.COLUMN_UID, c.getString(idxUid));
+//							value.put(Journal.COLUMN_DELETED,
+//									c.getInt(idxDeleted));
+//
+//							array.put(index++, value);
+//						} while (c.moveToNext());
+//
+//						mUploadData = array.toString();
+//
+//						stepProgress();
+//
+//						mProgressHandler.sendEmptyMessage(0);
+//					} else {
+//						String url = getUploadUrl();
+//						String response = HttpUtils.postData(TodayView.this,
+//								url, Constants.PARAM_ENTRIES,
+//								getGZipByteArray(mUploadData));
+//
+//						stepProgress();
+//
+//						if ("1".equals(response)) {
+//							ActivityLog.logInfo(TodayView.this,
+//									getString(R.string.app_name),
+//									getString(R.string.upload_success));
+//						} else {
+//							throw new Exception(response);
+//						}
+//
+//						ContentValues values = new ContentValues();
+//						values.put(Journal.COLUMN_SYNC, Constants.SYNC_DONE);
+//
+//						getContentResolver()
+//								.update(Journal.CONTENT_URI,
+//										values,
+//										Journal.COLUMN_SYNC + "="
+//												+ Constants.SYNC_NONE, null);
+//
+//						getContentResolver().delete(Journal.CONTENT_URI,
+//								Journal.COLUMN_DELETED + "= 1", null);
+//
+//						mProgressHandler.sendEmptyMessage(0);
+//					}
+//				} catch (Exception ex) {
+//					Log.e(getString(R.string.app_name), "Upload Error", ex);
+//					mProgress = mMaxProgress;
+//
+//					String logMsg = MessageFormat.format(
+//							getString(R.string.upload_fail),
+//							ex.getLocalizedMessage());
+//
+//					updateProgress(android.R.drawable.ic_dialog_alert, logMsg);
+//
+//					ActivityLog.logError(TodayView.this,
+//							getString(R.string.app_name), logMsg);
+//					mProgressHandler.sendEmptyMessageDelayed(0, 1000);
+//				} finally {
+//					if (wl != null)
+//						wl.release();
+//				}
+//			}
+//		};
+//
+//		mProgressHandler.sendEmptyMessage(0);
 	}
 
 	private void stepProgress() {
@@ -772,10 +832,40 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 	private byte[] getGZipByteArray(String data) throws IOException {
 		ByteArrayOutputStream bos = new ByteArrayOutputStream(8192);
 		GZIPOutputStream gos = new GZIPOutputStream(bos);
-		
+
 		gos.write(data.getBytes("UTF-8"));
 		gos.flush();
 		gos.close();
 		return bos.toByteArray();
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+
+		mToday.setTimeInMillis(savedInstanceState.getLong("mToday", Calendar
+				.getInstance().getTimeInMillis()));
+
+		mProgress = savedInstanceState.getInt("mProgress", 0);
+		mMaxProgress = savedInstanceState.getInt("mMaxProgress", 0);
+
+		mJournalId = savedInstanceState.getLong("mJournalId", -1);
+		mFirstSelectIgnored = savedInstanceState.getBoolean(
+				"mFirstSelectIgnored", false);
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!restore:" + mProgress);
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!save");
+
+		outState.putLong("mToday", mToday.getTimeInMillis());
+
+		outState.putInt("mProgress", mProgress);
+		outState.putInt("mMaxProgress", mMaxProgress);
+
+		outState.putLong("mJournalId", mJournalId);
+		outState.putBoolean("mFirstSelectIgnored", mFirstSelectIgnored);
 	}
 }

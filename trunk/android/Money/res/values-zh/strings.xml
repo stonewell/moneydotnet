@@ -22,17 +22,14 @@
 	<string name="journal_added">新记录已经保存.</string>
 	<string name="view_logs">日志</string>
 	<string name="view_records">所有记录</string>
-	<string name="help">帮助</string>
-	<string name="preference">配置</string>
 	<string name="upload_success">记录上传成功.</string>
 	<string name="upload_fail">记录上传失败, {0}.</string>
 	<string name="pay_date_group_child_template">{3}{2}{4}{1}{0}</string>
-	<string name="menu_edit">编辑</string>
-	<string name="menu_delete">删除</string>
 	<string name="confirm_delete_selected_journal">删除选中的记录么?</string>
 	<string name="confirm_delete_selected_group_journal">删除{0}所有的记录么？</string>
 	<string name="confirm_delete_selected_entry">删除选中的项目么?</string>
 	<string name="confirm_delete_used_entry">选中的项目已经有相应的账目了，确认删除么?</string>
+	<string name="confirm_delete_all_entry">删除所有的记录么？</string>
 
 	<string name="app_config_preferences">应用配置</string>
 	<string name="title_reinit_data_preference">重新初始化数据</string>
