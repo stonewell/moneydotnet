@@ -58,9 +58,9 @@ namespace Money.Net.RemoteJournal
 			
 			Entry[] o = serializer.ReadObject (new System.IO.MemoryStream (Encoding.UTF8.GetBytes (entries_txt))) as Entry[];
 			
-			ImportEntries (o);
+			List<Entry> processedEntries = ImportEntries (o);
 			
-			DeleteRemoteJournals (o);
+			DeleteRemoteJournals (processedEntries);
 		}
 
 		private static string DownloadRemoteJournals ()
@@ -94,11 +94,11 @@ namespace Money.Net.RemoteJournal
 			return System.Web.HttpUtility.UrlDecode (response, Encoding.UTF8);
 		}
 
-		private static void ImportEntries (Entry[] entries)
+		private static List<Entry> ImportEntries (Entry[] entries)
 		{
+			List<Entry> processedEntries = new List<Entry>();
+
 			try {
-				Program.MoneyNetDS.AcceptChanges ();
-				
 				List<MoneyNetDS.RiChang_JiaoYiRow> newRows = new List<MoneyNetDS.RiChang_JiaoYiRow> ();
 				StringBuilder sb = new StringBuilder ();
 				
@@ -123,10 +123,14 @@ namespace Money.Net.RemoteJournal
 							newRow.Uid = entry.Uid;
 							
 							newRows.Add (newRow);
+
+							processedEntries.Add(entry);
 						}
 					}
 					
 				}
+
+				Program.MoneyNetDS.AcceptChanges ();
 				
 				if (sb.Length > 0) {
 					System.Data.DataRow[] rows = Program.MoneyNetDS._RiChang_JiaoYi.Select ("Uid in (" + sb.ToString () + ")");
@@ -144,10 +148,15 @@ namespace Money.Net.RemoteJournal
 				Program.MoneyNetDS.RejectChanges ();
 				throw;
 			}
+
+			return processedEntries;
 		}
 
-		private static void DeleteRemoteJournals (Entry[] entries)
+		private static void DeleteRemoteJournals (List<Entry> entries)
 		{
+			if (entries == null || entries.Count == 0)
+				return;
+
 			DataContractJsonSerializer serializer = new DataContractJsonSerializer (typeof(string[]));
 			
 			List<string> results = new List<string> ();
