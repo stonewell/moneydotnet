@@ -24,6 +24,8 @@
 	<string name="view_records">所有记录</string>
 	<string name="upload_success">记录上传成功.</string>
 	<string name="upload_fail">记录上传失败, {0}.</string>
+	<string name="upload_done">记录上传完毕.</string>
+	<string name="upload_begin">开始上传记录...</string>
 	<string name="pay_date_group_child_template">{3}{2}{4}{1}{0}</string>
 	<string name="confirm_delete_selected_journal">删除选中的记录么?</string>
 	<string name="confirm_delete_selected_group_journal">删除{0}所有的记录么？</string>

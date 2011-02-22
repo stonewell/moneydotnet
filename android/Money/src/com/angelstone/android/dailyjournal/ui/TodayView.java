@@ -1,17 +1,11 @@
 package com.angelstone.android.dailyjournal.ui;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.text.MessageFormat;
 import java.text.NumberFormat;
 import java.util.Calendar;
-import java.util.zip.GZIPOutputStream;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -23,14 +17,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Message;
-import android.os.PowerManager;
-import android.os.PowerManager.WakeLock;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,8 +41,8 @@ import com.angelstone.android.dailyjournal.DatabaseManager;
 import com.angelstone.android.dailyjournal.Journal;
 import com.angelstone.android.dailyjournal.PayMethod;
 import com.angelstone.android.dailyjournal.R;
+import com.angelstone.android.dailyjournal.service.UploadDataService;
 import com.angelstone.android.utils.ActivityLog;
-import com.angelstone.android.utils.HttpUtils;
 
 public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		OnItemSelectedListener, OnFocusChangeListener {
@@ -82,6 +70,8 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 	private long mJournalId = -1;
 	private boolean mFirstSelectIgnored = true;
 
+	private AsyncTask<Integer, Integer, Integer> mInitDataTask = null;
+
 	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
 
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -100,6 +90,10 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.today_table);
 
+		if (getIntent() != null && getIntent().getBooleanExtra("NOTIFY", false)) {
+			cancelNotification(this);
+		}
+		
 		mToday = Calendar.getInstance();
 
 		initData();
@@ -239,25 +233,31 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		final DatabaseInitializer init = new DatabaseInitializer(this);
 
 		mMaxProgress = init.getEntryCount();
-		mProgress = 0;
+		mProgress = 1;
 
+		startInitDataTask();
+	}
+
+	private void startInitDataTask() {
 		showDialog(INIT_DATA_PROGRESS_DIALOG_ID);
 
-		mProgressDialog.setProgress(0);
+		mProgressDialog.setProgress(mProgress);
 
-		AsyncTask<Object, Integer, Integer> task = new AsyncTask<Object, Integer, Integer>() {
+		mInitDataTask = new AsyncTask<Integer, Integer, Integer>() {
 
 			@Override
-			protected Integer doInBackground(Object... params) {
-				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!start:" + mProgress);
-				mProgress++;
-
-				publishProgress(mProgress);
-
+			protected Integer doInBackground(Integer... params) {
 				try {
-					init.clearData();
+					DatabaseInitializer init = new DatabaseInitializer(
+							TodayView.this);
+
+					if (mProgress == 1)
+						init.clearData();
 
 					for (; mProgress < mMaxProgress; mProgress++) {
+						if (isCancelled())
+							break;
+
 						init.processEntry(mProgress - 1);
 						publishProgress(mProgress);
 					}
@@ -269,25 +269,36 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 					return 1;
 				}
 
-				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!end");
+				if (isCancelled())
+					return 2;
+
 				return 0;
 			}
 
 			@Override
 			protected void onPostExecute(Integer result) {
 				super.onPostExecute(result);
-System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!done");
 
-				mProgressDialog.dismiss();
+				try {
+					dismissDialog(INIT_DATA_PROGRESS_DIALOG_ID);
+					removeDialog(INIT_DATA_PROGRESS_DIALOG_ID);
+				} catch (IllegalArgumentException ex) {
+
+				}
 
 				if (result == 0) {
 					DatabaseManager.writeSetting(TodayView.this,
 							Constants.OPTION_DATA_INIT, true);
 
+					SharedPreferences perf = getSharedPreferences(
+							getPackageName() + "_preferences", 0);
+
 					Editor ed = perf.edit();
 					ed.putBoolean("init_data_on_next_start", false);
 					ed.commit();
 				}
+
+				mInitDataTask = null;
 
 				refreshCursors();
 			}
@@ -300,7 +311,8 @@ System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!done");
 			}
 
 		};
-		task.execute((Object[]) null);
+
+		mInitDataTask.execute(mProgress);
 	}
 
 	private synchronized void prepareCursors() {
@@ -376,7 +388,7 @@ System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!done");
 
 	@Override
 	protected void onPrepareDialog(int id, Dialog dialog) {
-	
+
 		switch (id) {
 		case DATE_DIALOG_ID:
 			((DatePickerDialog) dialog).updateDate(mToday.get(Calendar.YEAR),
@@ -384,7 +396,7 @@ System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!done");
 
 			break;
 		case INIT_DATA_PROGRESS_DIALOG_ID:
-			mProgressDialog = (ProgressDialog)dialog;
+			mProgressDialog = (ProgressDialog) dialog;
 			mProgressDialog.setIcon(android.R.drawable.ic_dialog_info);
 			mProgressDialog.setTitle(R.string.initial_data);
 			mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -392,7 +404,7 @@ System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!done");
 			mProgressDialog.setCancelable(false);
 			break;
 		case UPLOAD_PROGRESS_DIALOG_ID:
-			mProgressDialog = (ProgressDialog)dialog;
+			mProgressDialog = (ProgressDialog) dialog;
 			mProgressDialog.setIcon(android.R.drawable.ic_dialog_info);
 			mProgressDialog.setTitle(R.string.upload);
 			mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -660,183 +672,14 @@ System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!done");
 			return;
 		}
 
-		mMaxProgress = 2;
-		mProgress = 0;
-
-		showDialog(UPLOAD_PROGRESS_DIALOG_ID);
-
-//		mProgressDialog.setProgress(0);
-//
-//		mProgressHandler = new Handler(mHandlerThread.getLooper()) {
-//			private String mUploadData = null;
-//
-//			@Override
-//			public void handleMessage(Message msg) {
-//				super.handleMessage(msg);
-//				PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-//
-//				WakeLock wl = null;
-//				try {
-//					wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-//							getString(R.string.app_name));
-//					wl.setReferenceCounted(false);
-//					wl.acquire();
-//
-//					if (mProgress >= mMaxProgress) {
-//						mProgressDialog.dismiss();
-//						if (c != null)
-//							c.close();
-//					} else if (mProgress == 0) {
-//						c.moveToFirst();
-//
-//						JSONArray array = new JSONArray();
-//						int index = 0;
-//						JSONObject value = null;
-//
-//						int idxAmount = c.getColumnIndex(Journal.COLUMN_AMOUNT);
-//						int idxName = c.getColumnIndex(Journal.COLUMN_NAME);
-//						int idxType = c.getColumnIndex(Journal.COLUMN_TYPE);
-//						int idxCategory = c
-//								.getColumnIndex(Journal.COLUMN_CATEGORY);
-//						int idxPayMethod = c
-//								.getColumnIndex(Journal.COLUMN_PAY_METHOD);
-//						int idxPayDate = c
-//								.getColumnIndex(Journal.COLUMN_PAY_DATE);
-//						int idxCreateDate = c
-//								.getColumnIndex(Journal.COLUMN_CREATE_DATE);
-//						int idxDescription = c
-//								.getColumnIndex(Journal.COLUMN_DESCRIPTION);
-//						int idxUid = c.getColumnIndex(Journal.COLUMN_UID);
-//						int idxDeleted = c
-//								.getColumnIndex(Journal.COLUMN_DELETED);
-//
-//						do {
-//							value = new JSONObject();
-//							value.put(Journal.COLUMN_AMOUNT,
-//									c.getDouble(idxAmount));
-//							value.put(Journal.COLUMN_NAME, c.getString(idxName));
-//							value.put(Journal.COLUMN_TYPE, c.getInt(idxType));
-//							value.put(Journal.COLUMN_CATEGORY,
-//									c.getString(idxCategory));
-//							value.put(Journal.COLUMN_PAY_METHOD,
-//									c.getString(idxPayMethod));
-//							value.put(Journal.COLUMN_PAY_DATE,
-//									c.getLong(idxPayDate));
-//							value.put(Journal.COLUMN_CREATE_DATE,
-//									c.getLong(idxCreateDate));
-//							value.put(Journal.COLUMN_DESCRIPTION,
-//									c.getString(idxDescription));
-//							value.put(Journal.COLUMN_UID, c.getString(idxUid));
-//							value.put(Journal.COLUMN_DELETED,
-//									c.getInt(idxDeleted));
-//
-//							array.put(index++, value);
-//						} while (c.moveToNext());
-//
-//						mUploadData = array.toString();
-//
-//						stepProgress();
-//
-//						mProgressHandler.sendEmptyMessage(0);
-//					} else {
-//						String url = getUploadUrl();
-//						String response = HttpUtils.postData(TodayView.this,
-//								url, Constants.PARAM_ENTRIES,
-//								getGZipByteArray(mUploadData));
-//
-//						stepProgress();
-//
-//						if ("1".equals(response)) {
-//							ActivityLog.logInfo(TodayView.this,
-//									getString(R.string.app_name),
-//									getString(R.string.upload_success));
-//						} else {
-//							throw new Exception(response);
-//						}
-//
-//						ContentValues values = new ContentValues();
-//						values.put(Journal.COLUMN_SYNC, Constants.SYNC_DONE);
-//
-//						getContentResolver()
-//								.update(Journal.CONTENT_URI,
-//										values,
-//										Journal.COLUMN_SYNC + "="
-//												+ Constants.SYNC_NONE, null);
-//
-//						getContentResolver().delete(Journal.CONTENT_URI,
-//								Journal.COLUMN_DELETED + "= 1", null);
-//
-//						mProgressHandler.sendEmptyMessage(0);
-//					}
-//				} catch (Exception ex) {
-//					Log.e(getString(R.string.app_name), "Upload Error", ex);
-//					mProgress = mMaxProgress;
-//
-//					String logMsg = MessageFormat.format(
-//							getString(R.string.upload_fail),
-//							ex.getLocalizedMessage());
-//
-//					updateProgress(android.R.drawable.ic_dialog_alert, logMsg);
-//
-//					ActivityLog.logError(TodayView.this,
-//							getString(R.string.app_name), logMsg);
-//					mProgressHandler.sendEmptyMessageDelayed(0, 1000);
-//				} finally {
-//					if (wl != null)
-//						wl.release();
-//				}
-//			}
-//		};
-//
-//		mProgressHandler.sendEmptyMessage(0);
-	}
-
-	private void stepProgress() {
-		mProgress++;
-		runOnUiThread(new Runnable() {
-
-			@Override
-			public void run() {
-				mProgressDialog.incrementProgressBy(1);
-			}
-		});
-	}
-
-	private void updateProgress(final int icon, final String msg) {
-		runOnUiThread(new Runnable() {
-
-			@Override
-			public void run() {
-				if (icon != -1) {
-					mProgressDialog.setIcon(icon);
-				}
-				mProgressDialog.setMessage(msg);
-			}
-		});
+		Intent intent = new Intent(this, UploadDataService.class);
+		startService(intent);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 		updateDisplay();
-	}
-
-	private String getUploadUrl() {
-		SharedPreferences perf = getSharedPreferences(getPackageName()
-				+ "_preferences", 0);
-
-		return perf.getString("upload_url",
-				"http://accountdiary.appspot.com/entry/batchAdd");
-	}
-
-	private byte[] getGZipByteArray(String data) throws IOException {
-		ByteArrayOutputStream bos = new ByteArrayOutputStream(8192);
-		GZIPOutputStream gos = new GZIPOutputStream(bos);
-
-		gos.write(data.getBytes("UTF-8"));
-		gos.flush();
-		gos.close();
-		return bos.toByteArray();
 	}
 
 	@Override
@@ -852,13 +695,15 @@ System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!done");
 		mJournalId = savedInstanceState.getLong("mJournalId", -1);
 		mFirstSelectIgnored = savedInstanceState.getBoolean(
 				"mFirstSelectIgnored", false);
-		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!restore:" + mProgress);
+
+		if (savedInstanceState.getBoolean("mInitDataTask", false)) {
+			startInitDataTask();
+		}
 	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!save");
 
 		outState.putLong("mToday", mToday.getTimeInMillis());
 
@@ -867,5 +712,21 @@ System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!done");
 
 		outState.putLong("mJournalId", mJournalId);
 		outState.putBoolean("mFirstSelectIgnored", mFirstSelectIgnored);
+		
+		AsyncTask<Integer, Integer, Integer> task = mInitDataTask;
+
+		if (task != null) {
+			task.cancel(true);
+			dismissDialog(INIT_DATA_PROGRESS_DIALOG_ID);
+			removeDialog(INIT_DATA_PROGRESS_DIALOG_ID);
+			outState.putBoolean("mInitDataTask", true);
+		}
+	}
+
+	private static void cancelNotification(Context context) {
+		NotificationManager mNotificationMgr = (NotificationManager) context
+				.getSystemService(Context.NOTIFICATION_SERVICE);
+
+		mNotificationMgr.cancel(Constants.NOTIFY_UPLOAD_DONE);
 	}
 }
