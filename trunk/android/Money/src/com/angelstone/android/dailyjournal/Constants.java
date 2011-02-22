@@ -37,4 +37,6 @@ public interface Constants {
 	public static final String ACTION_EDIT_JOURNAL = "angelstone.android.dailyjournal.action.EDIT";
 	public static final String ACTION_EDIT_CATEGORY = "angelstone.android.dailyjournal.action.category.EDIT";
 	public static final String ACTION_EDIT_PAY_METHOD = "angelstone.android.dailyjournal.action.paymethod.EDIT";
+	
+	public static final int NOTIFY_UPLOAD_DONE = 1;
 }

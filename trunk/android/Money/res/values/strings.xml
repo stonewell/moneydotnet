@@ -25,6 +25,8 @@
 	<string name="view_records">All Journals</string>
 	<string name="upload_success">Journals upload success.</string>
 	<string name="upload_fail">Journals upload fail, {0}.</string>
+	<string name="upload_done">Journals Upload finished.</string>
+	<string name="upload_begin">Starting Journals Upload...</string>
 	<string name="pay_date_group_child_template">{4} {1} {0} on {2} of {3}</string>
 
 	<string name="confirm_delete_selected_journal">Delete the selected journal?</string>
