@@ -31,6 +31,7 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 	private static final int PAY_METHOD_ORDER_COUNT = 11;
 	private static final int CATEGORY_ORDER_COUNT = 12;
 	private static final int JOURNAL_PAY_DATE_GROUP = 13;
+	private static final int JOURNAL_PAY_DATE_LOCAL_TIME = 14;
 
 	private static UriMatcher sUriMatcher = null;
 	static {
@@ -41,6 +42,8 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 				JOURNAL_NAME_CATEGORY);
 		sUriMatcher.addURI(AUTHORITY, "journal/group/pay_date",
 				JOURNAL_PAY_DATE_GROUP);
+		sUriMatcher.addURI(AUTHORITY, "journal/pay_date_local_time",
+				JOURNAL_PAY_DATE_LOCAL_TIME);
 		sUriMatcher.addURI(AUTHORITY, "journal/#", JOURNAL_ID);
 		sUriMatcher.addURI(AUTHORITY, "settings", SETTINGS);
 		sUriMatcher.addURI(AUTHORITY, "settings/#", SETTINGS_ID);
@@ -260,6 +263,12 @@ public class DailyJournalProvider extends ContentProvider implements Constants {
 			qb.setTables(JOURNAL_PAY_DATE_GROUP_WITH_ID_VIEW);
 			if (TextUtils.isEmpty(sortOrder))
 				orderBy = Journal.COLUMN_PAY_DATE_GROUP + " desc";
+			break;
+		}
+		case JOURNAL_PAY_DATE_LOCAL_TIME: {
+			qb.setTables(JOURNAL_PAY_DATE_LOCAL_TIME_VIEW);
+			if (TextUtils.isEmpty(sortOrder))
+				orderBy = Journal.COLUMN_PAY_DATE_LOCAL + " desc";
 			break;
 		}
 		default:
