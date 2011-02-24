@@ -465,6 +465,9 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		values.put(Journal.COLUMN_CREATE_DATE, Calendar.getInstance()
 				.getTimeInMillis());
 
+		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(mToday.getTimeInMillis());
+		
 		values.put(Journal.COLUMN_PAY_DATE, mToday.getTimeInMillis());
 		values.put(Journal.COLUMN_SYNC, Constants.SYNC_NONE);
 		values.put(Journal.COLUMN_DELETED, 0);

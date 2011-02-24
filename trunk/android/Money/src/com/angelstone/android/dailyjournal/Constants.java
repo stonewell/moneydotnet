@@ -4,7 +4,7 @@ public interface Constants {
 	public static final String TAG = "DailyJournal";
 
 	public static final String DATABASE_NAME = "daily_journal.db";
-	public static final int DATABASE_VERSION = 10;
+	public static final int DATABASE_VERSION = 12;
 	public static final String JOURNAL_TABLE = "journal";
 	public static final String SETTING_TABLE = "setting";
 	public static final String CATEGORY_TABLE = "category";
@@ -33,6 +33,7 @@ public interface Constants {
 
 	public static final String JOURNAL_PAY_DATE_GROUP_VIEW = "journal_pay_date_group_view";
 	public static final String JOURNAL_PAY_DATE_GROUP_WITH_ID_VIEW = "journal_pay_date_group_with_id_view";
+	public static final String JOURNAL_PAY_DATE_LOCAL_TIME_VIEW = "journal_pay_date_local_time_view";
 	
 	public static final String ACTION_EDIT_JOURNAL = "angelstone.android.dailyjournal.action.EDIT";
 	public static final String ACTION_EDIT_CATEGORY = "angelstone.android.dailyjournal.action.category.EDIT";

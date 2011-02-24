@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<CheckBox android:id="@+id/checkbox_entry" android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:layout_marginLeft="20dip"
+		android:layout_marginRight="20dip" android:scrollHorizontally="false"
+		android:gravity="fill_horizontal|center_vertical"
+		android:text="@string/include_not_uploaded"
+		android:singleLine="false"
+		android:textAppearance="?android:attr/textAppearanceMedium" />
+</LinearLayout>

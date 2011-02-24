@@ -94,7 +94,9 @@ public class DailyJournalDatabaseHelper extends SQLiteOpenHelper {
 				+ Constants.PAY_METHOD_TABLE + " t2;");
 		db.execSQL("CREATE VIEW IF NOT EXISTS "
 				+ Constants.JOURNAL_PAY_DATE_GROUP_VIEW + " AS SELECT "
-				+ " DISTINCT (pay_date / 86400000 * 86400000) as "
+				+ " DISTINCT strftime('%s', date("
+				+ Journal.COLUMN_PAY_DATE
+				+"/1000,'unixepoch','localtime')) * 1000 as "
 				+ Journal.COLUMN_PAY_DATE_GROUP + " FROM " + Constants.JOURNAL_TABLE
 				+ ";");
 		db.execSQL("CREATE VIEW IF NOT EXISTS "
@@ -104,6 +106,14 @@ public class DailyJournalDatabaseHelper extends SQLiteOpenHelper {
 				+ Journal.COLUMN_PAY_DATE_GROUP + ") as " + Constants.COLUMN_ID + ","
 				+ Journal.COLUMN_PAY_DATE_GROUP + " FROM "
 				+ Constants.JOURNAL_PAY_DATE_GROUP_VIEW + " t2;");
+		
+		db.execSQL("CREATE VIEW IF NOT EXISTS "
+				+ Constants.JOURNAL_PAY_DATE_LOCAL_TIME_VIEW + " AS SELECT "
+				+ "*, strftime('%s', datetime(" 
+				+ Journal.COLUMN_PAY_DATE 
+				+"/1000,'unixepoch','localtime')) * 1000 as "
+				+ Journal.COLUMN_PAY_DATE_LOCAL + " FROM " + Constants.JOURNAL_TABLE
+				+ ";");
 	}
 
 	@Override

@@ -16,9 +16,12 @@ import android.text.format.DateFormat;
 import android.text.style.StrikethroughSpan;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.CheckBox;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.ExpandableListContextMenuInfo;
@@ -39,6 +42,9 @@ public class AllJournalsView extends DailyJournalBaseView {
 	private ExpandableListAdapter mExpandableAdapter;
 	private JournalAdapter mJournalAdapter;
 	private Cursor mGroupCursor;
+
+	private static final int[][] OPTION_MENUS = new int[][] { new int[] {
+			R.string.clear_all, android.R.drawable.ic_menu_delete }, };
 
 	private class JournalAdapter extends ResourceCursorAdapter {
 
@@ -66,10 +72,10 @@ public class AllJournalsView extends DailyJournalBaseView {
 			long begin = groupCursor.getLong(mGroupPayDateGroupColumnIndex);
 			long end = begin + 86400000;
 
-			return managedQuery(Journal.CONTENT_URI, null, Journal.COLUMN_PAY_DATE
-					+ " >= ?1 AND " + Journal.COLUMN_PAY_DATE + " < ?2", new String[] {
-					String.valueOf(begin), String.valueOf(end) }, Journal.COLUMN_PAY_DATE
-					+ " desc");
+			return managedQuery(Journal.CONTENT_PAY_DATE_LOCAL_TIME_URI, null,
+					Journal.COLUMN_PAY_DATE_LOCAL + ">=" + begin + " AND "
+							+ Journal.COLUMN_PAY_DATE_LOCAL + "<" + end, null,
+					Journal.COLUMN_PAY_DATE_LOCAL + " desc");
 		}
 
 		@Override
@@ -88,13 +94,17 @@ public class AllJournalsView extends DailyJournalBaseView {
 		}
 	}
 
+	public AllJournalsView() {
+		super(OPTION_MENUS.length);
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// Query for people
-		mGroupCursor = managedQuery(Journal.CONTENT_PAY_DATE_GROUP_URI, null, null,
-				null, null);
+		// Query for pay date group
+		mGroupCursor = managedQuery(Journal.CONTENT_PAY_DATE_GROUP_URI, null,
+				null, null, null);
 
 		mUseGroupView = true;// mGroupCursor.getCount() > 1;
 		mDateFormat = DateFormat.getDateFormat(this);
@@ -106,8 +116,8 @@ public class AllJournalsView extends DailyJournalBaseView {
 					.getColumnIndexOrThrow(Journal.COLUMN_PAY_DATE_GROUP);
 
 			// Set up our adapter
-			mExpandableAdapter = new JournalPayDateGroupAdapter(mGroupCursor, this,
-					android.R.layout.simple_expandable_list_item_1,
+			mExpandableAdapter = new JournalPayDateGroupAdapter(mGroupCursor,
+					this, android.R.layout.simple_expandable_list_item_1,
 					R.layout.journal_list_item);
 
 			ExpandableListView view = (ExpandableListView) findViewById(R.id.list);
@@ -116,8 +126,8 @@ public class AllJournalsView extends DailyJournalBaseView {
 		} else {
 			setContentView(R.layout.all_journals_list);
 
-			Cursor journalCursor = managedQuery(Journal.CONTENT_URI, null, null,
-					null, Journal.COLUMN_PAY_DATE + " desc");
+			Cursor journalCursor = managedQuery(Journal.CONTENT_URI, null,
+					null, null, Journal.COLUMN_PAY_DATE + " desc");
 
 			ListView view = (ListView) findViewById(R.id.list);
 
@@ -142,10 +152,11 @@ public class AllJournalsView extends DailyJournalBaseView {
 		tv.setTextAppearance(context, android.R.style.TextAppearance_Medium);
 		tv.setTextColor(color);
 
-		int deleted = cursor.getInt(cursor.getColumnIndex(Journal.COLUMN_DELETED));
+		int deleted = cursor.getInt(cursor
+				.getColumnIndex(Journal.COLUMN_DELETED));
 		int sync = cursor.getInt(cursor.getColumnIndex(Journal.COLUMN_SYNC));
-		
-		ImageView img = (ImageView)view.findViewById(R.id.imgsync);
+
+		ImageView img = (ImageView) view.findViewById(R.id.imgsync);
 		if (sync == Constants.SYNC_DONE) {
 			img.setImageResource(android.R.drawable.star_on);
 		} else {
@@ -155,10 +166,14 @@ public class AllJournalsView extends DailyJournalBaseView {
 		String text = MessageFormat.format(
 				context.getString(R.string.pay_date_group_child_template),
 				new Object[] {
-						cursor.getDouble(cursor.getColumnIndex(Journal.COLUMN_AMOUNT)),
-						cursor.getString(cursor.getColumnIndex(Journal.COLUMN_PAY_METHOD)),
-						cursor.getString(cursor.getColumnIndex(Journal.COLUMN_NAME)),
-						cursor.getString(cursor.getColumnIndex(Journal.COLUMN_CATEGORY)),
+						cursor.getDouble(cursor
+								.getColumnIndex(Journal.COLUMN_AMOUNT)),
+						cursor.getString(cursor
+								.getColumnIndex(Journal.COLUMN_PAY_METHOD)),
+						cursor.getString(cursor
+								.getColumnIndex(Journal.COLUMN_NAME)),
+						cursor.getString(cursor
+								.getColumnIndex(Journal.COLUMN_CATEGORY)),
 						typeStr });
 
 		SpannableString spanText = new SpannableString(text);
@@ -203,7 +218,8 @@ public class AllJournalsView extends DailyJournalBaseView {
 			clickOnGroup = ExpandableListView
 					.getPackedPositionType(info.packedPosition) == ExpandableListView.PACKED_POSITION_TYPE_GROUP;
 
-			groupPos = ExpandableListView.getPackedPositionGroup(info.packedPosition);
+			groupPos = ExpandableListView
+					.getPackedPositionGroup(info.packedPosition);
 
 			packedPos = info.packedPosition;
 
@@ -228,7 +244,8 @@ public class AllJournalsView extends DailyJournalBaseView {
 			if (clickOnGroup)
 				deleteGroupJournal(groupPos);
 			else
-				deleteJournal(childId, packedPos, menuInfo instanceof ExpandableListContextMenuInfo);
+				deleteJournal(childId, packedPos,
+						menuInfo instanceof ExpandableListContextMenuInfo);
 			break;
 
 		}
@@ -247,7 +264,8 @@ public class AllJournalsView extends DailyJournalBaseView {
 		startActivity(intent);
 	}
 
-	private void deleteJournal(final long childId, long packedPos, boolean expand) {
+	private void deleteJournal(final long childId, long packedPos,
+			boolean expand) {
 
 		Cursor c = null;
 
@@ -267,25 +285,31 @@ public class AllJournalsView extends DailyJournalBaseView {
 				.setMessage(R.string.confirm_delete_selected_journal)
 				.setPositiveButton(android.R.string.yes,
 						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int whichButton) {
-								Uri uri = ContentUris.appendId(Journal.CONTENT_URI.buildUpon(),
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								Uri uri = ContentUris.appendId(
+										Journal.CONTENT_URI.buildUpon(),
 										childId).build();
 
 								if (synced == Constants.SYNC_DONE) {
 									ContentValues values = new ContentValues();
 									values.put(Journal.COLUMN_DELETED, 1);
-									values.put(Journal.COLUMN_SYNC, Constants.SYNC_NONE);
+									values.put(Journal.COLUMN_SYNC,
+											Constants.SYNC_NONE);
 
-									getContentResolver().update(uri, values, null, null);
+									getContentResolver().update(uri, values,
+											null, null);
 								} else {
-									getContentResolver().delete(uri, null, null);
+									getContentResolver()
+											.delete(uri, null, null);
 								}
 								mGroupCursor.requery();
 							}
 						})
 				.setNegativeButton(android.R.string.no,
 						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int whichButton) {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
 							}
 						}).create();
 		ad.show();
@@ -298,47 +322,147 @@ public class AllJournalsView extends DailyJournalBaseView {
 				getString(R.string.confirm_delete_selected_group_journal),
 				mDateFormat.format(groupDate));
 
-		AlertDialog ad = new AlertDialog.Builder(this)
+		new AlertDialog.Builder(this)
 				.setIcon(android.R.drawable.ic_dialog_alert)
 				.setTitle(android.R.string.dialog_alert_title)
 				.setMessage(msg)
 				.setPositiveButton(android.R.string.yes,
 						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int whichButton) {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
 								long begin = groupDate;
 								long end = begin + 86400000;
 
-								ContentValues values = new ContentValues();
-								values.put(Journal.COLUMN_DELETED, 1);
-								values.put(Journal.COLUMN_SYNC, Constants.SYNC_NONE);
-
-								getContentResolver().update(
-										Journal.CONTENT_URI,
-										values,
-										Journal.COLUMN_PAY_DATE + " >= ?2 AND "
-												+ Journal.COLUMN_PAY_DATE + " < ?3 AND "
-												+ Journal.COLUMN_SYNC + " = ?4",
-										new String[] { String.valueOf(begin), String.valueOf(end),
-												String.valueOf(Constants.SYNC_DONE) });
-
-								getContentResolver().delete(
-										Journal.CONTENT_URI,
-										Journal.COLUMN_PAY_DATE + " >= ?2 AND "
-												+ Journal.COLUMN_PAY_DATE + " < ?3 AND "
-												+ Journal.COLUMN_SYNC + " = ?4",
-										new String[] { String.valueOf(begin), String.valueOf(end),
-												String.valueOf(Constants.SYNC_NONE) });
+								deleteNotUploadedEntry(begin, end);
+								updateUploadedEntry(begin, end);
 
 								mGroupCursor.requery();
 							}
-						})
-				.setNegativeButton(android.R.string.no,
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int whichButton) {
-							}
-						}).create();
-		ad.show();
-
+						}).setNegativeButton(android.R.string.no, null).show();
 	}
 
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		menu.clear();
+
+		createMenus(menu, 0, OPTION_MENUS);
+
+		return super.onPrepareOptionsMenu(menu);
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case 0: {
+			clearAll();
+			break;
+		}
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+		return true;
+	}
+
+	private void clearAll() {
+		// This example shows how to add a custom layout to an AlertDialog
+		LayoutInflater factory = LayoutInflater.from(this);
+		final View textEntryView = factory.inflate(
+				R.layout.alert_dialog_checkbox_entry, null);
+
+		new AlertDialog.Builder(this)
+				.setIcon(android.R.drawable.ic_dialog_info)
+				.setTitle(R.string.clear_history)
+				.setView(textEntryView)
+				.setPositiveButton(android.R.string.ok,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								CheckBox chk = (CheckBox) textEntryView
+										.findViewById(R.id.checkbox_entry);
+
+								if (chk.isChecked()) {
+									getContentResolver().delete(
+											Journal.CONTENT_URI, null, null);
+								} else {
+									// delete synced entry
+									getContentResolver()
+											.delete(Journal.CONTENT_URI,
+													Journal.COLUMN_SYNC
+															+ " = "
+															+ Constants.SYNC_DONE,
+													null);
+								}
+
+								mGroupCursor.requery();
+							}
+						}).setNegativeButton(android.R.string.cancel, null)
+				.show();
+	}
+
+	private void updateUploadedEntry(long begin, long end) {
+		Cursor c = null;
+
+		try {
+			c = getContentResolver().query(
+					Journal.CONTENT_PAY_DATE_LOCAL_TIME_URI,
+					new String[] { Journal.COLUMN_ID },
+					Journal.COLUMN_PAY_DATE_LOCAL + ">=" + begin + " AND "
+							+ Journal.COLUMN_PAY_DATE_LOCAL + "<" + end
+							+ " AND " + Journal.COLUMN_SYNC + " = "
+							+ Constants.SYNC_DONE, null, null);
+
+			if (c.getCount() > 0) {
+				StringBuffer sb = new StringBuffer(256);
+				while (c.moveToNext()) {
+					if (sb.length() > 0)
+						sb.append(",");
+					sb.append(c.getLong(0));
+				}
+
+				ContentValues values = new ContentValues();
+				values.put(Journal.COLUMN_DELETED, 1);
+				values.put(Journal.COLUMN_SYNC, Constants.SYNC_NONE);
+
+				getContentResolver()
+						.update(Journal.CONTENT_URI,
+								values,
+								Journal.COLUMN_ID + " IN (" + sb.toString()
+										+ ")", null);
+			}
+		} finally {
+			if (c != null)
+				c.close();
+		}
+	}
+
+	private void deleteNotUploadedEntry(long begin, long end) {
+		Cursor c = null;
+
+		try {
+			c = getContentResolver().query(
+					Journal.CONTENT_PAY_DATE_LOCAL_TIME_URI,
+					new String[] { Journal.COLUMN_ID },
+					Journal.COLUMN_PAY_DATE_LOCAL + ">=" + begin + " AND "
+							+ Journal.COLUMN_PAY_DATE_LOCAL + "<" + end
+							+ " AND " + Journal.COLUMN_SYNC + " = "
+							+ Constants.SYNC_NONE + " AND "
+							+ Journal.COLUMN_DELETED + "=0", null, null);
+
+			if (c.getCount() > 0) {
+				StringBuffer sb = new StringBuffer(256);
+				while (c.moveToNext()) {
+					if (sb.length() > 0)
+						sb.append(",");
+					sb.append(c.getLong(0));
+				}
+
+				getContentResolver()
+						.delete(Journal.CONTENT_URI,
+								Journal.COLUMN_ID + " IN (" + sb.toString()
+										+ ")", null);
+			}
+		} finally {
+			if (c != null)
+				c.close();
+		}
+	}
 }

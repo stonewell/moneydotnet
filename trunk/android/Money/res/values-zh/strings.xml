@@ -46,5 +46,8 @@
 	<string name="summary_edit_paymethod">配置记账使用的付款方式</string>
 	<string name="app_descrip">日常记账程序，可以上传记账记录到Google AppEngine</string>
 	<string name="app_credits">"问题和建议请联系 jingnan.si@gmail.com."</string>
+
+	<string name="include_not_uploaded">包含没有上传的记录</string>
+	<string name="clear_history">清除历史数据</string>
 </resources>
  
