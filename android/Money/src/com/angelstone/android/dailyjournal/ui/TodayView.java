@@ -93,7 +93,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 		if (getIntent() != null && getIntent().getBooleanExtra("NOTIFY", false)) {
 			cancelNotification(this);
 		}
-		
+
 		mToday = Calendar.getInstance();
 
 		initData();
@@ -467,7 +467,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 
 		Calendar cal = Calendar.getInstance();
 		cal.setTimeInMillis(mToday.getTimeInMillis());
-		
+
 		values.put(Journal.COLUMN_PAY_DATE, mToday.getTimeInMillis());
 		values.put(Journal.COLUMN_SYNC, Constants.SYNC_NONE);
 		values.put(Journal.COLUMN_DELETED, 0);
@@ -670,13 +670,17 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 				Journal.COLUMN_SYNC + "=?1",
 				new String[] { String.valueOf(Constants.SYNC_NONE) }, null);
 
-		if (c.getCount() == 0) {
-			c.close();
-			return;
-		}
+		try {
+			if (c.getCount() == 0) {
+				return;
+			}
 
-		Intent intent = new Intent(this, UploadDataService.class);
-		startService(intent);
+			Intent intent = new Intent(this, UploadDataService.class);
+			startService(intent);
+		} finally {
+			if (c != null)
+				c.close();
+		}
 	}
 
 	@Override
@@ -715,7 +719,7 @@ public class TodayView extends DailyJournalBaseView implements OnClickListener,
 
 		outState.putLong("mJournalId", mJournalId);
 		outState.putBoolean("mFirstSelectIgnored", mFirstSelectIgnored);
-		
+
 		AsyncTask<Integer, Integer, Integer> task = mInitDataTask;
 
 		if (task != null) {
