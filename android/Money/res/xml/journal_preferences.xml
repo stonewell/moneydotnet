@@ -1,42 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-        xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
-            android:title="@string/app_config_preferences">
-            
-        <CheckBoxPreference
-                android:key="init_data_on_next_start"
-                android:title="@string/title_reinit_data_preference"
-                android:summary="@string/summary_reinit_data_preference" />
-            
-        <EditTextPreference
-                android:key="upload_url"
-                android:defaultValue="http://accountdiary.appspot.com/entry/batchAdd"
-                android:title="@string/title_upload_url_preference"
-                android:summary="@string/summary_upload_url_preference"
-                android:dialogTitle="@string/dialog_title_upload_url_preference" />
+	<PreferenceCategory android:title="@string/app_config_preferences">
 
-    </PreferenceCategory>
+		<CheckBoxPreference android:key="init_data_on_next_start"
+			android:title="@string/title_reinit_data_preference" android:summary="@string/summary_reinit_data_preference" />
 
-    <PreferenceCategory
-            android:title="@string/edit_data_preferences">
+		<EditTextPreference android:key="upload_url"
+			android:defaultValue="http://accountdiary.appspot.com/entry/batchAdd"
+			android:title="@string/title_upload_url_preference" android:summary="@string/summary_upload_url_preference"
+			android:dialogTitle="@string/dialog_title_upload_url_preference" />
 
-        <PreferenceScreen
-                android:title="@string/title_edit_category"
-                android:summary="@string/summary_edit_category">
+	</PreferenceCategory>
 
-            <intent android:action="angelstone.android.dailyjournal.action.category.EDIT"/>
+	<PreferenceCategory android:title="@string/proxy_preferences">
+		<CheckBoxPreference android:key="proxy_enable"
+			android:title="@string/title_proxy_enable_preference" android:summary="@string/summary_proxy_enable_preference" />
 
-        </PreferenceScreen>
+		<ListPreference android:key="proxy_type"
+			android:defaultValue="NONE"
+			android:dependency="proxy_enable"
+ 			android:title="@string/title_proxy_type_preference"
+			android:summary="@string/summary_proxy_type_preference"
+			android:dialogTitle="@string/dialog_title_proxy_type_preference" 
+			android:entries="@array/proxytype_labels"
+			android:entryValues="@array/proxytypes"/>
+			
+		<EditTextPreference android:key="proxy_host"
+			android:dependency="proxy_enable"
+			android:defaultValue="localhost" android:title="@string/title_proxy_host_preference"
+			android:summary="@string/summary_proxy_host_preference"
+			android:dialogTitle="@string/dialog_title_proxy_host_preference" />
 
-        <PreferenceScreen
-                android:title="@string/title_edit_paymethod"
-                android:summary="@string/summary_edit_paymethod">
+		<EditTextPreference android:key="proxy_port"
+			android:dependency="proxy_enable"
+			android:inputType="number"
+			android:defaultValue="18080" android:title="@string/title_proxy_port_preference"
+			android:summary="@string/summary_proxy_port_preference"
+			android:dialogTitle="@string/dialog_title_proxy_port_preference" />
 
-            <intent android:action="angelstone.android.dailyjournal.action.paymethod.EDIT"/>
+	</PreferenceCategory>
 
-        </PreferenceScreen>
-    </PreferenceCategory>
-      
+	<PreferenceCategory android:title="@string/edit_data_preferences">
+
+		<PreferenceScreen android:title="@string/title_edit_category"
+			android:summary="@string/summary_edit_category">
+
+			<intent android:action="angelstone.android.dailyjournal.action.category.EDIT" />
+
+		</PreferenceScreen>
+
+		<PreferenceScreen android:title="@string/title_edit_paymethod"
+			android:summary="@string/summary_edit_paymethod">
+
+			<intent android:action="angelstone.android.dailyjournal.action.paymethod.EDIT" />
+
+		</PreferenceScreen>
+	</PreferenceCategory>
+
 </PreferenceScreen>

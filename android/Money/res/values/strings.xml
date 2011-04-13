@@ -32,23 +32,45 @@
 	<string name="confirm_delete_selected_journal">Delete the selected journal?</string>
 	<string name="confirm_delete_selected_group_journal">Delete all journals in {0}？</string>
 	<string name="confirm_delete_selected_entry">Delete the selected Entry?</string>
-	<string name="confirm_delete_used_entry">The entry has already been used, Continue to delete?</string>
+	<string name="confirm_delete_used_entry">The entry has already been used, Continue to
+		delete?</string>
 	<string name="confirm_delete_all_entry">Delete all entries?</string>
-	
+
 	<string name="include_not_uploaded">Including entries which are not uploaded</string>
 	<string name="clear_history">Clear History</string>
 
 	<string name="app_config_preferences">Application Configuration</string>
 	<string name="title_reinit_data_preference">Reinitialize data</string>
-	<string name="summary_reinit_data_preference">Clear and reload all pre-defined categories and pay methods</string>
+	<string name="summary_reinit_data_preference">Clear and reload all pre-defined categories and pay
+		methods</string>
 	<string name="title_upload_url_preference">Journal upload URL</string>
-   <string name="summary_upload_url_preference">an external web url to upload journals to</string>
-   <string name="dialog_title_upload_url_preference">Edit upload URL</string>
-   <string name="edit_data_preferences">Journal Data</string>
-   <string name="title_edit_category">Category Configuration</string>
-   <string name="summary_edit_category">configure categories used in journal</string>
-   <string name="title_edit_paymethod">Pay Method Configuration</string>
-   <string name="summary_edit_paymethod">configure pay methods used in journal</string>
-	<string name="app_descrip">A daily journal application, journals could be upload to google app engine</string>
-	<string name="app_credits">"Any problem or suggestion please send to jingnan.si@gmail.com."</string>
+	<string name="summary_upload_url_preference">an external web url to upload journals to</string>
+	<string name="dialog_title_upload_url_preference">Edit upload URL</string>
+	<string name="edit_data_preferences">Journal Data</string>
+	<string name="title_edit_category">Category Configuration</string>
+	<string name="summary_edit_category">configure categories used in journal</string>
+	<string name="title_edit_paymethod">Pay Method Configuration</string>
+	<string name="summary_edit_paymethod">configure pay methods used in journal</string>
+	<string name="app_descrip">A daily journal application, journals could be
+		upload to google app engine</string>
+	<string name="app_credits">"Any problem or suggestion please send to
+		jingnan.si@gmail.com."</string>
+
+	<string name="proxy_preferences">Proxy Configuration</string>
+
+	<string name="title_proxy_enable_preference">Enable Proxy</string>
+	<string name="summary_proxy_enable_preference">enable proxy</string>
+	<string name="summary_proxy_disable_preference">disable proxy</string>
+
+	<string name="title_proxy_host_preference">Proxy Host</string>
+	<string name="summary_proxy_host_preference">host name used for proxy</string>
+	<string name="dialog_title_proxy_host_preference">Edit Proxy Host</string>
+
+	<string name="title_proxy_port_preference">Proxy Port</string>
+	<string name="summary_proxy_port_preference">port used for proxy</string>
+	<string name="dialog_title_proxy_port_preference">Edit Proxy Port</string>
+
+	<string name="title_proxy_type_preference">Proxy Type</string>
+	<string name="summary_proxy_type_preference">proxy type</string>
+	<string name="dialog_title_proxy_type_preference">Select Proxy Type</string>
 </resources>

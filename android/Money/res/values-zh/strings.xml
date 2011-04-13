@@ -49,5 +49,22 @@
 
 	<string name="include_not_uploaded">包含没有上传的记录</string>
 	<string name="clear_history">清除历史数据</string>
+
+	<string name="proxy_preferences">代理配置</string>
+
+	<string name="title_proxy_enable_preference">使用代理</string>
+	<string name="summary_proxy_enable_preference">激活代理</string>
+
+	<string name="title_proxy_host_preference">代理服务器地址</string>
+	<string name="summary_proxy_host_preference">服务器地址</string>
+	<string name="dialog_title_proxy_host_preference">编辑代理服务器地址</string>
+
+	<string name="title_proxy_port_preference">代理服务器端口</string>
+	<string name="summary_proxy_port_preference">服务器端口</string>
+	<string name="dialog_title_proxy_port_preference">编辑代理服务器端口</string>
+
+	<string name="title_proxy_type_preference">代理服务器类型</string>
+	<string name="summary_proxy_type_preference">服务器类型</string>
+	<string name="dialog_title_proxy_type_preference">选择代理服务器类型</string>
 </resources>
  
