@@ -33,4 +33,9 @@
 		<item>Husband\&apos;s CMB China</item>
 		<item>Husband\'s Citic China</item>
 	</string-array>
+
+	<string-array name="proxytype_labels">
+		<item>HTTP</item>
+		<item>SOCKS</item>
+	</string-array>	
 </resources>

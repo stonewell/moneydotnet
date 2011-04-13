@@ -2,6 +2,9 @@ package com.angelstone.android.dailyjournal.service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.UnknownHostException;
 import java.text.MessageFormat;
 import java.util.zip.GZIPOutputStream;
 
@@ -54,7 +57,7 @@ public class UploadDataService extends IntentService {
 
 			if (c == null || c.getCount() == 0)
 				return;
-			
+
 			notifyUpload(this, getString(R.string.upload_begin), false);
 
 			c.moveToFirst();
@@ -92,9 +95,10 @@ public class UploadDataService extends IntentService {
 			} while (c.moveToNext());
 
 			String url = getUploadUrl(this);
-			String response = HttpUtils
-					.postData(this, url, Constants.PARAM_ENTRIES,
-							getGZipByteArray(array.toString()));
+			
+			String response = HttpUtils.postData(url,
+					getGZipByteArray(array.toString()),
+					createProxyFromPreference(this));
 
 			if ("1".equals(response)) {
 				ActivityLog.logInfo(this, getString(R.string.app_name),
@@ -165,10 +169,9 @@ public class UploadDataService extends IntentService {
 		final PendingIntent intent = getNotificationIntent(context);
 
 		Notification notification = new Notification(
-				isdone ? android.R.drawable.stat_notify_sync_noanim :
-					android.R.drawable.stat_notify_sync, // icon
-				isdone ? msg :
-					context.getString(R.string.upload_begin), // tickerText
+				isdone ? android.R.drawable.stat_notify_sync_noanim
+						: android.R.drawable.stat_notify_sync, // icon
+				isdone ? msg : context.getString(R.string.upload_begin), // tickerText
 				System.currentTimeMillis());
 
 		notification.setLatestEventInfo(context, context.getText(titleResId),
@@ -180,10 +183,40 @@ public class UploadDataService extends IntentService {
 
 	private static PendingIntent getNotificationIntent(Context context) {
 		Intent intent = new Intent(context, TodayView.class);
-		intent.setFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		intent.putExtra("NOTIFY", true);
 
 		return PendingIntent.getActivity(context.getApplicationContext(), 0,
 				intent, PendingIntent.FLAG_UPDATE_CURRENT);
+	}
+
+	private static Proxy createProxyFromPreference(Context context)
+			throws UnknownHostException {
+		SharedPreferences perf = context.getSharedPreferences(
+				context.getPackageName() + "_preferences", 0);
+
+		if (!perf.getBoolean("proxy_enable", false))
+			return null;
+
+		String[] proxy_types = context.getResources().getStringArray(
+				R.array.proxytypes);
+
+		String proxy_type = perf.getString("proxy_type", proxy_types[0]);
+		String proxy_host = perf.getString("proxy_host", null);
+		String proxy_port = perf.getString("proxy_port", null);
+
+		if (proxy_host == null || proxy_port == null)
+			return null;
+
+		try {
+			return new Proxy(Proxy.Type.valueOf(proxy_type),
+					new InetSocketAddress(proxy_host,
+							Integer.parseInt(proxy_port)));
+		} catch (Throwable t) {
+			ActivityLog.logError(context, context.getString(R.string.app_name),
+					t.getMessage());
+
+			return null;
+		}
 	}
 }
