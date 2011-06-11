@@ -66,5 +66,9 @@
 	<string name="title_proxy_type_preference">代理服务器类型</string>
 	<string name="summary_proxy_type_preference">服务器类型</string>
 	<string name="dialog_title_proxy_type_preference">选择代理服务器类型</string>
+
+	<string name="title_upload_timeout_preference">上传超时</string>
+	<string name="summary_upload_timeout_preference">上传超时时间</string>
+	<string name="dialog_title_upload_timeout_preference">设置上传超时时间</string>
 </resources>
  

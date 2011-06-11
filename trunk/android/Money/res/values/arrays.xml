@@ -35,7 +35,7 @@
 	</string-array>
 
 	<string-array name="proxytype_labels">
-		<item>HTTP</item>
+		<item>Port Forwarding</item>
 		<item>SOCKS</item>
 	</string-array>	
 </resources>

@@ -3,9 +3,12 @@ package com.angelstone.android.dailyjournal.service;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.MalformedURLException;
 import java.net.Proxy;
+import java.net.URL;
 import java.net.UnknownHostException;
 import java.text.MessageFormat;
+import java.util.Hashtable;
 import java.util.zip.GZIPOutputStream;
 
 import org.json.JSONArray;
@@ -95,10 +98,11 @@ public class UploadDataService extends IntentService {
 			} while (c.moveToNext());
 
 			String url = getUploadUrl(this);
+			int timeout = getTimeout(this);
 			
 			String response = HttpUtils.postData(url,
 					getGZipByteArray(array.toString()),
-					createProxyFromPreference(this));
+					createProxyFromPreference(this, url), timeout);
 
 			if ("1".equals(response)) {
 				ActivityLog.logInfo(this, getString(R.string.app_name),
@@ -141,6 +145,14 @@ public class UploadDataService extends IntentService {
 
 		return perf.getString("upload_url",
 				"http://accountdiary.appspot.com/entry/batchAdd");
+	}
+
+	private static int getTimeout(Context context) {
+		SharedPreferences perf = context.getSharedPreferences(
+				context.getPackageName() + "_preferences", 0);
+
+		return Integer.parseInt(perf.getString("upload_timeout",
+				"90"));
 	}
 
 	private static byte[] getGZipByteArray(String data) throws IOException {
@@ -190,8 +202,8 @@ public class UploadDataService extends IntentService {
 				intent, PendingIntent.FLAG_UPDATE_CURRENT);
 	}
 
-	private static Proxy createProxyFromPreference(Context context)
-			throws UnknownHostException {
+	private static Object createProxyFromPreference(Context context, String urlString)
+			throws UnknownHostException, MalformedURLException {
 		SharedPreferences perf = context.getSharedPreferences(
 				context.getPackageName() + "_preferences", 0);
 
@@ -208,6 +220,23 @@ public class UploadDataService extends IntentService {
 		if (proxy_host == null || proxy_port == null)
 			return null;
 
+		if (proxy_types[0].equals(proxy_type)) {
+			Hashtable<String, Object[]> results = new Hashtable<String, Object[]>();
+			
+			URL url = new URL(urlString);
+			
+			String key = url.getHost();
+			
+			if (url.getPort() != -1)
+				key += "_" + url.getPort();
+			else
+				key += "_80";
+			
+			results.put(key, new Object[] {proxy_host, proxy_port});
+			
+			return results;
+		}
+		
 		try {
 			return new Proxy(Proxy.Type.valueOf(proxy_type),
 					new InetSocketAddress(proxy_host,

@@ -73,4 +73,8 @@
 	<string name="title_proxy_type_preference">Proxy Type</string>
 	<string name="summary_proxy_type_preference">proxy type</string>
 	<string name="dialog_title_proxy_type_preference">Select Proxy Type</string>
+
+	<string name="title_upload_timeout_preference">Upload Timeout</string>
+	<string name="summary_upload_timeout_preference">Timeout for uploading data</string>
+	<string name="dialog_title_upload_timeout_preference">Edit Upload Timeout</string>
 </resources>
